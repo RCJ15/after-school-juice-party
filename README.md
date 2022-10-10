@@ -1,2 +1,2 @@
-# after-school-juice-party
+# After School Juice Party ;)
 A very juicy game ;) ;) ;) ;) ;) ;) ;)
