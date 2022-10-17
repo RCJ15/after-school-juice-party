@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a621a24bc217734ea2ae354bc3cc0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wall:
+  WallLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8

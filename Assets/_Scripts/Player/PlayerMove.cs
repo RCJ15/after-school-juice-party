@@ -17,6 +17,11 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float sineWaveSpeed = 0.3f;
     [SerializeField] private float sineWaveIntensity = 0.75f;
 
+    [Header("Rotation")]
+    [SerializeField] private float rotationIntensity = 2;
+    [SerializeField] [Range(0, 1)] private float rotationLerpDelta = 0.3f;
+    private float _currentRot;
+
     private float _sineTime;
 
     private Rigidbody2D _rb;
@@ -67,7 +72,9 @@ public class PlayerMove : MonoBehaviour
         #endregion
 
         // Rotate based on X velocity - Ruben
-        transform.rotation = Quaternion.Euler(0, 0, _rb.velocity.x * -2);
+        _currentRot = Mathf.Lerp(_currentRot, _rb.velocity.x * -rotationIntensity, rotationLerpDelta);
+
+        transform.rotation = Quaternion.Euler(0, 0, _currentRot);
 
         // Sine wave bobbing - Ruben
         float yPos = _startPos.y + Mathf.Sin(_sineTime) * sineWaveIntensity;

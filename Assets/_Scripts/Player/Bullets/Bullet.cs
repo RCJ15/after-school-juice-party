@@ -10,7 +10,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] protected float speed;
     [SerializeField] protected float lifetime;
-    protected LayerMask wall;
+    protected LayerMask wallLayer;
+    protected LayerMask playerLayer;
 
     protected Rigidbody2D rb;
     protected GameManager gameManager;
@@ -19,7 +20,8 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameManager.Instance;
-        wall = gameManager.Wall;
+        wallLayer = gameManager.WallLayer;
+        playerLayer = gameManager.PlayerLayer;
 
         Timer();
     }
@@ -39,16 +41,44 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    protected bool CheckLayer(GameObject obj, LayerMask mask) => mask == (mask | (1 << obj.layer));
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         // Check if gameobject is in the WALL layermask
-        if (wall == (wall | (1 << col.gameObject.layer)))
+        if (CheckLayer(col.gameObject, wallLayer))
         {
-            OnCollision(col);
+            OnCollideWithWall(col);
+
+            return;
+        }
+        // Check if gameobject is in the PLAYER layermask
+        else if (CheckLayer(col.gameObject, playerLayer))
+        {
+            OnCollideWithPlayer(col);
+
+            return;
+        }
+        // Check if we collided with an enemy
+        else if (col.CompareTag("Enemy") && col.TryGetComponent(out Enemy enemy))
+        {
+            OnCollideWithEnemy(col, enemy);
+
+            return;
         }
     }
 
-    protected virtual void OnCollision(Collider2D col)
+    protected virtual void OnCollideWithWall(Collider2D col)
+    {
+        Die();
+    }
+
+    protected virtual void OnCollideWithPlayer(Collider2D col)
+    {
+
+    }
+
+    protected virtual void OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         Die();
     }
@@ -57,4 +87,6 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 }
