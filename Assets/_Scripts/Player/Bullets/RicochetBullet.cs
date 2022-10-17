@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class RicochetBullet : Bullet
 {
+    [SerializeField] protected int maxBounces = 0;
+    protected int timesBounced;
+
     protected override void OnCollideWithWall(Collider2D col)
     {
         
@@ -18,6 +21,20 @@ public class RicochetBullet : Bullet
         if (!CheckLayer(col.gameObject, wallLayer))
         {
             return;
+        }
+
+        // Die by bounce
+        // Only die by bounce if the max bounces is set to above 0
+        if (maxBounces > 0)
+        {
+            // Increase times bounced
+            timesBounced++;
+
+            // Die after the maximum amount of bounces is done
+            if (timesBounced >= maxBounces)
+            {
+                Die();
+            }
         }
 
         Vector2 meanNormal = Vector2.zero;

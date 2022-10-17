@@ -28,6 +28,12 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Timer()
     {
+        // Do not die by lifetime if lifetime is equal or under 0
+        if (lifetime <= 0)
+        {
+            return;
+        }
+
         Invoke(nameof(Die), lifetime);
     }
 
