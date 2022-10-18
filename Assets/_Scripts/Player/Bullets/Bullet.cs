@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] protected float damage = 1;
+
+    [Space]
     [SerializeField] protected float speed;
     [SerializeField] protected float lifetime;
     protected LayerMask wallLayer;
@@ -15,6 +18,7 @@ public class Bullet : MonoBehaviour
 
     protected Rigidbody2D rb;
     protected GameManager gameManager;
+    protected PlayerMove player;
 
     protected virtual void Start()
     {
@@ -22,6 +26,7 @@ public class Bullet : MonoBehaviour
         gameManager = GameManager.Instance;
         wallLayer = gameManager.WallLayer;
         playerLayer = gameManager.PlayerLayer;
+        player = PlayerMove.Instance;
 
         Timer();
     }
@@ -49,7 +54,30 @@ public class Bullet : MonoBehaviour
 
     protected bool CheckLayer(GameObject obj, LayerMask mask) => mask == (mask | (1 << obj.layer));
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private bool _doColliderStayCheck;
+    protected void RefreshColliderCheck()
+    {
+        _doColliderStayCheck = true;
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D col)
+    {
+        CheckCol(col);
+    }
+
+    protected virtual void OnTriggerStay2D(Collider2D col)
+    {
+        if (!_doColliderStayCheck)
+        {
+            return;
+        }
+
+        _doColliderStayCheck = false;
+
+        CheckCol(col);
+    }
+
+    protected virtual void CheckCol(Collider2D col)
     {
         // Check if gameobject is in the WALL layermask
         if (CheckLayer(col.gameObject, wallLayer))
@@ -86,6 +114,9 @@ public class Bullet : MonoBehaviour
 
     protected virtual void OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
+        // TEMPORARY
+        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+
         Die();
     }
 

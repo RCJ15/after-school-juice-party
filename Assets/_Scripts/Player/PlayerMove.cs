@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary> - Ruben
 public class PlayerMove : MonoBehaviour
 {
+    public static PlayerMove Instance;
+
     [SerializeField] private float speed = 5;
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
@@ -27,6 +29,11 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D _rb;
 
     private Vector3 _startPos;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
