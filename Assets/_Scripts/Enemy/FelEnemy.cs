@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour  //Emma
+public class FelEnemy : MonoBehaviour  //Emma
+    //Det här scriptet är antagligen fel. Har sparat det ifall jag har fel (och det är rätt script).
+    //Det är inte heller klart, så ifall den här behövs måste vi göra klart den. Se "Enemy" för den nya koden.
 {
-    //X-led
-    private float side = 3f;
-
-    //Y-led
-    private float down = -0.5f;
+    private float speed = 2f;
 
     private float timer = 0;
 
@@ -40,23 +38,16 @@ public class Enemy : MonoBehaviour  //Emma
             rend.color = color;
         }
         //Fienden rör sig
-        if (timer >= 2.5f && timer <= 2.7f)
-        {
+        if(timer >= 2.5f && timer <= 2.7f)
+        {              
 
-            Debug.Log(side);
+            Debug.Log(rend.color);
 
-            Debug.Log(transform.position);
-
-            transform.position += new Vector3(side, down, 0);
-
-            Debug.Log(transform.position);
-
-            //Nästa gång ska de röra sig åt andra hållet (x-led).
-            side *= -1;
+            transform.position += new Vector3(speed, 0, 0);
         }
         //Fienden poppar fram igen
         if (timer >= 2.5f)
-        {
+        {       
             color.a = 1;
             rend.color = color;
 
@@ -64,5 +55,12 @@ public class Enemy : MonoBehaviour  //Emma
         }
         //Resultat = ser ut som om fienden blinkar när den rör sig (/"teleporterar" sig fram).
 
+        //Funkar 
+        if (transform.position.x == 9.79f)
+        {
+            Debug.Log("123");
+
+            speed *= -1;
+        }
     }
 }

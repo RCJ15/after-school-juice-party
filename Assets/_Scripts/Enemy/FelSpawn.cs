@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn : MonoBehaviour
+public class FelSpawn : MonoBehaviour  //Emma
+    //Antagligen fel (är till felEnemy). Rätt finns på Spawn.
 {
     private float timer = 0;
 
@@ -18,7 +19,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         /*timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
         if (timer >= 5)
         {
@@ -26,7 +27,6 @@ public class Spawn : MonoBehaviour
             Instantiate(enemy, transform.position, Quaternion.identity);
 
             timer = 0;
-        }*/
-        
+        }
     }
 }
