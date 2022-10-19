@@ -1,124 +1,141 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System.IO;
+using TMPro;
 
-
-public class Score : MonoBehaviour
+public class HighScore : MonoBehaviour
 {
-
-    [SerializeField] GameObject pointTxt;
-    [SerializeField] TMP_Text scoreText;
+    [Header("Highscore")]
+    [SerializeField] GameObject highscorePanel;
     [SerializeField] GameObject content;
     [SerializeField] GameObject playerScoreTemplate;
-    [SerializeField] GameObject highscorePanel;
+    [Space]
+    [Header("Get player name")]
+    [SerializeField] GameObject inputName;
+    [SerializeField] TMP_InputField inputNameInputField;
+    [SerializeField] TMP_Text inputScoreTMPText;
 
-    Camera cam;
-    Animator expand;
-    private int _score = 0;
-    private int _oldScore = -1;
+    
+    public static string playerName = "";
     Dictionary<string, int> highscore = new Dictionary<string, int>();
     List<GameObject> spawnedHighscore = new List<GameObject>();
-
-    Color scoreColor =new Color(1, 1, 1, 1);
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        expand = scoreText.GetComponent<Animator>(); // Get animator from score text
-        cam = Camera.main;
-
-        AddToHighscore("Anna", 89737634);
-        AddToHighscore("Emma", 843956487);
-        AddToHighscore("Ruben", 98765);
-        AddToHighscore("Rubem", 6237384);
-        AddToHighscore("eg,jhehgjrbejhbvejbhjvbjhvbjheb", 93);
-        AddToHighscore("Gejfhgvegujgefhjekjgkehgkhehgieuhgisehbiehsihbresgrga", 939859833);
-        AddToHighscore("Grkjeshkjgsssssssssssssssskkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkga", 93);
-        AddToHighscore("Gejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjrga", 93);
-        AddToHighscore("Geskjfgsiegiuuuuuuuuuuuuuuuuuuuuuuuurga", 999999999);
-        AddToHighscore("Grga", 938592893);
-        AddToHighscore("Gregory", 9223);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
-            Getpoints(Random.Range(20, 100), mousePos);
-        }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T)) // Debug
         {
             ShowHighScoreTable();
         }
-
-        if (_score != _oldScore) // Update score
+        if (Input.GetKeyDown(KeyCode.R)) // Debug
         {
-            _oldScore = _score; // Uppdate old score
-            scoreText.color = scoreColor;
-            scoreText.text = "Score: " + _score; // Write message
-
-            expand.Play(0); // Expand and retract
+            ResetScore();
         }
-
     }
-    public void Getpoints(int points, Vector3 location) // Give points to player
+
+    /// <summary>
+    /// Continue to the new thing
+    /// </summary>
+    public void Continue()
     {
-        _score += points; // Add points to score
-        GameObject newText = Instantiate(pointTxt, location, Quaternion.identity, transform); // Spawn the text
-        newText.SetActive(true);
-        TMP_Text tMP_Text = newText.GetComponentInChildren<TMP_Text>();
 
-        tMP_Text.text = "+" + points.ToString(); // Show points gained
+    }
+    /// <summary>
+    /// Go back to the main menu
+    /// </summary>
+    public void MainMenu()
+    {
 
-        if (points < 25) // asign a cool color
-        {
-            scoreColor = new Color(.5f, 0.5f, 0, 1);
-            tMP_Text.CrossFadeColor(scoreColor, .3f, false, false);
-        }
-        else if (points > 25 && points < 50)
-        {scoreColor= new Color(0, 0.5f, 0.8f, 1);
-            tMP_Text.CrossFadeColor(scoreColor, .3f, false, false);
-        }
-        else
-        {
-            scoreColor = new Color(0.8f, 0.5f, 0, 1);
-            tMP_Text.CrossFadeColor(scoreColor, .3f, false, false);
-        }
+    }
+    /// <summary>
+    /// Idk what yet :/
+    /// </summary>
+    public void LastButton()
+    {
 
-        newText.GetComponentInChildren<Animator>().Play("TextFlash"); // Start animation
-        Destroy(newText, 3); // Destroy the exes clones        
     }
 
+    /// <summary>
+    /// Resets the players name and score
+    /// </summary>
+    void ResetScore()
+    {
+        Score.playerScore = 0;
+        playerName = "";
+    }
+    /// <summary>
+    /// Asign players name and add to score board
+    /// </summary>
+    /// <param name="confirm">Confirm the players name</param>
+    public void GetPlayerName(bool confirm)
+    {
+        inputScoreTMPText.text = Score.playerScore.ToString();
+
+        if (confirm && playerName == "") // Set players name
+        {
+            playerName = inputNameInputField.text; // Get name from inputfield
+            if (playerName == "" || playerName==null) // Still not set, player left it blank
+            {
+                playerName = "Player" + Score.playerScore; // Assign deutfult name
+            }
+
+            inputName.SetActive(false); // Hide panel
+            AddToHighscore(playerName, Score.playerScore);
+            PrintHighScore();
+        }
+        else if (playerName == "") // Player has no name yet
+        {
+            inputName.SetActive(true);
+
+            Animator[] animators = inputName.GetComponentsInChildren<Animator>();
+
+            animators[0].Play("Wobbel");
+            animators[1].Play("Swing");
+            animators[2].Play("InputShake");
+        }
+    }
+
+    /// <summary>
+    /// Add a entry to highscore.
+    /// </summary>
+    /// <param name="playerName">Name of player.</param>
+    /// <param name="score">Score of player.</param>
     public void AddToHighscore(string playerName, int score)
     {
-        highscore.Add(playerName, score);
+        highscore.Add(playerName, score); // Add entry to list
     }
-
+    /// <summary>
+    /// Show the highscore panel
+    /// </summary>
     void ShowHighScoreTable()
     {
         if (highscorePanel.activeInHierarchy)
         {
             highscorePanel.SetActive(false);
+            // Time.timeScale = 1;
         }
         else
         {
             highscorePanel.SetActive(true);
-            PrintHighScore();
+            //  Time.timeScale = 0;
+            GetPlayerName(false);
         }
     }
+    /// <summary>
+    /// Prints out the highscors of players and sorts them acording to rank
+    /// </summary>
     void PrintHighScore()
     {
-        foreach (var item in spawnedHighscore)
+        foreach (var item in spawnedHighscore) // Get rid of previous cards
         {
             Destroy(item);
         }
-        spawnedHighscore = new List<GameObject>();
+        spawnedHighscore = new List<GameObject>(); // Reset list
         foreach (var score in highscore) // Add every highscore
         {
             GameObject newScore = Instantiate(playerScoreTemplate, content.transform); // Add new section
@@ -128,11 +145,11 @@ public class Score : MonoBehaviour
             txts[0].text = score.Key; // First one is name
             txts[1].text = score.Value.ToString(); // Second one is the score
 
-            newScore.GetComponentInChildren<UnityEngine.UI.Image>().color = new Color(Random.Range(0, 10) / 10, Random.Range(0, 10) / 10, Random.Range(0, 10) / 10,1);
+            newScore.GetComponentInChildren<UnityEngine.UI.Image>().color = new Color(Random.Range(0, 10) / 10, Random.Range(0, 10) / 10, Random.Range(0, 10) / 10, 1);
             spawnedHighscore.Add(newScore);
         }
     }
-    void Sort(GameObject[]unsortedList)
+    void Sort(GameObject[] unsortedList)
     {
         int min;
         GameObject temp;
@@ -150,7 +167,7 @@ public class Score : MonoBehaviour
         for (int i = 0; i < unsortedList.Length; i++)
         {
             min = i;
-            for (int j =i+1; j < unsortedList.Length; j++)
+            for (int j = i + 1; j < unsortedList.Length; j++)
             {
                 if (score[j] < score[min])
                 {
