@@ -33,7 +33,7 @@ public class PauseScreen : MonoBehaviour
             else
             {
                 titleText.text = _CurrentLevelName; // Set the title 
-                text.text = $"Name: {HighScore.playerName} \nScore: {Score.playerScore} \nWeapond equiped: {_CurrentWeapond} \nAttempt: {_Attempt} \nTime elapsed{_TimeElapsed} "; // Set some stats
+                text.text = $"Name: {HighScore.playerName} \nScore: {Score.playerScore} \nWeapond equiped: {_CurrentWeapond} \nAttempt: {_Attempt} \nTime elapsed: {_TimeElapsed} "; // Set some stats
                                 panel.SetActive(true);
         Time.timeScale = 0;
             }
