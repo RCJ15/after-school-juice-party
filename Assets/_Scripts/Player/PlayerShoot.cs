@@ -13,13 +13,19 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] protected Transform spawnPoint;
 
+    [Header("Juice")]
+    [SerializeField] protected ParticleSystem shootEffect;
+    [SerializeField] protected bool animatePlayer = true;
+
+    protected Animator _playerAnim;
+
     protected bool ShootKeyDown => Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space);
     protected bool ShootKey => Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space);
     protected bool ShootKeyUp => Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space);
 
     protected virtual void Start()
     {
-        
+        _playerAnim = PlayerMove.Instance.GetComponent<Animator>();
     }
 
     protected virtual void Update()
@@ -39,6 +45,21 @@ public class PlayerShoot : MonoBehaviour
 
     protected virtual void Shoot()
     {
+        if (shootEffect != null)
+        {
+            shootEffect.Play();
+        }
+
+        if (animatePlayer)
+        {
+            DoPlayerShootAnim();
+        }
+
         _shootTimer = shootDelay;
+    }
+
+    protected virtual void DoPlayerShootAnim()
+    {
+        _playerAnim.SetTrigger("Shoot");
     }
 }

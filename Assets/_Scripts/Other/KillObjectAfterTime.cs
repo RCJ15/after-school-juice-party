@@ -9,6 +9,8 @@ public class KillObjectAfterTime : MonoBehaviour
 {
     [SerializeField] private float lifetime = 1;
 
+    public float Lifetime { get => lifetime; set => lifetime = value; }
+
     private void Start()
     {
         StartCoroutine(Coroutine());

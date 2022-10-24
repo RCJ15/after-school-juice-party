@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary> - Ruben
 public class RandomShoot : PlayerShoot
 {
+    [Header("Random Shoot")]
     [SerializeField] protected GameObject[] bullets;
     protected int _bulletsLength;
 

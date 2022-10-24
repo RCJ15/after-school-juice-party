@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary> - Ruben
 public class RegularShoot : PlayerShoot
 {
+    [Header("Regular Shoot")]
     [SerializeField] protected GameObject bullet;
 
     protected override void Shoot()

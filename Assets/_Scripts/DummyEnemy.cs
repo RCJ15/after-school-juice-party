@@ -15,10 +15,6 @@ public class DummyEnemy : MonoBehaviour
     private float _maxHealth;
 
     [SerializeField] private Slider healthBar;
-    [SerializeField] private TMP_Text dpsText;
-
-    private float _dps;
-    private int _timesHurt;
 
     private void Start()
     {
@@ -52,29 +48,6 @@ public class DummyEnemy : MonoBehaviour
             healthBar.value = health;
         }
 
-        if (dpsText != null)
-        {
-            StartCoroutine(DpsTimer(damage));
-        }
-    }
-
-    private IEnumerator DpsTimer(float damage)
-    {
-        _dps += damage;
-        _timesHurt++;
-
-        UpdateText();
-
-        yield return new WaitForSeconds(1);
-
-        _dps -= damage;
-        _timesHurt--;
-
-        UpdateText();
-    }
-
-    private void UpdateText()
-    {
-        dpsText.text = "DPS: " + Mathf.Round(_dps * 10) / 10;
+        DPSCounter.Add(damage);
     }
 }

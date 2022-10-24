@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class RicochetBullet : Bullet
 {
+    [SerializeField] protected ParticleSystem hitWallParticles;
+
+    [Header("Ricochet")]
     [SerializeField] protected int maxBounces = 0;
     protected int timesBounced;
 
@@ -34,6 +37,7 @@ public class RicochetBullet : Bullet
             if (timesBounced >= maxBounces)
             {
                 Die();
+                return;
             }
         }
 
@@ -46,6 +50,17 @@ public class RicochetBullet : Bullet
 
         meanNormal /= col.contactCount;
 
+        Vector3 oldNormal = transform.up;
         transform.up = Vector2.Reflect(transform.up, meanNormal);
+
+        hitWallParticles.transform.up = (oldNormal + transform.up) / 2;
+        hitWallParticles.Play();
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+
+        DetachParticleSystem(hitWallParticles);
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd8304f0a4b20214780cb9bfc3411f3e
+guid: a19b9f8a53e4de5478eb8960b99a73fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Banana_0
+      name: Code Bullet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 869a46e33dbb4984aa06f3419f2ea75f
-      internalID: 64733704
+      spriteID: 23d57a726aa26034892a2aa4a49a75d1
+      internalID: 1414369566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Banana_1
+      name: Code Bullet_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +151,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bb2413445e3d7b4cb37091b4471cb67
-      internalID: -1478047784
+      spriteID: 14451be4795da4e4aa5ed041503124d3
+      internalID: 1718382813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Code Bullet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e894ed8514f975846ade4815f76bcee3
+      internalID: -1984996682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Code Bullet_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a27f1b119869b4e97cce9eb4da7655
+      internalID: 649700092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Code Bullet_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0326ed619e46cce4fbd7a7e09e2ddfc6
+      internalID: 1029595483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Code Bullet_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2878bc2788b975f42ab5441452d34161
+      internalID: -40944243
       vertices: []
       indices: 
       edges: []
@@ -168,8 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Banana_1: -1478047784
-      Banana_0: 64733704
+      Code Bullet_3: 649700092
+      Code Bullet_5: -40944243
+      Code Bullet_2: -1984996682
+      Code Bullet_4: 1029595483
+      Code Bullet_0: 1414369566
+      Code Bullet_1: 1718382813
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

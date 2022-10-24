@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class CodeBullet : Bullet
 {
+    [SerializeField] protected ParticleSystem trailParticles;
+
+    [Header("Code Bullet")]
     [SerializeField] protected float enemySurviveChance = 0.3f;
     [SerializeField] protected int maxTimesSurvive = 3;
     protected int timesSurvived;
@@ -28,7 +31,7 @@ public class CodeBullet : Bullet
         RandomizeStats(false);
     }
 
-    protected override void OnCollideWithEnemy(Collider2D col, Enemy enemy)
+    protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // TEMPORARY
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
@@ -36,11 +39,15 @@ public class CodeBullet : Bullet
         if (timesSurvived >= maxTimesSurvive || Random.value > enemySurviveChance)
         {
             Die();
-            return;
+            return true;
         }
 
         RandomizeStats(true);
         timesSurvived++;
+
+        deathParticles.Play();
+
+        return true;
     }
 
     protected void RandomizeStats(bool randomizeRotation)
@@ -53,5 +60,14 @@ public class CodeBullet : Bullet
         {
             transform.Rotate(Vector3.forward, Random.Range(rngRotation.x, rngRotation.y));
         }
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+
+        trailParticles.Stop();
+
+        DetachParticleSystem(trailParticles);
     }
 }

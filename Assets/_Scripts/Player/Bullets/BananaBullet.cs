@@ -21,8 +21,6 @@ public class BananaBullet : Bullet
     {
         base.Update();
 
-        rotate.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
-
         if (_return)
         {
             if (_returnLerpValue != 1)
@@ -41,18 +39,18 @@ public class BananaBullet : Bullet
         else
         {
             _return = true;
-
-            RefreshColliderCheck();
         }
     }
 
     protected override void FixedUpdate()
     {
+        rotate.Rotate(Vector3.forward, rotateSpeed * Time.fixedDeltaTime);
+
         Vector2 regVelocity = transform.up * speed;
 
         if (_return)
         {
-            Vector2 returnVelocity = (player.transform.position - transform.position).normalized * speed;
+            Vector2 returnVelocity = (player.transform.position - transform.position).normalized * speed * 1.5f;
 
             rb.velocity = Vector2.Lerp(regVelocity, returnVelocity, _returnLerpValue);
         }
@@ -62,7 +60,7 @@ public class BananaBullet : Bullet
         }
     }
 
-    protected override void OnCollideWithEnemy(Collider2D col, Enemy enemy)
+    protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // TEMPORARY
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
@@ -70,7 +68,9 @@ public class BananaBullet : Bullet
         _return = true;
         _returnLerpValue = 1;
 
-        RefreshColliderCheck();
+        deathParticles.Play();
+
+        return true;
     }
 
     protected override void OnCollideWithPlayer(Collider2D col)
@@ -85,15 +85,22 @@ public class BananaBullet : Bullet
 
     protected override void OnCollideWithWall(Collider2D col)
     {
+        if (_return)
+        {
+            return;
+        }
+
         _return = true;
         _returnLerpValue = 1;
 
-        RefreshColliderCheck();
+        deathParticles.Play();
     }
 
     protected override void Die()
     {
-        base.Die();
+        Destroy(gameObject);
+
+        DetachParticleSystem(deathParticles);
 
         Shoot.BananaDies(this);
     }

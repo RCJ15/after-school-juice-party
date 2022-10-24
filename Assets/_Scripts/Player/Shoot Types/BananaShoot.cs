@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class BananaShoot : PlayerShoot
 {
+    [Header("Banana Shoot")]
     [SerializeField] protected int maxBananas = 5;
     private int _spawnedBananas;
 

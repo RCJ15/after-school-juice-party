@@ -13,12 +13,19 @@ public class Bullet : MonoBehaviour
     [Space]
     [SerializeField] protected float speed;
     [SerializeField] protected float lifetime;
+
+    [Header("Juice")]
+    [SerializeField] protected ParticleSystem deathParticles;
+
     protected LayerMask wallLayer;
     protected LayerMask playerLayer;
 
     protected Rigidbody2D rb;
     protected GameManager gameManager;
     protected PlayerMove player;
+
+    protected HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
+    protected void ClearHitList() => hitEnemies.Clear();
 
     protected virtual void Start()
     {
@@ -44,7 +51,10 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Update()
     {
-        
+        if (transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -54,26 +64,8 @@ public class Bullet : MonoBehaviour
 
     protected bool CheckLayer(GameObject obj, LayerMask mask) => mask == (mask | (1 << obj.layer));
 
-    private bool _doColliderStayCheck;
-    protected void RefreshColliderCheck()
-    {
-        _doColliderStayCheck = true;
-    }
-
-    protected virtual void OnTriggerEnter2D(Collider2D col)
-    {
-        CheckCol(col);
-    }
-
     protected virtual void OnTriggerStay2D(Collider2D col)
     {
-        if (!_doColliderStayCheck)
-        {
-            return;
-        }
-
-        _doColliderStayCheck = false;
-
         CheckCol(col);
     }
 
@@ -94,9 +86,12 @@ public class Bullet : MonoBehaviour
             return;
         }
         // Check if we collided with an enemy
-        else if (col.CompareTag("Enemy") && col.TryGetComponent(out Enemy enemy))
+        else if (!hitEnemies.Contains(col.gameObject) && col.CompareTag("Enemy") && col.TryGetComponent(out Enemy enemy))
         {
-            OnCollideWithEnemy(col, enemy);
+            if (OnCollideWithEnemy(col, enemy))
+            {
+                hitEnemies.Add(col.gameObject);
+            }
 
             return;
         }
@@ -112,18 +107,43 @@ public class Bullet : MonoBehaviour
 
     }
 
-    protected virtual void OnCollideWithEnemy(Collider2D col, Enemy enemy)
+    protected virtual bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // TEMPORARY
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
 
         Die();
+
+        return true;
     }
 
     protected virtual void Die()
     {
         Destroy(gameObject);
+
+        DetachAndPlayParticles(deathParticles);
     }
 
+    protected virtual void DetachAndPlayParticles(ParticleSystem particles)
+    {
+        particles.Play();
 
+        DetachParticleSystem(particles);
+    }
+
+    protected virtual void DetachParticleSystem(ParticleSystem particles)
+    {
+        particles.transform.SetParent(null);
+
+        if (particles.TryGetComponent<KillObjectAfterTime>(out _))
+        {
+            return;
+        }
+
+        KillObjectAfterTime killScript = particles.gameObject.AddComponent<KillObjectAfterTime>();
+
+        ParticleSystem.MainModule main = particles.main;
+        AnimationCurve curve = main.startLifetime.curveMax;
+        killScript.Lifetime = main.duration + main.startLifetime.constantMax + (curve != null ? curve.Evaluate(1) : 0);
+    }
 }
