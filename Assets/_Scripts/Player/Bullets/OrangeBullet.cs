@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 
-/// </summary>
-public class RicochetBullet : Bullet
+public class OrangeBullet : Bullet
 {
+    [Header("Orange shoot")]
+    [SerializeField] Vector2 sliceAmount;
+    [SerializeField] GameObject slice;
+    [SerializeField] float sliceSpeed;
+
     [SerializeField] protected ParticleSystem hitWallParticles;
 
     [Header("Ricochet")]
@@ -31,12 +33,12 @@ public class RicochetBullet : Bullet
 
             if (timesPierce >= pierce)
             {
-                Die();
+                Split();
             }
         }
         else
         {
-            Die();
+                Split();
         }
 
         return true;
@@ -59,7 +61,7 @@ public class RicochetBullet : Bullet
             // Die after the maximum amount of bounces is done
             if (timesBounced >= maxBounces)
             {
-                Die();
+                Split();
                 return;
             }
         }
@@ -79,7 +81,20 @@ public class RicochetBullet : Bullet
         hitWallParticles.transform.up = (oldNormal + transform.up) / 2;
         hitWallParticles.Play();
     }
+    private void Split()
+    {
+        float amount = Random.Range(sliceAmount.x,sliceAmount.y);
+        float rotation = 360 / amount;
+        for (int i = 0; i <amount ; i++)
+        {
+            Vector3 v3Rotation = new Vector3(0, 0, rotation * i);
+            GameObject newSlice = Instantiate(slice, transform.position, Quaternion.EulerAngles(v3Rotation), transform.parent);
+            Rigidbody2D rb = newSlice.GetComponent<Rigidbody2D>();
 
+            rb.AddForce(new Vector3( speed,0,0));
+        }
+        Die();
+    }
     protected override void Die()
     {
         base.Die();
