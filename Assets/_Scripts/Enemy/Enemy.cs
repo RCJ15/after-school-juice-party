@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour  //Emma
 {
-    //X-led
-    private float side = 3f;
+    //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger.
+    private float side = 2f;
 
-    //Y-led
-    private float down = -0.5f;
+    //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger.
+    private float down = -0.25f;
+
+    //När det är dags för dem att vända
+    private float turn = 0;
+
+    private float originalPosX;
 
     private float timer = 0;
 
     //Det här är för att de ska "blinka" när de rör sig.
     private Color color;
-
     private SpriteRenderer rend;
 
     // Start is called before the first frame update
@@ -26,23 +30,25 @@ public class Enemy : MonoBehaviour  //Emma
 
         color.a = 1;
         rend.color = color;
+
+        originalPosX = transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         timer += Time.deltaTime;
 
         //Fienden blir osynlig
-        if (timer >= 2 && timer <= 2.2f)
+        if (timer >= 0.5f && timer <= 0.6f)
         {
             color.a = 0;
             rend.color = color;
         }
         //Fienden rör sig
-        if (timer >= 2.5f && timer <= 2.7f)
+        else if (timer >= 0.8f && timer <= 0.85f)
         {
-
             Debug.Log(side);
 
             Debug.Log(transform.position);
@@ -51,11 +57,48 @@ public class Enemy : MonoBehaviour  //Emma
 
             Debug.Log(transform.position);
 
-            //Nästa gång ska de röra sig åt andra hållet (x-led).
+        }
+        //Fienden poppar fram igen
+        if (timer >= 0.8f)
+        {
+            color.a = 1;
+            rend.color = color;
+
+            timer = 0;
+        }
+
+        //Ifall den är två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
+        if (transform.position.x == originalPosX + 2*side && side > 0 || transform.position.x == originalPosX && side < 0)
+        {
+            //Byter håll
+            side *= -1;
+        }
+
+        Debug.Log(side);
+        Debug.Log(turn);
+        
+        /*
+        if (timer >= 0.8f && timer <= 0.9f)
+        {
+            color.a = 0;
+            rend.color = color;
+        }
+        //Fienden rör sig
+        else if (timer >= 1 && timer <= 1.1f)
+        {
+            Debug.Log(side);
+
+            Debug.Log(transform.position);
+
+            transform.position += new Vector3(side, down, 0);
+
+            Debug.Log(transform.position);
+
+            //Nästa gång ska de röra sig åt andra hållet (i x-led).
             side *= -1;
         }
         //Fienden poppar fram igen
-        if (timer >= 2.5f)
+        if (timer >= 1)
         {
             color.a = 1;
             rend.color = color;
@@ -63,6 +106,16 @@ public class Enemy : MonoBehaviour  //Emma
             timer = 0;
         }
         //Resultat = ser ut som om fienden blinkar när den rör sig (/"teleporterar" sig fram).
-
+        /*
+        else if (timer >= 0.65f && timer < 0.8f)
+        {
+            color.a = 1;
+            rend.color = color;
+        }
+        else if (timer >= 0.8f && timer < 0.95f)
+        {
+            color.a = 0;
+            rend.color = color;
+        }*/
     }
 }
