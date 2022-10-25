@@ -10,9 +10,7 @@ public class Enemy : MonoBehaviour  //Emma
     //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger.
     private float down = -0.25f;
 
-    //När det är dags för dem att vända
-    private float turn = 0;
-
+    //Original positionens x-värde (är när den är längst till vänster)
     private float originalPosX;
 
     private float timer = 0;
@@ -49,14 +47,7 @@ public class Enemy : MonoBehaviour  //Emma
         //Fienden rör sig
         else if (timer >= 0.8f && timer <= 0.85f)
         {
-            Debug.Log(side);
-
-            Debug.Log(transform.position);
-
             transform.position += new Vector3(side, down, 0);
-
-            Debug.Log(transform.position);
-
         }
         //Fienden poppar fram igen
         if (timer >= 0.8f)
@@ -74,48 +65,10 @@ public class Enemy : MonoBehaviour  //Emma
             side *= -1;
         }
 
-        Debug.Log(side);
-        Debug.Log(turn);
-        
-        /*
-        if (timer >= 0.8f && timer <= 0.9f)
+        //Nere vid kanten.
+        if (transform.position.x <= -5)
         {
-            color.a = 0;
-            rend.color = color;
+            //Förlora liv/spelet.
         }
-        //Fienden rör sig
-        else if (timer >= 1 && timer <= 1.1f)
-        {
-            Debug.Log(side);
-
-            Debug.Log(transform.position);
-
-            transform.position += new Vector3(side, down, 0);
-
-            Debug.Log(transform.position);
-
-            //Nästa gång ska de röra sig åt andra hållet (i x-led).
-            side *= -1;
-        }
-        //Fienden poppar fram igen
-        if (timer >= 1)
-        {
-            color.a = 1;
-            rend.color = color;
-
-            timer = 0;
-        }
-        //Resultat = ser ut som om fienden blinkar när den rör sig (/"teleporterar" sig fram).
-        /*
-        else if (timer >= 0.65f && timer < 0.8f)
-        {
-            color.a = 1;
-            rend.color = color;
-        }
-        else if (timer >= 0.8f && timer < 0.95f)
-        {
-            color.a = 0;
-            rend.color = color;
-        }*/
     }
 }
