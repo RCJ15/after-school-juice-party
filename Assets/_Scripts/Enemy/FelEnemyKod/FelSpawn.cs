@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FelSpawn : MonoBehaviour  //Emma
     //Antagligen fel (är till felEnemy). Rätt finns på Spawn.
+    //(Har sparat det för tillfället ifall den här är rätt och ska användas).
 {
     private float timer = 0;
 
