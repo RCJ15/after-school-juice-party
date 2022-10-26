@@ -55,7 +55,7 @@ public class FelEnemy : MonoBehaviour  //Emma
         }
         //Resultat = ser ut som om fienden blinkar när den rör sig (/"teleporterar" sig fram).
 
-        //Funkar 
+        //Funkar (men y-värdet ska också ändras)
         if (transform.position.x == 9.79f)
         {
             Debug.Log("123");

@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn : MonoBehaviour  //Emma
+public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna
 {
-    //private float timer = 0;
-
-    //Hur mycket från den första fienden på raden som den andra fienden ska placeras
+    //Hur mycket från den första fienden på raden som den andra fienden ska placeras (blir noll mellan varje rad)
     private int enemyPlace = 0;
 
-    //Nummer på formation
+    //Nummer på formation (Just nu finns det bara 2).
     private int formationNum;
 
     [SerializeField]
@@ -35,7 +33,7 @@ public class Spawn : MonoBehaviour  //Emma
     {
 
     }
-    //Antagligen den lätaste
+    //Antagligen den lättaste (att besegra)
     public void FormationOne()
     {
         for (int i = 0; i < 5; i++)
@@ -56,7 +54,7 @@ public class Spawn : MonoBehaviour  //Emma
             //Andra "raden". Tre fiender.
             else if (i >= 2)
             {
-                Instantiate(enemy, new Vector3(-4 + enemyPlace, 7.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-4 + enemyPlace, 7, 0), Quaternion.identity);
 
                 enemyPlace += 2;
             }
@@ -74,10 +72,10 @@ public class Spawn : MonoBehaviour  //Emma
                 Instantiate(enemy, new Vector3(-2 + enemyPlace, 5.5f, 0), Quaternion.identity);
                 
             }
-            //Andra "raden": Två fiender.
+            //Andra "raden". Två fiender.
             else if (i >= 1 && i < 3)
             {
-                Instantiate(enemy, new Vector3(-3 + enemyPlace, 7.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-3 + enemyPlace, 7, 0), Quaternion.identity);
 
                 enemyPlace += 2;
                 
@@ -89,7 +87,7 @@ public class Spawn : MonoBehaviour  //Emma
             //Tre fiender
             else if (i >= 3 && i < 6)
             {
-                Instantiate(enemy, new Vector3(-4 + enemyPlace, 9.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-4 + enemyPlace, 8.5f, 0), Quaternion.identity);
 
                 enemyPlace += 2;
 
@@ -101,7 +99,7 @@ public class Spawn : MonoBehaviour  //Emma
             //Åtta fiender
             else if (i >= 6 && i < 14)
             {
-                Instantiate(enemy, new Vector3(-9 + enemyPlace, 11.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-9 + enemyPlace, 10, 0), Quaternion.identity);
 
                 enemyPlace += 2;
                 
@@ -114,7 +112,7 @@ public class Spawn : MonoBehaviour  //Emma
             //Nio fiender
             else if (i >= 14)
             {
-                Instantiate(enemy, new Vector3(-10 + enemyPlace, 13.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-10 + enemyPlace, 11.5f, 0), Quaternion.identity);
 
                 enemyPlace += 2;
 
