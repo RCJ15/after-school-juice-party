@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
-/// </summary>
+/// Bullet that will ricochet.
+/// </summary> - Ruben
 public class RicochetBullet : Bullet
 {
     [SerializeField] protected ParticleSystem hitWallParticles;

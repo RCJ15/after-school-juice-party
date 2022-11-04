@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
-/// </summary>
+/// Contains important info about the game and handles the game loop. <para/>
+/// Use: <see cref="Instance"/>
+/// </summary> - Ruben
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;

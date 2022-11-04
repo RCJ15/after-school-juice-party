@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
-/// </summary>
+/// The bullet for the starfruit flavor
+/// </summary> - Ruben
 public class StarfruitBullet : Bullet
 {
     [SerializeField] protected ParticleSystem popBurtEffect;
@@ -21,7 +21,7 @@ public class StarfruitBullet : Bullet
 
     [Space]
     [SerializeField] protected ParticleSystem particles;
-    [SerializeField] protected TrailRenderer trail;
+    [SerializeField] protected TrailRenderer fallTrail;
     [SerializeField] protected Sprite transparentStarfruit;
     [SerializeField] protected SpriteRenderer sprite;
     private Animator _anim;
@@ -65,9 +65,9 @@ public class StarfruitBullet : Bullet
                 rb.gravityScale = targetGravScale;
             }
 
-            if (trail.enabled == false)
+            if (fallTrail.enabled == false)
             {
-                trail.enabled = true;
+                fallTrail.enabled = true;
             } 
 
             if (particles.isPlaying)

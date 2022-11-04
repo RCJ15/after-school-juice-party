@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
-/// </summary>
+/// The shoot type for the banana flavor. Will limit how many bullets can be present at a time.
+/// </summary> - Ruben
 public class BananaShoot : PlayerShoot
 {
     [Header("Banana Shoot")]

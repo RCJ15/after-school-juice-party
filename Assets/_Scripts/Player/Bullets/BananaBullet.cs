@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
-/// </summary>
+/// The bullet for the banana flavor
+/// </summary> - Ruben
 public class BananaBullet : Bullet
 {
     [SerializeField] protected Transform rotate;

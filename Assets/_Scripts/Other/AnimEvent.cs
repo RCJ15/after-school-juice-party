@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 
-/// </summary>
+/// Calls a UnityEvent via animation
+/// </summary> - Ruben
 public class AnimEvent : MonoBehaviour
 {
     [SerializeField] private UnityEvent[] @event;

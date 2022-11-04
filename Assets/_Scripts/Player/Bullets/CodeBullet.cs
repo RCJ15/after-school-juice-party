@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Does random things!
-/// </summary>
+/// </summary> - Ruben
 public class CodeBullet : Bullet
 {
     [SerializeField] protected ParticleSystem trailParticles;
@@ -27,6 +27,7 @@ public class CodeBullet : Bullet
         base.Start();
 
         _startSize = transform.localScale;
+        trail.widthMultiplier = _startSize.magnitude / 2;
 
         RandomizeStats(false);
     }
@@ -53,7 +54,9 @@ public class CodeBullet : Bullet
     protected void RandomizeStats(bool randomizeRotation)
     {
         damage = Random.Range(rngDamage.x, rngDamage.y);
-        transform.localScale = _startSize * Random.Range(rngSize.x, rngSize.y);
+        float scale = Random.Range(rngSize.x, rngSize.y);
+        transform.localScale = _startSize * scale;
+        trail.widthMultiplier = scale / 2;
         speed = Random.Range(rngSpeed.x, rngSpeed.y);
 
         if (randomizeRotation)

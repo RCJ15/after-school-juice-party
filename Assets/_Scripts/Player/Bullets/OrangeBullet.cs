@@ -2,103 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrangeBullet : Bullet
+public class OrangeBullet : GravityBullet
 {
     [Header("Orange shoot")]
-    [SerializeField] Vector2 sliceAmount;
-    [SerializeField] GameObject slice;
-    [SerializeField] float sliceSpeed;
+    [SerializeField] protected Vector2Int sliceAmount;
+    [SerializeField] protected float sliceRange = 90;
+    [SerializeField] protected GameObject slice;
+    [SerializeField] protected Explosion explosion;
 
-    [SerializeField] protected ParticleSystem hitWallParticles;
+    protected Vector3 explosionStartScale;
+    protected float startRot;
 
-    [Header("Ricochet")]
-    [SerializeField] protected int maxBounces = 0;
-    protected int timesBounced;
-    [SerializeField] protected int pierce = 0;
-    protected int timesPierce;
-
-    protected override void OnCollideWithWall(Collider2D col)
+    protected override void Awake()
     {
-        hitEnemies.Clear();
+        base.Awake();
+
+        explosionStartScale = explosion.transform.localScale;
+        startRot = transform.eulerAngles.z;
     }
 
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
-        // TEMPORARY
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        // EXPLODE!!!
+        explosion.HitEnemies.Add(enemy.gameObject);
 
-        if (pierce > 0)
-        {
-            timesPierce++;
-
-            if (timesPierce >= pierce)
-            {
-                Split();
-            }
-        }
-        else
-        {
-                Split();
-        }
-
-        return true;
+        return base.OnCollideWithEnemy(col, enemy);
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D col)
-    {
-        if (!CheckLayer(col.gameObject, wallLayer))
-        {
-            return;
-        }
-
-        // Die by bounce
-        // Only die by bounce if the max bounces is set to above 0
-        if (maxBounces > 0)
-        {
-            // Increase times bounced
-            timesBounced++;
-
-            // Die after the maximum amount of bounces is done
-            if (timesBounced >= maxBounces)
-            {
-                Split();
-                return;
-            }
-        }
-
-        Vector2 meanNormal = Vector2.zero;
-
-        foreach (ContactPoint2D contactPoint in col.contacts)
-        {
-            meanNormal += contactPoint.normal;
-        }
-
-        meanNormal /= col.contactCount;
-
-        Vector3 oldNormal = transform.up;
-        transform.up = Vector2.Reflect(transform.up, meanNormal);
-
-        hitWallParticles.transform.up = (oldNormal + transform.up) / 2;
-        hitWallParticles.Play();
-    }
-    private void Split()
-    {
-        float amount = Random.Range(sliceAmount.x,sliceAmount.y);
-        float rotation = 360 / amount;
-        for (int i = 0; i <amount ; i++)
-        {
-            Vector3 v3Rotation = new Vector3(0, 0, rotation * i);
-            GameObject newSlice = Instantiate(slice, transform.position, Quaternion.EulerAngles(v3Rotation), transform.parent);
-            Rigidbody2D rb = newSlice.GetComponent<Rigidbody2D>();
-
-            rb.AddForce(new Vector3( speed,0,0));
-        }
-        Die();
-    }
     protected override void Die()
     {
-        base.Die();
+        int amount = Random.Range(sliceAmount.x,sliceAmount.y);
+        float rotation = sliceRange / ((float)amount - 1);
+        float offset = Random.Range(-5f, 5f) - sliceRange / 2;
 
-        DetachParticleSystem(hitWallParticles);
+        for (int i = 0; i < amount; i++)
+        {
+            Quaternion rot = Quaternion.Euler(0, 0, startRot + (rotation * (float)i) + offset);
+            Instantiate(slice, transform.position, rot, transform.parent);
+        }
+
+        // EXPLODE!!!
+        explosion.Damage = damage;
+        explosion.transform.SetParent(null);
+        explosion.gameObject.SetActive(true);
+        explosion.transform.localScale = explosionStartScale;
+
+        base.Die();
     }
 }

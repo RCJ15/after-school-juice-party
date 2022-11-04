@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
-/// </summary>
+/// The base bullet script.
+/// </summary> - Ruben
 public class Bullet : MonoBehaviour
 {
     [SerializeField] protected float damage = 1;
@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
 
     [Header("Juice")]
     [SerializeField] protected ParticleSystem deathParticles;
+    [SerializeField] protected TrailRenderer trail;
+    [SerializeField] protected ParticleSystem constantParticles;
 
     protected LayerMask wallLayer;
     protected LayerMask playerLayer;
@@ -25,7 +27,15 @@ public class Bullet : MonoBehaviour
     protected PlayerMove player;
 
     protected HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
+
+    public HashSet<GameObject> HitEnemies { get => hitEnemies; set => hitEnemies = value; }
+
     protected void ClearHitList() => hitEnemies.Clear();
+
+    protected virtual void Awake()
+    {
+
+    }
 
     protected virtual void Start()
     {
@@ -121,29 +131,61 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
 
-        DetachAndPlayParticles(deathParticles);
+        if (deathParticles != null)
+        {
+            DetachAndPlayParticles(deathParticles);
+        }
+
+        if (constantParticles != null)
+        {
+            DetachParticleSystem(constantParticles);
+            constantParticles.Stop();
+        }
+
+        if (trail != null)
+        {
+            DetachTrail(trail);
+        }
     }
 
-    protected virtual void DetachAndPlayParticles(ParticleSystem particles)
+    protected virtual KillObjectAfterTime DetachAndPlayParticles(ParticleSystem particles)
     {
         particles.Play();
 
-        DetachParticleSystem(particles);
+        return DetachParticleSystem(particles);
     }
 
-    protected virtual void DetachParticleSystem(ParticleSystem particles)
+    protected virtual KillObjectAfterTime DetachParticleSystem(ParticleSystem particles)
     {
         particles.transform.SetParent(null);
 
-        if (particles.TryGetComponent<KillObjectAfterTime>(out _))
+        if (particles.TryGetComponent(out KillObjectAfterTime killScript))
         {
-            return;
+            return killScript; 
         }
 
-        KillObjectAfterTime killScript = particles.gameObject.AddComponent<KillObjectAfterTime>();
+        killScript = particles.gameObject.AddComponent<KillObjectAfterTime>();
 
         ParticleSystem.MainModule main = particles.main;
         AnimationCurve curve = main.startLifetime.curveMax;
         killScript.Lifetime = main.duration + main.startLifetime.constantMax + (curve != null ? curve.Evaluate(1) : 0);
+
+        return killScript;
+    }
+
+    protected virtual KillObjectAfterTime DetachTrail(TrailRenderer trail)
+    {
+        trail.transform.SetParent(null);
+
+        if (trail.TryGetComponent(out KillObjectAfterTime killScript))
+        {
+            return killScript;
+        }
+
+        killScript = trail.gameObject.AddComponent<KillObjectAfterTime>();
+
+        killScript.Lifetime = trail.time;
+
+        return killScript;
     }
 }

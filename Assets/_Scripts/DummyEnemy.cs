@@ -16,6 +16,9 @@ public class DummyEnemy : MonoBehaviour
 
     [SerializeField] private Slider healthBar;
 
+    private Collider2D _col;
+    private SpriteRenderer _sr;
+
     private void Start()
     {
         _maxHealth = health;
@@ -25,17 +28,23 @@ public class DummyEnemy : MonoBehaviour
             healthBar.maxValue = _maxHealth;
             healthBar.value = _maxHealth;
         }
+
+        _col = GetComponent<Collider2D>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             health = _maxHealth;
             if (healthBar != null)
             {
                 healthBar.value = _maxHealth;
             }
+
+            _col.enabled = true;
+            _sr.enabled = true;
         }
     }
 
@@ -46,6 +55,12 @@ public class DummyEnemy : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.value = health;
+        }
+
+        if (health <= 0)
+        {
+            _col.enabled = false;
+            _sr.enabled = false;
         }
 
         DPSCounter.Add(damage);

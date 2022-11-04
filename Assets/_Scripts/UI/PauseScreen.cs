@@ -25,17 +25,19 @@ public class PauseScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P)) 
         {
-            if (panel.active)
+            // Changed from "panel.active" to "panel.activeSelf" - Ruben
+            // (It does exatly the same thing but doesn't spam any warning in the console)
+            if (panel.activeSelf)
             {
                 panel.SetActive(false);
-        Time.timeScale = 1;
+                Time.timeScale = 1;
             }
             else
             {
                 titleText.text = _CurrentLevelName; // Set the title 
                 text.text = $"Name: {HighScore.playerName} \nScore: {Score.playerScore} \nWeapond equiped: {_CurrentWeapond} \nAttempt: {_Attempt} \nTime elapsed: {_TimeElapsed} "; // Set some stats
                                 panel.SetActive(true);
-        Time.timeScale = 0;
+                Time.timeScale = 0;
             }
         } 
     }

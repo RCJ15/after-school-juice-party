@@ -273,10 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf9932091ec6f24fb5274f4ecd4c1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 5
   speed: 8
   lifetime: 8
   deathParticles: {fileID: 5187448969784771399}
+  trail: {fileID: 0}
+  constantParticles: {fileID: 0}
   rotate: {fileID: 3101747799341390335}
   rotateSpeed: 900
   timeUntilReturn: 1.2

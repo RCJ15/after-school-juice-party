@@ -12,6 +12,7 @@ public class PlayerShootManager : MonoBehaviour
 #endif
 
     private PlayerShoot[] _playerShoots;
+    private int _currentShotIndex;
     private int _playerShootsLength;
 
     private void Start()
@@ -20,14 +21,20 @@ public class PlayerShootManager : MonoBehaviour
         _playerShootsLength = _playerShoots.Length;
 
 #if UNITY_EDITOR
-        foreach (PlayerShoot shoot in _playerShoots)
+        for (int i = 0; i < _playerShootsLength; i++)
         {
+            PlayerShoot shoot = _playerShoots[i];
+            
+            if (shoot.gameObject == priority)
+            {
+                _currentShotIndex = i;
+                continue;
+            }
+
             shoot.gameObject.SetActive(false);
         }
-
-        priority.SetActive(true);
 #else
-        // Disable all but the first powerups
+        // Disable all but the first shots
         for (int i = 1; i < _playerShootsLength; i++)
         {
             _playerShoots[i].gameObject.SetActive(false);
@@ -37,6 +44,41 @@ public class PlayerShootManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            int index = _currentShotIndex;
+            index--;
+
+            if (index < 0) index = _playerShootsLength;
+
+            ChangeShot(index);
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            int index = _currentShotIndex;
+            index++;
+
+            if (index >= _playerShootsLength) index = 0;
+
+            ChangeShot(index);
+        }
+    }
+
+    private void ChangeShot(int index)
+    {
+        // Weapon is already equipped so return
+        if (_currentShotIndex == index)
+        {
+            return;
+        }
+
+        // Disable old shot
+        _playerShoots[_currentShotIndex].gameObject.SetActive(false);
+
+        // Set new shot
+        _currentShotIndex = index;
+
+        // Enable new shot
+        _playerShoots[_currentShotIndex].gameObject.SetActive(true);
     }
 }
