@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
+/// [Deprecated]
 /// </summary>
 public class KillObjectAfterTime : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class KillObjectAfterTime : MonoBehaviour
 
     private void Start()
     {
+        Destroy(gameObject, lifetime);
         StartCoroutine(Coroutine());
     }
 

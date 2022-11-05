@@ -22,7 +22,7 @@ public class CameraEffects : MonoBehaviour
     [SerializeField] float zoomedIn = 0;
     [SerializeField] float zoomedOut = 0;
 
-    Vector3 _StartPos;
+    Vector3 _CamStartPos;
     Coroutine _CurrentFadeRoutine;
     Coroutine _CurrentZoomRoutine;
 
@@ -31,7 +31,7 @@ public class CameraEffects : MonoBehaviour
     {
         _cam = Camera.main;
 
-        _StartPos = _cam.transform.position; // Start position of camera
+        _CamStartPos = _cam.transform.position; // Start position of camera
         flashImage.color = new Color(flashImage.color.r, flashImage.color.g, flashImage.color.b, 0); // Hide flash
         _cam.fieldOfView = zoomedOut; // Set camera size
     }
@@ -42,12 +42,12 @@ public class CameraEffects : MonoBehaviour
         if (shake)
         {
             Vector3 pos = Random.insideUnitCircle * intensity; // Shake
-            pos.z = _StartPos.z; // Remove z axis value
+            pos.z = _CamStartPos.z; // Remove z axis value
             _cam.transform.position = pos; // Apply to camera
         }
-        else if (_CurrentZoomRoutine == null && _cam.transform.position != _StartPos) // If position is not start position
+        else if (_CurrentZoomRoutine == null && _cam.transform.position != _CamStartPos) // If position is not start position
         {
-            _cam.transform.position = _StartPos; // Reset position
+            _cam.transform.position = _CamStartPos; // Reset position
         }
         if (flash || Input.GetKeyDown(KeyCode.S)) // Flash
         {
@@ -60,10 +60,10 @@ public class CameraEffects : MonoBehaviour
         }
         if (zoom || Input.GetKeyDown(KeyCode.Z)) // Flash
         {
+            zoom = false;
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -_cam.transform.position.z;
-            Zoom(zoomedIn, zoomedOut, zoomInDuration, zoomStayDuration, zoomOutDuration, _cam.ScreenToWorldPoint(mousePos));
-
+            Zoom(zoomedIn, zoomedOut, zoomInDuration, zoomStayDuration, zoomOutDuration, _cam.ScreenToWorldPoint(mousePos), _CamStartPos);
         }
     }
     IEnumerator Fade()
@@ -77,7 +77,6 @@ public class CameraEffects : MonoBehaviour
             flashImage.color = new Color(flashImage.color.r, flashImage.color.g, flashImage.color.b, timer / fadeDuration); // Apply fade
             yield return null;
         }
-
         flashImage.color = new Color(flashImage.color.r, flashImage.color.g, flashImage.color.b, 0); // Set alpha to zero after done to be sure
     }
 
@@ -91,40 +90,37 @@ public class CameraEffects : MonoBehaviour
     /// <param name="zoomOutDuration">Time during zooming out</param>
     /// <param name="zoomLocation">Place to come on to</param>
     /// <returns></returns>
-    public void Zoom(float zoomedInSize, float zoomedOutSize, float zoomInTime, float zoomedInStayDuration, float zoomOutTime, Vector3 zoomLocation)
+    public void Zoom(float zoomedInSize, float zoomedOutSize, float zoomInTime, float zoomedInStayDuration, float zoomOutTime, Vector3 zoomLocation, Vector3 endPosition)
     {
         zoomedIn = zoomedInSize;
         zoomedOut = zoomedOutSize;
         zoomInDuration = zoomInTime;
         zoomStayDuration = zoomedInStayDuration;
         zoomOutDuration = zoomOutTime;
+        _CamStartPos = endPosition;
 
         if (_CurrentZoomRoutine != null)
         {
             StopCoroutine(_CurrentZoomRoutine); // Stop current flash
         }
-
         _CurrentZoomRoutine = StartCoroutine(ZoomCoRut(zoomLocation)); // Start zoom
     }
     public IEnumerator ZoomCoRut(Vector3 zoomLocation)
     {
         float timer = zoomInDuration;
         zoomLocation.z = _cam.transform.position.z;
-        Vector3 oldCamPos = _cam.transform.position;
         while (timer > 0) // Zoom to in
         {
             timer -= Time.deltaTime;
 
-            float Easing(float x)
+                       float t = Easing.OutCubic(1 - (timer / zoomInDuration));
+
+            _cam.transform.position = Vector3.LerpUnclamped(_CamStartPos, zoomLocation, t);
+
+            try
             {
-                return 1 - Mathf.Pow(1 - x, 3);
+                _cam.orthographicSize = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t);
             }
-
-            float t = Easing(1 - (timer / zoomInDuration));
-
-            _cam.transform.position = Vector3.LerpUnclamped(oldCamPos, zoomLocation, t);
-
-            try { _cam.orthographicSize = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t); }
             catch (System.Exception)
             {
                 Debug.Log("Not orthographic size");
@@ -146,14 +142,9 @@ public class CameraEffects : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            float Easing(float x)
-            {
-                return x * x * x;
-            }
+            float t = Easing.InCubic (1 - (timer / zoomOutDuration));
 
-            float t = Easing(1 - (timer / zoomOutDuration));
-
-            _cam.transform.position = Vector3.Lerp(zoomLocation, oldCamPos, t);
+            _cam.transform.position = Vector3.Lerp(zoomLocation, _CamStartPos, t);
             try
             {
                 _cam.orthographicSize = Mathf.Lerp(zoomedIn, zoomedOut, t);
