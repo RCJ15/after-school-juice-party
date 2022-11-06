@@ -24,7 +24,7 @@ public class CameraEffects : MonoBehaviour
     [SerializeField] float zoomedIn = 0;
     [SerializeField] float zoomedOut = 0;
 
-    Vector3 _StartPos;
+    Vector3 _CamStartPos;
     Coroutine _CurrentFadeRoutine;
     Coroutine _CurrentZoomRoutine;
     float _maxShakeDuration;
@@ -54,6 +54,7 @@ public class CameraEffects : MonoBehaviour
         }
         if (zoom || Input.GetKeyDown(KeyCode.Z)) // Flash
         {
+            zoom = false;
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -transform.localPosition.z;
             Zoom(zoomedIn, zoomedOut, zoomInDuration, zoomStayDuration, zoomOutDuration, _cam.ScreenToWorldPoint(mousePos));
@@ -206,9 +207,13 @@ public class CameraEffects : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            float Easing(float x)
+                       float t = Easing.OutCubic(1 - (timer / zoomInDuration));
+
+            _cam.transform.position = Vector3.LerpUnclamped(_CamStartPos, zoomLocation, t);
+
+            try
             {
-                return 1 - Mathf.Pow(1 - x, 3);
+                _cam.orthographicSize = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t);
             }
 
             float t = Easing(1 - (timer / zoomInDuration));
@@ -244,10 +249,7 @@ public class CameraEffects : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            float Easing(float x)
-            {
-                return x * x * x;
-            }
+            float t = Easing.InCubic (1 - (timer / zoomOutDuration));
 
             float t = Easing(1 - (timer / zoomOutDuration));
 
