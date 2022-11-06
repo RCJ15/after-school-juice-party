@@ -16,6 +16,8 @@ public class PlayerShoot : MonoBehaviour
     [Header("Juice")]
     [SerializeField] protected ParticleSystem shootEffect;
     [SerializeField] protected bool animatePlayer = true;
+    [SerializeField] protected float shakeIntensity = 0.1f;
+    [SerializeField] protected float shakeDuration = 0.05f;
 
     protected Animator _playerAnim;
 
@@ -53,6 +55,11 @@ public class PlayerShoot : MonoBehaviour
         if (animatePlayer)
         {
             DoPlayerShootAnim();
+        }
+
+        if (shakeIntensity > 0 && shakeDuration > 0)
+        {
+            CameraEffects.Shake(shakeIntensity, shakeDuration);
         }
 
         _shootTimer = shootDelay;

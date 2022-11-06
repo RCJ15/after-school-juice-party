@@ -5103,9 +5103,11 @@ MonoBehaviour:
   trail: {fileID: 4345752217308595728}
   constantParticles: {fileID: 4018420173052117970}
   trailParticles: {fileID: 4018420173052117970}
-  enemySurviveChance: 0.7
+  flashColor: {r: 0, g: 1, b: 0, a: 0.14901961}
+  flashDuration: 0.5
+  enemySurviveChance: 0.65
   maxTimesSurvive: 10
-  rngDamage: {x: 0.1, y: 17}
+  rngDamage: {x: 0.1, y: 15}
   rngSize: {x: 0.3, y: 2.5}
   rngSpeed: {x: 3, y: 25}
   rngRotation: {x: -100, y: 100}

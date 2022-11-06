@@ -15,11 +15,11 @@ public class ButtonJuice : MonoBehaviour
     [Space(5)]
     [SerializeField] Vector2 rndSizeIntensityX;
     [SerializeField] Vector2 rndSizeIntensityY;
-    [Space]
+    
     [Header("Rotation")]
     [SerializeField] Vector2 rngspeedRot;
     [SerializeField] Vector2 rngintensityRot;
-    [Space]
+    
     [Header("Offset")]
     [SerializeField] float timer;
     [SerializeField] float fadeTimer;
@@ -29,8 +29,8 @@ public class ButtonJuice : MonoBehaviour
 
     private Vector3 _StartPos;
     private Vector3 _StartScale;
-  [  SerializeField]  UnityEngine.UI.Image background;
-    bool _Fade = true;
+    [SerializeField] UnityEngine.UI.Image background;
+    [SerializeField] bool fade = true;
 
     private void Start()
     {
@@ -60,8 +60,6 @@ public class ButtonJuice : MonoBehaviour
     {
         timer += Time.unscaledDeltaTime;
 
-
-
         float TempIntensityY = _IntensityY;
         float TempIntensityRot = _IntensityRot;
         float TempIntensityX = _IntensityX;
@@ -73,7 +71,6 @@ public class ButtonJuice : MonoBehaviour
         float TempSpeedX = _SpeedX;
         float TempSizeX = _SizeX;
         float TempSizeY = _SizeY;
-
 
         if (devideHundred)
         {
@@ -107,13 +104,13 @@ public class ButtonJuice : MonoBehaviour
         // Size
         transform.localScale = new Vector3(_StartScale.x + sinScaleX, _StartScale.y + sinScaleY, _StartScale.z);
 
-        if (_Fade) // Fade background
+        if (fade) // Fade background
         {
-            StartCoroutine(Fade());
-            _Fade = false;
+            StartCoroutine(FadeCoroutine());
+            fade = false;
         }
     }
-    private IEnumerator Fade()
+    private IEnumerator FadeCoroutine()
     {
         float currentTimer = fadeTimer;
         Color startColor = background.color;
@@ -131,6 +128,6 @@ public class ButtonJuice : MonoBehaviour
 
         background.CrossFadeColor(Random.ColorHSV(), fadeTimer, true, false);
         yield return new WaitForSecondsRealtime (fadeTimer);
-        _Fade = true;
+        fade = true;
     }
 }

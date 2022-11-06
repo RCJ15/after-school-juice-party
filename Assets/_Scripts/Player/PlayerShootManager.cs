@@ -49,7 +49,7 @@ public class PlayerShootManager : MonoBehaviour
             int index = _currentShotIndex;
             index--;
 
-            if (index < 0) index = _playerShootsLength;
+            if (index < 0) index = _playerShootsLength - 1;
 
             ChangeShot(index);
         }

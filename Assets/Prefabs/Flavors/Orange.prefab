@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b1da20d4a2f844aae567ba92793f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 0.5
+  shootDelay: 0.65
   spawnPoint: {fileID: 0}
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 3008680929992392312, guid: f6334df1ab0fa5142bbbf3d20e669eca, type: 3}

@@ -5004,7 +5004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fede3ed25de20614998a72af3fb75495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 2.5
   speed: 20
   lifetime: 0
   deathParticles: {fileID: 8404146225137960174}
@@ -5026,7 +5026,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.45
 --- !u!50 &7926004926312997743
 Rigidbody2D:
   serializedVersion: 4

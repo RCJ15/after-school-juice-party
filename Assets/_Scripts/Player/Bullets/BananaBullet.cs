@@ -12,10 +12,20 @@ public class BananaBullet : Bullet
 
     [Space]
     [SerializeField] protected float timeUntilReturn;
+    [SerializeField] protected Vector2 colliderReturnSize = new Vector2(1, 1);
     private float _returnLerpValue;
     private bool _return;
 
     [HideInInspector] public BananaShoot Shoot;
+
+    private BoxCollider2D _col;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _col = GetComponent<BoxCollider2D>();
+    }
 
     protected override void Update()
     {
@@ -38,7 +48,7 @@ public class BananaBullet : Bullet
         }
         else
         {
-            _return = true;
+            Return();
         }
     }
 
@@ -65,8 +75,12 @@ public class BananaBullet : Bullet
         // TEMPORARY
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
 
-        _return = true;
-        _returnLerpValue = 1;
+        if (!_return)
+        {
+            Return();
+
+            _returnLerpValue = 1;
+        }
 
         deathParticles.Play();
 
@@ -90,10 +104,17 @@ public class BananaBullet : Bullet
             return;
         }
 
-        _return = true;
+        Return();
+
         _returnLerpValue = 1;
 
         deathParticles.Play();
+    }
+
+    private void Return()
+    {
+        _col.size = colliderReturnSize;
+        _return = true;
     }
 
     protected override void Die()
@@ -104,4 +125,13 @@ public class BananaBullet : Bullet
 
         Shoot.BananaDies(this);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireCube(transform.position, colliderReturnSize);
+    }
+#endif
 }

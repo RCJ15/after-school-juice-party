@@ -28,6 +28,10 @@ public class CherryBullet : Bullet
         // EXPLODE!!!
         explosion.HitEnemies.Add(enemy.gameObject);
 
+        explosion.Damage = damage;
+        explosion.transform.SetParent(null);
+        explosion.gameObject.SetActive(true);
+
         return base.OnCollideWithEnemy(col, enemy);
     }
 
@@ -36,10 +40,6 @@ public class CherryBullet : Bullet
         GameObject obj = Instantiate(cherrySeedBullet, transform.position, Quaternion.identity);
 
         obj.transform.up = rb.velocity.normalized;
-
-        explosion.Damage = damage;
-        explosion.transform.SetParent(null);
-        explosion.gameObject.SetActive(true);
 
         base.Die();
     }

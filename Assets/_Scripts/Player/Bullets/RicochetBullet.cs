@@ -14,6 +14,16 @@ public class RicochetBullet : Bullet
     protected int timesBounced;
     [SerializeField] protected int pierce = 0;
     protected int timesPierce;
+    [SerializeField] protected Explosion explosion;
+
+    private Animator _anim;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        _anim = GetComponent<Animator>();
+    }
 
     protected override void OnCollideWithWall(Collider2D col)
     {
@@ -76,12 +86,25 @@ public class RicochetBullet : Bullet
         Vector3 oldNormal = transform.up;
         transform.up = Vector2.Reflect(transform.up, meanNormal);
 
-        hitWallParticles.transform.up = (oldNormal + transform.up) / 2;
+        hitWallParticles.transform.up = transform.up;
         hitWallParticles.Play();
+
+        if (_anim != null)
+        {
+            _anim.SetTrigger("Boing");
+        }
     }
 
     protected override void Die()
     {
+        // EXPLODE (if it exists)
+        if (explosion != null)
+        {
+            explosion.Damage = damage;
+            explosion.transform.SetParent(null);
+            explosion.gameObject.SetActive(true);
+        }
+
         base.Die();
 
         DetachParticleSystem(hitWallParticles);

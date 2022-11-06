@@ -273,8 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf9932091ec6f24fb5274f4ecd4c1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  speed: 8
+  damage: 6.5
+  speed: 9
   lifetime: 8
   deathParticles: {fileID: 5187448969784771399}
   trail: {fileID: 0}
@@ -282,6 +282,7 @@ MonoBehaviour:
   rotate: {fileID: 3101747799341390335}
   rotateSpeed: 900
   timeUntilReturn: 1.2
+  colliderReturnSize: {x: 1, y: 2}
   Shoot: {fileID: 0}
 --- !u!50 &8892766304349670575
 Rigidbody2D:

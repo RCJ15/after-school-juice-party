@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 819674669523956751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1672486038986175524}
@@ -5003,8 +5003,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47dc7737f5ad8c468bf29b59256ac2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6
-  speed: 10
+  damage: 7.5
+  speed: 15
   lifetime: 3
   deathParticles: {fileID: 2056580382067420051}
   trail: {fileID: 6061991286602910242}
@@ -5045,7 +5045,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.25
 --- !u!1 &8855488491695603459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5071,7 +5071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8855488491695603459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5120,10 +5120,10 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.25
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.2
+    widthMultiplier: 0.25
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -5167,7 +5167,7 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 4587
+      atime1: 2699
       atime2: 65535
       atime3: 0
       atime4: 0

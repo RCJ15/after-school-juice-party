@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     }
 
     //Funktion med rörelse kod.
-    public void Move()
+    protected virtual void Move()
     {
         timer += Time.deltaTime;
 

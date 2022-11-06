@@ -48,4 +48,6 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0
+  shakeDuration: 0
   bullet: {fileID: 8515840696888044305, guid: 7104e17279ba7f048bd5017e82c94e20, type: 3}

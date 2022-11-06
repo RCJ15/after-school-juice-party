@@ -8,6 +8,8 @@ using UnityEngine;
 public class CodeBullet : Bullet
 {
     [SerializeField] protected ParticleSystem trailParticles;
+    [SerializeField] protected Color flashColor = Color.green;
+    [SerializeField] protected float flashDuration = 0.15f;
 
     [Header("Code Bullet")]
     [SerializeField] protected float enemySurviveChance = 0.3f;
@@ -30,13 +32,15 @@ public class CodeBullet : Bullet
         trail.widthMultiplier = _startSize.magnitude / 2;
 
         RandomizeStats(false);
+
+        CameraEffects.Flash(flashDuration, flashColor);
     }
 
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // TEMPORARY
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
-        
+
         if (timesSurvived >= maxTimesSurvive || Random.value > enemySurviveChance)
         {
             Die();

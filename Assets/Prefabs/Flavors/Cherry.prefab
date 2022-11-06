@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b1da20d4a2f844aae567ba92793f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 0.825
+  shootDelay: 0.7
   spawnPoint: {fileID: 0}
   shootEffect: {fileID: 0}
   animatePlayer: 1
