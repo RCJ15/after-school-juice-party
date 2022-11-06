@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6392291907827919746}
   - component: {fileID: 704826272492450358}
   m_Layer: 0
-  m_Name: Pomagranate seed
+  m_Name: PomagranateSeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

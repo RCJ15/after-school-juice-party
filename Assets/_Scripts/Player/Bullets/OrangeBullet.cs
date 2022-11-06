@@ -9,6 +9,7 @@ public class OrangeBullet : GravityBullet
     [SerializeField] protected float sliceRange = 90;
     [SerializeField] protected GameObject slice;
     [SerializeField] protected Explosion explosion;
+    private bool _hasExplosion;
 
     protected Vector3 explosionStartScale;
     protected float startRot;
@@ -17,14 +18,22 @@ public class OrangeBullet : GravityBullet
     {
         base.Awake();
 
-        explosionStartScale = explosion.transform.localScale;
+        _hasExplosion = explosion != null;
+
+        if (_hasExplosion)
+        {
+            explosionStartScale = explosion.transform.localScale;
+        }
         startRot = transform.eulerAngles.z;
     }
 
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
-        // EXPLODE!!!
-        explosion.HitEnemies.Add(enemy.gameObject);
+        if (_hasExplosion)
+        {
+            // EXPLODE!!!
+            explosion.HitEnemies.Add(enemy.gameObject);
+        }
 
         return base.OnCollideWithEnemy(col, enemy);
     }
@@ -41,11 +50,14 @@ public class OrangeBullet : GravityBullet
             Instantiate(slice, transform.position, rot, transform.parent);
         }
 
-        // EXPLODE!!!
-        explosion.Damage = damage;
-        explosion.transform.SetParent(null);
-        explosion.gameObject.SetActive(true);
-        explosion.transform.localScale = explosionStartScale;
+        if (_hasExplosion)
+        {
+            // EXPLODE!!!
+            explosion.Damage = damage;
+            explosion.transform.SetParent(null);
+            explosion.gameObject.SetActive(true);
+            explosion.transform.localScale = explosionStartScale;
+        }
 
         base.Die();
     }

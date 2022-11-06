@@ -24,7 +24,7 @@ public class CameraEffects : MonoBehaviour
     [SerializeField] float zoomedIn = 0;
     [SerializeField] float zoomedOut = 0;
 
-    Vector3 _CamStartPos;
+    Vector3 _StartPos;
     Coroutine _CurrentFadeRoutine;
     Coroutine _CurrentZoomRoutine;
     float _maxShakeDuration;
@@ -207,16 +207,7 @@ public class CameraEffects : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-                       float t = Easing.OutCubic(1 - (timer / zoomInDuration));
-
-            _cam.transform.position = Vector3.LerpUnclamped(_CamStartPos, zoomLocation, t);
-
-            try
-            {
-                _cam.orthographicSize = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t);
-            }
-
-            float t = Easing(1 - (timer / zoomInDuration));
+            float t = Easing.OutCubic(1 - (timer / zoomInDuration));
 
             transform.localPosition = Vector3.LerpUnclamped(oldCamPos, zoomLocation, t);
 
@@ -251,9 +242,8 @@ public class CameraEffects : MonoBehaviour
 
             float t = Easing.InCubic (1 - (timer / zoomOutDuration));
 
-            float t = Easing(1 - (timer / zoomOutDuration));
-
             transform.localPosition = Vector3.Lerp(zoomLocation, oldCamPos, t);
+
             try
             {
                 _cam.orthographicSize = Mathf.Lerp(zoomedIn, zoomedOut, t);
