@@ -93,7 +93,7 @@ public class WeaponHUD : MonoBehaviour // - Ruben
             tutorialText.SetActive(true);
         }
 
-        SetCard(newCard, weapon);
+        SetCard(newCard, weapon, false);
 
         if (playAnim)
         {
@@ -106,13 +106,13 @@ public class WeaponHUD : MonoBehaviour // - Ruben
         tutorialText.SetActive(false);
     }
 
-    public void SetCard(int index, PlayerShoot weapon)
+    public void SetCard(int index, PlayerShoot weapon, bool doAnim = true)
     {
-        SetCard(_cards[index], weapon);
+        SetCard(_cards[index], weapon, doAnim);
     }
 
-    public void SetCard(WeaponCard card, PlayerShoot weapon)
+    public void SetCard(WeaponCard card, PlayerShoot weapon, bool doAnim = true)
     {
-        card.Set(weapon);
+        card.Set(weapon, doAnim);
     }
 }

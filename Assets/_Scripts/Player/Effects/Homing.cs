@@ -11,6 +11,7 @@ public class Homing : MonoBehaviour
     */
     [Tooltip("Speed of rotation")]
     [SerializeField] float rotateSpeed = 200f;
+    [SerializeField] float minDistance = 4;
     [SerializeField] GameObject crossHair;
     bool foundTarget;
     Transform _target;
@@ -49,7 +50,8 @@ public class Homing : MonoBehaviour
             Debug.Log("Added " + enemys.Count + " Enemys to " + nameOfEnemysParent);
         }
         */
-        SetTarget();
+
+        InvokeRepeating(nameof(SetTarget), 0, 0.05f);
     }
     private void FixedUpdate()
     {
@@ -68,14 +70,7 @@ public class Homing : MonoBehaviour
 
     void SetTarget()
     {
-        //float oldDistance = 100000000000000; // Start of very big
-
-        // We can use a nullable float instead of setting it to a big number
-        // Any value can be set as nullable using a ? after the data type
-        // Making a variable nullable means it can be null
-        // Essentially we are going to set this to start of null and then be set to value after finding a enemy
-        // - Ruben
-        float? oldDistance = null;
+        float oldDistance = minDistance; // Start of very big
 
         _target = null;
 
@@ -88,9 +83,7 @@ public class Homing : MonoBehaviour
 
             float distance = Vector3.Distance(enemy.transform.position, transform.position); // Find the distance between us and enemy
 
-            // We now check if EITHER the old value has NO VALUE (as in it's null) or if the distance is smaller - Ruben
-            // Notice how we have to use "Value" here \/ \/ \/ \/ \/ \/ This is because we can't compare a nullable float to a regular float so we just get the value with "Value" - Ruben
-            if (!oldDistance.HasValue || distance < oldDistance.Value) // Find the smallest distance value
+            if (distance < oldDistance) // Find the smallest distance value
             {
                 oldDistance = distance;
                 _target = enemy.transform;

@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   haveAllWeapons: 0
-  priority: {fileID: 8456575393379595314}
+  prioritizedWeapon: {fileID: 0}
 --- !u!1 &8079559240379152506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10080,7 +10080,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 233286683707499496, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_Name
-      value: InstaKill
+      value: Insta Kill
       objectReference: {fileID: 0}
     - target: {fileID: 521442235392779962, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: spawnPoint
@@ -10559,11 +10559,6 @@ PrefabInstance:
 --- !u!4 &7998114034391170653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6723575422466927524, guid: a664ce46bb25e3d4196f5d6931943667, type: 3}
-  m_PrefabInstance: {fileID: 3725024929129928185}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8456575393379595314 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5109959313786446283, guid: a664ce46bb25e3d4196f5d6931943667, type: 3}
   m_PrefabInstance: {fileID: 3725024929129928185}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4425609361775197414

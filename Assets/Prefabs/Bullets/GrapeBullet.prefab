@@ -5090,7 +5090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 15
-  lifetime: 0
+  lifetime: 5
   deathParticles: {fileID: 5057666617748513888}
   trail: {fileID: 0}
   constantParticles: {fileID: 0}
@@ -5106,7 +5106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4489a3110e1d2478fec75d26723792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 360
+  rotateSpeed: 450
+  minDistance: 6
   crossHair: {fileID: 1819213675504206391}
 --- !u!50 &2614896518331761154
 Rigidbody2D:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8764297899417241407}
   - component: {fileID: 521442235392779962}
   m_Layer: 3
-  m_Name: InstaKill
+  m_Name: Insta Kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

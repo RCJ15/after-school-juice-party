@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.2
   spawnPoint: {fileID: 0}
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 045fdaea2fa3b354285c73ef6b8ee78e, type: 3}
   Description: Bouncy Blue Berries TM (BBB)
   Color: {r: 0.65836906, g: 0.37169808, b: 1, a: 1}
   AttackStat: 2

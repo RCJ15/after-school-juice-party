@@ -19,6 +19,7 @@ public class WeaponCard : MonoBehaviour // - Ruben
 
     private WeaponHUD _hud;
     private Animator _anim;
+    private PlayerShoot _weapon;
 
     private void Awake()
     {
@@ -27,25 +28,41 @@ public class WeaponCard : MonoBehaviour // - Ruben
         _anim = GetComponentInChildren<Animator>();
     }
 
-    public void Set(PlayerShoot weapon)
+    public void Set(PlayerShoot weapon, bool doAnim = true)
     {
-        nameText.text = weapon.name;
-        nameText.colorGradient = new VertexGradient(
-            _hud.TemplateGradient.topLeft,                         // Top left
-            weapon.Color * _hud.TemplateGradient.topRight,         // Top right
-            weapon.Color * _hud.TemplateGradient.bottomLeft,       // Bottom left
-            weapon.Color * _hud.TemplateGradient.bottomRight       // Bottom right
-            );
+        _weapon = weapon;
 
-        sprite.sprite = weapon.Sprite;
-        atkStat.text = GetStatString(weapon.AttackStat);
-        utilStat.text = GetStatString(weapon.UtilityStat);
-        cvrgStat.text = GetStatString(weapon.CoverageStat);
+        if (doAnim)
+        {
+            _anim.SetTrigger("Change");
+
+            Invoke(nameof(UpdateCard), 0.175f);
+        }
+        else
+        {
+            UpdateCard();
+        }
     }
 
     public void PlaySpawnAnim()
     {
         _anim.SetTrigger("Spawn");
+    }
+
+    public void UpdateCard()
+    {
+        nameText.text = _weapon.name;
+        nameText.colorGradient = new VertexGradient(
+            _hud.TemplateGradient.topLeft,                         // Top left
+            _weapon.Color * _hud.TemplateGradient.topRight,         // Top right
+            _weapon.Color * _hud.TemplateGradient.bottomLeft,       // Bottom left
+            _weapon.Color * _hud.TemplateGradient.bottomRight       // Bottom right
+            );
+
+        sprite.sprite = _weapon.Sprite;
+        atkStat.text = GetStatString(_weapon.AttackStat);
+        utilStat.text = GetStatString(_weapon.UtilityStat);
+        cvrgStat.text = GetStatString(_weapon.CoverageStat);
     }
 
     public VertexGradient GetGradient() => nameText.colorGradient;

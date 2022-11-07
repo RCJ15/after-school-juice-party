@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.1
   spawnPoint: {fileID: 0}
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 64733704, guid: cd8304f0a4b20214780cb9bfc3411f3e, type: 3}
   Description: Just 5 banana boomerangs.
   Color: {r: 1, g: 0.8711137, b: 0.24905658, a: 1}
   AttackStat: 4

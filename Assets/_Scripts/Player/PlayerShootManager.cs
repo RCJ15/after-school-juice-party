@@ -79,6 +79,20 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             AddWeapon(_weaponAmount, true);
         }
 
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            int newWeapon = _equippedWeapons[0];
+
+            newWeapon++;
+
+            if (newWeapon >= _playerShootsLength)
+            {
+                newWeapon = 0;
+            }
+
+            ChangeWeapon(0, newWeapon);
+        }
+
         if (_weaponAmount <= 1)
         {
             return;
@@ -95,6 +109,7 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             }
 
             _hud.SelectedCard = index;
+            _selectedWeapon = index;
 
             _hud.DisappearTutorialText();
 
@@ -111,6 +126,7 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             }
 
             _hud.SelectedCard = index;
+            _selectedWeapon = index;
 
             _hud.DisappearTutorialText();
 
@@ -129,7 +145,7 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         _selectedWeapon = weaponIndex;
         _hud.SelectedCard = weaponIndex;
 
-        ChangeShot(_equippedWeapons[weaponIndex]);
+        ChangeShot(weaponIndex);
 
         if (doAnims)
         {
@@ -144,10 +160,10 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         _hud.SetCard(index, _playerShoots[newWeapon]);
 
-        _selectedWeapon = newWeapon;
-        _hud.SelectedCard = newWeapon;
+        _selectedWeapon = index;
+        _hud.SelectedCard = index;
 
-        ChangeShot(_equippedWeapons[newWeapon]);
+        ChangeShot(newWeapon);
 
         // Popup!
         _popup.Popup(_playerShoots[_currentShotIndex]);
