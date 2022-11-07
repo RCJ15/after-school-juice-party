@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -cam.transform.position.z;
-            score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+            Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
 
             Debug.Log(mousePos);
             Debug.Log(cam);
@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
            //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
            Vector3 mousePos = Input.mousePosition;
            mousePos.z = -cam.transform.position.z;
-           score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+           Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
 
            //funkar ???
            CameraEffects.Shake(1, 1);

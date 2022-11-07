@@ -58,7 +58,7 @@ public class Score : MonoBehaviour
     /// </summary>
     /// <param name="points">Amount of points to spawn in world.</param>
     /// <param name="location">Location to spawn at in WORLD SPACE</param>
-    public static void AddPoitns(int points, Vector3 location)
+    public static void AddPoints(int points, Vector3 location)
     {
         Instance.AddPointsLocal(points, location);
     }
