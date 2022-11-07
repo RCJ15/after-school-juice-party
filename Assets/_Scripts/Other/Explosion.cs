@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float shakeIntesity;
     [SerializeField] private float shakeDuration;
     [Space]
+    [SerializeField] private float flashHoldDuration;
     [SerializeField] private float flashDuration;
     [SerializeField] private Color flashColor = Color.white;
     [Space]
@@ -25,9 +26,20 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
-        CameraEffects.Shake(shakeIntesity, shakeDuration);
-        CameraEffects.Flash(flashDuration, flashColor);
-        CameraEffects.Zoom(zoomAmount, zoomDuration, Vector3.zero);
+        if (shakeIntesity > 0 && shakeDuration > 0)
+        {
+            CameraEffects.Shake(shakeIntesity, shakeDuration);
+        }
+
+        if (flashDuration > 0 || flashHoldDuration > 0)
+        {
+            CameraEffects.Flash(flashHoldDuration, flashDuration, flashColor);
+        }
+
+        if (zoomAmount > 0 && zoomDuration > 0)
+        {
+            CameraEffects.Zoom(zoomAmount, zoomDuration, Vector3.zero);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -41,5 +53,19 @@ public class Explosion : MonoBehaviour
 
         // TEMPORARY
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
+    }
+
+    public void Explode(float damage, Vector3 scale)
+    {
+        Explode(damage);
+
+        transform.localScale = scale;
+    }
+
+    public void Explode(float damage)
+    {
+        Damage = damage;
+        transform.SetParent(null);
+        gameObject.SetActive(true);
     }
 }

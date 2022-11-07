@@ -100,9 +100,7 @@ public class RicochetBullet : Bullet
         // EXPLODE (if it exists)
         if (explosion != null)
         {
-            explosion.Damage = damage;
-            explosion.transform.SetParent(null);
-            explosion.gameObject.SetActive(true);
+            explosion.Explode(damage);
         }
 
         base.Die();

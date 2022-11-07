@@ -5163,8 +5163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ee9c1b3e6242c4f933f0654f61c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  haveAllWeapons: 0
-  prioritizedWeapon: {fileID: 0}
+  haveAllWeapons: 1
+  prioritizedWeapon: {fileID: 1949885002964235008}
 --- !u!1 &8079559240379152506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10346,6 +10346,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e0c36e331d901345821a71f76b19121, type: 3}
+--- !u!1 &1949885002964235008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156643334428431625, guid: 0e0c36e331d901345821a71f76b19121, type: 3}
+  m_PrefabInstance: {fileID: 1811538161604584969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3727389647497679763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3069688575823984026, guid: 0e0c36e331d901345821a71f76b19121, type: 3}

@@ -53,10 +53,7 @@ public class OrangeBullet : GravityBullet
         if (_hasExplosion)
         {
             // EXPLODE!!!
-            explosion.Damage = damage;
-            explosion.transform.SetParent(null);
-            explosion.gameObject.SetActive(true);
-            explosion.transform.localScale = explosionStartScale;
+            explosion.Explode(damage, explosionStartScale);
         }
 
         base.Die();

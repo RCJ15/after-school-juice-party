@@ -34,6 +34,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         _hud = WeaponHUD.Instance;
 
 #if UNITY_EDITOR
+        int weapon = -1;
+
         for (int i = 0; i < _playerShootsLength; i++)
         {
             PlayerShoot shoot = _playerShoots[i];
@@ -43,18 +45,18 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
                 AddWeapon(i, false);
             }
 
-            if (prioritizedWeapon != null && shoot.gameObject == prioritizedWeapon)
+            if (weapon <= -1 && prioritizedWeapon != null && shoot.gameObject == prioritizedWeapon)
             {
-                _currentShotIndex = i;
+                weapon = i;
                 continue;
             }
 
             shoot.gameObject.SetActive(false);
         }
 
-        if (!haveAllWeapons)
+        if (!haveAllWeapons && weapon > 0)
         {
-            AddWeapon(_currentShotIndex, false);
+            AddWeapon(weapon, false);
         }
 
         if (prioritizedWeapon == null)

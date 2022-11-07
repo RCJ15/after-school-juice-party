@@ -7,6 +7,8 @@ using System.IO;
 
 public class Score : MonoBehaviour
 {
+    public static Score Instance;
+
     public static int PlayerScore = 0;
 
     [SerializeField] GameObject pointTxt;
@@ -17,6 +19,11 @@ public class Score : MonoBehaviour
     int _oldScore = 0;
 
     Color scoreColor = new Color(1, 1, 1, 1); // The color of the scor text
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +39,7 @@ public class Score : MonoBehaviour
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -cam.transform.position.z;
-            AddPoints(Random.Range(20, 100), cam.ScreenToWorldPoint(mousePos));
+            AddPointsLocal(Random.Range(20, 100), cam.ScreenToWorldPoint(mousePos));
         }
         
         if (PlayerScore != _oldScore) // Update score
@@ -51,7 +58,12 @@ public class Score : MonoBehaviour
     /// </summary>
     /// <param name="points">Amount of points to spawn in world.</param>
     /// <param name="location">Location to spawn at in WORLD SPACE</param>
-    public void AddPoints(int points, Vector3 location) // Give points to player
+    public static void AddPoitns(int points, Vector3 location)
+    {
+        Instance.AddPointsLocal(points, location);
+    }
+
+    private void AddPointsLocal(int points, Vector3 location) // Give points to player
     {
         PlayerScore += points; // Add points to score
         GameObject newText = Instantiate(pointTxt, cam.WorldToScreenPoint(location), Quaternion.identity, transform); // Spawn the text

@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b1da20d4a2f844aae567ba92793f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 2
+  shootDelay: 2.5
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
-  Description: 96% water, 3% cucumber, 208% HOMING MISSLE OF DOOM!!!
+  Description: '96% water, 3% cucumber, 208% HOMING MISSLE OF DOOM!!! DISCLAIMER:
+    Only 5 uses.'
   Color: {r: 0.032563407, g: 0.4528302, b: 0, a: 1}
   AttackStat: 5
   UtilityStat: 1

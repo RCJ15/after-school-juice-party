@@ -27,10 +27,7 @@ public class CherryBullet : Bullet
     {
         // EXPLODE!!!
         explosion.HitEnemies.Add(enemy.gameObject);
-
-        explosion.Damage = damage;
-        explosion.transform.SetParent(null);
-        explosion.gameObject.SetActive(true);
+        explosion.Explode(damage);
 
         return base.OnCollideWithEnemy(col, enemy);
     }

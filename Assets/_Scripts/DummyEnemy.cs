@@ -16,6 +16,8 @@ public class DummyEnemy : MonoBehaviour
 
     [SerializeField] private Slider healthBar;
 
+    public bool IsAlive => health > 0;
+
     private Collider2D _col;
     private SpriteRenderer _sr;
 

@@ -72,7 +72,10 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    protected bool CheckLayer(GameObject obj, LayerMask mask) => mask == (mask | (1 << obj.layer));
+    protected bool CheckLayer(GameObject obj, LayerMask mask)
+    {
+        return mask == (mask | (1 << obj.layer));
+    }
 
     protected virtual void OnTriggerStay2D(Collider2D col)
     {

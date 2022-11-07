@@ -60,6 +60,12 @@ public class Homing : MonoBehaviour
             return;
         }
 
+        if (_target == null)
+        {
+            foundTarget = false;
+            return;
+        }
+
         // Home towards the target
         Vector2 direction = (Vector2)_target.position - rb.position;
         direction.Normalize();
@@ -68,15 +74,20 @@ public class Homing : MonoBehaviour
         rb.angularVelocity = -rotateAmount * rotateSpeed;
     }
 
-    void SetTarget()
+    private void SetTarget()
     {
+        if (foundTarget)
+        {
+            return;
+        }
+
         float oldDistance = minDistance; // Start of very big
 
         _target = null;
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) // Find closest enemy
         {
-            if (!enemy.activeSelf) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
+            if (!enemy.GetComponent<DummyEnemy>().IsAlive) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
             {
                 continue;
             }
@@ -98,11 +109,17 @@ public class Homing : MonoBehaviour
 
         foundTarget = true;
 
-        GameObject newCrossHair = Instantiate(crossHair, _target.position, _target.rotation, _target); // Show croshair
-        newCrossHair.SetActive(true);
+        if (crossHair == null)
+        {
+            return;
+        }
+
+        crossHair.SetActive(true);
+        crossHair.transform.SetParent(null);
+        crossHair.transform.position = _target.position;
 
         // StartCoroutine( Fade(newCrossHair.GetComponent<SpriteRenderer>())); // Fade out
-        Destroy(newCrossHair, 1.5f); // Destroy after 1.5 seconds
+        Destroy(crossHair, 3); // Destroy after 3 seconds
     }
     /*
     IEnumerator Fade(SpriteRenderer sprite)
