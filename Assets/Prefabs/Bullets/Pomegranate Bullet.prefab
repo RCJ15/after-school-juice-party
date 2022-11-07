@@ -9837,7 +9837,7 @@ GameObject:
   - component: {fileID: 3059897776939220379}
   - component: {fileID: 4387544116375988746}
   m_Layer: 3
-  m_Name: PomagranateBullet
+  m_Name: Pomegranate Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9874,15 +9874,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  speed: 2
+  speed: 15
   lifetime: 0
   deathParticles: {fileID: 4401006215866188869}
+  trail: {fileID: 0}
+  constantParticles: {fileID: 0}
+  rotateTowardsVelocity: 0
   sliceAmount: {x: 50, y: 100}
+  sliceRange: 360
   slice: {fileID: 3334393482399580393, guid: 682ca7e6276a11d4e968bde73abcbca0, type: 3}
-  sliceSpeed: 15
-  hitWallParticles: {fileID: 4475255936072936508}
-  maxBounces: 1
-  pierce: 0
+  explosion: {fileID: 0}
 --- !u!50 &3059897776939220379
 Rigidbody2D:
   serializedVersion: 4

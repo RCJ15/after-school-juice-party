@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.25
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: These deadly sour berries quickly turn harmless and sweet
+  Color: {r: 1, g: 0.29622638, b: 0.29622638, a: 1}
+  AttackStat: 5
+  UtilityStat: 2
+  CoverageStat: 1
+  DmgTypes: 00000000
+  Special: Loses damage whilst travelling
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

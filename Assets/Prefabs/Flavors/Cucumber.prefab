@@ -46,6 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 2
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: 96% water, 3% cucumber, 208% HOMING MISSLE OF DOOM!!!
+  Color: {r: 0.032563407, g: 0.4528302, b: 0, a: 1}
+  AttackStat: 5
+  UtilityStat: 1
+  CoverageStat: 5
+  DmgTypes: 02000000
+  Special: Homing missile
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 2753658558322384463, guid: 108c178a6a1781740adfadab956907ae, type: 3}

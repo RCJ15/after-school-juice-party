@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.1
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: Just 5 banana boomerangs.
+  Color: {r: 1, g: 0.8711137, b: 0.24905658, a: 1}
+  AttackStat: 4
+  UtilityStat: 2
+  CoverageStat: 4
+  DmgTypes: 00000000
+  Special: There can only be 5 at once
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0

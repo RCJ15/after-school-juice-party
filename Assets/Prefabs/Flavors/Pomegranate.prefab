@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6029816372718022925}
   - component: {fileID: 8107326337649610068}
   m_Layer: 3
-  m_Name: Pomagranate
+  m_Name: Pomegranate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 1
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: Pomegranate? More like pomeGRENADE!!!
+  Color: {r: 1, g: 0, b: 0, a: 1}
+  AttackStat: 4
+  UtilityStat: 1
+  CoverageStat: 5
+  DmgTypes: 02000000
+  Special: Splits into many weak seeds
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 9189754735550505913, guid: 214a80fba8c9e3142ac9d59aa3ec8946, type: 3}

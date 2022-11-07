@@ -12,8 +12,10 @@ public class Strawberry : Bullet
     [SerializeField] Color startColor;
     [SerializeField] Color ripeColor;
 
-  void  Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         StartCoroutine(Ripen());
     }
     IEnumerator Ripen()

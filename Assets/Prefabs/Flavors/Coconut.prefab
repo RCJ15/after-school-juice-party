@@ -46,6 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.5
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: Big bouncy explosive coconuts
+  Color: {r: 0.3679245, g: 0.18680589, b: 0.08122106, a: 1}
+  AttackStat: 4
+  UtilityStat: 1
+  CoverageStat: 3
+  DmgTypes: 0100000002000000
+  Special: Ricochet & explodes
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 6646959976239976767, guid: cd5ab1ab71abb6c4c83b130db9a2983e, type: 3}

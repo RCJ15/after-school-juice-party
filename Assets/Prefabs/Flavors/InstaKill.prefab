@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.3
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: DEBUG!!!
+  Color: {r: 0.43835258, g: 0, b: 1, a: 1}
+  AttackStat: 9999
+  UtilityStat: -1
+  CoverageStat: -1
+  DmgTypes: 00000000010000000200000003000000
+  Special: DEBUG!!!
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

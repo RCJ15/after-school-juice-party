@@ -5090,9 +5090,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 0
+  speed: 10
   lifetime: 0
   deathParticles: {fileID: 6707316862046880224}
+  trail: {fileID: 0}
+  constantParticles: {fileID: 0}
 --- !u!114 &437606978350490659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,9 +5107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4489a3110e1d2478fec75d26723792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfEnemysParent: Enemies
-  speed: 10
-  rotateSpeed: 100
+  rotateSpeed: 360
   crossHair: {fileID: 151566478854629303}
 --- !u!114 &3905487305741528684
 MonoBehaviour:

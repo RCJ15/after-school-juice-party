@@ -5139,7 +5139,6 @@ Transform:
   - {fileID: 3865251012252383194}
   - {fileID: 6222488469473718538}
   - {fileID: 4009074382974091002}
-  - {fileID: 6515018226842312782}
   - {fileID: 4185751827698287397}
   - {fileID: 7393482536904883616}
   - {fileID: 7881001556167384883}
@@ -5147,6 +5146,7 @@ Transform:
   - {fileID: 1015609621694536583}
   - {fileID: 7336577647253177591}
   - {fileID: 3727389647497679763}
+  - {fileID: 6515018226842312782}
   - {fileID: 8922017302270539195}
   m_Father: {fileID: 7097723222665748408}
   m_RootOrder: 4
@@ -5163,7 +5163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ee9c1b3e6242c4f933f0654f61c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: {fileID: 4817221877724269799}
+  haveAllWeapons: 0
+  priority: {fileID: 8456575393379595314}
 --- !u!1 &8079559240379152506
 GameObject:
   m_ObjectHideFlags: 0
@@ -10161,7 +10162,7 @@ PrefabInstance:
       objectReference: {fileID: 2033733123258936504}
     - target: {fileID: 7871305580359118734, guid: 83dee34de1c12c3458dd44c5a8a9cc05, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7871305580359118734, guid: 83dee34de1c12c3458dd44c5a8a9cc05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10219,7 +10220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2171549387784026773, guid: f183100a54e85494bb9b0cb9499ea27e, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2171549387784026773, guid: f183100a54e85494bb9b0cb9499ea27e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10263,7 +10264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2709237130688224107, guid: f183100a54e85494bb9b0cb9499ea27e, type: 3}
       propertyPath: m_Name
-      value: StrawBerry
+      value: Strawberry
       objectReference: {fileID: 0}
     - target: {fileID: 4883718406254447635, guid: f183100a54e85494bb9b0cb9499ea27e, type: 3}
       propertyPath: spawnPoint
@@ -10301,7 +10302,7 @@ PrefabInstance:
       objectReference: {fileID: 2033733123258936504}
     - target: {fileID: 3069688575823984026, guid: 0e0c36e331d901345821a71f76b19121, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3069688575823984026, guid: 0e0c36e331d901345821a71f76b19121, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10359,7 +10360,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6029816372718022925, guid: 626ec90a0633f2145b077169f9c8d346, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6029816372718022925, guid: 626ec90a0633f2145b077169f9c8d346, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10403,7 +10404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6121852581306874748, guid: 626ec90a0633f2145b077169f9c8d346, type: 3}
       propertyPath: m_Name
-      value: Pomagranate
+      value: Pomegranate
       objectReference: {fileID: 0}
     - target: {fileID: 8107326337649610068, guid: 626ec90a0633f2145b077169f9c8d346, type: 3}
       propertyPath: spawnPoint
@@ -10560,6 +10561,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6723575422466927524, guid: a664ce46bb25e3d4196f5d6931943667, type: 3}
   m_PrefabInstance: {fileID: 3725024929129928185}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8456575393379595314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5109959313786446283, guid: a664ce46bb25e3d4196f5d6931943667, type: 3}
+  m_PrefabInstance: {fileID: 3725024929129928185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4425609361775197414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10628,11 +10634,6 @@ PrefabInstance:
 --- !u!4 &350478215462626377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4159015226876450991, guid: 290f40545237a8548bec82950ffa834c, type: 3}
-  m_PrefabInstance: {fileID: 4425609361775197414}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4817221877724269799 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9201093191804006401, guid: 290f40545237a8548bec82950ffa834c, type: 3}
   m_PrefabInstance: {fileID: 4425609361775197414}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6232768567145074748
@@ -10800,7 +10801,7 @@ PrefabInstance:
       objectReference: {fileID: 2033733123258936504}
     - target: {fileID: 7426575775909335325, guid: 7bc92e5783f0b4240a7595bfd10010a7, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7426575775909335325, guid: 7bc92e5783f0b4240a7595bfd10010a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10862,7 +10863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079802017505666305, guid: 413db8ed4ec320e47913af1ede761bc5, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4079802017505666305, guid: 413db8ed4ec320e47913af1ede761bc5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10928,7 +10929,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3319464383042474087, guid: ea44033636e17e746b582d0dd804e322, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3319464383042474087, guid: ea44033636e17e746b582d0dd804e322, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10994,7 +10995,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1299132770042071136, guid: e14e9885c868afe4eadb624efd671c5d, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1299132770042071136, guid: e14e9885c868afe4eadb624efd671c5d, type: 3}
       propertyPath: m_LocalPosition.x

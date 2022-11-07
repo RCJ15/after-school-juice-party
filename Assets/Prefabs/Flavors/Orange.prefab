@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.65
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: Volatile oranges that release slices above
+  Color: {r: 1, g: 0.614887, b: 0, a: 1}
+  AttackStat: 5
+  UtilityStat: 2
+  CoverageStat: 2
+  DmgTypes: 0200000000000000
+  Special: Splits into smaller orange slices
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

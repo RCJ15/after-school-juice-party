@@ -4919,6 +4919,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.5
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: 'A coders delight: Spaghetti code, nobody knows what it will do!'
+  Color: {r: 0.18880486, g: 1, b: 0, a: 1}
+  AttackStat: -1
+  UtilityStat: -1
+  CoverageStat: -1
+  DmgTypes: 03000000
+  Special: 65% chance to bounce off enemy
   shootEffect: {fileID: 3939927156949752770}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 3360016486289842998, guid: 5a98ca316c80b0846bba0d100a3cdaa2, type: 3}

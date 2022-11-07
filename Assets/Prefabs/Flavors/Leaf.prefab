@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.25
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: If a leaf misses, then it'll get a second chance!
+  Color: {r: 0.5509434, g: 1, b: 0.5642488, a: 1}
+  AttackStat: 2
+  UtilityStat: 3
+  CoverageStat: 5
+  DmgTypes: 00000000
+  Special: Falls back down after missing
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

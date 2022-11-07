@@ -46,6 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.7
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: The core is where it's at!
+  Color: {r: 0.5283019, g: 0.02192949, b: 0.18468031, a: 1}
+  AttackStat: 3
+  UtilityStat: 3
+  CoverageStat: 5
+  DmgTypes: 0100000002000000
+  Special: Explodes & releases piercing seed
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 4672772849187988021, guid: 4855293f914fc7743b31f739ac582156, type: 3}

@@ -46,6 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.25
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: Rain stars from the skies!
+  Color: {r: 1, g: 0.62163943, b: 0.032075405, a: 1}
+  AttackStat: 3
+  UtilityStat: 4
+  CoverageStat: 3
+  DmgTypes: 01000000
+  Special: 
   shootEffect: {fileID: 0}
   animatePlayer: 1
+  shakeIntensity: 0.1
+  shakeDuration: 0.05
   bullet: {fileID: 6219928001205270193, guid: eb8738f5384bbf84683e661b35ebe88d, type: 3}

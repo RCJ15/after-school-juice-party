@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
-public class Hoaming : MonoBehaviour
+public class Homing : MonoBehaviour
 {
+    /*
     [Tooltip("The name of the gameobject in whitch all enemys are located.")]
     [SerializeField] string nameOfEnemysParent;
     GameObject enemysParent = null;
-    [Tooltip("Speed of roatation")]
-    [SerializeField] float speed = 5f;
+    */
+    [Tooltip("Speed of rotation")]
     [SerializeField] float rotateSpeed = 200f;
     [SerializeField] GameObject crossHair;
-    bool targetAcuired;
+    bool foundTarget;
     Transform _target;
 
     private Rigidbody2D rb;
@@ -19,6 +20,7 @@ public class Hoaming : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        /*
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(); // All objects in scene
         List<GameObject> enemys = new List<GameObject>(); // All enemys in sceen
         enemysParent = null;
@@ -46,50 +48,70 @@ public class Hoaming : MonoBehaviour
             }
             Debug.Log("Added " + enemys.Count + " Enemys to " + nameOfEnemysParent);
         }
+        */
         SetTarget();
     }
     private void FixedUpdate()
     {
-        if (targetAcuired) // Hoam towards the target
+        if (!foundTarget)
         {
-            Vector2 direction = (Vector2)_target.position - rb.position;
-            direction.Normalize();
-            float rotateAmount = Vector3.Cross(direction, transform.up).z;
-
-            rb.angularVelocity = -rotateAmount * rotateSpeed;
-            rb.velocity = transform.up * speed;
-        }
-    }
-    void SetTarget()
-    {
-        float oldDistance = 100000000000000; // Start of very big
-        _target = null;
-
-        foreach (Transform enemy in enemysParent.transform) // Find closest enemy
-        {
-            if (enemy.gameObject.activeSelf)
-            {
-                float distance = Vector3.Distance(enemy.position, transform.position); // Find the distance between us and enemy
-                if (distance < oldDistance) // Find the smalest distance value
-                {
-                    oldDistance = distance;
-                    _target = enemy;
-                }
-            }
-        }
-        if (_target == null) // If no enemy return
-        {
-            targetAcuired = false;
             return;
         }
-        targetAcuired = true;
+
+        // Home towards the target
+        Vector2 direction = (Vector2)_target.position - rb.position;
+        direction.Normalize();
+        float rotateAmount = Vector3.Cross(direction, transform.up).z;
+
+        rb.angularVelocity = -rotateAmount * rotateSpeed;
+    }
+
+    void SetTarget()
+    {
+        //float oldDistance = 100000000000000; // Start of very big
+
+        // We can use a nullable float instead of setting it to a big number
+        // Any value can be set as nullable using a ? after the data type
+        // Making a variable nullable means it can be null
+        // Essentially we are going to set this to start of null and then be set to value after finding a enemy
+        // - Ruben
+        float? oldDistance = null;
+
+        _target = null;
+
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) // Find closest enemy
+        {
+            if (!enemy.activeSelf) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
+            {
+                continue;
+            }
+
+            float distance = Vector3.Distance(enemy.transform.position, transform.position); // Find the distance between us and enemy
+
+            // We now check if EITHER the old value has NO VALUE (as in it's null) or if the distance is smaller - Ruben
+            // Notice how we have to use "Value" here \/ \/ \/ \/ \/ \/ This is because we can't compare a nullable float to a regular float so we just get the value with "Value" - Ruben
+            if (!oldDistance.HasValue || distance < oldDistance.Value) // Find the smallest distance value
+            {
+                oldDistance = distance;
+                _target = enemy.transform;
+            }
+        }
+
+        if (_target == null) // If no enemy return
+        {
+            foundTarget = false;
+            return;
+        }
+
+        foundTarget = true;
 
         GameObject newCrossHair = Instantiate(crossHair, _target.position, _target.rotation, _target); // Show croshair
         newCrossHair.SetActive(true);
 
-        //   StartCoroutine( Fade(newCrossHair.GetComponent<SpriteRenderer>())); // Fade out
+        // StartCoroutine( Fade(newCrossHair.GetComponent<SpriteRenderer>())); // Fade out
         Destroy(newCrossHair, 1.5f); // Destroy after 1.5 seconds
     }
+    /*
     IEnumerator Fade(SpriteRenderer sprite)
     {
         float timer = 1;
@@ -104,6 +126,7 @@ public class Hoaming : MonoBehaviour
         }
         sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
     }
+    */
 }
 /* IEnumerator Rotate(Transform target, float speedOfRot)
     {

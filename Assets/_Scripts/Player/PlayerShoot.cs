@@ -13,6 +13,22 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] protected Transform spawnPoint;
 
+    [Header("Stats")]
+    public Sprite Sprite;
+    [TextArea(5, 5)]
+    public string Description = "Sample Text";
+    public Color Color = Color.white;
+
+    [Space(5)]
+    [Range(-1, 5)]
+    public int AttackStat = 0;
+    [Range(-1, 5)]
+    public int UtilityStat = 0;
+    [Range(-1, 5)]
+    public int CoverageStat = 0;
+    public DamageType[] DmgTypes = new DamageType[] { DamageType.Single };
+    public string Special;
+
     [Header("Juice")]
     [SerializeField] protected ParticleSystem shootEffect;
     [SerializeField] protected bool animatePlayer = true;
@@ -68,5 +84,14 @@ public class PlayerShoot : MonoBehaviour
     protected virtual void DoPlayerShootAnim()
     {
         _playerAnim.SetTrigger("Shoot");
+    }
+
+    [Serializable]
+    public enum DamageType
+    {
+        Single,
+        Pierce,
+        Area,
+        Random,
     }
 }

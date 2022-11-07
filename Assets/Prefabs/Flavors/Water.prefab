@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDelay: 0.2
   spawnPoint: {fileID: 0}
+  Sprite: {fileID: 0}
+  Description: Boring Splish-Splashy Inc. branded water.
+  Color: {r: 0.5226415, g: 0.8817083, b: 1, a: 1}
+  AttackStat: 3
+  UtilityStat: 2
+  CoverageStat: 3
+  DmgTypes: 00000000
+  Special: 
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0
