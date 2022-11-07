@@ -15,6 +15,13 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     private float timer = 0;
 
+    Score score;
+
+    [SerializeField]
+    Camera cam;
+
+    CameraEffects cameraEffects;
+
     //Det här är för att de ska "blinka" när de rör sig.
     private Color color;
     private SpriteRenderer rend;
@@ -40,10 +47,21 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //Är funktion för ifall man ska göra arv
         Move();
 
-        //Nere vid kanten.
-        if (transform.position.x <= -5)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Spelaren förlora liv/spelet? (Beror på vad/hur vi vill ha det)
+            Destroy(gameObject);
+
+            //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = -cam.transform.position.z;
+            score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+
+            Debug.Log(mousePos);
+            Debug.Log(cam);
+
+
+            //funkar inte
+            CameraEffects.Shake(1, 1);
         }
     }
 
@@ -81,16 +99,28 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Player")
-        {
+    
+
+       if (collision.transform.tag == "Player")
+       {
             //Spelaren förlorar liv/spelet?
-        }
-        //Bullet koderna verkar ha något för det här redan? Låter det ligga kvar, men det används inte.
-        //Så länge den inte rör kanten borde det vara okej, men ifall vi lägger en tag på skotten borde vi ändra den här
-        //för säkerhets skull
-        /*else
-        {
-            Destroy(gameObject);
-        }*/
+       }
+       //Bullet koderna verkar ha något för det här redan?
+       //Så länge den inte rör kanten borde det vara okej, men ifall vi lägger en tag på skotten borde vi ändra den här
+       //för säkerhets skull
+       else
+       {
+           Destroy(gameObject);
+
+           //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
+           Vector3 mousePos = Input.mousePosition;
+           mousePos.z = -cam.transform.position.z;
+           score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+
+           //funkar ???
+           CameraEffects.Shake(1, 1);
+       }
     }
+
+
 }
