@@ -10044,7 +10044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4
   speed: 15
-  lifetime: 0
+  lifetime: 30
   deathParticles: {fileID: 5732151125351124944}
   trail: {fileID: 7306403954785951405}
   constantParticles: {fileID: 0}

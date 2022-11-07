@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraEffects : MonoBehaviour
+// Grga
+public class CameraEffects : MonoBehaviour 
 {
     public static CameraEffects Instance;
 
@@ -27,7 +28,8 @@ public class CameraEffects : MonoBehaviour
     Vector3 _StartPos;
     Coroutine _CurrentFadeRoutine;
     Coroutine _CurrentZoomRoutine;
-    float _maxShakeDuration;
+    float _MaxShakeDuration;
+    Vector3 _ZoomPos;
 
     private void Awake()
     {
@@ -69,18 +71,18 @@ public class CameraEffects : MonoBehaviour
         if (shakeDuration > 0)
         {
             // This is so that camera shake will change based on shake duration
-            float t = shakeDuration / _maxShakeDuration;
+            float t = shakeDuration / _MaxShakeDuration;
 
             Vector3 pos = Random.insideUnitCircle * shakeIntensity * t; // Shake
             pos.z = _StartPos.z; // Remove z axis value
-            transform.localPosition = pos; // Apply to camera
+            transform.localPosition = pos + _ZoomPos; // Apply to camera
 
             // Decrease duration
             shakeDuration -= Time.deltaTime;
         }
-        else if (_CurrentZoomRoutine == null && transform.localPosition != _StartPos) // If position is not start position
+        else if (transform.localPosition != _StartPos) // If position is not start position
         {
-            transform.localPosition = _StartPos; // Reset position
+            transform.localPosition = _StartPos + _ZoomPos; // Reset position
         }
     }
 
@@ -157,16 +159,12 @@ public class CameraEffects : MonoBehaviour
             Instance.shakeIntensity = intensity;
         }
 
-        if (Instance.shakeDuration <= 0)
+        if (Instance.shakeDuration < duration)
         {
             Instance.shakeDuration = duration;
         }
-        else
-        {
-            Instance.shakeDuration += duration;
-        }
 
-        Instance._maxShakeDuration = Instance.shakeDuration;
+        Instance._MaxShakeDuration = Instance.shakeDuration;
     }
 
     public static void Zoom(float size, float time, Vector3 zoomLocation)
@@ -201,15 +199,15 @@ public class CameraEffects : MonoBehaviour
     public IEnumerator ZoomCoRut(Vector3 zoomLocation)
     {
         float timer = zoomInDuration;
-        zoomLocation.z = transform.localPosition.z;
-        Vector3 oldCamPos = transform.localPosition;
+        zoomLocation.z = _ZoomPos.z;
+        Vector3 oldCamPos = _ZoomPos;
         while (timer > 0) // Zoom to in
         {
             timer -= Time.deltaTime;
 
             float t = Easing.OutCubic(1 - (timer / zoomInDuration));
 
-            transform.localPosition = Vector3.LerpUnclamped(oldCamPos, zoomLocation, t);
+            _ZoomPos = Vector3.LerpUnclamped(oldCamPos, zoomLocation, t);
 
             try { _cam.orthographicSize = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t); }
             catch (System.Exception)
@@ -227,7 +225,7 @@ public class CameraEffects : MonoBehaviour
             yield return null;
         }
 
-        transform.localPosition = zoomLocation;
+        _ZoomPos = zoomLocation;
         _cam.orthographicSize = zoomedIn;
 
         if (zoomStayDuration > 0)
@@ -242,7 +240,7 @@ public class CameraEffects : MonoBehaviour
 
             float t = Easing.InCubic (1 - (timer / zoomOutDuration));
 
-            transform.localPosition = Vector3.Lerp(zoomLocation, oldCamPos, t);
+            _ZoomPos = Vector3.Lerp(zoomLocation, oldCamPos, t);
 
             try
             {
@@ -264,5 +262,7 @@ public class CameraEffects : MonoBehaviour
         }
         _cam.fieldOfView = zoomedOut; // Just to be sure its zoomed out
         _CurrentZoomRoutine = null;
+
+        _ZoomPos = Vector2.zero;
     }
 }

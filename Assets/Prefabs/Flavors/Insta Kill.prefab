@@ -47,7 +47,7 @@ MonoBehaviour:
   shootDelay: 0.3
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
-  Description: DEBUG!!!
+  Description: DEBUG!!! PRESS P IMMEDIATELY TO DISCARD THIS WEAPON. THIS IS A WARNING!!!
   Color: {r: 0.43835258, g: 0, b: 1, a: 1}
   AttackStat: 9999
   UtilityStat: -1

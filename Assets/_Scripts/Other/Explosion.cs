@@ -8,6 +8,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     [SerializeField] private float damage;
+    [SerializeField] private float speed = 1;
 
     [Header("Juice")]
     [SerializeField] private float shakeIntesity;
@@ -19,10 +20,21 @@ public class Explosion : MonoBehaviour
     [Space]
     [SerializeField] private float zoomAmount = 68;
     [SerializeField] private float zoomDuration = 0.1f;
+    
+    private Animator _anim;
 
     private HashSet<GameObject> _hitEnemies = new HashSet<GameObject>();
     public HashSet<GameObject> HitEnemies { get => _hitEnemies; set => _hitEnemies = value; }
     public float Damage { get => damage; set => damage = value; }
+
+    private void Awake()
+    {
+        _anim = GetComponent<Animator>();
+
+        _anim.SetFloat("Speed", speed);
+
+        Destroy(gameObject, 1 / speed);
+    }
 
     private void Start()
     {

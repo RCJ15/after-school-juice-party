@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 6119497707751383922}
   - component: {fileID: 2448857799659515215}
   - component: {fileID: 5904653737816279086}
-  - component: {fileID: 137628680359251290}
   - component: {fileID: 5136684293081245520}
   m_Layer: 0
   m_Name: Explosion
@@ -170,25 +169,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  speed: 1
   shakeIntesity: 0.4
   shakeDuration: 0.2
+  flashHoldDuration: 0
   flashDuration: 0.25
   flashColor: {r: 1, g: 1, b: 1, a: 0.2509804}
   zoomAmount: 65
   zoomDuration: 0.1
---- !u!114 &137628680359251290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5933809457736644284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2184ab54d7c1cf468ef5d528e461d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 0.5
 --- !u!50 &5136684293081245520
 Rigidbody2D:
   serializedVersion: 4

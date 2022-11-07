@@ -2,65 +2,122 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeafBullet : Bullet
+/// <summary>
+/// Falling bullet (falling animation is handled via an Animator component)
+/// </summary> - Ruben
+public class LeafBullet : Bullet // - Ruben
 {
-    [SerializeField] float speedDown;
-    [SerializeField] float damageDown;
-    [SerializeField] float maxHeight;
-    [SerializeField] float shakeIntensity;
-    [SerializeField] float shakeDuration;
+    [SerializeField] private Gradient color = new Gradient();
+    [SerializeField] private SpriteRenderer sprite;
 
-    bool _switched;
+    [Header("Leaf Falling")]
+    [SerializeField] private float heightLimit = 7.5f;
+    [SerializeField] private float deathZone = -10f;
+
+    [Space]
+    [SerializeField] private Vector2 rngOffsetMultiplier = new Vector2(-3, 3);
+    [SerializeField] private Vector2 rngFallSpeed = new Vector2(2, 4);
+    [SerializeField] private Vector2 rngAnimSpeed = new Vector2(0.5f, 1.5f);
+    [SerializeField] private Transform leafObj;
+
+    private float _offsetMultiplier;
+    private float _fallSpeed;
+
+    [Header("Animation Values")]
+    [SerializeField] private float offset;
+    [SerializeField] private float speedMultiplier = 1;
+
+    private bool _falling;
+    private Animator _anim;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        sprite.color = color.Evaluate(Random.value);
+
+        // Get anim
+        _anim = GetComponent<Animator>();
+
+        // Randomize values
+        _offsetMultiplier = Random.Range(rngOffsetMultiplier.x, rngOffsetMultiplier.y);
+        _fallSpeed = Random.Range(rngFallSpeed.x, rngFallSpeed.y);
+
+        _anim.SetFloat("Speed", Random.Range(rngAnimSpeed.x, rngAnimSpeed.y)); // This includes animation speed
+    }
 
     protected override void Update()
     {
         base.Update();
-        if (transform.position.y >= maxHeight && !_switched)
+
+        if (_falling)
         {
-            StartCoroutine(Speed());
-            damage = damageDown;
-            StartCoroutine(Shake());
-            _switched = true;
+            // Do nothing unless this leaf is below the death zone, then the leaf will die
+            if (transform.position.y >= deathZone)
+            {
+                return;
+            }
+
+            // Die without any effects as the leaf is offscreen
+            Destroy(gameObject);
+            return;
         }
+
+        // Do nothing unless this leaf is above the height limit, then we will start falling
+        if (transform.position.y <= heightLimit)
+        {
+            return;
+        }
+
+        // Ensure we are facing DOWN
+        transform.up = Vector3.down;
+
+        // Enable animator (it's assumed to be disabled by default)
+        _anim.enabled = true;
+
+        _falling = true;
     }
-    IEnumerator Speed()
+
+    protected override void FixedUpdate()
     {
-        float timer = 0.5f;
-        float oldSpeed = speed;
-        while (timer>0)
+        base.FixedUpdate();
+
+        if (!_falling)
         {
-            timer = -Time.deltaTime;
-            speed = Mathf.Lerp(oldSpeed, -speedDown, 1 - (timer / 0.5f));
-            yield return null;
+            return;
         }
-        speed = -speedDown;
+
+        // Set falling speed
+        speed = _fallSpeed * speedMultiplier;
+
+        // Set offset
+        leafObj.transform.localPosition = new Vector3(offset * _offsetMultiplier, 0);
     }
-    IEnumerator Shake()
+
+    // Ensure the bullet doesn't die on collision with a wall
+    protected override void OnCollideWithWall(Collider2D col)
     {
-        float timer = shakeDuration;
-        float StartX = transform.position.x;
-
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
-
-            // float t = Easing.InOutBack(1 - (timer / shakeDuration));
-            float t = 1 - (timer / shakeDuration);
-            float x = StartX + Mathf.Lerp(-shakeIntensity, shakeIntensity, t);
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
-            yield return null;
-        }
-        timer = shakeDuration;
-        while (timer > 0)
-        {
-            timer -= Time.deltaTime;
-
-            //  float t = Easing.InOutBack(1 - (timer / shakeDuration));
-            float t = 1 - (timer / shakeDuration);
-            float x = StartX + Mathf.Lerp(shakeIntensity, -shakeIntensity, t);
-            transform.position = new Vector3(x, transform.position.y, transform.position.z);
-            yield return null;
-        }
-        StartCoroutine(Shake());
+        //base.OnCollideWithWall(col);
     }
+
+#if UNITY_EDITOR
+    // Ensure we only draw gizmos in the inspector
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the height limit and death zone
+        Gizmos.color = Color.yellow;
+
+        Vector3 offset = Vector3.right * 3;
+
+        // Height limit
+        Vector3 point = transform.position + new Vector3(0, heightLimit);
+
+        Gizmos.DrawLine(point - offset, point + offset);
+
+        // Death zone
+        point = transform.position + new Vector3(0, deathZone);
+
+        Gizmos.DrawLine(point - offset, point + offset);
+    }
+#endif
 }

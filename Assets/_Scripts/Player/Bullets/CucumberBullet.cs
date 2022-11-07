@@ -11,6 +11,11 @@ public class CucumberBullet : Bullet
     [SerializeField] private Explosion explosion;
     [SerializeField] private Vector2 explosionSize;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         explosion.HitEnemies.Add(enemy.gameObject);

@@ -69,7 +69,10 @@ public class Bullet : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        rb.velocity = transform.up * speed;
+        if (speed > 0)
+        {
+            rb.velocity = transform.up * speed;
+        }
     }
 
     protected bool CheckLayer(GameObject obj, LayerMask mask)
