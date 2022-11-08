@@ -40,7 +40,9 @@ public class LeafBullet : Bullet // - Ruben
         _anim = GetComponent<Animator>();
 
         // Randomize values
-        _offsetMultiplier = Random.Range(rngOffsetMultiplier.x, rngOffsetMultiplier.y);
+        float multiplier = Random.Range(0, 2) == 1 ? -1 : 1;
+        _offsetMultiplier = Random.Range(rngOffsetMultiplier.x, rngOffsetMultiplier.y) * multiplier;
+
         _fallSpeed = Random.Range(rngFallSpeed.x, rngFallSpeed.y);
 
         _anim.SetFloat("Speed", Random.Range(rngAnimSpeed.x, rngAnimSpeed.y)); // This includes animation speed

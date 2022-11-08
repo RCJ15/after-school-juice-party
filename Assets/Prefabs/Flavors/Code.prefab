@@ -4924,7 +4924,7 @@ MonoBehaviour:
   Color: {r: 0.18880486, g: 1, b: 0, a: 1}
   AttackStat: -1
   UtilityStat: -1
-  CoverageStat: -1
+  RangeStat: -1
   DmgTypes: 03000000
   Special: 65% chance to bounce off enemy
   shootEffect: {fileID: 3939927156949752770}

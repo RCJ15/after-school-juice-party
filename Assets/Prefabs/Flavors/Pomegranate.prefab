@@ -51,7 +51,7 @@ MonoBehaviour:
   Color: {r: 1, g: 0, b: 0, a: 1}
   AttackStat: 4
   UtilityStat: 1
-  CoverageStat: 5
+  RangeStat: 5
   DmgTypes: 02000000
   Special: Splits into many weak seeds
   shootEffect: {fileID: 0}

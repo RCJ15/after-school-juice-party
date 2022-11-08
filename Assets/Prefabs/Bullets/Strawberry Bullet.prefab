@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5361751620249085631}
   - component: {fileID: 2093724626545702016}
   - component: {fileID: 8967295214402259556}
+  - component: {fileID: 5123140509042239176}
   m_Layer: 3
   m_Name: Strawberry Bullet
   m_TagString: Untagged
@@ -45,19 +46,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7194222775961285835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aaf8bcc5c55cef428b6b141d61823a4, type: 3}
+  m_Script: {fileID: 11500000, guid: d47dc7737f5ad8c468bf29b59256ac2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 5
-  lifetime: 0
+  speed: 10
+  lifetime: 3
   deathParticles: {fileID: 4116994750440366175}
-  startDamage: 20
-  ripeDamage: 2
-  transitionTime: 1
-  spriteRenderer: {fileID: 8795460376091379282}
-  startColor: {r: 0.09019613, g: 1, b: 0, a: 1}
-  ripeColor: {r: 1, g: 0, b: 0, a: 1}
+  trail: {fileID: 0}
+  constantParticles: {fileID: 0}
 --- !u!50 &2093724626545702016
 Rigidbody2D:
   serializedVersion: 4
@@ -95,6 +92,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!95 &5123140509042239176
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194222775961285835}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8dbcd6b41a72ed44970cdf96e3fb518, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7989918123376470897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4976,7 +4993,7 @@ GameObject:
   - component: {fileID: 6596872391401841366}
   - component: {fileID: 8795460376091379282}
   m_Layer: 3
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

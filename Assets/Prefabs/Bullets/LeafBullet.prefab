@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1035b1533dc80704fbfa8badb5d067f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
   speed: 15
   lifetime: 10
   deathParticles: {fileID: 3148193565869442438}
@@ -252,9 +252,9 @@ MonoBehaviour:
   sprite: {fileID: 8686270203523134311}
   heightLimit: 10
   deathZone: -10
-  rngOffsetMultiplier: {x: -3, y: 3}
-  rngFallSpeed: {x: 3, y: 5}
-  rngAnimSpeed: {x: 0.7, y: 1.2}
+  rngOffsetMultiplier: {x: 2, y: 4.5}
+  rngFallSpeed: {x: 2, y: 4}
+  rngAnimSpeed: {x: 0.5, y: 1}
   leafObj: {fileID: 2479279407991264386}
   offset: 0
   speedMultiplier: 1

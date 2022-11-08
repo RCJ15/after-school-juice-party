@@ -50,8 +50,8 @@ MonoBehaviour:
   Description: Just 5 banana boomerangs.
   Color: {r: 1, g: 0.8711137, b: 0.24905658, a: 1}
   AttackStat: 4
-  UtilityStat: 2
-  CoverageStat: 4
+  UtilityStat: 3
+  RangeStat: 2
   DmgTypes: 00000000
   Special: There can only be 5 at once
   shootEffect: {fileID: 0}

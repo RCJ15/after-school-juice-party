@@ -25,7 +25,7 @@ public class PlayerShoot : MonoBehaviour
     [Range(-1, 5)]
     public int UtilityStat = 0;
     [Range(-1, 5)]
-    public int CoverageStat = 0;
+    public int RangeStat = 0;
     public DamageType[] DmgTypes = new DamageType[] { DamageType.Single };
     public string Special;
 

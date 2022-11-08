@@ -144,8 +144,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         _hud.AddCard(_playerShoots[weaponIndex], doAnims);
 
-        _selectedWeapon = weaponIndex;
-        _hud.SelectedCard = weaponIndex;
+        _selectedWeapon = _weaponAmount - 1;
+        _hud.SelectedCard = _weaponAmount - 1;
 
         ChangeShot(weaponIndex);
 
@@ -164,6 +164,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         _selectedWeapon = index;
         _hud.SelectedCard = index;
+
+        Debug.Log(index);
 
         ChangeShot(newWeapon);
 
@@ -187,7 +189,5 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         // Enable new shot
         _playerShoots[_currentShotIndex].gameObject.SetActive(true);
-
-        _selectedWeapon = index;
     }
 }

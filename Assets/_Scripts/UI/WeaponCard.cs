@@ -15,7 +15,7 @@ public class WeaponCard : MonoBehaviour // - Ruben
     [SerializeField] private Image sprite;
     [SerializeField] private TMP_Text atkStat;
     [SerializeField] private TMP_Text utilStat;
-    [SerializeField] private TMP_Text cvrgStat;
+    [SerializeField] private TMP_Text rangeStat;
 
     private WeaponHUD _hud;
     private Animator _anim;
@@ -62,7 +62,7 @@ public class WeaponCard : MonoBehaviour // - Ruben
         sprite.sprite = _weapon.Sprite;
         atkStat.text = GetStatString(_weapon.AttackStat);
         utilStat.text = GetStatString(_weapon.UtilityStat);
-        cvrgStat.text = GetStatString(_weapon.CoverageStat);
+        rangeStat.text = GetStatString(_weapon.RangeStat);
     }
 
     public VertexGradient GetGradient() => nameText.colorGradient;

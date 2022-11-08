@@ -5003,7 +5003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47dc7737f5ad8c468bf29b59256ac2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 3.5
   speed: 15
   lifetime: 5
   deathParticles: {fileID: 5057666617748513888}
@@ -5022,7 +5022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 450
-  minDistance: 6
+  minDistance: 8
   crossHair: {fileID: 0}
 --- !u!50 &2614896518331761154
 Rigidbody2D:

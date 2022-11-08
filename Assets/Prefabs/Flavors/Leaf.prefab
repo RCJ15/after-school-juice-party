@@ -51,7 +51,7 @@ MonoBehaviour:
   Color: {r: 0.5509434, g: 1, b: 0.5642488, a: 1}
   AttackStat: 2
   UtilityStat: 3
-  CoverageStat: 5
+  RangeStat: 5
   DmgTypes: 00000000
   Special: Falls back down after missing
   shootEffect: {fileID: 0}

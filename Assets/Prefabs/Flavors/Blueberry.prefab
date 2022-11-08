@@ -50,8 +50,8 @@ MonoBehaviour:
   Description: Bouncy Blue Berries TM (BBB)
   Color: {r: 0.65836906, g: 0.37169808, b: 1, a: 1}
   AttackStat: 2
-  UtilityStat: 3
-  CoverageStat: 5
+  UtilityStat: 2
+  RangeStat: 3
   DmgTypes: 00000000
   Special: Ricochet
   shootEffect: {fileID: 0}

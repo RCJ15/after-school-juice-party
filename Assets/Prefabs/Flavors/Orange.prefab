@@ -51,7 +51,7 @@ MonoBehaviour:
   Color: {r: 1, g: 0.614887, b: 0, a: 1}
   AttackStat: 5
   UtilityStat: 2
-  CoverageStat: 2
+  RangeStat: 4
   DmgTypes: 0200000000000000
   Special: Splits into smaller orange slices
   shootEffect: {fileID: 0}

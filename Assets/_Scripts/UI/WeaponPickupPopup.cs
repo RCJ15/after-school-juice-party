@@ -21,8 +21,8 @@ public class WeaponPickupPopup : MonoBehaviour // - Ruben
     [SerializeField] private TMP_Text utilityStat;
     private string _startUtilityStatText;
 
-    [SerializeField] private TMP_Text coverageStat;
-    private string _startCoverageStatText;
+    [SerializeField] private TMP_Text rangeStat;
+    private string _startRangeStatText;
 
     [SerializeField] private TMP_Text description;
     private string _startDescriptionText;
@@ -46,7 +46,7 @@ public class WeaponPickupPopup : MonoBehaviour // - Ruben
 
         _startAttackStatText = attackStat.text;
         _startUtilityStatText = utilityStat.text;
-        _startCoverageStatText = coverageStat.text;
+        _startRangeStatText = rangeStat.text;
         _startDescriptionText = description.text;
 
         #region OLD CODE
@@ -77,7 +77,7 @@ public class WeaponPickupPopup : MonoBehaviour // - Ruben
         // Stats
         attackStat.text = string.Format(_startAttackStatText, GetStatString(weapon.AttackStat));
         utilityStat.text = string.Format(_startUtilityStatText, GetStatString(weapon.UtilityStat));
-        coverageStat.text = string.Format(_startCoverageStatText, GetStatString(weapon.CoverageStat));
+        rangeStat.text = string.Format(_startRangeStatText, GetStatString(weapon.RangeStat));
 
         // Description
         description.text = string.Format(_startDescriptionText, weapon.Description);

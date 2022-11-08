@@ -50,8 +50,8 @@ MonoBehaviour:
   Description: Rain stars from the skies!
   Color: {r: 1, g: 0.62163943, b: 0.032075405, a: 1}
   AttackStat: 3
-  UtilityStat: 4
-  CoverageStat: 3
+  UtilityStat: 2
+  RangeStat: 3
   DmgTypes: 01000000
   Special: 
   shootEffect: {fileID: 0}

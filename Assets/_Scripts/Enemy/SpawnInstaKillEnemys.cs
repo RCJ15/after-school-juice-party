@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpawnInstaKillEnemys : MonoBehaviour
 {
+    // FIX FOR LATER
     public static List<GameObject> savedEnemys = new List<GameObject>();
     [SerializeField] Vector2 maxEnemySpawn;
     [SerializeField] Vector2 minEnemySpawn;
     [SerializeField] Transform enemyParent;
     int level = 1;
 
-    public void SpawnAllSavedEnemys()
+    public void SpawnAllSavedEnemies()
     {
         StartCoroutine(Spwan());
     }

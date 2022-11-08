@@ -50,8 +50,8 @@ MonoBehaviour:
   Description: Big bouncy explosive coconuts
   Color: {r: 0.3679245, g: 0.18680589, b: 0.08122106, a: 1}
   AttackStat: 4
-  UtilityStat: 1
-  CoverageStat: 3
+  UtilityStat: 3
+  RangeStat: 4
   DmgTypes: 0100000002000000
   Special: Ricochet & explodes
   shootEffect: {fileID: 0}
