@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class MainMenuJuiceManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] UnityEngine.UI.Image background;
-    [SerializeField] float timer;
+    [SerializeField] GameObject mainPanel;
+    [SerializeField] GameObject transition;
+    TransitionControler transControl;
+    [SerializeField] Image background;
+    [SerializeField] float timetimer;
     [SerializeField] float fadeTimer;
     bool _Fade = true;
 
     private Coroutine _currentEpilepsy;
-
-    void Start()
+    private void Start()
     {
-
+        transControl = transition.GetComponent<TransitionControler>();
+        mainPanel.SetActive(false);
+        transControl.Transition( 0, 2, 1, ActivatePanel());
+        IEnumerator ActivatePanel()
+        {
+            mainPanel.SetActive(true); ;
+            yield return null;
+        }
     }
 
     private void Update()
@@ -26,15 +37,15 @@ public class MainMenuJuiceManager : MonoBehaviour
             }
 
             _currentEpilepsy = StartCoroutine(Epilepsy());
-        } 
-        else if(_Fade)
+        }
+        else if (_Fade)
         {
             if (_currentEpilepsy != null)
             {
                 StopCoroutine(_currentEpilepsy);
             }
 
-            _currentEpilepsy = StartCoroutine(Fade());
+            _currentEpilepsy = StartCoroutine(Fade(background));
             _Fade = false;
         }
     }
@@ -64,20 +75,20 @@ public class MainMenuJuiceManager : MonoBehaviour
         {
             background.color = Random.ColorHSV();
 
-            yield return new WaitForSecondsRealtime (0.025f);
+            yield return new WaitForSecondsRealtime(0.025f);
         }
 
         //background.CrossFadeColor(Color.white, 0.5f, true, false);
 
         Color startColor = background.color;
 
-        float currentTimer = timer;
+        float currentTimer = timetimer;
 
         while (currentTimer > 0)
         {
             currentTimer -= Time.unscaledDeltaTime;
 
-            float t = currentTimer / timer;
+            float t = currentTimer / timetimer;
 
             background.color = Color.Lerp(Color.white, startColor, t);
 
@@ -86,10 +97,10 @@ public class MainMenuJuiceManager : MonoBehaviour
 
         _Fade = true;
     }
-    private IEnumerator Fade()
+    private IEnumerator Fade(Image img)
     {
         float currentTimer = fadeTimer;
-        Color startColor = background.color;
+        Color startColor = img.color;
 
         while (currentTimer < 0)
         {
@@ -97,13 +108,32 @@ public class MainMenuJuiceManager : MonoBehaviour
 
             float t = currentTimer / fadeTimer;
 
-            background.color = Color.Lerp(Random.ColorHSV(), startColor, t);
+            img.color = Color.Lerp(Random.ColorHSV(), startColor, t);
 
             yield return null;
         }
 
-        background.CrossFadeColor(Random.ColorHSV(), fadeTimer, true, false);
+        img.CrossFadeColor(Random.ColorHSV(), fadeTimer, true, false);
         yield return new WaitForSecondsRealtime(fadeTimer);
         _Fade = true;
+    }
+
+    public void Begin()
+    {
+        transControl.Transition(0.75f, 1,1, ChageScene(1));
+    }
+    public void Options()
+    {
+        transControl.Transition(0, 2, 1);
+    }
+    public void Crash()
+    {
+        transControl.Transition(0, 2, 1);
+        // Bluescreen :)
+    }
+    IEnumerator ChageScene(int scene)
+    {
+        SceneManager.LoadScene(scene);
+        yield return null;
     }
 }
