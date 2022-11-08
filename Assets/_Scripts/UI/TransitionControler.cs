@@ -7,11 +7,12 @@ public class TransitionControler : MonoBehaviour
     [SerializeField] bool startTransition;
     [SerializeField] float startFadeIn, startStay, startFadeout;
 
-    float _fadeIn;
-    float _stay;
-    float _fadeout;
-    IEnumerator _function;
-    UnityEngine.UI.Image image;
+    private float _fadeIn;
+    private float _stay;
+    private float _fadeout;
+    private IEnumerator _function;
+    private Coroutine cor;
+   private  UnityEngine.UI.Image image;
 
     private void Start()
     {
@@ -33,8 +34,12 @@ public class TransitionControler : MonoBehaviour
         _fadeIn = fadeInTime;
         _stay = stayTime;
         _fadeout = fadeoutTime;
-        _function = function;
-        StartCoroutine(Fade()); // Call Function
+        _function = function; 
+        if (cor != null) // Stop previous transition
+        {
+            StopCoroutine(cor);
+        }
+       cor= StartCoroutine(Fade()); // Call Function
     }
     private IEnumerator Fade()
     {
@@ -44,7 +49,7 @@ public class TransitionControler : MonoBehaviour
         while (timer > 0) // Fade in
         {
             timer -= Time.deltaTime;
-            float t = Easing.Same(1 - (timer / _fadeIn));
+            float t = Easing.InOutQuint(1 - (timer / _fadeIn));
             clr = image.color;
             image.color = new Color(clr.r, clr.g, clr.b, Mathf.Lerp(0, 1, t));
             yield return null;
@@ -62,7 +67,7 @@ public class TransitionControler : MonoBehaviour
         while (timer > 0) // Fade out
         {
             timer -= Time.deltaTime;
-            float t = Easing.Same(1 - (timer / _fadeout));
+            float t = Easing.InOutQuint(1 - (timer / _fadeout));
             clr = image.color;
             image.color = new Color(clr.r, clr.g, clr.b, Mathf.Lerp(1, 0, t));
             yield return null;

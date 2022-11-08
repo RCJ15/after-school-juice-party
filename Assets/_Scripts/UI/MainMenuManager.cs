@@ -7,19 +7,24 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject mainPanel;
+    [SerializeField] GameObject optionPanel;
     [SerializeField] GameObject transition;
     TransitionControler transControl;
     [SerializeField] Image background;
     [SerializeField] float timetimer;
     [SerializeField] float fadeTimer;
     bool _Fade = true;
+    [SerializeField] GameObject blueScreen;
 
     private Coroutine _currentEpilepsy;
     private void Start()
     {
         transControl = transition.GetComponent<TransitionControler>();
         mainPanel.SetActive(false);
-        transControl.Transition( 0, 2, 1, ActivatePanel());
+        optionPanel.SetActive(false);
+
+        // Start Song
+        transControl.Transition(0, 5, 10, ActivatePanel());
         IEnumerator ActivatePanel()
         {
             mainPanel.SetActive(true); ;
@@ -120,16 +125,39 @@ public class MainMenuManager : MonoBehaviour
 
     public void Begin()
     {
-        transControl.Transition(0.75f, 1,1, ChageScene(1));
+        transControl.Transition(0.75f, 1, 1, ChageScene(1));
     }
     public void Options()
     {
-        transControl.Transition(0, 2, 1);
+        transControl.Transition(1, 1, 1, ActivatePanel());
+        IEnumerator ActivatePanel()
+        {
+            optionPanel.SetActive(true);
+            mainPanel.SetActive(false);
+            yield return null;
+        }
+    }
+    public void Back()
+    {
+        transControl.Transition(1, 1, 1, ActivatePanel());
+        IEnumerator ActivatePanel()
+        {
+            optionPanel.SetActive(false);
+            mainPanel.SetActive(true);
+            yield return null;
+        }
     }
     public void Crash()
     {
-        transControl.Transition(0, 2, 1);
-        // Bluescreen :)
+        transControl.Transition(1, 3, 0,BlueScreenOfDeath());
+        // Save stuff
+
+        IEnumerator BlueScreenOfDeath()
+        {
+        blueScreen.SetActive(true); // Show
+            yield return new WaitForSeconds(10); // Wait
+        Application.Quit(); // Turn off game
+        }
     }
     IEnumerator ChageScene(int scene)
     {
