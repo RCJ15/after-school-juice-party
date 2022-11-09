@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 15348056}
   - component: {fileID: 15348055}
   - component: {fileID: 15348054}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (4)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 21046676}
   - component: {fileID: 21046675}
   - component: {fileID: 21046674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (29)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 23752043}
   - component: {fileID: 23752042}
   - component: {fileID: 23752041}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (15)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 47646308}
   - component: {fileID: 47646307}
   - component: {fileID: 47646306}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (33)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 71898958}
   - component: {fileID: 71898957}
   - component: {fileID: 71898956}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (9)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1686,7 +1686,7 @@ GameObject:
   - component: {fileID: 116374163}
   - component: {fileID: 116374165}
   - component: {fileID: 116374166}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1954,7 +1954,7 @@ GameObject:
   - component: {fileID: 176771109}
   - component: {fileID: 176771108}
   - component: {fileID: 176771107}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (24)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2472,7 +2472,7 @@ GameObject:
   - component: {fileID: 269046005}
   - component: {fileID: 269046004}
   - component: {fileID: 269046003}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (17)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2611,7 +2611,7 @@ GameObject:
   - component: {fileID: 309001900}
   - component: {fileID: 309001899}
   - component: {fileID: 309001898}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (27)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2750,7 +2750,7 @@ GameObject:
   - component: {fileID: 325387250}
   - component: {fileID: 325387249}
   - component: {fileID: 325387248}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3321,7 +3321,7 @@ GameObject:
   - component: {fileID: 447218771}
   - component: {fileID: 447218770}
   - component: {fileID: 447218769}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (32)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3955,7 +3955,7 @@ GameObject:
   - component: {fileID: 572885652}
   - component: {fileID: 572885651}
   - component: {fileID: 572885650}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4470,8 +4470,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 641092348}
+  - component: {fileID: 641092354}
+  - component: {fileID: 641092353}
+  - component: {fileID: 641092352}
+  - component: {fileID: 641092351}
+  - component: {fileID: 641092350}
+  - component: {fileID: 641092349}
   m_Layer: 0
-  m_Name: Alf
+  m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4484,14 +4490,89 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641092347}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 774.65094, y: 341.6959, z: 2.3428736}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Children:
+  - {fileID: 1070276291}
+  m_Father: {fileID: 1943431399}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &641092349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641092347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e305e5df787aa0c46855dffbb9822f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &641092350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641092347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2b0b76a45a68b489c4a310186443f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &641092351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641092347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef39e717adcc364e81c0a90f6c95206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &641092352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641092347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c8ba1675a977843b5169aa68251590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &641092353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641092347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9de81da162a104c82207af90e4953f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &641092354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641092347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7354c5935b2e26143bf7e5d4db07a63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sineWaveSpeed: 0.3
+  sineWaveIntensity: 0.75
 --- !u!1 &664900415
 GameObject:
   m_ObjectHideFlags: 0
@@ -4581,7 +4662,7 @@ GameObject:
   - component: {fileID: 685441077}
   - component: {fileID: 685441076}
   - component: {fileID: 685441075}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4722,7 +4803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &706776026
 Transform:
   m_ObjectHideFlags: 0
@@ -4851,7 +4932,7 @@ GameObject:
   - component: {fileID: 775038950}
   - component: {fileID: 775038949}
   - component: {fileID: 775038948}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (12)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -4990,7 +5071,7 @@ GameObject:
   - component: {fileID: 778338832}
   - component: {fileID: 778338831}
   - component: {fileID: 778338830}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (6)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5264,7 +5345,7 @@ GameObject:
   - component: {fileID: 801833204}
   - component: {fileID: 801833203}
   - component: {fileID: 801833202}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (13)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -6691,7 +6772,7 @@ GameObject:
   - component: {fileID: 991936665}
   - component: {fileID: 991936664}
   - component: {fileID: 991936663}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (30)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -6830,7 +6911,7 @@ GameObject:
   - component: {fileID: 997930273}
   - component: {fileID: 997930272}
   - component: {fileID: 997930271}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (8)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -6969,7 +7050,7 @@ GameObject:
   - component: {fileID: 1013742303}
   - component: {fileID: 1013742302}
   - component: {fileID: 1013742301}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (22)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -7232,6 +7313,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031671931}
   m_CullTransparentMesh: 1
+--- !u!1 &1070276290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1070276291}
+  - component: {fileID: 1070276292}
+  m_Layer: 0
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1070276291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070276290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 641092348}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1070276292
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070276290}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1606546084, guid: 8664484bdc92861449c8df28fb829f8e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1078811415
 GameObject:
   m_ObjectHideFlags: 0
@@ -7963,7 +8128,7 @@ GameObject:
   - component: {fileID: 1327345170}
   - component: {fileID: 1327345169}
   - component: {fileID: 1327345168}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (7)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -8257,7 +8422,7 @@ GameObject:
   - component: {fileID: 1339252842}
   - component: {fileID: 1339252841}
   - component: {fileID: 1339252840}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (23)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -8396,7 +8561,7 @@ GameObject:
   - component: {fileID: 1340719652}
   - component: {fileID: 1340719651}
   - component: {fileID: 1340719650}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (16)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -8606,7 +8771,7 @@ GameObject:
   - component: {fileID: 1381209058}
   - component: {fileID: 1381209057}
   - component: {fileID: 1381209056}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (19)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9474,7 +9639,7 @@ GameObject:
   - component: {fileID: 1471455004}
   - component: {fileID: 1471455003}
   - component: {fileID: 1471455002}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (26)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10025,7 +10190,7 @@ GameObject:
   - component: {fileID: 1536279439}
   - component: {fileID: 1536279438}
   - component: {fileID: 1536279437}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (28)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10547,7 +10712,7 @@ GameObject:
   - component: {fileID: 1599167967}
   - component: {fileID: 1599167966}
   - component: {fileID: 1599167965}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (25)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10820,7 +10985,7 @@ GameObject:
   - component: {fileID: 1604674716}
   - component: {fileID: 1604674715}
   - component: {fileID: 1604674714}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (18)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -11263,7 +11428,7 @@ GameObject:
   - component: {fileID: 1650142152}
   - component: {fileID: 1650142151}
   - component: {fileID: 1650142150}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (5)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -11767,7 +11932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1733289233
 Transform:
   m_ObjectHideFlags: 0
@@ -12130,7 +12295,7 @@ GameObject:
   - component: {fileID: 1770411788}
   - component: {fileID: 1770411787}
   - component: {fileID: 1770411786}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (21)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -12618,7 +12783,7 @@ GameObject:
   - component: {fileID: 1817492681}
   - component: {fileID: 1817492680}
   - component: {fileID: 1817492679}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (31)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -13426,7 +13591,7 @@ GameObject:
   - component: {fileID: 1936874847}
   - component: {fileID: 1936874846}
   - component: {fileID: 1936874845}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (10)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -13551,6 +13716,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706776026}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1943431397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1943431399}
+  - component: {fileID: 1943431398}
+  m_Layer: 0
+  m_Name: Alf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1943431398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943431397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c30bb046b7a028e438896dd9975b391f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 641092354}
+  attackStates:
+  - {fileID: 641092353}
+  - {fileID: 641092352}
+  - {fileID: 641092351}
+  - {fileID: 641092350}
+  - {fileID: 641092349}
+  speedLerp: 0
+--- !u!4 &1943431399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943431397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 641092348}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1946055064
 GameObject:
@@ -13878,7 +14096,7 @@ GameObject:
   - component: {fileID: 2013380978}
   - component: {fileID: 2013380977}
   - component: {fileID: 2013380976}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -14301,7 +14519,7 @@ GameObject:
   - component: {fileID: 2038749040}
   - component: {fileID: 2038749039}
   - component: {fileID: 2038749038}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (20)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -14602,7 +14820,7 @@ GameObject:
   - component: {fileID: 2041955627}
   - component: {fileID: 2041955626}
   - component: {fileID: 2041955625}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (34)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -15095,7 +15313,7 @@ GameObject:
   - component: {fileID: 2086739555}
   - component: {fileID: 2086739554}
   - component: {fileID: 2086739553}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dummy Enemy (11)
   m_TagString: Enemy
   m_Icon: {fileID: 0}

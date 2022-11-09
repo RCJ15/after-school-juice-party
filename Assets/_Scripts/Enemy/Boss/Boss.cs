@@ -12,12 +12,24 @@ public class Boss : MonoBehaviour
     [Space]
     [SerializeField] private BossState[] attackStates;
 
-    private void Start()
+    [SerializeField] private float speedLerp;
+    public float TargetSpeed { get; set; }
+    
+    private void Awake()
+    {
+        foreach (BossState attackState in attackStates)
+        {
+
+            attackState.enabled = false;
+        }
+    }
+
+    private void Update()
     {
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         
     }

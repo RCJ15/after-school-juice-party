@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class BossState : MonoBehaviour
 {
+    public Boss Boss { get; set;}
+
+    protected float TargetSpeed;
+
     protected virtual void Start()
     {
 
