@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
 
     [Space]
     [SerializeField] protected float speed;
+    public float Speed { get => speed; set => speed = value; }
+
     [SerializeField] protected float lifetime;
 
     [Header("Juice")]

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// The cucumber
 /// </summary> - Ruben
-public class CucumberBullet : Bullet
+public class ExplosionBullet : Bullet
 {
     [Header("Explosion")]
     [SerializeField] private Explosion explosion;
