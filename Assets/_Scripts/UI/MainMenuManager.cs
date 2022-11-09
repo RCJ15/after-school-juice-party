@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject optionPanel;
     [SerializeField] GameObject transition;
-    TransitionControler transControl;
+    TransitionController transControl;
     [SerializeField] Image background;
     [SerializeField] float timetimer;
     [SerializeField] float fadeTimer;
@@ -19,17 +19,14 @@ public class MainMenuManager : MonoBehaviour
     private Coroutine _currentEpilepsy;
     private void Start()
     {
-        transControl = transition.GetComponent<TransitionControler>();
+        transControl = transition.GetComponent<TransitionController>();
         mainPanel.SetActive(false);
         optionPanel.SetActive(false);
 
         // Start Song
-        transControl.Transition(0, 5, 10, ActivatePanel());
-        IEnumerator ActivatePanel()
-        {
-            mainPanel.SetActive(true); ;
-            yield return null;
-        }
+        transControl.Transition(0, 0, 1);
+
+        mainPanel.SetActive(true);
     }
 
     private void Update()
@@ -125,43 +122,67 @@ public class MainMenuManager : MonoBehaviour
 
     public void Begin()
     {
-        transControl.Transition(0.75f, 1, 1, ChageScene(1));
+        transControl.Transition(0.75f, 1, 1, () => ChageScene(1));
     }
     public void Options()
     {
-        transControl.Transition(1, 1, 1, ActivatePanel());
-        IEnumerator ActivatePanel()
+        /*
+        transControl.Transition(1, 1, 1, ActivatePanel);
+        void ActivatePanel()
         {
             optionPanel.SetActive(true);
             mainPanel.SetActive(false);
-            yield return null;
         }
+        */
+        optionPanel.SetActive(true);
+        mainPanel.SetActive(false);
     }
     public void Back()
     {
-        transControl.Transition(1, 1, 1, ActivatePanel());
-        IEnumerator ActivatePanel()
+        /*
+        transControl.Transition(1, 1, 1, ActivatePanel);
+        void ActivatePanel()
         {
             optionPanel.SetActive(false);
             mainPanel.SetActive(true);
-            yield return null;
         }
+        */
+        optionPanel.SetActive(false);
+        mainPanel.SetActive(true);
     }
     public void Crash()
     {
-        transControl.Transition(1, 3, 0,BlueScreenOfDeath());
+        StartCoroutine(ActualCrash());
+    }
+
+    private IEnumerator ActualCrash()
+    {
+        Time.timeScale = 0;
+        foreach (var juice in FindObjectsOfType<ButtonJuice>())
+        {
+            juice.enabled = false;
+        }
+
+        yield return new WaitForSecondsRealtime(0.46f);
+
+        transControl.Transition(0, 0.389f, 0, () => StartCoroutine(BlueScreenOfDeath()));
+
         // Save stuff
 
         IEnumerator BlueScreenOfDeath()
         {
-        blueScreen.SetActive(true); // Show
-            yield return new WaitForSeconds(10); // Wait
-        Application.Quit(); // Turn off game
+            blueScreen.SetActive(true); // Show
+            yield return new WaitForSecondsRealtime(3.534f); // Wait
+            Application.Quit(); // Turn off game
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
     }
-    IEnumerator ChageScene(int scene)
+
+    void ChageScene(int scene)
     {
         SceneManager.LoadScene(scene);
-        yield return null;
     }
 }

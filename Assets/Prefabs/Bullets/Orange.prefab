@@ -59,7 +59,8 @@ MonoBehaviour:
   trail: {fileID: 0}
   constantParticles: {fileID: 4904372591561388966}
   rotateTowardsVelocity: 1
-  sliceAmount: {x: 3, y: 7}
+  disabled: 0
+  sliceAmount: {x: 5, y: 7}
   sliceRange: 67.5
   slice: {fileID: 6879201909857107192, guid: 71eb670982e5bd547b743d6c8acb43bd, type: 3}
   explosion: {fileID: 4039772940751909582}

@@ -307,7 +307,7 @@ MonoBehaviour:
   fadeTimer: 2
   devideHundred: 0
   background: {fileID: 0}
-  fade: 1
+  fade: 0
 --- !u!222 &916362293237683020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   fadeTimer: 2
   devideHundred: 0
   background: {fileID: 0}
-  fade: 1
+  fade: 0
 --- !u!222 &916362294672929056
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   fadeTimer: 2
   devideHundred: 0
   background: {fileID: 0}
-  fade: 1
+  fade: 0
 --- !u!222 &916362294955817893
 CanvasRenderer:
   m_ObjectHideFlags: 0

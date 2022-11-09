@@ -9,6 +9,7 @@ public class GravityBullet : Bullet
 {
     [Header("Gravity")]
     [SerializeField] protected bool rotateTowardsVelocity;
+    [SerializeField] protected bool disabled;
 
     protected override void Start()
     {
@@ -25,6 +26,11 @@ public class GravityBullet : Bullet
         if (rotateTowardsVelocity)
         {
             transform.up = rb.velocity;
+        }
+
+        if (disabled)
+        {
+            base.FixedUpdate();
         }
     }
 }

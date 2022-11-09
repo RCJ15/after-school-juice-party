@@ -165,8 +165,6 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         _selectedWeapon = index;
         _hud.SelectedCard = index;
 
-        Debug.Log(index);
-
         ChangeShot(newWeapon);
 
         // Popup!
