@@ -108,8 +108,9 @@ public class Bullet : MonoBehaviour
             return;
         }
         // Check if we collided with an enemy
-        else if (!hitEnemies.Contains(col.gameObject) && col.CompareTag("Enemy") && col.TryGetComponent(out Enemy enemy))
+        else if (!hitEnemies.Contains(col.gameObject) && col.CompareTag("Enemy") )
         {
+            col.TryGetComponent(out Enemy enemy);
             if (OnCollideWithEnemy(col, enemy))
             {
                 hitEnemies.Add(col.gameObject);
@@ -132,7 +133,15 @@ public class Bullet : MonoBehaviour
     protected virtual bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // TEMPORARY
+        try
+        {
+                    col.GetComponent<Enemy>().Hurt(damage);
         enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        }
+        catch (Exception)
+        {
+
+        }
 
         Die();
 

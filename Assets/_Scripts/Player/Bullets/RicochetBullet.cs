@@ -33,7 +33,15 @@ public class RicochetBullet : Bullet
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // TEMPORARY
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        try
+        {
+            col.GetComponent<Enemy>().Hurt(damage);
+            enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        }
+        catch (System.Exception)
+        {
+
+        } 
 
         if (pierce > 0)
         {

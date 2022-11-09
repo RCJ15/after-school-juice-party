@@ -87,7 +87,7 @@ public class Homing : MonoBehaviour
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) // Find closest enemy
         {
-            if (!enemy.GetComponent<DummyEnemy>().IsAlive) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
+            if (!enemy.GetComponent<DummyEnemy>().IsAlive||!enemy.activeSelf) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
             {
                 continue;
             }

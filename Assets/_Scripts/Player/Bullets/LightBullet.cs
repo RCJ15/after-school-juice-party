@@ -24,7 +24,15 @@ public class LightBullet : Bullet
 
         foreach (Collider2D enemy in enemies)
         {
+            try
+            {
+            enemy.GetComponent<Enemy>().Hurt(damage);
             enemy.GetComponent<DummyEnemy>().Hurt(damage);
+            }
+            catch (System.Exception)
+            {
+
+            }
         }
     }
 

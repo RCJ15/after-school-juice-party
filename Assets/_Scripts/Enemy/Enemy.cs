@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
-    //Viktigt!!! Ifall ni använder arv!!! För att något ska hända när fienderna rör något måste man ha "OnCollisionEnter..."
-    //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
+                                    //Viktigt!!! Ifall ni använder arv!!! För att något ska hända när fienderna rör något måste man ha "OnCollisionEnter..."
+                                    //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
 {
+    public float hp;
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
-    private float side = 0.5f;
+    [SerializeField] protected float side = 0.5f;
 
     //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger innan den vänder.
-    private float down = -0.25f;
+    [SerializeField] protected float down = -0.25f;
+    [Tooltip("How huch the enemy travels horizontaly before turning around. ")]
+    [SerializeField] protected float travelDistance = 2;
 
     //Original positionens x-värde (är när den är längst till vänster)
-    private float originalPosX;
+    [SerializeField] protected float originalPosX;
 
-    private float timer = 0;
+    [SerializeField] protected float timer = 0;
+    [SerializeField] protected Vector2 gainPoints;
+    [Tooltip("Shake intensity and duration")]
+    [SerializeField] protected Vector2 shake;
 
     //Score score;
 
@@ -42,7 +48,6 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
         //Sätter originalPosX
         originalPosX = transform.position.x;
-
     }
 
     // Update is called once per frame
@@ -89,7 +94,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //Fienden rör sig
         else if (timer >= 0.8f)
         {
-            transform.position += new Vector3(side, down, 0);
+            transform.position += new Vector3(side, down, transform.position.z);
 
             //Fienden poppar fram igen (är i samma som att gå för att gå saken endast ska hända en gång)
             color.a = 1;
@@ -99,18 +104,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         }
 
         //Ifall den är två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
-        if (transform.position.x == originalPosX + 2 * side && side > 0 || transform.position.x == originalPosX && side < 0)
+        if (transform.position.x == originalPosX + travelDistance * side && side > 0 || transform.position.x == originalPosX && side < 0)
         {
             //Byter håll
             side *= -1;
         }
-
     }
     //Det här händer när fienderna rör något som inte är spelaren. (Aktiveras i "OnCollisionEnter...").
     protected virtual void EnemyDies()
     {
-        Destroy(gameObject);
-
         //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
         //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
         //Score koden, eller ifall det är för att något saknas???
@@ -118,27 +120,31 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //mousePos.z = -cam.transform.position.z;
 
         // Gammal kod förösker spawna score på musen, detta gör så att score spawnas på detta object
-        Score.AddPoints(1, transform.position);
+        Score.AddPoints(Mathf.RoundToInt( Random.Range(gainPoints.x,gainPoints.y)), transform.position);
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
-        CameraEffects.Shake(1, 1);
+        CameraEffects.Shake(shake.x, shake.y);
+        Destroy(gameObject); // Föstör objectet efter att vi har get poäng
+
     }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void Hurt(float damage)
     {
-       if (collision.transform.tag == "Player")
-       {
-            //Spelaren förlorar liv/spelet?
-       }
-       //Bullet koderna verkar ha något för det här redan?
-       //Så länge den inte rör kanten borde det vara okej, men ifall vi lägger en tag på skotten borde vi ändra den här
-       //för säkerhets skull
-       else
-       {
+        hp -= damage;
+        DPSCounter.Add(damage);
+        if (hp <= 0)
+        {
             EnemyDies();
-       }
+        }
     }
 
-
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            //Spelaren förlorar liv/spelet?
+        }
+        //Bullet koderna verkar ha något för det här redan?
+        //Så länge den inte rör kanten borde det vara okej, men ifall vi lägger en tag på skotten borde vi ändra den här
+        //för säkerhets skull
+    }
 }

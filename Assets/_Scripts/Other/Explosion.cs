@@ -20,7 +20,7 @@ public class Explosion : MonoBehaviour
     [Space]
     [SerializeField] private float zoomAmount = 68;
     [SerializeField] private float zoomDuration = 0.1f;
-    
+
     private Animator _anim;
 
     private HashSet<GameObject> _hitEnemies = new HashSet<GameObject>();
@@ -56,15 +56,23 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (_hitEnemies.Contains(col.gameObject) || !col.CompareTag("Enemy") || !col.TryGetComponent(out Enemy enemy))
+        if (_hitEnemies.Contains(col.gameObject) || !col.CompareTag("Enemy"))
         {
             return;
         }
 
         _hitEnemies.Add(col.gameObject);
-
+        col.TryGetComponent(out Enemy enemy);
         // TEMPORARY
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        try
+        {
+            col.GetComponent<Enemy>().Hurt(damage);
+                        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        }
+        catch (System.Exception)
+        {
+
+        }
     }
 
     public void Explode(float damage, Vector3 scale)
