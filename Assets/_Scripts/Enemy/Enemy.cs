@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
+    //Viktigt!!! Ifall ni använder arv!!! För att något ska hända när fienderna rör något måste man ha "OnCollisionEnter..."
+    //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
 {
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
     private float side = 2f;
@@ -15,12 +17,11 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     private float timer = 0;
 
-    Score score;
+    //Score score;
 
-    [SerializeField]
     Camera cam;
 
-    CameraEffects cameraEffects;
+    //CameraEffects cameraEffects;
 
     //Det här är för att de ska "blinka" när de rör sig.
     private Color color;
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
+
         //Färg saker
         rend = GetComponent<SpriteRenderer>();
 
@@ -39,19 +42,25 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
         //Sätter originalPosX
         originalPosX = transform.position.x;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(cam);
+
         //Är funktion för ifall man ska göra arv
         Move();
 
+        //Det här är temporärt, Debug.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Destroy(gameObject);
 
             //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
+            //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
+            //Score koden, eller ifall det är för att något saknas???
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -cam.transform.position.z;
             Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
@@ -60,7 +69,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             Debug.Log(cam);
 
 
-            //funkar inte
+            //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
             CameraEffects.Shake(1, 1);
         }
     }
@@ -96,11 +105,25 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         }
 
     }
+    //Det här händer när fienderna rör något som inte är spelaren. (Aktiveras i "OnCollisionEnter...").
+    protected virtual void EnemyDies()
+    {
+        Destroy(gameObject);
+
+        //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
+        //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
+        //Score koden, eller ifall det är för att något saknas???
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = -cam.transform.position.z;
+        Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+
+        //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
+        CameraEffects.Shake(1, 1);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-    
-
        if (collision.transform.tag == "Player")
        {
             //Spelaren förlorar liv/spelet?
@@ -110,15 +133,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
        //för säkerhets skull
        else
        {
-           Destroy(gameObject);
-
-           //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
-           Vector3 mousePos = Input.mousePosition;
-           mousePos.z = -cam.transform.position.z;
-           Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
-
-           //funkar ???
-           CameraEffects.Shake(1, 1);
+            EnemyDies();
        }
     }
 

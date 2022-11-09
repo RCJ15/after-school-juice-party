@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna
+public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "Vågor"/"Formationer" ifall vi vill ha en
+                                    //konstant ström av fiender måste vi fixa felspawn koden eftersom det är det den har.
 {
     //Hur mycket från den första fienden på raden som den andra fienden ska placeras (blir noll mellan varje rad)
     private int enemyPlace = 0;
@@ -57,6 +58,14 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna
                 Instantiate(enemy, new Vector3(-4 + enemyPlace, 7, 0), Quaternion.identity);
 
                 enemyPlace += 2;
+
+                //Gör båda till 0 på slutet ifall vi vill göra så att en ny våg kommer efter (Vilket vi antagligen vill?)
+                //(Just nu kommer det ingen ny våg)
+                if (i == 4)
+                {
+                    enemyPlace = 0;
+                    formationNum = 0;
+                }
             }
             
         }
@@ -115,6 +124,14 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna
                 Instantiate(enemy, new Vector3(-10 + enemyPlace, 11.5f, 0), Quaternion.identity);
 
                 enemyPlace += 2;
+
+                //Gör båda till 0 på slutet ifall vi vill göra så att en ny våg kommer efter (Vilket vi antagligen vill?)
+                //(Just nu kommer det ingen ny våg)
+                if (i == 22)
+                {
+                    enemyPlace = 0;
+                    formationNum = 0;
+                }
 
             }
         }
