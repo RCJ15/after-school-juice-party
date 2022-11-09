@@ -14,7 +14,10 @@ public class LightBullet : Bullet
 
         InvokeRepeating(nameof(Check), 0, attackRate);
     }
-
+    protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
+    {
+        return false;
+    }
     private void Check()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);

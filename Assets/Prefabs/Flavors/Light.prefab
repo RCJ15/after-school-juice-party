@@ -49,9 +49,9 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   Description: Intangible bullets with a damage aura. I can taste the light!
   Color: {r: 1, g: 1, b: 1, a: 1}
-  AttackStat: 1
+  AttackStat: 2
   UtilityStat: 5
-  RangeStat: 5
+  RangeStat: 4
   DmgTypes: 02000000
   Special: 
   shootEffect: {fileID: 0}
