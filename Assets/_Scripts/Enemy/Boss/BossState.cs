@@ -9,11 +9,11 @@ public class BossState : MonoBehaviour
 {
     public Boss Boss { get; set;}
 
-    protected float TargetSpeed;
+    protected float TargetSpeed { get => Boss.TargetSpeed; set => Boss.TargetSpeed = value; }
 
     protected virtual void Start()
     {
-
+        TargetSpeed = 0;
     }
 
     protected virtual void Update()

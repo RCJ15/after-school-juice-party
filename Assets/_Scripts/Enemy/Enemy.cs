@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     //Score score;
 
-    Camera cam;
+    //Camera cam;
 
     //CameraEffects cameraEffects;
 
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main;
+        //cam = Camera.main;
 
         //Färg saker
         rend = GetComponent<SpriteRenderer>();
@@ -61,12 +61,13 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
             //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
             //Score koden, eller ifall det är för att något saknas???
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = -cam.transform.position.z;
-            Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+            //Vector3 mousePos = Input.mousePosition;
+            //mousePos.z = -cam.transform.position.z;
+            
+            Score.AddPoints(1, transform.position);
 
-            Debug.Log(mousePos);
-            Debug.Log(cam);
+            //Debug.Log(mousePos);
+            //Debug.Log(cam);
 
 
             //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
@@ -113,9 +114,11 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
         //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
         //Score koden, eller ifall det är för att något saknas???
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = -cam.transform.position.z;
-        Score.AddPoints(1, cam.ScreenToWorldPoint(mousePos));
+        //Vector3 mousePos = Input.mousePosition;
+        //mousePos.z = -cam.transform.position.z;
+
+        // Gammal kod förösker spawna score på musen, detta gör så att score spawnas på detta object
+        Score.AddPoints(1, transform.position);
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
         CameraEffects.Shake(1, 1);
