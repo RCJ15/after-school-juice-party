@@ -7,11 +7,16 @@ using UnityEngine;
 /// </summary>
 public class PlayerShootManager : MonoBehaviour // - Ruben
 {
+    public static PlayerShootManager Instance;
+
 #if UNITY_EDITOR
     // DEBUG!!!
     [SerializeField] private bool haveAllWeapons;
     [SerializeField] private GameObject prioritizedWeapon;
 #endif
+
+    public bool BoostedByHoney => HoneyTimer > 0;
+    [HideInInspector] public float HoneyTimer;
 
     private PlayerShoot[] _playerShoots;
     private int _currentShotIndex;
@@ -25,6 +30,11 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
     private WeaponPickupPopup _popup;
     private WeaponHUD _hud;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -76,6 +86,11 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
     private void Update()
     {
+        if (HoneyTimer > 0)
+        {
+            HoneyTimer -= Time.deltaTime;
+        }
+
         if (Input.GetKeyDown(KeyCode.U) && _weaponAmount < _playerShootsLength)
         {
             AddWeapon(_weaponAmount, true);

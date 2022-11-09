@@ -27,6 +27,9 @@ public class Bullet : MonoBehaviour
     protected Rigidbody2D rb;
     protected GameManager gameManager;
     protected PlayerMove player;
+    protected PlayerShootManager shootManager;
+
+    protected virtual bool CanBeBoostedByHoney => true;
 
     protected HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
 
@@ -46,6 +49,7 @@ public class Bullet : MonoBehaviour
         wallLayer = gameManager.WallLayer;
         playerLayer = gameManager.PlayerLayer;
         player = PlayerMove.Instance;
+        shootManager = PlayerShootManager.Instance;
 
         Timer();
     }
@@ -73,7 +77,7 @@ public class Bullet : MonoBehaviour
     {
         if (speed > 0)
         {
-            rb.velocity = transform.up * speed;
+            rb.velocity = transform.up * speed * (shootManager.BoostedByHoney && CanBeBoostedByHoney ? 1.5f : 1f);
         }
     }
 

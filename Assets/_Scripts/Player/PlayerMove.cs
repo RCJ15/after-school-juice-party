@@ -27,6 +27,7 @@ public class PlayerMove : MonoBehaviour
     private float _sineTime;
 
     private Rigidbody2D _rb;
+    private PlayerShootManager _shootManager;
 
     private Vector3 _startPos;
 
@@ -38,6 +39,8 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        _shootManager = PlayerShootManager.Instance;
 
         _startPos = transform.localPosition;
     }
@@ -63,7 +66,7 @@ public class PlayerMove : MonoBehaviour
 
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
 
-        _rb.AddForce(movement * Vector2.right);
+        _rb.AddForce(movement * Vector2.right * (_shootManager.BoostedByHoney ? 1.5f : 1f));
 
         #endregion
 
