@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
 {
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
-    private float side = 2f;
+    private float side = 0.5f;
 
     //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger innan den vänder.
     private float down = -0.25f;
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         Move();
 
         //Det här är temporärt, Debug.
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             Destroy(gameObject);
 
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
             //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
             CameraEffects.Shake(1, 1);
-        }
+        }*/
     }
 
     //Funktion med rörelse kod.
