@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2093724626545702016}
   - component: {fileID: 8967295214402259556}
   - component: {fileID: 5123140509042239176}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Strawberry Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,7 @@ MonoBehaviour:
   damage: 1
   speed: 10
   lifetime: 3
+  hitPlayer: 0
   deathParticles: {fileID: 4116994750440366175}
   trail: {fileID: 0}
   constantParticles: {fileID: 0}
@@ -4992,7 +4993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6596872391401841366}
   - component: {fileID: 8795460376091379282}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

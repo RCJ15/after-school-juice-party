@@ -9,6 +9,7 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private float damage;
     [SerializeField] private float speed = 1;
+    [SerializeField] private bool hitPlayer;
 
     [Header("Juice")]
     [SerializeField] private float shakeIntesity;
@@ -56,22 +57,33 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (hitPlayer)
+        {
+            if (!col.CompareTag("Player"))
+            {
+                return;
+            }
+
+            Debug.Log("HIT PLAYER!!!");
+
+            return;
+        }
+
+
         if (_hitEnemies.Contains(col.gameObject) || !col.CompareTag("Enemy"))
         {
             return;
         }
 
         _hitEnemies.Add(col.gameObject);
-        col.TryGetComponent(out Enemy enemy);
-        // TEMPORARY
-        try
-        {
-            col.GetComponent<Enemy>().Hurt(damage);
-                        enemy.GetComponent<DummyEnemy>().Hurt(damage);
-        }
-        catch (System.Exception)
-        {
 
+        if (col.TryGetComponent(out Enemy enemy))
+        {
+            enemy.Hurt(damage);
+        }
+        else if (col.TryGetComponent(out DummyEnemy dummy))
+        {
+            dummy.Hurt(damage);
         }
     }
 

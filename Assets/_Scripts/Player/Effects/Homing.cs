@@ -12,14 +12,20 @@ public class Homing : MonoBehaviour
     [Tooltip("Speed of rotation")]
     [SerializeField] float rotateSpeed = 200f;
     [SerializeField] float minDistance = 4;
-    [SerializeField] GameObject crossHair;
-    bool foundTarget;
+    [SerializeField] Crosshair crossHair;
+
+    [Space]
+    [SerializeField] private bool focusPlayer;
+    bool _foundTarget;
     Transform _target;
 
-    private Rigidbody2D rb;
-    private void Awake()
+    private Rigidbody2D _rb;
+    private PlayerMove _player;
+
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _player = PlayerMove.Instance;
 
         /*
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(); // All objects in scene
@@ -51,32 +57,34 @@ public class Homing : MonoBehaviour
         }
         */
 
-        InvokeRepeating(nameof(SetTarget), 0, 0.05f);
+        InvokeRepeating(focusPlayer ? nameof(SetPlayerTarget) : nameof(SetTarget), 0, 0.05f);
     }
+
+
     private void FixedUpdate()
     {
-        if (!foundTarget)
+        if (!_foundTarget)
         {
             return;
         }
 
         if (_target == null)
         {
-            foundTarget = false;
+            _foundTarget = false;
             return;
         }
 
         // Home towards the target
-        Vector2 direction = (Vector2)_target.position - rb.position;
+        Vector2 direction = (Vector2)_target.position - _rb.position;
         direction.Normalize();
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
-        rb.angularVelocity = -rotateAmount * rotateSpeed;
+        _rb.angularVelocity = -rotateAmount * rotateSpeed;
     }
 
     private void SetTarget()
     {
-        if (foundTarget)
+        if (_foundTarget)
         {
             return;
         }
@@ -87,9 +95,13 @@ public class Homing : MonoBehaviour
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) // Find closest enemy
         {
-            if (!enemy.GetComponent<DummyEnemy>().IsAlive||!enemy.activeSelf) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
+            // DELETE THIS!!!
+            if (enemy.TryGetComponent(out DummyEnemy enemyScript))
             {
-                continue;
+                if (!enemyScript.IsAlive) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
+                {
+                    continue;
+                }
             }
 
             float distance = Vector3.Distance(enemy.transform.position, transform.position); // Find the distance between us and enemy
@@ -103,24 +115,51 @@ public class Homing : MonoBehaviour
 
         if (_target == null) // If no enemy return
         {
-            foundTarget = false;
+            _foundTarget = false;
             return;
         }
 
-        foundTarget = true;
+        OnFindTarget();
+    }
+
+    private void OnFindTarget()
+    {
+        _foundTarget = true;
 
         if (crossHair == null)
         {
             return;
         }
 
-        crossHair.SetActive(true);
+        crossHair.Target = _target;
+        crossHair.gameObject.SetActive(true);
         crossHair.transform.SetParent(null);
         crossHair.transform.position = _target.position;
 
         // StartCoroutine( Fade(newCrossHair.GetComponent<SpriteRenderer>())); // Fade out
         Destroy(crossHair, 3); // Destroy after 3 seconds
     }
+
+    // Used with bullets with "focusPlayer" set to true
+    private void SetPlayerTarget()
+    {
+        if (_foundTarget)
+        {
+            return;
+        }
+
+        _target = null;
+
+        if (Vector2.Distance(_player.transform.position, transform.position) > minDistance)
+        {
+            return;
+        }
+
+        _target = _player.transform;
+
+        OnFindTarget();
+    }
+
     /*
     IEnumerator Fade(SpriteRenderer sprite)
     {

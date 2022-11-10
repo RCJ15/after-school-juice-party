@@ -4880,7 +4880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9029148688305225943}
   - component: {fileID: 2918679209397774462}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9921,7 +9921,7 @@ GameObject:
   - component: {fileID: 3059897776939220379}
   - component: {fileID: 4387544116375988746}
   - component: {fileID: 8442339427082580042}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Pomegranate Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9963,6 +9963,7 @@ MonoBehaviour:
   damage: 7
   speed: 20
   lifetime: 4.3
+  hitPlayer: 0
   deathParticles: {fileID: 4401006215866188869}
   trail: {fileID: 0}
   constantParticles: {fileID: 0}

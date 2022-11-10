@@ -8,6 +8,8 @@ using UnityEngine;
 public class BossState : MonoBehaviour
 {
     public Boss Boss { get; set;}
+    public Animator Anim { get; set; }
+    public int Stage => Boss.Stage;
 
     protected float TargetSpeed { get => Boss.TargetSpeed; set => Boss.TargetSpeed = value; }
 
@@ -17,6 +19,16 @@ public class BossState : MonoBehaviour
     }
 
     protected virtual void Update()
+    {
+
+    }
+
+    public void Idle()
+    {
+        Boss.Idle();
+    }
+
+    public virtual void UpdateStage(int stage)
     {
 
     }

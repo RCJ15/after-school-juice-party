@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74df05393db75b743b88515cf30539ab
+guid: 3f9848c18809bee469d24f9d51b4e5f9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alf Arm_0
+      name: Cat Borgir_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 630
-        height: 651
+        width: 1312
+        height: 706
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d951c5e2b21c31489f559df2ee3fd72
-      internalID: 856432999
+      spriteID: 880e731716cc8f74380fdd2c45bda69c
+      internalID: 455009322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alf Arm_1
+      name: Cat Borgir_1
       rect:
         serializedVersion: 2
-        x: 630
+        x: 1312
         y: 0
-        width: 630
-        height: 651
+        width: 1312
+        height: 706
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 199de36978cf1d244a3b07a2847ab640
-      internalID: 1143176694
+      spriteID: b96b65eb0f78c6a45a12a03fb29df953
+      internalID: 1542270245
       vertices: []
       indices: 
       edges: []
@@ -168,8 +168,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alf Arm_0: 856432999
-      Alf Arm_1: 1143176694
+      Cat Borgir_0: 455009322
+      Cat Borgir_1: 1542270245
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

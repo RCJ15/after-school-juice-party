@@ -5143,9 +5143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47dc7737f5ad8c468bf29b59256ac2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6.5
+  damage: 1.5
   speed: 10
   lifetime: 6
+  hitPlayer: 0
   deathParticles: {fileID: 968581536930778726}
   trail: {fileID: 6320680478453010806}
   constantParticles: {fileID: 0}

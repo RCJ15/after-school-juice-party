@@ -9,12 +9,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] protected float damage = 1;
+    public float Damage => damage;
 
     [Space]
     [SerializeField] protected float speed;
     public float Speed { get => speed; set => speed = value; }
 
     [SerializeField] protected float lifetime;
+    [SerializeField] protected bool hitPlayer;
 
     [Header("Juice")]
     [SerializeField] protected ParticleSystem deathParticles;
@@ -77,7 +79,7 @@ public class Bullet : MonoBehaviour
     {
         if (speed > 0)
         {
-            rb.velocity = transform.up * speed * (shootManager.BoostedByHoney && CanBeBoostedByHoney ? 1.5f : 1f);
+            rb.velocity = transform.up * speed * (shootManager.BoostedByHoney && CanBeBoostedByHoney && !hitPlayer ? 1.5f : 1f);
         }
     }
 
@@ -127,11 +129,23 @@ public class Bullet : MonoBehaviour
 
     protected virtual void OnCollideWithPlayer(Collider2D col)
     {
+        if (!hitPlayer)
+        {
+            return;
+        }
 
+        Debug.Log("Player hit!");
+
+        Die();
     }
 
     protected virtual bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
+        if (hitPlayer)
+        {
+            return false;
+        }
+
         // TEMPORARY
         try
         {

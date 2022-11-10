@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6050925470628816714}
   - component: {fileID: 4352592644740227698}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 281475806326336736}
   - component: {fileID: 6747904381744233461}
   - component: {fileID: 8534878309167604871}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: InstaKillBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   damage: 9999
   speed: 30
   lifetime: 0
+  hitPlayer: 0
   deathParticles: {fileID: 3464836801857315151}
   trail: {fileID: 0}
   constantParticles: {fileID: 0}
