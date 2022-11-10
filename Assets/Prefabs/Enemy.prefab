@@ -102,7 +102,7 @@ MonoBehaviour:
   hp: 150
   side: 0.5
   down: -0.25
-  travelDistance: 4.75
+  travelDistance: 2
   originalPosX: 9.48
   timer: 0
   gainPoints: {x: 5, y: 10}

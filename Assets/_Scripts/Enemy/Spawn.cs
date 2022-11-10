@@ -42,7 +42,7 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "
             //Första "raden". Två fiender.
             if (i < 2)
             {
-                Instantiate(enemy, new Vector3(-1.25f + enemyPlace, 5.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-1 + enemyPlace, 5.5f, 0), Quaternion.identity);
 
                 enemyPlace += 1;
 
@@ -55,7 +55,7 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "
             //Andra "raden". Tre fiender.
             else if (i >= 2)
             {
-                Instantiate(enemy, new Vector3(-1.75f + enemyPlace, 7, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-1.5f + enemyPlace, 7, 0), Quaternion.identity);
 
                 enemyPlace += 1;
 
@@ -78,13 +78,13 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "
             //Första "raden". En fiende.
             if (i == 0)
             {
-                Instantiate(enemy, new Vector3(-1 + enemyPlace, 5.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-0.5f + enemyPlace, 5.5f, 0), Quaternion.identity);
                 
             }
             //Andra "raden". Två fiender.
             else if (i >= 1 && i < 3)
             {
-                Instantiate(enemy, new Vector3(-1.5f + enemyPlace, 7, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-1 + enemyPlace, 7, 0), Quaternion.identity);
 
                 enemyPlace += 1;
                 
@@ -96,7 +96,7 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "
             //Tre fiender
             else if (i >= 3 && i < 6)
             {
-                Instantiate(enemy, new Vector3(-2 + enemyPlace, 8.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-1.5f + enemyPlace, 8.5f, 0), Quaternion.identity);
 
                 enemyPlace += 1;
 
@@ -108,7 +108,7 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "
             //Åtta fiender
             else if (i >= 6 && i < 14)
             {
-                Instantiate(enemy, new Vector3(-2.5f + enemyPlace, 10, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-4f + enemyPlace, 10, 0), Quaternion.identity);
 
                 enemyPlace += 1;
                 
@@ -121,7 +121,7 @@ public class Spawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "
             //Nio fiender
             else if (i >= 14)
             {
-                Instantiate(enemy, new Vector3(-3 + enemyPlace, 11.5f, 0), Quaternion.identity);
+                Instantiate(enemy, new Vector3(-4.5f + enemyPlace, 11.5f, 0), Quaternion.identity);
 
                 enemyPlace += 1;
 
