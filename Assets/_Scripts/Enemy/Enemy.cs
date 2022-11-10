@@ -8,15 +8,19 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 {
     public float hp;
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
-    [SerializeField] protected float side = 0.5f;
+    [SerializeField] protected float moveSideSpeed = 1.5f;
+    [SerializeField] protected float moveFrequency =1f;
 
     //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger innan den vänder.
     [SerializeField] protected float down = -0.25f;
-    [Tooltip("How huch the enemy travels horizontaly before turning around. ")]
-    [SerializeField] protected float travelDistance = 2;
+    [Tooltip("How low does the enemy go before it dies ")]
+    [SerializeField] protected float minYpos;
 
     //Original positionens x-värde (är när den är längst till vänster)
-    [SerializeField] protected float originalPosX;
+    [Tooltip("Left most point on the x axis")]
+    [SerializeField] protected float maxLeftPosX;
+    [Tooltip("Right most point on the x axis")]
+    [SerializeField] protected float maxRightPosX;
 
     [SerializeField] protected float timer = 0;
     [SerializeField] protected Vector2 gainPoints;
@@ -34,7 +38,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     private SpriteRenderer rend;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         //cam = Camera.main;
 
@@ -47,11 +51,11 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         rend.color = color;
 
         //Sätter originalPosX
-        originalPosX = transform.position.x;
+       // maxLeftPosX = transform.position.x;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         //Debug.Log(cam);
 
@@ -86,15 +90,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         timer += Time.deltaTime;
 
         //Fienden blir osynlig
-        if (timer >= 0.5f && timer <= 0.6f)
+        if (timer >= moveFrequency / 2 - 0.1f && timer <= moveFrequency / 2 + 0.1f) 
         {
             color.a = 0;
             rend.color = color;
         }
         //Fienden rör sig
-        else if (timer >= 0.8f)
+        else if (timer >= moveFrequency)
         {
-            transform.position += new Vector3(side, down, transform.position.z);
+            transform.position += new Vector3(moveSideSpeed, 0, 0); // Gå åt sidan
 
             //Fienden poppar fram igen (är i samma som att gå för att gå saken endast ska hända en gång)
             color.a = 1;
@@ -103,15 +107,20 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             timer = 0;
         }
 
-        //Ifall den är två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
-        if (transform.position.x == originalPosX + travelDistance * side && side > 0 || transform.position.x == originalPosX && side < 0)
+        //Ifall den är vid extrem punkterna skall den vända om och hoppa ner. // Två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
+        if (transform.position.x <= maxLeftPosX && moveSideSpeed < 0 || transform.position.x >= maxRightPosX && moveSideSpeed > 0)
         {
+            transform.position += new Vector3(0, -down, 0); // Ramla en rad ner
             //Byter håll
-            side *= -1;
+            moveSideSpeed *= -1;
+        }
+        if (transform.position.y <= minYpos) // Vi tog oss genom spelarens nivå
+        {
+            HitPlayer(); // Skada spelaren
         }
     }
     //Det här händer när fienderna rör något som inte är spelaren. (Aktiveras i "OnCollisionEnter...").
-    protected virtual void EnemyDies()
+    protected virtual void EnemyDies(bool givePoints)
     {
         //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
         //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
@@ -120,7 +129,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //mousePos.z = -cam.transform.position.z;
 
         // Gammal kod förösker spawna score på musen, detta gör så att score spawnas på detta object
-        Score.AddPoints(Mathf.RoundToInt( Random.Range(gainPoints.x,gainPoints.y)), transform.position);
+        Score.AddPoints(givePoints ? Mathf.RoundToInt(Random.Range(gainPoints.x, gainPoints.y)) : 0, transform.position); // Give points
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
         CameraEffects.Shake(shake.x, shake.y);
@@ -130,11 +139,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     public virtual void Hurt(float damage)
     {
         hp -= damage;
-        DPSCounter.Add(damage);
+        DPSCounter.Add(damage); // Visa vår damage per second
         if (hp <= 0)
         {
-            EnemyDies();
+            EnemyDies(true);
         }
+    }
+    public virtual void HitPlayer() // Enemy hit player or player snuck past player
+    {
+        EnemyDies(false);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -142,9 +155,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         if (collision.transform.tag == "Player")
         {
             //Spelaren förlorar liv/spelet?
+            HitPlayer();
         }
         //Bullet koderna verkar ha något för det här redan?
         //Så länge den inte rör kanten borde det vara okej, men ifall vi lägger en tag på skotten borde vi ändra den här
         //för säkerhets skull
+        /*else if (collision.transform.CompareTag("Bullet")) // Coliderar med ett skot
+        {
+            collision.TryGetComponent<Bullet>(out Bullet bullet);
+            Hurt(bullet.Damage); // Skada oss
+        }*/
     }
 }
