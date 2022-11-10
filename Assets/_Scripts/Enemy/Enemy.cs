@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     [SerializeField] protected Vector2 gainPoints;
     [Tooltip("Shake intensity and duration")]
     [SerializeField] protected Vector2 shake;
+    [SerializeField] ParticleSystem changeDirectionParticles;
+    [SerializeField] ParticleSystem deathParticles;
 
     //Score score;
 
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     //Det här är för att de ska "blinka" när de rör sig.
     private Color color;
-    private SpriteRenderer rend;
+    [SerializeField] SpriteRenderer rend;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -43,7 +45,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //cam = Camera.main;
 
         //Färg saker
-        rend = GetComponent<SpriteRenderer>();
+        rend = rend != null ? rend : GetComponentInChildren<SpriteRenderer>();
 
         color = rend.color;
 
@@ -113,6 +115,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             transform.position += new Vector3(0, -down, 0); // Ramla en rad ner
             //Byter håll
             moveSideSpeed *= -1;
+            changeDirectionParticles.Play();
         }
         if (transform.position.y <= minYpos) // Vi tog oss genom spelarens nivå
         {
@@ -133,6 +136,11 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
         CameraEffects.Shake(shake.x, shake.y);
+
+        deathParticles.Play(); // Play death particles
+        deathParticles.transform.parent = null; // Deatach from parent
+
+        Destroy(deathParticles.gameObject, 2); //Destroy them later
         Destroy(gameObject); // Föstör objectet efter att vi har get poäng
 
     }

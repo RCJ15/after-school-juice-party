@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HardEnemy : Enemy
 {[SerializeField] GameObject bullet;
-    [SerializeField] Animator anim;
+    [SerializeField] Animator attackAnim;
     [SerializeField] Vector2 timeInbetweenAttack;
 
     float attackFreq;
@@ -26,9 +26,9 @@ public class HardEnemy : Enemy
     }
     void Attack()
     {
-        Instantiate(bullet, transform.position - new Vector3(0, -1, 0), transform.rotation);
-        anim.Play(0);
+        Instantiate(bullet, transform.position - new Vector3(0, -1, 0), transform.rotation*Quaternion.Euler(1,1,180));
         attackFreq = Random.Range(timeInbetweenAttack.x, timeInbetweenAttack.y);
         attackTimer = 0;
+        attackAnim.Play(0);
     }
 }

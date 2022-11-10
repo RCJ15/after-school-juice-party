@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fienderna i "Vågor"/"Formationer" ifall vi vill ha en
                                          //konstant ström av fiender måste vi fixa felspawn koden eftersom det är det den har.
 {
-    [Tooltip("Hur mycket från den första fienden på raden som den andra fienden ska placeras (blir noll mellan varje rad)")]
-    [SerializeField] float EnemyPlaceOffset = 0;
+    //"Hur mycket från den första fienden på raden som den andra fienden ska placeras (blir noll mellan varje rad)"
+     float EnemyPlaceOffset = 0;
 
     //Nummer på formation (Just nu finns det bara 2).
     [SerializeField] float timeInbetweenWaves;
@@ -14,7 +14,9 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
     private int _previousWave = 0;
     private bool _waveEnded = true;
 
-    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject easyEnemy;
+    [SerializeField] GameObject mediumEnemy;
+    [SerializeField] GameObject hardEnemy;
     [Space]
     [Header("Formation One")]
     [SerializeField] Vector3 spawnLocation1;
@@ -54,7 +56,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Första "raden". Två fiender.
             if (i < enemysOnFirstRow1)
             {
-                Instantiate(enemy, spawnLocation1 + new Vector3(EnemyPlaceOffset, 0, 0), Quaternion.identity);
+                Instantiate(easyEnemy, spawnLocation1 + new Vector3(EnemyPlaceOffset, 0, 0), Quaternion.identity);
 
                 EnemyPlaceOffset += 1;
 
@@ -67,7 +69,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Andra "raden". Tre fiender.
             else if (i >= enemysOnFirstRow1)
             {
-                Instantiate(enemy, spawnLocation1 + new Vector3(EnemyPlaceOffset, distanceBetweenRows1, 0), Quaternion.identity);
+                Instantiate(mediumEnemy, spawnLocation1 + new Vector3(EnemyPlaceOffset, distanceBetweenRows1, 0), Quaternion.identity);
 
                 EnemyPlaceOffset++;
 
@@ -91,7 +93,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Första "raden". En fiende.
             if (i <= enemysOnFirstRow2)
             {
-                Instantiate(enemy, spawnLocation2 + new Vector3(EnemyPlaceOffset, 0, 0), Quaternion.identity);
+                Instantiate(easyEnemy, spawnLocation2 + new Vector3(EnemyPlaceOffset, 0, 0), Quaternion.identity);
                 EnemyPlaceOffset++;
 
                 if (i == enemysOnFirstRow2 - 1)
@@ -103,7 +105,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Andra "raden". Två fiender.
             else if (i >= enemysOnFirstRow2 && i < enemysOnSecondRow2)
             {
-                Instantiate(enemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
+                Instantiate(mediumEnemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
 
                 EnemyPlaceOffset++;
 
@@ -115,7 +117,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Tre fiender
             else if (i >= enemysOnSecondRow2 && i < enemysOnThirdRow2)
             {
-                Instantiate(enemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
+                Instantiate(easyEnemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
 
                 EnemyPlaceOffset++;
 
@@ -127,7 +129,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Åtta fiender
             else if (i >= enemysOnThirdRow2 && i < enemysOnFourthRow2)
             {
-                Instantiate(enemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
+                Instantiate(mediumEnemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
 
                 EnemyPlaceOffset++;
 
@@ -140,7 +142,7 @@ public class EnemySpawn : MonoBehaviour  //Emma. Den här koden spawn:ar fiendern
             //Nio fiender
             else if (i >= enemysOnFourthRow2)
             {
-                Instantiate(enemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
+                Instantiate(hardEnemy, new Vector3(EnemyPlaceOffset, distanceBetweenRows2, 0), Quaternion.identity);
 
                 EnemyPlaceOffset++;
 
