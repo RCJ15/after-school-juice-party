@@ -23,10 +23,13 @@ public class Homing : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerMove _player;
 
+    private Boss _boss;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _player = PlayerMove.Instance;
+        _boss = Boss.Instance;
 
         /*
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(); // All objects in scene
@@ -96,10 +99,11 @@ public class Homing : MonoBehaviour
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) // Find closest enemy
         {
-            // DELETE THIS!!!
-            if (enemy.TryGetComponent(out DummyEnemy enemyScript))
+            // Is boss
+            if (enemy.layer == 13)
             {
-                if (!enemyScript.IsAlive) // NOTE: This will have to be changed as enemies will be destroyed on death meaning that we don't have to check this - Ruben
+                // Ignore dead boss
+                if (_boss.Dead)
                 {
                     continue;
                 }

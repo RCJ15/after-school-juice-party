@@ -14847,6 +14847,7 @@ MonoBehaviour:
   shake: {x: 0.5, y: 0.3}
   changeDirectionParticles: {fileID: 7812539928394996459}
   deathParticles: {fileID: 1413098061391317978}
+  GivePoints: 1
   bullet: {fileID: 1242123144945122640, guid: 955c85451b87fb14096e4867580f680c, type: 3}
   timeInbetweenAttack: {x: 2, y: 4}
   perlinIntensity: 0.1

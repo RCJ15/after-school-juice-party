@@ -23,6 +23,7 @@ public class Boss : MonoBehaviour
 
     //[SerializeField] private int DEBUGATTACKPRIORITY;
     [SerializeField] [Range(1, 5)] private int stage = 1;
+    [SerializeField] private GameObject mainObj;
     public int Stage => stage;
 
     [Header("States")]
@@ -117,6 +118,14 @@ public class Boss : MonoBehaviour
         }
     }
 
+    public void EnableBoss(int stage)
+    {
+        anim.Play("Boss Entrance");
+        this.stage = stage;
+        mainObj.SetActive(true);
+        UpdateStage();
+    }
+
     public void StartBoss()
     {
         _healthbarAnim.SetTrigger("Appear");
@@ -156,6 +165,8 @@ public class Boss : MonoBehaviour
 
             _healthbarAnim.SetTrigger("Disappear");
 
+            SoundManager.PlaySound("Boss Defeat");
+
             PauseScreen.CanPause = false;
 
             SetTimeScale(0.1f);
@@ -185,6 +196,8 @@ public class Boss : MonoBehaviour
 
             return;
         }
+
+        SoundManager.PlaySound("Basement Fart");
 
         _healthbarAnim.SetTrigger("Hurt");
     }

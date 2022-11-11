@@ -15,13 +15,13 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] private WAVYSong[] gameSongs;
     [SerializeField] private WAVYSong bossSong;
 
+    private int _gameSongsLength;
+    private int _gameSong;
+
     private void Awake()
     {
+        _gameSongsLength = gameSongs.Length;
         Instance = this;
-    }
-
-    private void Start()
-    {
     }
 
     public static void PlayBossSong()
@@ -37,9 +37,11 @@ public class MusicPlayer : MonoBehaviour
         _currentSong?.Stop(fadeDuration);
     }
 
-    public static void PlaySong(int index)
+    public static void PlaySong()
     {
         _currentSong?.Stop();
 
+        _currentSong = Instance.gameSongs[Instance._gameSong++ % Instance._gameSongsLength];
+        _currentSong.Play();
     }
 }

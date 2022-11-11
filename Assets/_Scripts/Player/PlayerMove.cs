@@ -34,7 +34,7 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3 _startPos;
     [SerializeField] HighScore highScore;
-    [SerializeField] GameObject[] hearts;
+    [SerializeField] Animator[] hearts;
 
     private void Awake()
     {
@@ -66,16 +66,18 @@ public class PlayerMove : MonoBehaviour
     {
         hp--;
         if (hp <= 0)
-        { // End game
+        {   
+            // End game
             highScore.ShowHighScoreTable();
         }
-        hearts[hp].GetComponent<Animator>().Play("LoseLife"); // play animation
+
+        hearts[hp].Play("LoseLife"); // play animation
     }
     public void ResetHP()
     {
         for ( hp = 0; hp < _hp; hp++)
         {
-        hearts[hp].GetComponent<Animator>().Play("GetLife"); // play animation
+            hearts[hp].Play("GetLife"); // play animation
         }
     }
     private void FixedUpdate()

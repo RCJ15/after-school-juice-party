@@ -53,6 +53,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     {
         rb = GetComponent<Rigidbody2D>();
 
+        EnemyStorage.AddEnemy(this);
+
         //cam = Camera.main;
 
         /*
@@ -67,6 +69,11 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
         //Sätter originalPosX
         // maxLeftPosX = transform.position.x;
+    }
+
+    private void OnDestroy()
+    {
+        EnemyStorage.RemoveEnemy(gameObject);
     }
 
     // Update is called once per frame

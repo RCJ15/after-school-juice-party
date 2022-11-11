@@ -140,10 +140,11 @@ MonoBehaviour:
   hp: 30
   moveSpeed: 0.2
   minYpos: -8
-  gainPoints: {x: 10, y: 25}
+  gainPoints: {x: 100, y: 150}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 3465963480931113726}
   deathParticles: {fileID: 7636935024495687910}
+  GivePoints: 1
   bullet: {fileID: 8247576856845506639, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
   timeInbetweenAttack: {x: 1.5, y: 2}
   perlinIntensity: 0.2

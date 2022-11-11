@@ -11,6 +11,7 @@ public class EnemyStorage : MonoBehaviour
     public static EnemyStorage Instance;
     private GameObject _boss;
 
+    public int EnemyAmount;
     private Dictionary<GameObject, Enemy> _enemiesStored = new Dictionary<GameObject, Enemy>();
 
     private void Awake()
@@ -21,6 +22,20 @@ public class EnemyStorage : MonoBehaviour
     private void Start()
     {
         _boss = Boss.Instance.gameObject;
+    }
+
+    public static void AddEnemy(Enemy enemy)
+    {
+        Instance.EnemyAmount++;
+
+        Instance._enemiesStored.Add(enemy.gameObject, enemy);
+    }
+
+    public static void RemoveEnemy(GameObject enemy)
+    {
+        Instance.EnemyAmount--;
+
+        Instance._enemiesStored.Remove(enemy);
     }
 
     public static Enemy Get(GameObject obj)

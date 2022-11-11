@@ -14758,10 +14758,11 @@ MonoBehaviour:
   hp: 75
   moveSpeed: 0.5
   minYpos: -8
-  gainPoints: {x: 10, y: 25}
+  gainPoints: {x: 50, y: 130}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 6517123353866395449}
   deathParticles: {fileID: 257617447768964385}
+  GivePoints: 1
   horizontalSpeed: 5
   wallLayer:
     serializedVersion: 2

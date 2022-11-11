@@ -5093,10 +5093,11 @@ MonoBehaviour:
   hp: 250
   moveSpeed: 0.375
   minYpos: -8
-  gainPoints: {x: 10, y: 25}
+  gainPoints: {x: 150, y: 230}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 7283531666650396118}
   deathParticles: {fileID: 4392709393274935246}
+  GivePoints: 1
 --- !u!50 &5678913983113288945
 Rigidbody2D:
   serializedVersion: 4
