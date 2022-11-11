@@ -14755,15 +14755,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7fa8884bfe5014b950bc57d3fb8861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 75
-  moveSpeed: 0.5
+  hp: 40
+  moveSpeed: 1
   minYpos: -8
   gainPoints: {x: 50, y: 130}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 6517123353866395449}
   deathParticles: {fileID: 257617447768964385}
   GivePoints: 1
-  horizontalSpeed: 5
+  horizontalSpeed: 6.6
   wallLayer:
     serializedVersion: 2
     m_Bits: 128

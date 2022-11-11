@@ -120,6 +120,8 @@ public class Boss : MonoBehaviour
 
     public void EnableBoss(int stage)
     {
+        _dead = false;
+
         anim.Play("Boss Entrance");
         this.stage = stage;
         mainObj.SetActive(true);
@@ -131,6 +133,8 @@ public class Boss : MonoBehaviour
         _healthbarAnim.SetTrigger("Appear");
 
         MusicPlayer.PlayBossSong();
+
+        SoundManager.PlaySound("Basement Clang");
     }
 
     public void Idle()
@@ -165,7 +169,7 @@ public class Boss : MonoBehaviour
 
             _healthbarAnim.SetTrigger("Disappear");
 
-            SoundManager.PlaySound("Boss Defeat");
+            SoundManager.PlaySound("Boss Defeat", 1);
 
             PauseScreen.CanPause = false;
 

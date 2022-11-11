@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e2b8c545c849443b6bc277cf9ff221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
-  moveSpeed: 0.2
+  hp: 25
+  moveSpeed: 0.5
   minYpos: -8
   gainPoints: {x: 100, y: 150}
   shake: {x: 0.1, y: 0.3}
@@ -147,8 +147,8 @@ MonoBehaviour:
   GivePoints: 1
   bullet: {fileID: 8247576856845506639, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
   timeInbetweenAttack: {x: 1.5, y: 2}
-  perlinIntensity: 0.2
-  perlinSpeed: 0.5
+  perlinIntensity: 0.8
+  perlinSpeed: 0.2
 --- !u!50 &2000249385167238105
 Rigidbody2D:
   serializedVersion: 4

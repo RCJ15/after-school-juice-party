@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e2b8c545c849443b6bc277cf9ff221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
-  moveSpeed: 0.35
+  hp: 35
+  moveSpeed: 1.2
   minYpos: -8
   gainPoints: {x: 75, y: 125}
   shake: {x: 0.75, y: 0.4}

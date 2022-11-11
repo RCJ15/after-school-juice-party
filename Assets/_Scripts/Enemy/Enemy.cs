@@ -49,11 +49,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     //[SerializeField] SpriteRenderer rend;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        EnemyStorage.AddEnemy(this);
+    }
+
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        EnemyStorage.AddEnemy(this);
 
         //cam = Camera.main;
 
@@ -189,6 +193,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         {
             Die(true);
         }
+
+        SoundManager.PlaySound("Basement Fart");
     }
 
     public virtual void HitPlayer() // Enemy hit player or player snuck past player

@@ -7946,6 +7946,10 @@ MonoBehaviour:
     Amount: 14
     Time: 7
     Delay: 35
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 16
+    Time: 6
+    Delay: 35
   spawnBoss: 1
   bossStage: 5
 --- !u!1 &915261932
@@ -10265,7 +10269,7 @@ MonoBehaviour:
   - Enemies: 00000000
     Amount: 7
     Time: 20
-    Delay: 3
+    Delay: 10
   - Enemies: 00000000
     Amount: 5
     Time: 7
@@ -17444,6 +17448,7 @@ MonoBehaviour:
   - 1750
   - 2000
   stage: 5
+  mainObj: {fileID: 641092347}
   idleState: {fileID: 641092354}
   attackStates:
   - {fileID: 641092353}
@@ -19174,6 +19179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveNameText: {fileID: 270075203}
+  CanPlayMusic: 1
 --- !u!1 &2046081911
 GameObject:
   m_ObjectHideFlags: 0

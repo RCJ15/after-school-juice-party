@@ -48,6 +48,10 @@ public class WaveText : MonoBehaviour
             return;
         }
 
+        SoundManager.PlaySound("Basement Clang");
+
         MusicPlayer.PlaySong();
+
+        CanPlayMusic = false;
     }
 }
