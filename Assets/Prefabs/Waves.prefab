@@ -1,0 +1,756 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6769854581353128147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854581353128146}
+  - component: {fileID: 6769854581353128149}
+  m_Layer: 0
+  m_Name: Wave (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854581353128146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581353128147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854581353128149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581353128147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: The Beginning
+  waves:
+  - Enemies: 00000000
+    Amount: 1
+    Time: 0
+    Delay: 0
+  - Enemies: 00000000
+    Amount: 7
+    Time: 20
+    Delay: 10
+  - Enemies: 00000000
+    Amount: 5
+    Time: 7
+    Delay: 10
+  - Enemies: 01000000
+    Amount: 1
+    Time: 0
+    Delay: 5
+  - Enemies: 00000000
+    Amount: 3
+    Time: 6
+    Delay: 5
+  spawnBoss: 0
+  bossStage: 1
+--- !u!1 &6769854581365465076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854581365465079}
+  - component: {fileID: 6769854581365465078}
+  m_Layer: 0
+  m_Name: Waves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854581365465079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581365465076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6769854581353128146}
+  - {fileID: 6769854582298979081}
+  - {fileID: 6769854581666405603}
+  - {fileID: 6769854582235665445}
+  - {fileID: 6769854581908427757}
+  - {fileID: 6769854581748805909}
+  - {fileID: 6769854582797945187}
+  - {fileID: 6769854582882875410}
+  - {fileID: 6769854581562039510}
+  - {fileID: 6769854582460667585}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854581365465078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581365465076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d8ad89e0c545b42a42795957e5f848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularEnemy: {fileID: 4007696527853937211, guid: 3f8c47323c60c4a47b86dae490bf9819, type: 3}
+  shooterEnemy: {fileID: 326744077292194671, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
+  soldierEnemy: {fileID: 6613161938888227878, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
+  tankEnemy: {fileID: 1368550766102060758, guid: b4ea29401871fa84596c55a2ecfb36d7, type: 3}
+  zigZagEnemy: {fileID: 3286262087210284089, guid: 2c268b73d8073fa4d8ee89051df86aee, type: 3}
+  miniEnemy: {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
+  spawnerEnemy: {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
+  spawnRange: 4.7
+--- !u!1 &6769854581562039511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854581562039510}
+  - component: {fileID: 6769854581562039529}
+  m_Layer: 0
+  m_Name: Wave (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854581562039510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581562039511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854581562039529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581562039511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Eternal Space
+  waves:
+  - Enemies: 00000000020000000400000005000000
+    Amount: 8
+    Time: 6
+    Delay: 0
+  - Enemies: 0100000006000000
+    Amount: 10
+    Time: 2
+    Delay: 15
+  - Enemies: 0000000004000000
+    Amount: 15
+    Time: 5
+    Delay: 10
+  - Enemies: 05000000
+    Amount: 20
+    Time: 5
+    Delay: 15
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 7
+    Time: 7
+    Delay: 35
+  spawnBoss: 1
+  bossStage: 4
+--- !u!1 &6769854581666405600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854581666405603}
+  - component: {fileID: 6769854581666405602}
+  m_Layer: 0
+  m_Name: Wave (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854581666405603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581666405600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854581666405602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581666405600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Nemesis
+  waves:
+  - Enemies: 00000000
+    Amount: 3
+    Time: 5
+    Delay: 0
+  - Enemies: 0200000000000000
+    Amount: 3
+    Time: 3
+    Delay: 5
+  - Enemies: 020000000100000000000000
+    Amount: 15
+    Time: 30
+    Delay: 15
+  spawnBoss: 1
+  bossStage: 1
+--- !u!1 &6769854581748805906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854581748805909}
+  - component: {fileID: 6769854581748805908}
+  m_Layer: 0
+  m_Name: Wave (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854581748805909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581748805906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854581748805908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581748805906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Longum Iter
+  waves:
+  - Enemies: 05000000
+    Amount: 10
+    Time: 3
+    Delay: 0
+  - Enemies: 0100000002000000
+    Amount: 6
+    Time: 5
+    Delay: 2
+  - Enemies: 0300000005000000
+    Amount: 4
+    Time: 1
+    Delay: 10
+  - Enemies: 00000000010000000200000003000000
+    Amount: 10
+    Time: 30
+    Delay: 15
+  - Enemies: 04000000
+    Amount: 1
+    Time: 0
+    Delay: 8
+  spawnBoss: 0
+  bossStage: 1
+--- !u!1 &6769854581908427754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854581908427757}
+  - component: {fileID: 6769854581908427756}
+  m_Layer: 0
+  m_Name: Wave (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854581908427757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581908427754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854581908427756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854581908427754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Tricky Obstacles
+  waves:
+  - Enemies: 000000000100000002000000
+    Amount: 10
+    Time: 15
+    Delay: 0
+  - Enemies: 0300000002000000
+    Amount: 5
+    Time: 7
+    Delay: 8
+  - Enemies: 03000000
+    Amount: 2
+    Time: 0
+    Delay: 10
+  - Enemies: 05000000
+    Amount: 5
+    Time: 1
+    Delay: 15
+  spawnBoss: 1
+  bossStage: 2
+--- !u!1 &6769854582235665442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854582235665445}
+  - component: {fileID: 6769854582235665444}
+  m_Layer: 0
+  m_Name: Wave (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854582235665445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582235665442}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854582235665444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582235665442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Doubly Power
+  waves:
+  - Enemies: 02000000
+    Amount: 10
+    Time: 20
+    Delay: 0
+  - Enemies: 01000000
+    Amount: 2
+    Time: 3
+    Delay: 7
+  - Enemies: 0000000001000000
+    Amount: 5
+    Time: 5
+    Delay: 10
+  - Enemies: 03000000
+    Amount: 1
+    Time: 0
+    Delay: 15
+  - Enemies: 00000000
+    Amount: 3
+    Time: 2
+    Delay: 5
+  spawnBoss: 0
+  bossStage: 1
+--- !u!1 &6769854582298979190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854582298979081}
+  - component: {fileID: 6769854582298979080}
+  m_Layer: 0
+  m_Name: Wave (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854582298979081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582298979190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854582298979080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582298979190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: A Darkness Rises
+  waves:
+  - Enemies: 01000000
+    Amount: 3
+    Time: 10
+    Delay: 0
+  - Enemies: 00000000
+    Amount: 4
+    Time: 10
+    Delay: 2
+  - Enemies: 01000000
+    Amount: 5
+    Time: 5
+    Delay: 7
+  - Enemies: 02000000
+    Amount: 1
+    Time: 0
+    Delay: 10
+  spawnBoss: 0
+  bossStage: 1
+--- !u!1 &6769854582460667598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854582460667585}
+  - component: {fileID: 6769854582460667584}
+  m_Layer: 0
+  m_Name: Wave (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854582460667585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582460667598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854582460667584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582460667598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: The Finale
+  waves:
+  - Enemies: 00000000
+    Amount: 6
+    Time: 5
+    Delay: 0
+  - Enemies: 01000000
+    Amount: 8
+    Time: 3
+    Delay: 15
+  - Enemies: 02000000
+    Amount: 10
+    Time: 6
+    Delay: 15
+  - Enemies: 03000000
+    Amount: 5
+    Time: 7
+    Delay: 15
+  - Enemies: 04000000
+    Amount: 3
+    Time: 4
+    Delay: 15
+  - Enemies: 05000000
+    Amount: 20
+    Time: 4
+    Delay: 20
+  - Enemies: 06000000
+    Amount: 4
+    Time: 2
+    Delay: 1
+  - Enemies: 060000000400000003000000
+    Amount: 10
+    Time: 7
+    Delay: 15
+  - Enemies: 000000000100000002000000
+    Amount: 10
+    Time: 5
+    Delay: 15
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 7
+    Time: 7
+    Delay: 30
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 14
+    Time: 10
+    Delay: 20
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 14
+    Time: 7
+    Delay: 35
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 16
+    Time: 6
+    Delay: 35
+  spawnBoss: 1
+  bossStage: 5
+--- !u!1 &6769854582797945184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854582797945187}
+  - component: {fileID: 6769854582797945186}
+  m_Layer: 0
+  m_Name: Wave (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854582797945187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582797945184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854582797945186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582797945184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Space Conflict
+  waves:
+  - Enemies: 03000000
+    Amount: 5
+    Time: 10
+    Delay: 0
+  - Enemies: 05000000
+    Amount: 10
+    Time: 2
+    Delay: 0
+  - Enemies: 04000000
+    Amount: 2
+    Time: 0
+    Delay: 3
+  - Enemies: 01000000
+    Amount: 5
+    Time: 2
+    Delay: 15
+  - Enemies: 06000000
+    Amount: 1
+    Time: 0
+    Delay: 15
+  spawnBoss: 1
+  bossStage: 3
+--- !u!1 &6769854582882875411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6769854582882875410}
+  - component: {fileID: 6769854582882875413}
+  m_Layer: 0
+  m_Name: Wave (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6769854582882875410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582882875411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581365465079}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6769854582882875413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769854582882875411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Poly Combat
+  waves:
+  - Enemies: 06000000
+    Amount: 3
+    Time: 3
+    Delay: 0
+  - Enemies: 05000000
+    Amount: 10
+    Time: 3
+    Delay: 7
+  - Enemies: 02000000
+    Amount: 5
+    Time: 5
+    Delay: 4
+  - Enemies: 03000000
+    Amount: 1
+    Time: 0
+    Delay: 1.5
+  spawnBoss: 0
+  bossStage: 1
