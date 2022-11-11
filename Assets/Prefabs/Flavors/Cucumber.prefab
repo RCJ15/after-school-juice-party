@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 2.5
+  shoots: 2
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: '96% water, 3% cucumber, 208% HOMING MISSLE OF DOOM!!! DISCLAIMER:

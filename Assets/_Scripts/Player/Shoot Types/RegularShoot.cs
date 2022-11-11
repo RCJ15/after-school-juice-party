@@ -13,7 +13,9 @@ public class RegularShoot : PlayerShoot
     protected override void Shoot()
     {
         base.Shoot();
-
-        Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+        if (timesShot < shoots || shoots == 0) // Player has used all their bullets
+        {
+            Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+        }
     }
 }

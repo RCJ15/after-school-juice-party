@@ -158,6 +158,9 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         _weaponAmount++;
 
         _hud.AddCard(_playerShoots[weaponIndex], doAnims);
+        _playerShoots[weaponIndex].timesShot = 0;
+
+        _playerShoots[weaponIndex].weaponCard = _hud.Cards[weaponIndex]; // Assign card
 
         _selectedWeapon = _weaponAmount - 1;
         _hud.SelectedCard = _weaponAmount - 1;
@@ -169,6 +172,32 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             // Popup!
             _popup.Popup(_playerShoots[_currentShotIndex]);
         }
+    }
+    public void RemoveWeapon(Transform weapond, bool doAnims = true)
+    {
+        ChangeShot(_weaponAmount - 2); // Change weapond
+
+        int weaponIndex = -1;
+        for (int i = 0; i < _playerShootsLength; i++)
+        {
+            if (_playerShoots[i].transform == weapond) // Search for the weapond in inventory
+            {
+                weaponIndex = i;
+            }
+        }
+        if (weaponIndex == -1) // Could not find a matching weapond
+        {
+            return;
+        }
+
+        _hud.RemoveCard(weaponIndex, doAnims); // Remove its card
+
+        _equippedWeapons.Remove(weaponIndex); // Remove it from our selection
+        _weaponAmount--;
+
+        _hud.SelectedCard = _weaponAmount - 1;
+        _selectedWeapon = _weaponAmount - 1;
+
     }
 
     public void ChangeWeapon(int index, int newWeapon)
@@ -185,7 +214,7 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         // Popup!
         _popup.Popup(_playerShoots[_currentShotIndex]);
     }
-        
+
     private void ChangeShot(int index)
     {
         // Weapon is already equipped so return
