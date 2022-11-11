@@ -133,7 +133,7 @@ public class HighScore : MonoBehaviour
     /// <summary>
     /// Show the highscore panel
     /// </summary>
-    void ShowHighScoreTable()
+   public void ShowHighScoreTable()
     {
         if (highscorePanel.activeSelf)
         {

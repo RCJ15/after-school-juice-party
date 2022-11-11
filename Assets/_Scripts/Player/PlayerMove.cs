@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class PlayerMove : MonoBehaviour
 {
     public static PlayerMove Instance;
 
+    [SerializeField] private int hp = 5;
+     private int _hp = 5;
     [SerializeField] private float speed = 5;
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
@@ -30,10 +33,13 @@ public class PlayerMove : MonoBehaviour
     private PlayerShootManager _shootManager;
 
     private Vector3 _startPos;
+    [SerializeField] HighScore highScore;
+    [SerializeField] GameObject[] hearts;
 
     private void Awake()
     {
         Instance = this;
+        _hp = hp;
     }
 
     private void Start()
@@ -47,9 +53,31 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            HitPlayer();
+        }else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ResetHP();
+        }
     }
 
+    public void HitPlayer()
+    {
+        hp--;
+        if (hp <= 0)
+        { // End game
+            highScore.ShowHighScoreTable();
+        }
+        hearts[hp].GetComponent<Animator>().Play("LoseLife"); // play animation
+    }
+    public void ResetHP()
+    {
+        for ( hp = 0; hp < _hp; hp++)
+        {
+        hearts[hp].GetComponent<Animator>().Play("GetLife"); // play animation
+        }
+    }
     private void FixedUpdate()
     {
         // Stolen from this youtub video - Ruben
