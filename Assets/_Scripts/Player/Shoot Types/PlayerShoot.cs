@@ -69,10 +69,12 @@ public class PlayerShoot : MonoBehaviour
     protected virtual void Shoot()
     {
         timesShot++;
+
         weaponCard.UpdateCard();
+
         if (timesShot >= shoots && shoots != 0) // Player has used all their bullets
         {
-            FindObjectOfType<PlayerShootManager>().ChangeWeapon(weaponIndex, 0);
+            PlayerShootManager.Instance.ChangeWeapon(weaponIndex, 0);
             return;
         }
 

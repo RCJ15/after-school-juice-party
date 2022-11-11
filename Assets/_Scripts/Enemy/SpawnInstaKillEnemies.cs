@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnInstaKillEnemys : MonoBehaviour
+public class SpawnInstaKillEnemies : MonoBehaviour
 {
     // FIX FOR LATER
-    public static List<GameObject> savedEnemys = new List<GameObject>();
+    public static List<GameObject> savedEnemies = new List<GameObject>();
     [SerializeField] Vector2 maxEnemySpawn;
     [SerializeField] Vector2 minEnemySpawn;
     [SerializeField] Transform enemyParent;
@@ -17,7 +17,7 @@ public class SpawnInstaKillEnemys : MonoBehaviour
     }
     IEnumerator Spwan()
     {
-        foreach (var enemy in savedEnemys)
+        foreach (var enemy in savedEnemies)
         {
             Vector3 pos = new Vector3(Random.Range(minEnemySpawn.x, maxEnemySpawn.x + 1), Random.Range(minEnemySpawn.y, maxEnemySpawn.y + 1), 0); // Spwan on random position
             GameObject newEnemy = Instantiate(enemy, pos, Quaternion.identity, enemyParent);

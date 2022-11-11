@@ -70,7 +70,7 @@ public class WeaponHUD : MonoBehaviour // - Ruben
         }
     }
 
-    public void AddCard(PlayerShoot weapon, bool playAnim = true)
+    public WeaponCard AddCard(PlayerShoot weapon, bool playAnim = true)
     {
         GameObject newObj = Instantiate(template.gameObject, Vector3.zero, Quaternion.identity, template.transform.parent);
 
@@ -100,11 +100,12 @@ public class WeaponHUD : MonoBehaviour // - Ruben
         {
             newCard.PlaySpawnAnim();
         }
+
+        return newCard;
     }
 
     public void RemoveCard(int weaponID, bool playAnim = true)
     {
-
         _xPos -= offset;
 
         if (_cardCount <= maxCardsBeforeScroll)
@@ -121,9 +122,13 @@ public class WeaponHUD : MonoBehaviour // - Ruben
         tutorialText.SetActive(false);
     }
 
-    public void SetCard(int index, PlayerShoot weapon, bool doAnim = true)
+    public WeaponCard SetCard(int index, PlayerShoot weapon, bool doAnim = true)
     {
-        SetCard(_cards[index], weapon, doAnim);
+        WeaponCard card = _cards[index];
+
+        SetCard(card, weapon, doAnim);
+
+        return card;
     }
 
     public void SetCard(WeaponCard card, PlayerShoot weapon, bool doAnim = true)

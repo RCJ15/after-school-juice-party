@@ -16,7 +16,6 @@ public class WeaponCard : MonoBehaviour // - Ruben
     [SerializeField] private TMP_Text atkStat;
     [SerializeField] private TMP_Text utilStat;
     [SerializeField] private TMP_Text rangeStat;
-    [SerializeField] private TMP_Text shotsTxt;
     [SerializeField] private TMP_Text shootStat;
 
     private WeaponHUD _hud;
@@ -68,12 +67,10 @@ public class WeaponCard : MonoBehaviour // - Ruben
 
         if (_weapon.shoots <= 0) // We have unlimited shoots
         {
-            shotsTxt.gameObject.SetActive(false);
             shootStat.gameObject.SetActive(false);
         }
         else
         {
-            shotsTxt.gameObject.SetActive(true);
             shootStat.gameObject.SetActive(true);
 
             shootStat.text = (_weapon.shoots - _weapon.timesShot).ToString();

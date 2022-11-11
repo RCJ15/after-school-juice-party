@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    
+    [SerializeField] private string waveName;
+
+    [Space]
+    [SerializeField] private MiniWave[] waves;
+
+    [SerializeField] private bool spawnBoss;
+    [SerializeField] [Range(1, 5)] private int bossStage = 1;
+
     [Serializable]
     public class MiniWave
     {
         public EnemyType[] Enemies;
+        public int Amount;
         public float Time;
         public float Delay;
     }
@@ -24,4 +32,5 @@ public enum EnemyType
     Tank,
     ZigZag,
     Mini,
+    Spawner,
 }

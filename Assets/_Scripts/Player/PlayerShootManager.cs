@@ -9,11 +9,13 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 {
     public static PlayerShootManager Instance;
 
+    /*
 #if UNITY_EDITOR
     // DEBUG!!!
     [SerializeField] private bool haveAllWeapons;
     [SerializeField] private GameObject prioritizedWeapon;
 #endif
+    */
 
     public bool BoostedByHoney => HoneyTimer > 0;
     [HideInInspector] public float HoneyTimer;
@@ -43,6 +45,7 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         _popup = WeaponPickupPopup.Instance;
         _hud = WeaponHUD.Instance;
 
+        /*
 #if UNITY_EDITOR
         int weapon = -1;
 
@@ -82,6 +85,14 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         AddWeapon(0, false);
 #endif
+        */
+        // Disable all but the first shots
+        for (int i = 1; i < _playerShootsLength; i++)
+        {
+            _playerShoots[i].gameObject.SetActive(false);
+        }
+
+        AddWeapon(0, false);
     }
 
     private void Update()
@@ -157,10 +168,10 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         _weaponAmount++;
 
-        _hud.AddCard(_playerShoots[weaponIndex], doAnims);
-        _playerShoots[weaponIndex].timesShot = 0;
+        WeaponCard card = _hud.AddCard(_playerShoots[weaponIndex], doAnims);
+        _playerShoots[weaponIndex].weaponCard = card; // Assign card
 
-        _playerShoots[weaponIndex].weaponCard = _hud.Cards[weaponIndex]; // Assign card
+        _playerShoots[weaponIndex].timesShot = 0;
 
         _selectedWeapon = _weaponAmount - 1;
         _hud.SelectedCard = _weaponAmount - 1;
@@ -173,6 +184,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             _popup.Popup(_playerShoots[_currentShotIndex]);
         }
     }
+
+    /*
     public void RemoveWeapon(Transform weapond, bool doAnims = true)
     {
         ChangeShot(_weaponAmount - 2); // Change weapond
@@ -197,14 +210,17 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         _hud.SelectedCard = _weaponAmount - 1;
         _selectedWeapon = _weaponAmount - 1;
-
     }
+    */
 
     public void ChangeWeapon(int index, int newWeapon)
     {
         _equippedWeapons[index] = newWeapon;
 
-        _hud.SetCard(index, _playerShoots[newWeapon]);
+        WeaponCard card = _hud.SetCard(index, _playerShoots[newWeapon]);
+        _playerShoots[newWeapon].weaponCard = card; // Assign card
+
+        _playerShoots[newWeapon].timesShot = 0;
 
         _selectedWeapon = index;
         _hud.SelectedCard = index;

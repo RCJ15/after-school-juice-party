@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShooterEnemy : Enemy
 {   
     [SerializeField] GameObject bullet;
-    [SerializeField] Animator attackAnim;
+    Animator attackAnim;
     [SerializeField] Vector2 timeInbetweenAttack;
 
     float attackFreq;
@@ -14,7 +14,10 @@ public class ShooterEnemy : Enemy
     {
         base.Start();
         attackFreq = Random.Range(timeInbetweenAttack.x, timeInbetweenAttack.y);
+
+        attackAnim = GetComponent<Animator>();
     }
+
     protected override void Update()
     {
         base.Update();
@@ -27,9 +30,16 @@ public class ShooterEnemy : Enemy
     }
     void Attack()
     {
-        Instantiate(bullet, transform.position - new Vector3(0, -1, 0), transform.rotation*Quaternion.Euler(1,1,180));
+        GameObject obj = Instantiate(bullet, transform.position - new Vector3(0, -1, 0), transform.rotation*Quaternion.Euler(1,1,180));
+        Enemy enemy = EnemyStorage.Get(obj);
+
+        if (enemy != null)
+        {
+            enemy.GivePoints = false;
+        }
+        
         attackFreq = Random.Range(timeInbetweenAttack.x, timeInbetweenAttack.y);
         attackTimer = 0;
-        attackAnim.Play(0);
+        attackAnim.SetTrigger("Shoot");
     }
 }

@@ -181,6 +181,70 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.5}
   m_EdgeRadius: 0
+--- !u!1 &6026047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6026048}
+  - component: {fileID: 6026049}
+  m_Layer: 0
+  m_Name: Wave (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6026048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6026049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: A Darkness Rises
+  waves:
+  - Enemies: 01000000
+    Amount: 3
+    Time: 10
+    Delay: 0
+  - Enemies: 00000000
+    Amount: 4
+    Time: 10
+    Delay: 2
+  - Enemies: 01000000
+    Amount: 5
+    Time: 5
+    Delay: 7
+  - Enemies: 02000000
+    Amount: 1
+    Time: 0
+    Delay: 10
+  spawnBoss: 0
+  bossStage: 1
 --- !u!1 &6531082
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,18 +369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &15348055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -488,6 +547,7 @@ MonoBehaviour:
   atkStat: {fileID: 459567160}
   utilStat: {fileID: 1532994756}
   rangeStat: {fileID: 956729030}
+  shootStat: {fileID: 924264322}
 --- !u!1 &21046672
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,18 +596,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &21046675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -673,18 +728,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &23752042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -840,18 +890,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &47646307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1383,18 +1428,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &71898957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1747,6 +1787,74 @@ RectTransform:
   m_AnchoredPosition: {x: 350, y: -50}
   m_SizeDelta: {x: 700, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &93703275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93703276}
+  - component: {fileID: 93703277}
+  m_Layer: 0
+  m_Name: Wave (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &93703276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93703275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93703277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93703275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Doubly Power
+  waves:
+  - Enemies: 02000000
+    Amount: 10
+    Time: 20
+    Delay: 0
+  - Enemies: 01000000
+    Amount: 2
+    Time: 3
+    Delay: 7
+  - Enemies: 0000000001000000
+    Amount: 5
+    Time: 5
+    Delay: 10
+  - Enemies: 03000000
+    Amount: 1
+    Time: 0
+    Delay: 15
+  - Enemies: 00000000
+    Amount: 3
+    Time: 2
+    Delay: 5
+  spawnBoss: 0
+  bossStage: 1
 --- !u!1 &107723698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,18 +2044,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!1 &123513518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,18 +2356,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &176771108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2845,18 +2943,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &269046004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3147,18 +3240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &309001899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3284,18 +3372,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &325387249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4010,18 +4093,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &447218770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4769,6 +4847,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571982328}
   m_CullTransparentMesh: 1
+--- !u!1 &572002601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 572002602}
+  - component: {fileID: 572002603}
+  m_Layer: 0
+  m_Name: Wave (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &572002602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572002601}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &572002603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572002601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Space Conflict
+  waves:
+  - Enemies: 03000000
+    Amount: 5
+    Time: 10
+    Delay: 0
+  - Enemies: 05000000
+    Amount: 10
+    Time: 2
+    Delay: 0
+  - Enemies: 04000000
+    Amount: 2
+    Time: 0
+    Delay: 3
+  - Enemies: 01000000
+    Amount: 5
+    Time: 2
+    Delay: 15
+  - Enemies: 06000000
+    Amount: 1
+    Time: 0
+    Delay: 15
+  spawnBoss: 1
+  bossStage: 3
 --- !u!1 &572885649
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,18 +4948,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &572885651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5324,7 +5465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &641092348
 Transform:
   m_ObjectHideFlags: 0
@@ -5459,11 +5600,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 7840680166852394383, guid: 3f8c47323c60c4a47b86dae490bf9819, type: 3}
-  - {fileID: 6585141944758529625, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
-  - {fileID: 301002348556015888, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4007696527853937211, guid: 3f8c47323c60c4a47b86dae490bf9819, type: 3}
+  - {fileID: 326744077292194671, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
+  - {fileID: 6613161938888227878, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
+  - {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
+  - {fileID: 1368550766102060758, guid: b4ea29401871fa84596c55a2ecfb36d7, type: 3}
+  - {fileID: 3286262087210284089, guid: 2c268b73d8073fa4d8ee89051df86aee, type: 3}
+  - {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
   amount: 0100000002000000030000000400000005000000
 --- !u!114 &641092354
 MonoBehaviour:
@@ -5645,18 +5788,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &685441076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6013,18 +6151,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &775038949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6165,18 +6298,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &778338831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6419,6 +6547,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792554615}
   m_CullTransparentMesh: 1
+--- !u!1 &795369562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795369563}
+  - component: {fileID: 795369564}
+  m_Layer: 0
+  m_Name: Wave (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795369563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795369562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795369564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795369562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Poly Combat
+  waves:
+  - Enemies: 06000000
+    Amount: 3
+    Time: 3
+    Delay: 0
+  - Enemies: 05000000
+    Amount: 10
+    Time: 3
+    Delay: 7
+  - Enemies: 02000000
+    Amount: 5
+    Time: 5
+    Delay: 4
+  - Enemies: 03000000
+    Amount: 1
+    Time: 0
+    Delay: 1.5
+  spawnBoss: 0
+  bossStage: 1
 --- !u!1 &801833201
 GameObject:
   m_ObjectHideFlags: 0
@@ -6452,18 +6644,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &801833203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7403,6 +7590,237 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902155494}
   m_CullTransparentMesh: 1
+--- !u!1 &910069383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910069384}
+  - component: {fileID: 910069385}
+  m_Layer: 0
+  m_Name: Wave (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &910069384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910069383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &910069385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910069383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: The Finale
+  waves:
+  - Enemies: 00000000
+    Amount: 6
+    Time: 5
+    Delay: 0
+  - Enemies: 01000000
+    Amount: 8
+    Time: 3
+    Delay: 15
+  - Enemies: 02000000
+    Amount: 10
+    Time: 6
+    Delay: 15
+  - Enemies: 03000000
+    Amount: 5
+    Time: 7
+    Delay: 15
+  - Enemies: 04000000
+    Amount: 3
+    Time: 4
+    Delay: 15
+  - Enemies: 05000000
+    Amount: 20
+    Time: 4
+    Delay: 20
+  - Enemies: 06000000
+    Amount: 4
+    Time: 2
+    Delay: 1
+  - Enemies: 060000000400000003000000
+    Amount: 10
+    Time: 7
+    Delay: 15
+  - Enemies: 000000000100000002000000
+    Amount: 10
+    Time: 5
+    Delay: 15
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 7
+    Time: 7
+    Delay: 30
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 14
+    Time: 10
+    Delay: 20
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 14
+    Time: 7
+    Delay: 35
+  spawnBoss: 1
+  bossStage: 5
+--- !u!1 &924264320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 924264321}
+  - component: {fileID: 924264323}
+  - component: {fileID: 924264322}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &924264321
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924264320}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1478852426}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &924264322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924264320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 5
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: fbf98a270c6cde944a025b440df6a5e4, type: 2}
+  m_sharedMaterial: {fileID: 714136343080171629, guid: fbf98a270c6cde944a025b440df6a5e4, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &924264323
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924264320}
+  m_CullTransparentMesh: 1
 --- !u!1 &924542437
 GameObject:
   m_ObjectHideFlags: 0
@@ -7907,18 +8325,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &991936664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8155,18 +8568,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &997930272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8322,18 +8730,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1013742302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9406,7 +9809,7 @@ GameObject:
   - component: {fileID: 1211791515}
   - component: {fileID: 1211791516}
   m_Layer: 0
-  m_Name: Wave 1
+  m_Name: Wave (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9439,6 +9842,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveName: The Beginning
+  waves:
+  - Enemies: 00000000
+    Amount: 1
+    Time: 0
+    Delay: 1
+  - Enemies: 00000000
+    Amount: 7
+    Time: 20
+    Delay: 3
+  - Enemies: 00000000
+    Amount: 5
+    Time: 7
+    Delay: 1
+  - Enemies: 01000000
+    Amount: 1
+    Time: 0
+    Delay: 2
+  spawnBoss: 0
+  bossStage: 1
 --- !u!1 &1221440527
 GameObject:
   m_ObjectHideFlags: 0
@@ -9684,6 +10107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1240860606}
+  - component: {fileID: 1240860607}
   m_Layer: 0
   m_Name: Waves
   m_TagString: Untagged
@@ -9704,9 +10128,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1211791515}
+  - {fileID: 6026048}
+  - {fileID: 1743127722}
+  - {fileID: 93703276}
+  - {fileID: 1762855844}
+  - {fileID: 1620109660}
+  - {fileID: 572002602}
+  - {fileID: 795369563}
+  - {fileID: 2108589215}
+  - {fileID: 910069384}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1240860607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240860605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d8ad89e0c545b42a42795957e5f848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularEnemy: {fileID: 4007696527853937211, guid: 3f8c47323c60c4a47b86dae490bf9819, type: 3}
+  shooterEnemy: {fileID: 326744077292194671, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
+  soldierEnemy: {fileID: 6613161938888227878, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
+  tankEnemy: {fileID: 1368550766102060758, guid: b4ea29401871fa84596c55a2ecfb36d7, type: 3}
+  zigZagEnemy: {fileID: 3286262087210284089, guid: 2c268b73d8073fa4d8ee89051df86aee, type: 3}
+  miniEnemy: {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
+  spawnerEnemy: {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
 --- !u!1 &1250736502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9959,18 +10411,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1327345169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10281,18 +10728,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1339252841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10418,18 +10860,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1340719651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10641,18 +11078,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1381209057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11553,18 +11985,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1471455003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11686,7 +12113,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 924264321}
   m_Father: {fileID: 379472041}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12117,18 +12545,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1536279438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12652,18 +13075,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1599167966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12978,18 +13396,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1604674715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13290,6 +13703,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1620109659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620109660}
+  - component: {fileID: 1620109661}
+  m_Layer: 0
+  m_Name: Wave (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620109660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620109659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620109661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620109659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Longum Iter
+  waves:
+  - Enemies: 05000000
+    Amount: 10
+    Time: 3
+    Delay: 0
+  - Enemies: 0100000002000000
+    Amount: 6
+    Time: 5
+    Delay: 2
+  - Enemies: 0300000005000000
+    Amount: 4
+    Time: 1
+    Delay: 10
+  - Enemies: 00000000010000000200000003000000
+    Amount: 10
+    Time: 30
+    Delay: 15
+  - Enemies: 04000000
+    Amount: 1
+    Time: 0
+    Delay: 8
+  spawnBoss: 0
+  bossStage: 1
 --- !u!1 &1634315709
 GameObject:
   m_ObjectHideFlags: 0
@@ -13436,18 +13917,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1650142151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13677,7 +14153,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662257552}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -14405,6 +14881,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738035292}
   m_CullTransparentMesh: 1
+--- !u!1 &1743127721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1743127722}
+  - component: {fileID: 1743127723}
+  m_Layer: 0
+  m_Name: Wave (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1743127722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743127721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1743127723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743127721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Nemesis
+  waves:
+  - Enemies: 00000000
+    Amount: 3
+    Time: 5
+    Delay: 0
+  - Enemies: 0200000000000000
+    Amount: 3
+    Time: 3
+    Delay: 5
+  - Enemies: 020000000100000000000000
+    Amount: 15
+    Time: 30
+    Delay: 15
+  spawnBoss: 1
+  bossStage: 1
 --- !u!1 &1751779210
 GameObject:
   m_ObjectHideFlags: 0
@@ -14711,6 +15247,70 @@ Transform:
   m_Father: {fileID: 1198300694}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1762855843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762855844}
+  - component: {fileID: 1762855845}
+  m_Layer: 0
+  m_Name: Wave (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1762855844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762855843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1762855845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762855843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Tricky Obstacles
+  waves:
+  - Enemies: 000000000100000002000000
+    Amount: 10
+    Time: 15
+    Delay: 0
+  - Enemies: 0300000002000000
+    Amount: 5
+    Time: 7
+    Delay: 8
+  - Enemies: 03000000
+    Amount: 2
+    Time: 0
+    Delay: 10
+  - Enemies: 05000000
+    Amount: 5
+    Time: 1
+    Delay: 15
+  spawnBoss: 1
+  bossStage: 2
 --- !u!1 &1764131131
 GameObject:
   m_ObjectHideFlags: 0
@@ -14901,18 +15501,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1770411787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15402,18 +15997,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1817492680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16208,18 +16798,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &1936874846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16445,37 +17030,9 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 2141762}
-    m_ColliderPaths:
-    - - X: 31408332
-        Y: 2677150
-      - X: 24378728
-        Y: 9789443
-      - X: 6597998
-        Y: -7784562
-      - X: 13627601
-        Y: -14896855
-  - m_Collider: {fileID: 1070276293}
-    m_ColliderPaths:
-    - - X: 15000000
-        Y: 15000000
-      - X: -15000000
-        Y: 15000000
-      - X: -15000000
-        Y: -15000000
-      - X: 15000000
-        Y: -15000000
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 1.4999707, y: -1.5}
-      - {x: 1.5000079, y: -1.3540335}
-      - {x: 3.1408126, y: 0.2677358}
-      - {x: 2.4378521, y: 0.97892374}
-      - {x: 1.5, y: 0.0520619}
-      - {x: 1.4999707, y: 1.5}
-      - {x: -1.5, y: 1.4999707}
-      - {x: -1.4999707, y: -1.5}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!95 &1943431402
@@ -16970,18 +17527,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &2013380977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17522,18 +18074,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &2038749039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17851,18 +18398,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &2041955626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17968,6 +18510,7 @@ GameObject:
   - component: {fileID: 2042472553}
   - component: {fileID: 2042472556}
   - component: {fileID: 2042472555}
+  - component: {fileID: 2042472557}
   m_Layer: 5
   m_Name: Wave Text
   m_TagString: Untagged
@@ -18125,6 +18668,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2042472557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042472551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2455fabfd6be0914da0f1b3a08b3d925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2046081911
 GameObject:
   m_ObjectHideFlags: 0
@@ -18662,18 +19217,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSideSpeed: 1.5
-  moveFrequency: 1
-  down: -0.25
+  moveSpeed: 0
   minYpos: 0
-  maxLeftPosX: 0
-  maxRightPosX: 0
-  timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
-  rend: {fileID: 0}
+  GivePoints: 0
 --- !u!61 &2086739554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18888,6 +19438,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103268756}
   m_CullTransparentMesh: 1
+--- !u!1 &2108589214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108589215}
+  - component: {fileID: 2108589216}
+  m_Layer: 0
+  m_Name: Wave (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2108589215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108589214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1240860606}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2108589216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108589214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Eternal Space
+  waves:
+  - Enemies: 00000000020000000400000005000000
+    Amount: 8
+    Time: 6
+    Delay: 0
+  - Enemies: 0100000006000000
+    Amount: 10
+    Time: 2
+    Delay: 15
+  - Enemies: 0000000004000000
+    Amount: 15
+    Time: 5
+    Delay: 10
+  - Enemies: 05000000
+    Amount: 20
+    Time: 5
+    Delay: 15
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 7
+    Time: 7
+    Delay: 35
+  spawnBoss: 1
+  bossStage: 4
 --- !u!1 &2121973232
 GameObject:
   m_ObjectHideFlags: 0
@@ -19310,10 +19928,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 185448161263540617, guid: 30b41647f89f2c24f9370aad274872e9, type: 3}
-      propertyPath: haveAllWeapons
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7097723222665748408, guid: 30b41647f89f2c24f9370aad274872e9, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -162,6 +162,16 @@ public class Boss : MonoBehaviour
 
             StartCoroutine(DeathSlowMotion());
 
+            foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+            {
+                bullet.ExternalDie();
+            }
+
+            foreach (Enemy enemy in FindObjectsOfType<Enemy>())
+            {
+                enemy.Die(false);
+            }
+
             CameraEffects.Flash(timeFadeDeath, true, true);
             CameraEffects.Zoom(60, 70, 0.3f, timeDeath, timeFadeDeath, Vector3.zero, true);
 
