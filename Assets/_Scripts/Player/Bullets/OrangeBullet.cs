@@ -14,9 +14,16 @@ public class OrangeBullet : GravityBullet
     protected Vector3 explosionStartScale;
     protected float startRot;
 
+    [Space]
+    [SerializeField] protected float pitchIncrease = 0.1f;
+    [SerializeField] protected float startPitch = 1f;
+    private float _currentPitch;
+
     protected override void Awake()
     {
         base.Awake();
+
+        _currentPitch = startPitch;
 
         _hasExplosion = explosion != null;
 
@@ -57,5 +64,12 @@ public class OrangeBullet : GravityBullet
         }
 
         base.Die();
+    }
+
+    public void PomegranateBeepSfx()
+    {
+        SoundManager.PlaySound("Cling", _currentPitch);
+
+        _currentPitch += pitchIncrease;
     }
 }

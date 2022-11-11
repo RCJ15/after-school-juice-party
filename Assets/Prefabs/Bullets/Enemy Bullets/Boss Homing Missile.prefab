@@ -225,6 +225,8 @@ MonoBehaviour:
   speed: 5
   lifetime: 15
   hitPlayer: 1
+  spawnSoundEffect: 
+  deathSoundEffect: Loose Stair
   deathParticles: {fileID: 0}
   trail: {fileID: 1008065262139339956}
   constantParticles: {fileID: 0}
@@ -266,6 +268,7 @@ MonoBehaviour:
   rotateSpeed: 100
   minDistance: 1e+32
   crossHair: {fileID: 5115688299457290681}
+  foundTargetSoundEffect: Cling
   focusPlayer: 1
 --- !u!61 &1008065261865805536
 BoxCollider2D:
@@ -545,6 +548,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1008065261865805540}
     m_Modifications:
+    - target: {fileID: 5813499868642110319, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: smallSound
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
       propertyPath: flashColor.b
       value: 0

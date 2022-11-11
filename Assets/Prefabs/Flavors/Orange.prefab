@@ -54,6 +54,7 @@ MonoBehaviour:
   RangeStat: 4
   DmgTypes: 0200000000000000
   Special: Splits into smaller orange slices
+  shootSoundEffect: Metal Clang Small
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

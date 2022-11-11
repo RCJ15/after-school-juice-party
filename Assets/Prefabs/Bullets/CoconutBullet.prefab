@@ -10045,10 +10045,14 @@ MonoBehaviour:
   damage: 4
   speed: 15
   lifetime: 30
+  hitPlayer: 0
+  spawnSoundEffect: Loose Stair
+  deathSoundEffect: Rusty Door
   deathParticles: {fileID: 5732151125351124944}
   trail: {fileID: 7306403954785951405}
   constantParticles: {fileID: 0}
   hitWallParticles: {fileID: 3921076628470268329}
+  bounceSoundEffect: Hit Wall
   maxBounces: 3
   pierce: 5
   explosion: {fileID: 2273077497454528393}

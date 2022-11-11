@@ -54,6 +54,7 @@ MonoBehaviour:
   RangeStat: 2
   DmgTypes: 00000000
   Special: There can only be 5 at once
+  shootSoundEffect: Loose Stair
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0

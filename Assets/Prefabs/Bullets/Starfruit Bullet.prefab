@@ -14840,10 +14840,14 @@ MonoBehaviour:
   damage: 6
   speed: 14
   lifetime: 0
+  hitPlayer: 0
+  spawnSoundEffect: Sparkle
+  deathSoundEffect: Glass Sign Hit
   deathParticles: {fileID: 3795397786453625435}
   trail: {fileID: 4944566086161886453}
   constantParticles: {fileID: 0}
   popBurtEffect: {fileID: 6766563729896961862}
+  fallSoundEffect: Pop
   timeUntilBurst: 0
   pierce: 5
   smallPierceSize: {x: 0.6, y: 0.6}

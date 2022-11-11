@@ -5146,6 +5146,9 @@ MonoBehaviour:
   damage: 5
   speed: 10
   lifetime: 1
+  hitPlayer: 0
+  spawnSoundEffect: 
+  deathSoundEffect: Loose Stair
   deathParticles: {fileID: 7060072014932111078}
   trail: {fileID: 2866351909028970590}
   constantParticles: {fileID: 0}
@@ -5155,6 +5158,8 @@ MonoBehaviour:
   sliceRange: 360
   slice: {fileID: 5838429740408908025, guid: 63afe6728ccbc7a4183a53074c1afd24, type: 3}
   explosion: {fileID: 0}
+  pitchIncrease: 0.1
+  startPitch: 1
 --- !u!50 &4545484144295847902
 Rigidbody2D:
   serializedVersion: 4

@@ -123,6 +123,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2141760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2141761}
+  - component: {fileID: 2141762}
+  m_Layer: 0
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2141761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141760}
+  m_LocalRotation: {x: -0, y: -0, z: -0.38268396, w: 0.9238793}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 714061263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!61 &2141762
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!1 &6531082
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,13 +305,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &15348055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -473,13 +536,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &21046675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -605,13 +673,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &23752042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -767,13 +840,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &47646307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1305,13 +1383,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &71898957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1853,13 +1936,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!1 &123513518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,13 +2125,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &176771108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2548,13 +2641,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &269046004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2710,13 +2808,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &309001899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2842,13 +2945,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &325387249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3436,13 +3544,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &447218770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4147,13 +4260,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &572885651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4681,6 +4799,8 @@ Transform:
   - {fileID: 2125384590}
   - {fileID: 2038138704}
   - {fileID: 1155299254}
+  - {fileID: 1710121639}
+  - {fileID: 1198300694}
   m_Father: {fileID: 1943431399}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4696,6 +4816,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e305e5df787aa0c46855dffbb9822f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenShakeIntensity: 2
+  screenShakeDuration: 1
+  flashDuration: 0.5
+  flashColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  laserIndicator: {fileID: 1198300694}
+  checkPosTarget: {fileID: 1762498642}
+  checkPosStart: {fileID: 2102962612}
+  laser: {fileID: 1710121641}
+  rngRange: {x: -60, y: 60}
+  size:
+  - 10
+  - 12.5
+  - 15
+  - 17.5
+  - 20
+  laserMaxWidth: 1.5
+  rotationAmount: 0
+  indicatorSize: 0
+  laserWidth: 0
+  laserSweepAmount: 0
 --- !u!114 &641092350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4710,6 +4850,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2125384590}
   homingBullet: {fileID: 1008065261865805543, guid: e4bb59322e7d67141ad487ebc658819b, type: 3}
+  explosionSize:
+  - {x: 1, y: 1}
+  - {x: 1.4, y: 1.4}
+  - {x: 1.8, y: 1.8}
+  - {x: 2.2, y: 2.2}
+  - {x: 2.5, y: 2.5}
 --- !u!114 &641092351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4724,6 +4870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenShakeIntensity: 2.5
   screenShakeDuration: 1.5
+  flashDuration: 1
+  flashColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   warning: {fileID: 2038138705}
   laser: {fileID: 1155299256}
   laserSize:
@@ -4747,8 +4895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1242123144945122640, guid: 955c85451b87fb14096e4867580f680c, type: 3}
-  startAngle: 45
-  randomOffset: {x: -3, y: 3}
+  startAngle: 180
+  randomOffset: {x: -45, y: 45}
   fireRates:
   - 0.3
   - 0.25
@@ -4768,7 +4916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
-  amount: 
+  amount: 0100000002000000030000000400000005000000
 --- !u!114 &641092354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4776,19 +4924,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641092347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7354c5935b2e26143bf7e5d4db07a63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed:
+  - 3
+  - 3.5
+  - 4
+  - 4.75
+  - 5.5
   range: 2
-  speedMaxDelta: 5
+  speedMaxDelta: 1.5
   sineWaveSpeed: 2.5
   sineWaveIntensity: 0.7
   resetYPosLerp: 7
   timeBeforeAttack: 0.5
-  rngTimer: {x: 4, y: 7}
+  rngTimer:
+  - {x: 4, y: 7}
+  - {x: 4, y: 6}
+  - {x: 3, y: 5.5}
+  - {x: 3, y: 5}
+  - {x: 3, y: 4}
 --- !u!95 &641092355
 Animator:
   serializedVersion: 4
@@ -4918,13 +5076,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &685441076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5125,7 +5288,8 @@ Transform:
   m_LocalPosition: {x: 0.917, y: 0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2141761}
   m_Father: {fileID: 1600546131}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5280,13 +5444,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &775038949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5427,13 +5596,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &778338831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5540,6 +5714,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706776026}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &788255551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788255553}
+  - component: {fileID: 788255552}
+  m_Layer: 0
+  m_Name: Music Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &788255552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788255551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035df4bf0eca62e478bb6a44b08357f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSongs:
+  - {fileID: 11400000, guid: 856ba1f1a3ab7c94b91d5bf7d2183e7e, type: 2}
+  - {fileID: 11400000, guid: 026e0fefaca5d4f47a19ce705d3735ec, type: 2}
+  bossSong: {fileID: 11400000, guid: 4a4b5c860d747c64b9ef6f33d3e6e7b9, type: 2}
+--- !u!4 &788255553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788255551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792554615
 GameObject:
@@ -5709,13 +5931,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &801833203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7159,13 +7386,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &991936664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7291,13 +7523,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &997930272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7453,13 +7690,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1013742302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7699,6 +7941,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070276291}
   - component: {fileID: 1070276292}
+  - component: {fileID: 1070276293}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -7775,6 +8018,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1070276293
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070276290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.41, y: 2.7033334}
+    newSize: {x: 2.41, y: 2.7033334}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &1078811415
 GameObject:
   m_ObjectHideFlags: 0
@@ -8300,6 +8569,92 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!1 &1198300693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1198300694}
+  - component: {fileID: 1198300695}
+  m_Layer: 0
+  m_Name: Small Laser Indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1198300694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198300693}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalScale: {x: 10, y: 30, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1762498642}
+  - {fileID: 2102962612}
+  m_Father: {fileID: 641092348}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1198300695
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198300693}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 14
+  m_Sprite: {fileID: 7482667652216324306, guid: 0be389e8738cf9d4199d75c1af5b4688, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.38431373}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1209316838
 GameObject:
   m_ObjectHideFlags: 0
@@ -8326,7 +8681,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1209316838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce091656c103dc142be3ae4df7305a9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3812377bec239af418c91e8de24c590f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shakeIntensity: 0
@@ -8657,6 +9012,265 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250736502}
   m_CullTransparentMesh: 1
+--- !u!1 &1274298245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1274298247}
+  - component: {fileID: 1274298246}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1274298246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274298245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c8118603051af4d9498ce0ea319136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Button Click
+    clip: {fileID: 8300000, guid: a0a3c2b8752ca4c4e94dcd96c5bf38c9, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: LBS Door Beep
+    clip: {fileID: 8300000, guid: 6a9cffed74a00394ea604e0ed1c34917, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Microwave Beep
+    clip: {fileID: 8300000, guid: 32a0f9321691c3c4f9ce3d832216d467, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Scramble
+    clip: {fileID: 8300000, guid: 430b3dbfea49bc545a4cf53dc3b7acea, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Boss Defeat
+    clip: {fileID: 8300000, guid: 3bd2fa214d5a30d46bf45900f8e57263, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Code Bullet Death Sound
+    clip: {fileID: 8300000, guid: c41a2f9faec44ca4785e633f9426c7a5, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Code Bullet Spawn Sound
+    clip: {fileID: 8300000, guid: 23c3f61d974366c4a9b7b4b68a1f82de, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Giant Laser Fire
+    clip: {fileID: 8300000, guid: 2ba639ea2cf52a04a9e385543fcaf393, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Giant Laser Prepare
+    clip: {fileID: 8300000, guid: fb6eb119263c7a443b6559cdf541f420, type: 3}
+    soundVolume: 0.4
+    pitchSlider: 1
+  - name: Powerup
+    clip: {fileID: 8300000, guid: b3798d63d937edc4f89a95303d25c2e0, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 9b7d60fe7e58aa6438c66766c34aa929, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Explosion Small
+    clip: {fileID: 8300000, guid: ef52b61a3dcdac74eb6966737e2a2a23, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Crumble Pot
+    clip: {fileID: 8300000, guid: 1b983fd1dac469b47b7c4d9064acbfd8, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Arrow Fire
+    clip: {fileID: 8300000, guid: aa22e3fa4493bad4481db8d31069fcdf, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Cling
+    clip: {fileID: 8300000, guid: 8f62e568888d70e4ab3b807b863bb55e, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Hit Wall
+    clip: {fileID: 8300000, guid: 03aa08da479bd504ea982d3bca91bd88, type: 3}
+    soundVolume: 0.5
+    pitchSlider: 1
+  - name: DANCE
+    clip: {fileID: 8300000, guid: db409d83930804c49bcab1060609c626, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Water Bullet Spawn
+    clip: {fileID: 8300000, guid: 1d86c827a8f2015488f1cb99c85ebf2c, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Pop
+    clip: {fileID: 8300000, guid: 5b3a95587dd67984fa0e9e80a9c4b384, type: 3}
+    soundVolume: 0.7
+    pitchSlider: 1
+  - name: Sparkle
+    clip: {fileID: 8300000, guid: d776939a856c6884588aaa8e98e8354e, type: 3}
+    soundVolume: 0.5
+    pitchSlider: 1
+  soundGroups:
+  - groupName: Rusty Door
+    clips:
+    - {fileID: 8300000, guid: 6eae5a62118e37440934a65b1876c11c, type: 3}
+    - {fileID: 8300000, guid: c57b06310578f5b4f8019b278c7f0fa1, type: 3}
+    - {fileID: 8300000, guid: 271a9a324cc4b594091f784b3eea8808, type: 3}
+    - {fileID: 8300000, guid: 6f5cd1f796c266944bfa51886f2399aa, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Shovel Clang
+    clips:
+    - {fileID: 8300000, guid: 3a4c7cf14dd4a2040bae97a868f7dbb8, type: 3}
+    - {fileID: 8300000, guid: 7f7097d2f1f7aa44ab00cf00615d01c8, type: 3}
+    - {fileID: 8300000, guid: f5ef8e84162fc5d4db1c023528af0127, type: 3}
+    - {fileID: 8300000, guid: 6c8fb370dbe825d4fb2c79ce4d6cec6c, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Small Pole Hit
+    clips:
+    - {fileID: 8300000, guid: 3949b2200c92c0442b11de6bff66a4fe, type: 3}
+    - {fileID: 8300000, guid: 3a35016a26d5c4c44aedcff74d180fe6, type: 3}
+    - {fileID: 8300000, guid: 44c0799ff7d3e594e8ab8fb4cd227aca, type: 3}
+    - {fileID: 8300000, guid: bf13554e0e847b2438cefd6583b65c54, type: 3}
+    - {fileID: 8300000, guid: 9ccf14b307ffc504796996bb79ae9ceb, type: 3}
+    - {fileID: 8300000, guid: 7331ca90466fdad4db34b9be9e365454, type: 3}
+    - {fileID: 8300000, guid: 82b3361d90864cd408720478bbd7dae6, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Clang Small
+    clips:
+    - {fileID: 8300000, guid: c2092cb5ef581784d9250b4192fdc630, type: 3}
+    - {fileID: 8300000, guid: 3e2259f086faa4f49b360a718728725f, type: 3}
+    - {fileID: 8300000, guid: 53ba9189d92689c46b699b1a699e692a, type: 3}
+    - {fileID: 8300000, guid: eeee4d7158d85d34bbb4f02f0777388d, type: 3}
+    - {fileID: 8300000, guid: d42bbc49d2255b64bae7cf2e3b4881ac, type: 3}
+    - {fileID: 8300000, guid: 579906b4e16c9be4daa2fd5e0cea1e6d, type: 3}
+    - {fileID: 8300000, guid: 9aaed0f4ba742704683dafa17a74e37a, type: 3}
+    - {fileID: 8300000, guid: 550bc37e703760741a9adb8e914ccf93, type: 3}
+    - {fileID: 8300000, guid: 3ad67976793065d458de824e6acd5271, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Clang Big
+    clips:
+    - {fileID: 8300000, guid: 8fed553a5799b1b4b9586a226efe5dba, type: 3}
+    - {fileID: 8300000, guid: 96dcdc91ca46a3348b7f4acbc4c69def, type: 3}
+    - {fileID: 8300000, guid: 5c9538fbd792afd4b92bc998ce954f9e, type: 3}
+    - {fileID: 8300000, guid: 4902207bb89c1844a81057b6d8ba580e, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Big Pole Hit
+    clips:
+    - {fileID: 8300000, guid: 2dfde09e66a93e947a4f52520ea26c8d, type: 3}
+    - {fileID: 8300000, guid: c70ac584d40aa3a458cc9245cac4ed71, type: 3}
+    - {fileID: 8300000, guid: 6025ca10a8f501046aaacd257c4a8fbb, type: 3}
+    - {fileID: 8300000, guid: 8d4d923451e6900409d2c430959a9115, type: 3}
+    - {fileID: 8300000, guid: 6eb21aeeebd96ae43a94b22d88a3ac43, type: 3}
+    - {fileID: 8300000, guid: 8103ddb98872b8b4d93d6e6bdc5285a9, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Loose Stair
+    clips:
+    - {fileID: 8300000, guid: 9e7975f9f7bc6d84f9634bfeabc37843, type: 3}
+    - {fileID: 8300000, guid: 263c92ccdacae864bbc1eb60d53ab668, type: 3}
+    - {fileID: 8300000, guid: fa812c05c0745bf49889de1a169f054b, type: 3}
+    - {fileID: 8300000, guid: 31244306503cbbf46a45dcac64168762, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Bench Hit
+    clips:
+    - {fileID: 8300000, guid: dd68b390750b6c946a9080e00519481a, type: 3}
+    - {fileID: 8300000, guid: c410821503eabc549bc86343f3a0b30e, type: 3}
+    - {fileID: 8300000, guid: bb4818f5dd7894b408b668b4c2ea2826, type: 3}
+    - {fileID: 8300000, guid: 83a470cc778c6a1488467365990149bf, type: 3}
+    - {fileID: 8300000, guid: 47dae7265f5866a4799151ce0d1efaec, type: 3}
+    - {fileID: 8300000, guid: b0445cb2721bdc0418757de1bce67f26, type: 3}
+    - {fileID: 8300000, guid: 984f7fb7f19ddb840bb25df67a6b26d7, type: 3}
+    - {fileID: 8300000, guid: 5e27b6a434043d141836440f72d58a73, type: 3}
+    - {fileID: 8300000, guid: f96355db915e62346aac7929b8728db2, type: 3}
+    - {fileID: 8300000, guid: cc8e11a843e00da40bd020f81a696454, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Door Hit
+    clips:
+    - {fileID: 8300000, guid: d684a9cb15730e9408de02840f84c815, type: 3}
+    - {fileID: 8300000, guid: 7a0019a9d36b1964ab26103f1a8c3b87, type: 3}
+    - {fileID: 8300000, guid: 01eb7b04e611c2e43955ed67fd69cccf, type: 3}
+    - {fileID: 8300000, guid: bbdc3aebe8fd8d44785b822420c9adae, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Drag
+    clips:
+    - {fileID: 8300000, guid: 3ede1d3f3fe4d884d897bb229d463888, type: 3}
+    - {fileID: 8300000, guid: 15d1757b19bb54e4d8e890eeb90e74a3, type: 3}
+    - {fileID: 8300000, guid: 7e4f3c2b0e378674da3046eec925a980, type: 3}
+    - {fileID: 8300000, guid: 182f043c28d366e40b19257b0fa5484c, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Sign Hit
+    clips:
+    - {fileID: 8300000, guid: 69f4003cbab6fdd4eab6c6ea07bbb2ed, type: 3}
+    - {fileID: 8300000, guid: 4a027a10fd03d9e498803cdfa1de9e7b, type: 3}
+    - {fileID: 8300000, guid: 956cbe7131765a24aaa478229ff0041d, type: 3}
+    - {fileID: 8300000, guid: d4eaa72ac0a6912498a13ef50fb65613, type: 3}
+    - {fileID: 8300000, guid: 0b4f66954cdda5b42bbd18f56becfcec, type: 3}
+    - {fileID: 8300000, guid: 411db3067d262ae4eb71d9f390662929, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Basement Clang
+    clips:
+    - {fileID: 8300000, guid: a05203d11c010a148bf734b2973c203d, type: 3}
+    - {fileID: 8300000, guid: 2e277c45ccd3ee843aa6c3a846371d11, type: 3}
+    - {fileID: 8300000, guid: 884802024b2ce744598150a7d65f13d5, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Knife Sharpening
+    clips:
+    - {fileID: 8300000, guid: 2d668c8d7ca049d429a022c6b4921d95, type: 3}
+    - {fileID: 8300000, guid: 9f8ecfb112959464c87af5ca1e4319dc, type: 3}
+    - {fileID: 8300000, guid: 2a769669c5f9e1b4089a036a74db5a06, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Wood Block Hit
+    clips:
+    - {fileID: 8300000, guid: 900e4a6e325e87d4b880dc67dbd94168, type: 3}
+    - {fileID: 8300000, guid: 92edc0fcd44a1d0499e7fadb7e72c426, type: 3}
+    - {fileID: 8300000, guid: 056fd6344a902544084f6cea6254cb98, type: 3}
+    - {fileID: 8300000, guid: 51ce4e8bf3f072041aef2ff77fc6e7e7, type: 3}
+    - {fileID: 8300000, guid: 16fb6307fcefb4044bd6a211056b9ad3, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  soundEffectMixer: {fileID: -4820389537182001826, guid: 893959dd63283a647b93447e080ab112, type: 2}
+  HaveAutoNaming: 0
+  FancyAutoNaming: 1
+  AudioClipQueue: []
+--- !u!4 &1274298247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274298245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1299075317
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,13 +9361,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1327345169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9064,13 +9683,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1339252841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9196,13 +9820,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1340719651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9414,13 +10043,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1381209057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10305,13 +10939,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1471455003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10864,13 +11503,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1536279438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11394,13 +12038,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1599167966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11504,7 +12153,7 @@ GameObject:
   - component: {fileID: 1600546131}
   - component: {fileID: 1600546132}
   m_Layer: 0
-  m_Name: TEMP
+  m_Name: Alf Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11714,13 +12363,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1604674715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12165,13 +12819,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1650142151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12675,6 +13334,164 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702310729}
   m_CullTransparentMesh: 1
+--- !u!1 &1710121638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710121639}
+  - component: {fileID: 1710121641}
+  - component: {fileID: 1710121640}
+  m_Layer: 0
+  m_Name: Small Laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1710121639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710121638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 641092348}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1710121640
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710121638}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -50}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 102}
+  m_EdgeRadius: 0
+--- !u!120 &1710121641
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710121638}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 15
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 100, z: 0}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 15
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 0
+  m_Loop: 0
 --- !u!1 &1727220268
 GameObject:
   m_ObjectHideFlags: 0
@@ -13117,6 +13934,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1762498641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762498642}
+  m_Layer: 0
+  m_Name: Check Pos Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1762498642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762498641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1198300694}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1764131131
 GameObject:
   m_ObjectHideFlags: 0
@@ -13223,13 +14071,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1770411787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13719,13 +14572,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1817492680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14520,13 +15378,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &1936874846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14666,8 +15529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
-  DEBUGATTACKPRIORITY: 2
-  stage: 1
+  DEBUGATTACKPRIORITY: 4
+  stage: 5
   idleState: {fileID: 641092354}
   attackStates:
   - {fileID: 641092353}
@@ -14721,8 +15584,8 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &1943431401
-BoxCollider2D:
+--- !u!66 &1943431401
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14735,18 +15598,42 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_GeometryType: 1
+  m_GenerationType: 0
   m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1070276293}
+    m_ColliderPaths:
+    - - X: 15000000
+        Y: 15000000
+      - X: -15000000
+        Y: 15000000
+      - X: -15000000
+        Y: -15000000
+      - X: 15000000
+        Y: -15000000
+  - m_Collider: {fileID: 2141762}
+    m_ColliderPaths:
+    - - X: 31408332
+        Y: 2677150
+      - X: 24378728
+        Y: 9789443
+      - X: 6597998
+        Y: -7784562
+      - X: 13627601
+        Y: -14896855
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 1.4999707, y: -1.5}
+      - {x: 1.5000079, y: -1.3540335}
+      - {x: 3.1408126, y: 0.2677358}
+      - {x: 2.4378521, y: 0.97892374}
+      - {x: 1.5, y: 0.0520619}
+      - {x: 1.4999707, y: 1.5}
+      - {x: -1.5, y: 1.4999707}
+      - {x: -1.4999707, y: -1.5}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &1946055064
 GameObject:
   m_ObjectHideFlags: 0
@@ -15108,13 +15995,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &2013380977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15655,13 +16547,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &2038749039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15979,13 +16876,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &2041955626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16465,13 +17367,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  side: 0.5
+  moveSideSpeed: 1.5
+  moveFrequency: 1
   down: -0.25
-  travelDistance: 2
-  originalPosX: 0
+  minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   timer: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
+  changeDirectionParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
+  rend: {fileID: 0}
 --- !u!61 &2086739554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16578,6 +17485,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 706776026}
   m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2102962611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102962612}
+  m_Layer: 0
+  m_Name: Check Pos Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2102962612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102962611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1198300694}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2103268756
 GameObject:
@@ -16814,7 +17752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125384589}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: -2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

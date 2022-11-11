@@ -4924,6 +4924,9 @@ MonoBehaviour:
   damage: 7.5
   speed: 12
   lifetime: 6
+  hitPlayer: 0
+  spawnSoundEffect: Scramble
+  deathSoundEffect: Rusty Door
   deathParticles: {fileID: 109941450128883809}
   trail: {fileID: 0}
   constantParticles: {fileID: 6895190506416644798}

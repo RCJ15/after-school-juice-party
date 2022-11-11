@@ -5006,6 +5006,9 @@ MonoBehaviour:
   damage: 7.5
   speed: 15
   lifetime: 3
+  hitPlayer: 0
+  spawnSoundEffect: Water Bullet Spawn
+  deathSoundEffect: Pop
   deathParticles: {fileID: 2056580382067420051}
   trail: {fileID: 6061991286602910242}
   constantParticles: {fileID: 0}

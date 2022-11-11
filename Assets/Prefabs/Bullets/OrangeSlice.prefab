@@ -5007,10 +5007,14 @@ MonoBehaviour:
   damage: 2.5
   speed: 20
   lifetime: 0
+  hitPlayer: 0
+  spawnSoundEffect: 
+  deathSoundEffect: Hit Wall
   deathParticles: {fileID: 8404146225137960174}
   trail: {fileID: 79983114739551824}
   constantParticles: {fileID: 0}
   rotateTowardsVelocity: 1
+  disabled: 0
 --- !u!58 &5261793198714789826
 CircleCollider2D:
   m_ObjectHideFlags: 0

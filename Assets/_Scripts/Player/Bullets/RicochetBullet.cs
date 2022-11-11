@@ -8,6 +8,7 @@ using UnityEngine;
 public class RicochetBullet : Bullet
 {
     [SerializeField] protected ParticleSystem hitWallParticles;
+    [SerializeField] protected string bounceSoundEffect;
 
     [Header("Ricochet")]
     [SerializeField] protected int maxBounces = 0;
@@ -91,11 +92,15 @@ public class RicochetBullet : Bullet
 
         meanNormal /= col.contactCount;
 
-        Vector3 oldNormal = transform.up;
         transform.up = Vector2.Reflect(transform.up, meanNormal);
 
         hitWallParticles.transform.up = transform.up;
         hitWallParticles.Play();
+
+        if (!string.IsNullOrEmpty(bounceSoundEffect))
+        {
+            SoundManager.PlaySound(bounceSoundEffect);
+        }
 
         if (_anim != null)
         {

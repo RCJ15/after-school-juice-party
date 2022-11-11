@@ -9,6 +9,8 @@ public class BossGiantLaserState : BossState
 {
     [SerializeField] private float screenShakeIntensity;
     [SerializeField] private float screenShakeDuration;
+    [SerializeField] private float flashDuration;
+    [SerializeField] private Color flashColor;
 
     [Header("Trails")]
     [SerializeField] private LineRenderer warning;
@@ -48,6 +50,7 @@ public class BossGiantLaserState : BossState
     public void ScreenShake()
     {
         CameraEffects.Shake(screenShakeIntensity, screenShakeDuration);
+        CameraEffects.Flash(flashDuration, flashColor);
     }
 
     public override void UpdateStage(int stage)

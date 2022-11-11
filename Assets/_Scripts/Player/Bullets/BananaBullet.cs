@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary> - Ruben
 public class BananaBullet : Bullet
 {
+    [SerializeField] protected string hitWallSoundEffect;
+
     [SerializeField] protected Transform rotate;
     [SerializeField] protected float rotateSpeed;
 
@@ -82,6 +84,11 @@ public class BananaBullet : Bullet
             _returnLerpValue = 1;
         }
 
+        if (!string.IsNullOrEmpty(hitWallSoundEffect))
+        {
+            SoundManager.PlaySound(hitWallSoundEffect);
+        }
+
         deathParticles.Play();
 
         return true;
@@ -104,6 +111,11 @@ public class BananaBullet : Bullet
             return;
         }
 
+        if (!string.IsNullOrEmpty(hitWallSoundEffect))
+        {
+            SoundManager.PlaySound(hitWallSoundEffect);
+        }
+
         Return();
 
         _returnLerpValue = 1;
@@ -119,11 +131,20 @@ public class BananaBullet : Bullet
 
     protected override void Die()
     {
-        Destroy(gameObject);
-
         DetachParticleSystem(deathParticles);
 
+        if (trail != null)
+        {
+            DetachTrail(trail);
+        }
+
+        if (!string.IsNullOrEmpty(deathSoundEffect))
+        {
+            SoundManager.PlaySound(deathSoundEffect);
+        }
+
         Shoot.BananaDies(this);
+        Destroy(gameObject);
     }
 
 #if UNITY_EDITOR

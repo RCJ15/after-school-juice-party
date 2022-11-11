@@ -8,18 +8,26 @@ using UnityEngine;
 public class KillObjectAfterTime : MonoBehaviour
 {
     [SerializeField] private float lifetime = 1;
+    [SerializeField] private bool unscaledTime;
 
     public float Lifetime { get => lifetime; set => lifetime = value; }
+    public bool UnscaledTime { get => unscaledTime; set => unscaledTime = value; }
 
     private void Start()
     {
-        Destroy(gameObject, lifetime);
-        StartCoroutine(Coroutine());
+        if (unscaledTime)
+        {
+            StartCoroutine(Coroutine());
+        }
+        else
+        {
+            Destroy(gameObject, lifetime);
+        }
     }
 
     private IEnumerator Coroutine()
     {
-        yield return new WaitForSeconds(lifetime);
+        yield return new WaitForSecondsRealtime(lifetime);
 
         Destroy(gameObject);
     }

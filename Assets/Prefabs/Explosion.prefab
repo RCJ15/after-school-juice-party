@@ -170,6 +170,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   speed: 1
+  hitPlayer: 0
+  smallSound: 1
+  volume: 0.3
   shakeIntesity: 0.4
   shakeDuration: 0.2
   flashHoldDuration: 0

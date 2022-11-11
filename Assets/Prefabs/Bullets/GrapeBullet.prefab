@@ -5007,6 +5007,9 @@ MonoBehaviour:
   damage: 3.5
   speed: 15
   lifetime: 5
+  hitPlayer: 0
+  spawnSoundEffect: Rusty Door
+  deathSoundEffect: Pop
   deathParticles: {fileID: 5057666617748513888}
   trail: {fileID: 5312634803872066806}
   constantParticles: {fileID: 0}
@@ -5025,6 +5028,8 @@ MonoBehaviour:
   rotateSpeed: 450
   minDistance: 8
   crossHair: {fileID: 0}
+  foundTargetSoundEffect: Cling
+  focusPlayer: 0
 --- !u!50 &2614896518331761154
 Rigidbody2D:
   serializedVersion: 4

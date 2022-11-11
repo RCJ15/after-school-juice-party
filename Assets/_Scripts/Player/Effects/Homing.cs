@@ -13,6 +13,7 @@ public class Homing : MonoBehaviour
     [SerializeField] float rotateSpeed = 200f;
     [SerializeField] float minDistance = 4;
     [SerializeField] Crosshair crossHair;
+    [SerializeField] string foundTargetSoundEffect;
 
     [Space]
     [SerializeField] private bool focusPlayer;
@@ -124,6 +125,11 @@ public class Homing : MonoBehaviour
 
     private void OnFindTarget()
     {
+        if (!string.IsNullOrEmpty(foundTargetSoundEffect))
+        {
+            SoundManager.PlaySound(foundTargetSoundEffect);
+        }
+
         _foundTarget = true;
 
         if (crossHair == null)

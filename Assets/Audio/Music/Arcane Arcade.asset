@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be54a320b3d29394ab179930e48b9c7f, type: 3}
+  m_Name: Arcane Arcade
+  m_EditorClassIdentifier: 
+  DisplayName: Arcane Arcade
+  SongClip: {fileID: 8300000, guid: 4751075e16d36774e92a68d5cf965d2c, type: 3}
+  HaveTracks: 0
+  Tracks: []
+  Metadata:
+    Filename: Arcane Arcade.wav
+    Duration: 222.12946
+    FileBytes: 39184012
+    RiffTypeID: WAVE
+    CompressionCode: 1
+    ChannelCount: 2
+    SampleRate: 44100
+    AvgBytesPerSec: 176400
+    BlockAlign: 4
+    BitRate: 16
+    SampleCount: 9795909
+    MaxSampleValue: 0
+    Cues:
+    - ID: 65536
+      Name: 4/4
+      Position: 151200
+      DataChunkID: 1635017060
+    - ID: 65537
+      Name: 4/4
+      Position: 5140800
+      DataChunkID: 1635017060
+    - ID: 65538
+      Name: Loop
+      Position: 9676800
+      DataChunkID: 1635017060
+  HaveLoop: 1
+  LoopPoint: 219.42857360839844
+  HaveLoopStartPoint: 0
+  LoopStartPoint: 0
+  InSongList: 1
+  HaveSongEvents: 0
+  SongEvents:
+  - Name: WOW!!!
+    Time: 2
+  - Name: OOUO
+    Time: 1
+  - Name: "\xE5pIOO"
+    Time: 4
+  - Name: WOWOW
+    Time: 2.5

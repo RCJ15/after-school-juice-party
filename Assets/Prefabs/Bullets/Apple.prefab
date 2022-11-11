@@ -4874,11 +4874,14 @@ MonoBehaviour:
   damage: 15
   speed: 10
   lifetime: 0
+  hitPlayer: 0
+  spawnSoundEffect: Pop
+  deathSoundEffect: Loose Stair
   deathParticles: {fileID: 5607384780333525756}
   trail: {fileID: 0}
   constantParticles: {fileID: 7589547564440594849}
   explosion: {fileID: 2934299639982957117}
-  explosionSize: {x: 3, y: 3}
+  explosionSize: {x: 2, y: 2}
 --- !u!50 &-4168219830518326113
 Rigidbody2D:
   serializedVersion: 4
@@ -9878,6 +9881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7867433537339349450}
     m_Modifications:
+    - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5933809457736644284, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
       propertyPath: m_Name
       value: Explosion

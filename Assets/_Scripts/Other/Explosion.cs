@@ -12,6 +12,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] private bool hitPlayer;
 
     [Header("Juice")]
+    [SerializeField] private bool smallSound = true;
+    [SerializeField] private float volume = 1;
     [SerializeField] private float shakeIntesity;
     [SerializeField] private float shakeDuration;
     [Space]
@@ -33,6 +35,8 @@ public class Explosion : MonoBehaviour
         _anim = GetComponent<Animator>();
 
         _anim.SetFloat("Speed", speed);
+
+        SoundManager.PlaySound(smallSound ? "Explosion Small" : "Explosion", Random.Range(0.8f, 1.2f), volume);
 
         Destroy(gameObject, 1 / speed);
     }

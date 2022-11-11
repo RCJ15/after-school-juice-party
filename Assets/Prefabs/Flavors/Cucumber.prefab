@@ -55,6 +55,7 @@ MonoBehaviour:
   RangeStat: 5
   DmgTypes: 02000000
   Special: Homing missile
+  shootSoundEffect: Arrow Fire
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

@@ -54,6 +54,7 @@ MonoBehaviour:
   RangeStat: 3
   DmgTypes: 00000000
   Special: 
+  shootSoundEffect: Glass Bench Hit
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0

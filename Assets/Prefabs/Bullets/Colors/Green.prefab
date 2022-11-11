@@ -55,10 +55,14 @@ MonoBehaviour:
   damage: 6
   speed: 12
   lifetime: 5
+  hitPlayer: 0
+  spawnSoundEffect: 
+  deathSoundEffect: Pop
   deathParticles: {fileID: 6009457457895297889}
   trail: {fileID: 1251993781746317943}
   constantParticles: {fileID: 0}
   hitWallParticles: {fileID: 5087781352689947526}
+  bounceSoundEffect: Hit Wall
   maxBounces: 10
   pierce: 1
   explosion: {fileID: 3890687159885837475}

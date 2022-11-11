@@ -8,9 +8,20 @@ using UnityEngine;
 public class Crosshair : MonoBehaviour
 {
     public Transform Target;
+    [SerializeField] private string soundEffect;
 
     private void Update()
     {
         transform.position = Target.position;
+    }
+
+    public void PlaySFX()
+    {
+        if (string.IsNullOrEmpty(soundEffect))
+        {
+            return;
+        }
+
+        SoundManager.PlaySound(soundEffect);
     }
 }

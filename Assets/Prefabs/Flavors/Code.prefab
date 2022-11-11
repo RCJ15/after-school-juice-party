@@ -4927,6 +4927,7 @@ MonoBehaviour:
   RangeStat: -1
   DmgTypes: 03000000
   Special: 65% chance to bounce off enemy
+  shootSoundEffect: Code Bullet Spawn Sound
   shootEffect: {fileID: 3939927156949752770}
   animatePlayer: 1
   shakeIntensity: 0.1

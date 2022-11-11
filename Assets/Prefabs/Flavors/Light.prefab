@@ -54,6 +54,7 @@ MonoBehaviour:
   RangeStat: 4
   DmgTypes: 02000000
   Special: 
+  shootSoundEffect: Sparkle
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

@@ -5099,6 +5099,9 @@ MonoBehaviour:
   damage: 5
   speed: 10
   lifetime: 30
+  hitPlayer: 0
+  spawnSoundEffect: LBS Door Beep
+  deathSoundEffect: Code Bullet Death Sound
   deathParticles: {fileID: 8105990810527423266}
   trail: {fileID: 4345752217308595728}
   constantParticles: {fileID: 4018420173052117970}

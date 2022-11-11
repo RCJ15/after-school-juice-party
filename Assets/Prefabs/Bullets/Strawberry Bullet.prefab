@@ -53,6 +53,8 @@ MonoBehaviour:
   speed: 10
   lifetime: 3
   hitPlayer: 0
+  spawnSoundEffect: Water Bullet Spawn
+  deathSoundEffect: Glass Sign Hit
   deathParticles: {fileID: 4116994750440366175}
   trail: {fileID: 0}
   constantParticles: {fileID: 0}

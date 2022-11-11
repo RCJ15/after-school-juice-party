@@ -30,6 +30,7 @@ public class PlayerShoot : MonoBehaviour
     public string Special;
 
     [Header("Juice")]
+    [SerializeField] protected string shootSoundEffect;
     [SerializeField] protected ParticleSystem shootEffect;
     [SerializeField] protected bool animatePlayer = true;
     [SerializeField] protected float shakeIntensity = 0.1f;
@@ -79,6 +80,11 @@ public class PlayerShoot : MonoBehaviour
         }
 
         _shootTimer = shootDelay;
+
+        if (!string.IsNullOrEmpty(shootSoundEffect))
+        {
+            SoundManager.PlaySound(shootSoundEffect);
+        }
     }
 
     protected virtual void DoPlayerShootAnim()

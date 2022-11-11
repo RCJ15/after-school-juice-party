@@ -54,6 +54,7 @@ MonoBehaviour:
   RangeStat: 4
   DmgTypes: 0100000002000000
   Special: Explodes & releases piercing seed
+  shootSoundEffect: Arrow Fire
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1

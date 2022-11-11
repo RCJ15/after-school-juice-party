@@ -5146,6 +5146,9 @@ MonoBehaviour:
   damage: 6.5
   speed: 15
   lifetime: 6
+  hitPlayer: 0
+  spawnSoundEffect: 
+  deathSoundEffect: Pop
   deathParticles: {fileID: 8162875529958547474}
   trail: {fileID: 5264900383627970425}
   constantParticles: {fileID: 0}

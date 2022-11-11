@@ -137,6 +137,9 @@ MonoBehaviour:
   damage: 5
   speed: 12
   lifetime: 5
+  hitPlayer: 0
+  spawnSoundEffect: Sparkle
+  deathSoundEffect: Metal Big Pole Hit
   deathParticles: {fileID: 2759229326644520674}
   trail: {fileID: 4841367613233634964}
   constantParticles: {fileID: 0}
@@ -5200,6 +5203,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 782509493067949633}
     m_Modifications:
+    - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
       propertyPath: zoomAmount
       value: 0

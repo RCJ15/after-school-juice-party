@@ -8,6 +8,7 @@ using UnityEngine;
 public class StarfruitBullet : Bullet
 {
     [SerializeField] protected ParticleSystem popBurtEffect;
+    [SerializeField] protected string fallSoundEffect;
 
     [Header("Starfruit")]
     [SerializeField] protected float timeUntilBurst;
@@ -112,6 +113,11 @@ public class StarfruitBullet : Bullet
         sprite.color = Color.white;
 
         fallingDown = true;
+
+        if (!string.IsNullOrEmpty(fallSoundEffect))
+        {
+            SoundManager.PlaySound(fallSoundEffect);
+        }
     }
 
     public void EnableCollision()

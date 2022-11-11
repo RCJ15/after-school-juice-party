@@ -8,7 +8,9 @@ using UnityEngine;
 public class BossIdleState : BossState
 {
     [Header("Left Right Movement")]
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float[] moveSpeed;
+    private float _currentMoveSpeed;
+
     [SerializeField] private float range;
 
     [Space]
@@ -24,7 +26,7 @@ public class BossIdleState : BossState
 
     [Header("Attacking")]
     [SerializeField] private float timeBeforeAttack;
-    [SerializeField] private Vector2 rngTimer = new Vector2(2, 3);
+    [SerializeField] private Vector2[] rngTimer;
     private float _attackTimer;
 
     private float _thisTargetSpeed;
@@ -44,7 +46,9 @@ public class BossIdleState : BossState
     {
         _sineTime = 0;
         _isAttacking = false;
-        _attackTimer = Random.Range(rngTimer.x, rngTimer.y);
+        int stage = Stage - 1;
+        _attackTimer = Random.Range(rngTimer[stage].x, rngTimer[stage].y);
+        _currentMoveSpeed = moveSpeed[stage];
     }
 
     protected override void Update()
@@ -70,8 +74,8 @@ public class BossIdleState : BossState
             return;
         }
 
-        _thisTargetSpeed = moveSpeed * (_movingRight ? 1 : -1);
-        TargetSpeed = Mathf.MoveTowards(TargetSpeed, _thisTargetSpeed, speedMaxDelta * Time.deltaTime);
+        _thisTargetSpeed = _currentMoveSpeed * (_movingRight ? 1 : -1);
+        TargetSpeed = Mathf.MoveTowards(TargetSpeed, _thisTargetSpeed, speedMaxDelta * _currentMoveSpeed * Time.deltaTime);
 
         if (_movingRight && transform.position.x >= range)
         {

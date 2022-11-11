@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 196161585453474203}
   - component: {fileID: 7995974926113822726}
   - component: {fileID: 6855586100927586662}
+  - component: {fileID: 3865814147096903659}
   m_Layer: 8
   m_Name: LightBullet
   m_TagString: Untagged
@@ -53,6 +54,9 @@ MonoBehaviour:
   damage: 4
   speed: 10
   lifetime: 5
+  hitPlayer: 0
+  spawnSoundEffect: Knife Sharpening
+  deathSoundEffect: Shovel Clang
   deathParticles: {fileID: 4817521515628404899}
   trail: {fileID: 0}
   constantParticles: {fileID: 6727334218371627764}
@@ -98,6 +102,26 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!95 &3865814147096903659
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265699023891873624}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb188475925bd254bb1ea1683c375d48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1453291825459088522
 GameObject:
   m_ObjectHideFlags: 0

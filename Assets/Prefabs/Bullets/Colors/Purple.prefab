@@ -53,6 +53,9 @@ MonoBehaviour:
   damage: 6
   speed: 10
   lifetime: 6
+  hitPlayer: 0
+  spawnSoundEffect: 
+  deathSoundEffect: Pop
   deathParticles: {fileID: 8578565076987232264}
   trail: {fileID: 777708286581363661}
   constantParticles: {fileID: 0}
@@ -71,6 +74,7 @@ MonoBehaviour:
   rotateSpeed: 200
   minDistance: 5
   crossHair: {fileID: 0}
+  focusPlayer: 0
 --- !u!50 &7355215359453407281
 Rigidbody2D:
   serializedVersion: 4

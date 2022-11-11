@@ -5013,6 +5013,8 @@ MonoBehaviour:
   speed: 10
   lifetime: 10
   hitPlayer: 0
+  spawnSoundEffect: Shovel Clang
+  deathSoundEffect: Rusty Door
   deathParticles: {fileID: 6707316862046880224}
   trail: {fileID: 6314782425642856385}
   constantParticles: {fileID: 0}
@@ -10205,6 +10207,14 @@ PrefabInstance:
     - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
       propertyPath: speed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
+      propertyPath: smallSound
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5904653737816279086, guid: 2a6a70577ba0eb441aebcd3bb7a7a220, type: 3}
       propertyPath: zoomAmount

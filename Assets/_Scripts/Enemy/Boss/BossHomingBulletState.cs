@@ -10,6 +10,9 @@ public class BossHomingBulletState : BossState
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject homingBullet;
 
+    [Space]
+    [SerializeField] private Vector2[] explosionSize;
+
     private void OnEnable()
     {
         Anim.SetTrigger("Homing Bullet");
@@ -17,6 +20,8 @@ public class BossHomingBulletState : BossState
 
     public void SpawnHomingBullet()
     {
-        Instantiate(homingBullet, spawnPoint.position, spawnPoint.rotation);
+        ExplosionBullet bullet = Instantiate(homingBullet, spawnPoint.position, spawnPoint.rotation).GetComponent<ExplosionBullet>();
+
+        bullet.ExplosionSize = explosionSize[Stage - 1];
     }
 }

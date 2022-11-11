@@ -51,10 +51,14 @@ public class Boss : MonoBehaviour
         {
             attackState.Boss = this;
             attackState.Anim = anim;
-            attackState.enabled = false;
         }
 
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        idleState.enabled = true;
     }
 
     private void Update()
@@ -73,8 +77,8 @@ public class Boss : MonoBehaviour
     {
         idleState.enabled = false;
 
-        //_currentState = attackStates[Random.Range(0, attackStates.Length)];
-        _currentState = attackStates[DEBUGATTACKPRIORITY];
+        _currentState = attackStates[Random.Range(0, attackStates.Length)];
+        //_currentState = attackStates[DEBUGATTACKPRIORITY];
         _currentState.enabled = true;
 
         Debug.Log(_currentState);
@@ -86,6 +90,8 @@ public class Boss : MonoBehaviour
 
         _currentState = idleState;
         _currentState.enabled = true;
+
+        anim.SetTrigger("Idle");
     }
 
     private void UpdateStage()

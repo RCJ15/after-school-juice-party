@@ -137,6 +137,9 @@ MonoBehaviour:
   damage: 0.75
   speed: 15
   lifetime: 0
+  hitPlayer: 0
+  spawnSoundEffect: 
+  deathSoundEffect: Cling
   deathParticles: {fileID: 71654283722635051}
   trail: {fileID: 3880597844601817926}
   constantParticles: {fileID: 2001945256457748729}

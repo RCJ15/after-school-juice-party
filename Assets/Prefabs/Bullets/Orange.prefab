@@ -55,6 +55,9 @@ MonoBehaviour:
   damage: 7
   speed: 18
   lifetime: 0.7
+  hitPlayer: 0
+  spawnSoundEffect: Arrow Fire
+  deathSoundEffect: Metal Clang Big
   deathParticles: {fileID: 7494250860667778223}
   trail: {fileID: 0}
   constantParticles: {fileID: 4904372591561388966}

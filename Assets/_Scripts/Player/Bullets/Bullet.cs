@@ -19,6 +19,10 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected bool hitPlayer;
 
     [Header("Juice")]
+    [SerializeField] protected string spawnSoundEffect;
+    [SerializeField] protected string deathSoundEffect;
+
+    [Space]
     [SerializeField] protected ParticleSystem deathParticles;
     [SerializeField] protected TrailRenderer trail;
     [SerializeField] protected ParticleSystem constantParticles;
@@ -52,6 +56,11 @@ public class Bullet : MonoBehaviour
         playerLayer = gameManager.PlayerLayer;
         player = PlayerMove.Instance;
         shootManager = PlayerShootManager.Instance;
+
+        if (!string.IsNullOrEmpty(spawnSoundEffect))
+        {
+            SoundManager.PlaySound(spawnSoundEffect);
+        }
 
         Timer();
     }
@@ -149,8 +158,8 @@ public class Bullet : MonoBehaviour
         // TEMPORARY
         try
         {
-                    col.GetComponent<Enemy>().Hurt(damage);
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+            col.GetComponent<Enemy>().Hurt(damage);
+            enemy.GetComponent<DummyEnemy>().Hurt(damage);
         }
         catch (Exception)
         {
@@ -164,6 +173,11 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (!string.IsNullOrEmpty(deathSoundEffect))
+        {
+            SoundManager.PlaySound(deathSoundEffect);
+        }
+
         Destroy(gameObject);
 
         if (deathParticles != null)

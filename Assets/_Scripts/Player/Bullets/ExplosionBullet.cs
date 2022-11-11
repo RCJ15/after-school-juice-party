@@ -10,6 +10,7 @@ public class ExplosionBullet : Bullet
     [Header("Explosion")]
     [SerializeField] private Explosion explosion;
     [SerializeField] private Vector2 explosionSize;
+    public Vector2 ExplosionSize { get => explosionSize; set => explosionSize = value; }
 
     protected override void Awake()
     {

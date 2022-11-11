@@ -32,4 +32,24 @@ public class BossState : MonoBehaviour
     {
 
     }
+
+    public void PlayGiantLaserPrepareSFX()
+    {
+        SoundManager.PlaySound("Giant Laser Prepare");
+    }
+
+    public void PlayGiantLaserFireSFX()
+    {
+        SoundManager.PlaySound("Giant Laser Fire");
+    }
+
+    public void PlayExplosionSFX()
+    {
+        SoundManager.PlaySound("Explosion", Random.Range(0.8f, 1.2f), 0.5f);
+    }
+
+    public void PlayClingSFX()
+    {
+        SoundManager.PlaySound("Cling");
+    }
 }

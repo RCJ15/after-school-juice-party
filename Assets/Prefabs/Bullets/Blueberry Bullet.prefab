@@ -54,10 +54,14 @@ MonoBehaviour:
   damage: 5.5
   speed: 7.4
   lifetime: 30
+  hitPlayer: 0
+  spawnSoundEffect: Metal Big Pole Hit
+  deathSoundEffect: Glass Sign Hit
   deathParticles: {fileID: 2213860326128563126}
   trail: {fileID: 2207718941632232263}
   constantParticles: {fileID: 0}
   hitWallParticles: {fileID: 8307054270198227982}
+  bounceSoundEffect: Pop
   maxBounces: 8
   pierce: 0
   explosion: {fileID: 0}
