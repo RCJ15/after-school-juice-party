@@ -6883,6 +6883,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1634315713}
     m_Modifications:
     - target: {fileID: 7052529778029526499, guid: 88bce086960ca254a840f544e5ad8ea5, type: 3}
+      propertyPath: startStay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052529778029526499, guid: 88bce086960ca254a840f544e5ad8ea5, type: 3}
       propertyPath: startFadeout
       value: 1
       objectReference: {fileID: 0}
@@ -6985,6 +6989,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7701652943324930967, guid: 88bce086960ca254a840f544e5ad8ea5, type: 3}
   m_PrefabInstance: {fileID: 828157423}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &828157425 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7052529778029526499, guid: 88bce086960ca254a840f544e5ad8ea5, type: 3}
+  m_PrefabInstance: {fileID: 828157423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b528a3c78a5f9041a02d1ee109a2907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &849804077
 GameObject:
   m_ObjectHideFlags: 0
@@ -10300,6 +10315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428056d0fcb3c5549ac70363e17bd784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 2130558000}
   highscorePanel: {fileID: 413850293}
   content: {fileID: 83766476}
   playerScoreTemplate: {fileID: 85039436}
@@ -10307,6 +10323,10 @@ MonoBehaviour:
   inputNameInputField: {fileID: 1984982578}
   inputScoreTMPText: {fileID: 497943022}
   confirmPlayerNameButton: {fileID: 1331633233}
+  playerWonText: You won!
+  playerLostText: You'll get them next time
+  transitionController: {fileID: 828157425}
+  playerMove: {fileID: 7097723222324462028}
 --- !u!1 &1327345167
 GameObject:
   m_ObjectHideFlags: 0
@@ -16034,7 +16054,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1299075319}
         m_TargetAssemblyTypeName: HighScore, Assembly-CSharp
-        m_MethodName: Continue
+        m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20287,6 +20307,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b41647f89f2c24f9370aad274872e9, type: 3}
+--- !u!114 &7097723222324462028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7097723222665748410, guid: 30b41647f89f2c24f9370aad274872e9, type: 3}
+  m_PrefabInstance: {fileID: 7097723222324462027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f589e9b965e244e4499cdc663740316d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &7543667518800346014
 CanvasRenderer:
   m_ObjectHideFlags: 0

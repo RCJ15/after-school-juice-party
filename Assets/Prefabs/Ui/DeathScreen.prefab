@@ -1632,7 +1632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4174717980405006278
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2398,13 +2398,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428056d0fcb3c5549ac70363e17bd784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 8862938522332022680}
   highscorePanel: {fileID: 1334463992441892482}
   content: {fileID: 3502645304821913059}
   playerScoreTemplate: {fileID: 273073087506046584}
   inputName: {fileID: 4351971756490512927}
   inputNameInputField: {fileID: 1038589279407471511}
   inputScoreTMPText: {fileID: 4827605754551118369}
-  confirmPlayerNameButton: {fileID: 0}
+  confirmPlayerNameButton: {fileID: 6827003511729693176}
+  playerWonText: You won!
+  playerLostText: You'll get them next time
+  transitionController: {fileID: 7052529778029526499, guid: 88bce086960ca254a840f544e5ad8ea5, type: 3}
 --- !u!1 &6356735576239524787
 GameObject:
   m_ObjectHideFlags: 0

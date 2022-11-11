@@ -13,6 +13,7 @@ public class HighScore : MonoBehaviour
     public static string PlayerName = "";
 
     [Header("Highscore")]
+    [SerializeField] TMP_Text scoreText;
     [SerializeField] GameObject highscorePanel;
     [SerializeField] GameObject content;
     [SerializeField] GameObject playerScoreTemplate;
@@ -22,10 +23,16 @@ public class HighScore : MonoBehaviour
     [SerializeField] TMP_InputField inputNameInputField;
     [SerializeField] TMP_Text inputScoreTMPText;
     [SerializeField] UnityEngine.UI.Button confirmPlayerNameButton;
+    [Header("Style")]
+    [SerializeField] string playerWonText="You won!";
+    [SerializeField] string playerLostText="You'll get them next time";
+    [SerializeField] TransitionController transitionController;
 
 
     Dictionary<string, int> highscore = new Dictionary<string, int>();
     List<GameObject> spawnedHighscore = new List<GameObject>();
+ public   PlayerMove playerMove;
+    bool playerWon;
     void Start()
     {
         Load();
@@ -36,7 +43,7 @@ public class HighScore : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T)) // Debug
         {
-            ShowHighScoreTable();
+            ShowHighScoreTable(false);
         }
         if (Input.GetKeyDown(KeyCode.R)) // Debug
         {
@@ -53,16 +60,26 @@ public class HighScore : MonoBehaviour
     /// </summary>
     public void Retry()
     {
-
+        transitionController.Transition(0.75f, 0.5f, 0.75f, ResetThings);
+        void ResetThings()
+        {
+            ResetScore();
+            ShowHighScoreTable(false);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+            // Wave reset
+        }
     }
     /// <summary>
     /// Go back to the main menu
     /// </summary>
     public void MainMenu()
     {
-
+        transitionController.Transition(0.75f, 0.5f, 0.75f, SetScenToStart);
+        void SetScenToStart()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+        }
     }
-
     /*
     /// <summary>
     /// Idk what yet :/
@@ -80,6 +97,8 @@ public class HighScore : MonoBehaviour
     {
         Score.PlayerScore = 0;
         PlayerName = "";
+        playerWon = false;
+        playerMove.ResetHP();
     }
 
     /// <summary>
@@ -133,8 +152,9 @@ public class HighScore : MonoBehaviour
     /// <summary>
     /// Show the highscore panel
     /// </summary>
-   public void ShowHighScoreTable()
+   public void ShowHighScoreTable(bool playerWon)
     {
+        this.playerWon = playerWon; 
         if (highscorePanel.activeSelf)
         {
             highscorePanel.SetActive(false);
@@ -169,6 +189,8 @@ public class HighScore : MonoBehaviour
             newScore.GetComponentInChildren<UnityEngine.UI.Image>().color = new Color(Random.Range(0, 10) / 10, Random.Range(0, 10) / 10, Random.Range(0, 10) / 10, 1);
             spawnedHighscore.Add(newScore);
         }
+
+        scoreText.text = playerWon ? playerWonText:playerLostText; // Did The player win or lose
     }
     /*
     // We should instead use the Linq sort that is built in instead of making a custom sort algorithm

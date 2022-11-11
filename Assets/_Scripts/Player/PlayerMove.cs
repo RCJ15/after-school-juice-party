@@ -66,9 +66,9 @@ public class PlayerMove : MonoBehaviour
     {
         hp--;
         if (hp <= 0)
-        {   
+        {
             // End game
-            highScore.ShowHighScoreTable();
+            highScore.ShowHighScoreTable(false); ;
         }
 
         hearts[hp].Play("LoseLife"); // play animation
