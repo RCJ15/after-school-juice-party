@@ -14,9 +14,11 @@ public class Wave : MonoBehaviour
 
     [SerializeField] private bool spawnBoss;
     [SerializeField] [Range(1, 5)] private int bossStage = 1;
+    [SerializeField] private bool lastEnemyDropWeapon;
 
     public bool SpawnBoss => spawnBoss;
     public int BossStage => bossStage;
+    public bool LastEnemyDropWeapon => lastEnemyDropWeapon;
 
     [Serializable]
     public class MiniWave

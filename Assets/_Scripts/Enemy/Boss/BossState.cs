@@ -28,6 +28,11 @@ public class BossState : MonoBehaviour
 
     }
 
+    public virtual void Die()
+    {
+
+    }
+
     protected void Animate(string animName)
     {
         Boss.Animate(animName);

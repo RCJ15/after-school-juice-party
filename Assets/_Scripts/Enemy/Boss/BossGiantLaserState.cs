@@ -57,4 +57,13 @@ public class BossGiantLaserState : BossState
     {
         _currentLaserSize = laserSize[stage - 1];
     }
+
+    public override void Die()
+    {
+        warning.widthMultiplier = 0;
+        _warningTransform.localScale = Vector3.zero;
+
+        laser.widthMultiplier = 0;
+        _laserTransform.localScale = Vector3.zero;
+    }
 }

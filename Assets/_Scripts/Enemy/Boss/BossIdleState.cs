@@ -65,7 +65,7 @@ public class BossIdleState : BossState
         {
             _isAttacking = true;
 
-            StartCoroutine(AttackDelay());
+            _coroutine = StartCoroutine(AttackDelay());
         }
 
         if (_isAttacking)
@@ -101,6 +101,7 @@ public class BossIdleState : BossState
         
     }
 
+    private Coroutine _coroutine;
     private IEnumerator AttackDelay()
     {
         yield return new WaitForSeconds(timeBeforeAttack);
@@ -111,6 +112,16 @@ public class BossIdleState : BossState
         }
 
         Boss.Attack();
+    }
+
+    public override void Die()
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+
+            transform.localPosition = new Vector3(0, _startPos.y, _startPos.z);
+        }
     }
 
 #if UNITY_EDITOR

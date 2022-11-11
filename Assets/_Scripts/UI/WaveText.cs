@@ -48,7 +48,7 @@ public class WaveText : MonoBehaviour
             return;
         }
 
-        SoundManager.PlaySound("Basement Clang");
+        SoundManager.PlaySound("Loose Stair");
 
         MusicPlayer.PlaySong();
 

@@ -90,4 +90,11 @@ public class BossSmallLaserSweepState : BossState
         CameraEffects.Shake(screenShakeIntensity, screenShakeDuration);
         CameraEffects.Flash(flashDuration, flashColor);
     }
+
+    public override void Die()
+    {
+        SetSize(0);
+        laser.widthMultiplier = 0;
+        _laserTransform.localScale = new Vector3(0, 1, 1);
+    }
 }

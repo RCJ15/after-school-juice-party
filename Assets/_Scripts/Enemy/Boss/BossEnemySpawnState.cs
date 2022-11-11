@@ -20,4 +20,9 @@ public class BossEnemySpawnState : BossState
     {
 
     }
+
+    public override void Die()
+    {
+
+    }
 }

@@ -35,6 +35,12 @@ public class BossBulletSpamState : BossState
         _spamming = false;
     }
 
+    public override void Die()
+    {
+        _spamming = false;
+        _timer = 0;
+    }
+
     protected override void Update()
     {
         base.Update();

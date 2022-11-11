@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc1cc0917d0bbd468e540fe67d0c587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAmount: 0
 --- !u!1 &360236294805277253
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +346,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 056fd6344a902544084f6cea6254cb98, type: 3}
     - {fileID: 8300000, guid: 51ce4e8bf3f072041aef2ff77fc6e7e7, type: 3}
     - {fileID: 8300000, guid: 16fb6307fcefb4044bd6a211056b9ad3, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Basement Fart
+    clips:
+    - {fileID: 8300000, guid: a189d39e77dbcba469a44d8be85da013, type: 3}
+    - {fileID: 8300000, guid: 49aeb25b59043ca459519c6bbe7d7ca9, type: 3}
+    - {fileID: 8300000, guid: 92d768b4730808743ad2000086893a39, type: 3}
     soundVolume: 1
     pitchSlider: 1
   soundEffectMixer: {fileID: -4820389537182001826, guid: 893959dd63283a647b93447e080ab112, type: 2}

@@ -13,6 +13,8 @@ public class BossHomingBulletState : BossState
     [Space]
     [SerializeField] private Vector2[] explosionSize;
 
+    private List<ExplosionBullet> _bullets = new List<ExplosionBullet>();
+
     private void OnEnable()
     {
         Animate("Homing Bullet");
@@ -23,5 +25,22 @@ public class BossHomingBulletState : BossState
         ExplosionBullet bullet = Instantiate(homingBullet, spawnPoint.position, spawnPoint.rotation).GetComponent<ExplosionBullet>();
 
         bullet.ExplosionSize = explosionSize[Stage - 1];
+
+        _bullets.Add(bullet);
+    }
+
+    public override void Die()
+    {
+        foreach (ExplosionBullet bullet in _bullets)
+        {
+            if (bullet == null)
+            {
+                continue;
+            }
+
+            Destroy(bullet.gameObject);
+        }
+
+        _bullets = new List<ExplosionBullet>();
     }
 }

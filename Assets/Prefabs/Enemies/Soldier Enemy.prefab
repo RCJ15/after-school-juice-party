@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 35
-  moveSpeed: 1.2
+  moveSpeed: 1.1
   minYpos: -8
   gainPoints: {x: 75, y: 125}
   shake: {x: 0.75, y: 0.4}

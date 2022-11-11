@@ -93,7 +93,23 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        
+        if (_dead)
+        {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Boss Die"))
+            {
+                anim.SetTrigger("Die");
+            }
+
+            CurrentSpeed = 0;
+            TargetSpeed = 0;
+
+            idleState.enabled = false;
+
+            foreach (BossState state in attackStates)
+            {
+                state.enabled = false;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -105,6 +121,11 @@ public class Boss : MonoBehaviour
 
     public void Attack()
     {
+        if (_dead)
+        {
+            return;
+        }
+        
         idleState.enabled = false;
 
         _currentState = _attackOrder[_currentAttack++];
@@ -132,13 +153,18 @@ public class Boss : MonoBehaviour
     {
         _healthbarAnim.SetTrigger("Appear");
 
-        MusicPlayer.PlayBossSong();
+        //MusicPlayer.PlayBossSong();
 
         SoundManager.PlaySound("Basement Clang");
     }
 
     public void Idle()
     {
+        if (_dead)
+        {
+            return;
+        }
+
         _currentState.enabled = false;
 
         _currentState = idleState;
@@ -164,6 +190,8 @@ public class Boss : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _dead = true;
+
+            anim.SetTrigger("Die");
 
             MusicPlayer.StopSong();
 
@@ -191,12 +219,13 @@ public class Boss : MonoBehaviour
             CameraEffects.Zoom(60, 70, 0.3f, timeDeath, timeFadeDeath, Vector3.zero, true);
 
             idleState.enabled = false;
+            idleState.Die();
+
             foreach (BossState state in attackStates)
             {
                 state.enabled = false;
+                state.Die();
             }
-
-            anim.SetTrigger("Die");
 
             return;
         }

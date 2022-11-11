@@ -40,8 +40,6 @@ public class WaveManager : MonoBehaviour
         {
             Wave wave = _waves[i];
 
-            Debug.Log("WAVE: " + i);
-
             _waveText.Appear(i + 1, wave.WaveName);
 
             yield return new WaitForSeconds(3);
@@ -50,8 +48,6 @@ public class WaveManager : MonoBehaviour
 
             for (int miniWaveIndex = 0; miniWaveIndex < miniWavesLength; miniWaveIndex++)
             {
-                Debug.Log("Mini wave: " + miniWaveIndex);
-
                 Wave.MiniWave miniWave = wave.Waves[miniWaveIndex];
 
                 float timer = miniWave.Delay;
@@ -85,18 +81,20 @@ public class WaveManager : MonoBehaviour
                     {
                         yield return new WaitForSeconds(waitTime);
                         SpawnEnemy(miniWave.Enemies[enemyIndex % enemyLength]);
+
+                        if (enemyIndex <= enemyLength - 1)
+                        {
+
+                        }
                     }
                 }
             }
 
-            Debug.Log("AWAITING");
             yield return new WaitUntil(() => _enemyStorage.EnemyAmount <= 0);
             yield return new WaitForSeconds(2);
 
             if (wave.SpawnBoss)
             {
-                MusicPlayer.StopSong(2);
-
                 yield return new WaitForSeconds(2);
 
                 _boss.EnableBoss(wave.BossStage);
@@ -137,8 +135,6 @@ public class WaveManager : MonoBehaviour
         }
 
         Instantiate(enemy, transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0), Quaternion.identity);
-
-        Debug.Log("SPAWN: " + type.ToString());
     }
 
 #if UNITY_EDITOR
