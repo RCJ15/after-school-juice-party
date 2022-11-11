@@ -10,8 +10,6 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] protected float shootDelay;
     protected float _shootTimer;
-    public int shoots = 0;
-    [HideInInspector] public int timesShot = 0;
 
     [SerializeField] protected Transform spawnPoint;
 
@@ -39,8 +37,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] protected float shakeDuration = 0.05f;
 
     protected Animator _playerAnim;
-    [HideInInspector] public int weaponIndex;
-    [HideInInspector] public WeaponCard weaponCard;
 
     protected bool ShootKeyDown => Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space);
     protected bool ShootKey => Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space);
@@ -68,14 +64,6 @@ public class PlayerShoot : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        timesShot++;
-        weaponCard.UpdateCard();
-        if (timesShot >= shoots && shoots != 0) // Player has used all their bullets
-        {
-            FindObjectOfType<PlayerShootManager>().ChangeWeapon(weaponIndex, 0);
-            return;
-        }
-
         if (shootEffect != null)
         {
             shootEffect.Play();

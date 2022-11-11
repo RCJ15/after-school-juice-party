@@ -16,8 +16,6 @@ public class WeaponCard : MonoBehaviour // - Ruben
     [SerializeField] private TMP_Text atkStat;
     [SerializeField] private TMP_Text utilStat;
     [SerializeField] private TMP_Text rangeStat;
-    [SerializeField] private TMP_Text shotsTxt;
-    [SerializeField] private TMP_Text shootStat;
 
     private WeaponHUD _hud;
     private Animator _anim;
@@ -65,19 +63,6 @@ public class WeaponCard : MonoBehaviour // - Ruben
         atkStat.text = GetStatString(_weapon.AttackStat);
         utilStat.text = GetStatString(_weapon.UtilityStat);
         rangeStat.text = GetStatString(_weapon.RangeStat);
-
-        if (_weapon.shoots <= 0) // We have unlimited shoots
-        {
-            shotsTxt.gameObject.SetActive(false);
-            shootStat.gameObject.SetActive(false);
-        }
-        else
-        {
-            shotsTxt.gameObject.SetActive(true);
-            shootStat.gameObject.SetActive(true);
-
-            shootStat.text = (_weapon.shoots - _weapon.timesShot).ToString();
-        }
     }
 
     public VertexGradient GetGradient() => nameText.colorGradient;

@@ -25,7 +25,6 @@ public class WeaponHUD : MonoBehaviour // - Ruben
 
     public TMPro.VertexGradient TemplateGradient { get; private set; }
 
-    public List<WeaponCard> Cards => _cards;
     private List<WeaponCard> _cards = new List<WeaponCard>();
     private int _cardCount;
     public int SelectedCard { get; set; }
@@ -102,20 +101,6 @@ public class WeaponHUD : MonoBehaviour // - Ruben
         }
     }
 
-    public void RemoveCard(int weaponID, bool playAnim = true)
-    {
-
-        _xPos -= offset;
-
-        if (_cardCount <= maxCardsBeforeScroll)
-        {
-            _targetScrollPos = (_xPos - offset) / 2;
-        }
-
-        _cards.Remove(_cards[weaponID]);
-        _cardCount--;
-
-    }
     public void DisappearTutorialText()
     {
         tutorialText.SetActive(false);
