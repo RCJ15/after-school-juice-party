@@ -19,7 +19,7 @@ public class ExplosionBullet : Bullet
 
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
-        explosion.HitEnemies.Add(enemy.gameObject);
+        explosion.HitEnemies.Add(col.gameObject);
 
         return base.OnCollideWithEnemy(col, enemy);
     }

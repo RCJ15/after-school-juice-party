@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
     protected GameManager gameManager;
     protected PlayerMove player;
     protected PlayerShootManager shootManager;
+    protected Boss boss;
 
     protected virtual bool CanBeBoostedByHoney => true;
 
@@ -56,6 +57,7 @@ public class Bullet : MonoBehaviour
         playerLayer = gameManager.PlayerLayer;
         player = PlayerMove.Instance;
         shootManager = PlayerShootManager.Instance;
+        boss = Boss.Instance;
 
         if (!string.IsNullOrEmpty(spawnSoundEffect))
         {
@@ -119,9 +121,9 @@ public class Bullet : MonoBehaviour
             return;
         }
         // Check if we collided with an enemy
-        else if (!hitEnemies.Contains(col.gameObject) && col.CompareTag("Enemy") )
+        else if (!hitEnemies.Contains(col.gameObject) && col.CompareTag("Enemy"))
         {
-            col.TryGetComponent(out Enemy enemy);
+            Enemy enemy = EnemyStorage.Get(col.gameObject);
             if (OnCollideWithEnemy(col, enemy))
             {
                 hitEnemies.Add(col.gameObject);
@@ -155,20 +157,28 @@ public class Bullet : MonoBehaviour
             return false;
         }
 
-        // TEMPORARY
-        try
-        {
-            col.GetComponent<Enemy>().Hurt(damage);
-            enemy.GetComponent<DummyEnemy>().Hurt(damage);
-        }
-        catch (Exception)
-        {
+        HurtEnemy(enemy);
 
-        }
+        // TEMPORARY
 
         Die();
 
         return true;
+    }
+
+    protected void HurtEnemy(Enemy enemy)
+    {
+        if (enemy == null)
+        {
+            // Is boss
+            boss.Hurt(damage);
+        }
+        else
+        {
+            enemy.Hurt(damage);
+        }
+
+        DPSCounter.Add(damage);
     }
 
     protected virtual void Die()

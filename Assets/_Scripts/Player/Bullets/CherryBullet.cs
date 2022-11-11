@@ -26,7 +26,7 @@ public class CherryBullet : Bullet
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
         // EXPLODE!!!
-        explosion.HitEnemies.Add(enemy.gameObject);
+        explosion.HitEnemies.Add(col.gameObject);
         explosion.Explode(damage);
 
         return base.OnCollideWithEnemy(col, enemy);

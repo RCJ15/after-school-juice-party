@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HardEnemy : Enemy
-{[SerializeField] GameObject bullet;
+public class ShooterEnemy : Enemy
+{   
+    [SerializeField] GameObject bullet;
     [SerializeField] Animator attackAnim;
     [SerializeField] Vector2 timeInbetweenAttack;
 

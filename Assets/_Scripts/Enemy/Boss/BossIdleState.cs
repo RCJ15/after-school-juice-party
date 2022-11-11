@@ -14,7 +14,8 @@ public class BossIdleState : BossState
     [SerializeField] private float range;
 
     [Space]
-    [SerializeField] private float speedMaxDelta = 0.1f;
+    [SerializeField] private float[] speedMaxDelta;
+    private float _currentSpeedMaxDelta;
     private bool _movingRight;
 
     [Header("Sine wave bobbing")]
@@ -49,6 +50,7 @@ public class BossIdleState : BossState
         int stage = Stage - 1;
         _attackTimer = Random.Range(rngTimer[stage].x, rngTimer[stage].y);
         _currentMoveSpeed = moveSpeed[stage];
+        _currentSpeedMaxDelta = speedMaxDelta[stage];
     }
 
     protected override void Update()
@@ -75,7 +77,7 @@ public class BossIdleState : BossState
         }
 
         _thisTargetSpeed = _currentMoveSpeed * (_movingRight ? 1 : -1);
-        TargetSpeed = Mathf.MoveTowards(TargetSpeed, _thisTargetSpeed, speedMaxDelta * _currentMoveSpeed * Time.deltaTime);
+        TargetSpeed = Mathf.MoveTowards(TargetSpeed, _thisTargetSpeed, _currentSpeedMaxDelta * Time.deltaTime);
 
         if (_movingRight && transform.position.x >= range)
         {
@@ -102,6 +104,11 @@ public class BossIdleState : BossState
     private IEnumerator AttackDelay()
     {
         yield return new WaitForSeconds(timeBeforeAttack);
+
+        if (Boss.Dead)
+        {
+            yield break;
+        }
 
         Boss.Attack();
     }

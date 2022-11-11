@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -584348044017366928}
   - component: {fileID: 5650420204391034913}
   m_Layer: 12
-  m_Name: HardEnemy
+  m_Name: Soldier Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aee14ac905b6f042843c3ade0bfd303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 175
+  hp: 25
   moveSideSpeed: 2
   moveFrequency: 3
   down: 2

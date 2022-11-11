@@ -38,13 +38,17 @@ public class CodeBullet : Bullet
 
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
-        // TEMPORARY
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        HurtEnemy(enemy);
 
         if (timesSurvived >= maxTimesSurvive || Random.value > enemySurviveChance)
         {
             Die();
             return true;
+        }
+
+        if (!string.IsNullOrEmpty(deathSoundEffect))
+        {
+            SoundManager.PlaySound(deathSoundEffect);
         }
 
         RandomizeStats(true);

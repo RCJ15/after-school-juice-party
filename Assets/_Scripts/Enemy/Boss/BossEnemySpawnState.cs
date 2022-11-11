@@ -13,7 +13,7 @@ public class BossEnemySpawnState : BossState
 
     private void OnEnable()
     {
-        Anim.SetTrigger("Spawn Enemy");
+        Animate("Spawn Enemy");
     }
 
     public void SpawnEnemy()

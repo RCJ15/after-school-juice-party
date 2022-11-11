@@ -61,7 +61,7 @@ public class BossSmallLaserSweepState : BossState
 
     private void OnEnable()
     {
-        Anim.SetTrigger("Small Laser Sweep");
+        Animate("Small Laser Sweep");
 
         _currentRot = Random.Range(rngRange.x, rngRange.y);
         _currentSize = size[Stage - 1];

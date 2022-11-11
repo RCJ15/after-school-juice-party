@@ -33,7 +33,7 @@ public class BossGiantLaserState : BossState
 
     private void OnEnable()
     {
-        Anim.SetTrigger("Giant Laser");
+        Animate("Giant Laser");
     }
 
     protected override void Update()

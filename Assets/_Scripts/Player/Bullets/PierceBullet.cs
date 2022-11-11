@@ -14,8 +14,7 @@ public class PierceBullet : Bullet
 
     protected override bool OnCollideWithEnemy(Collider2D col, Enemy enemy)
     {
-        // TEMPORARY
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        HurtEnemy(enemy);
 
         HandlePierce();
 

@@ -139,8 +139,7 @@ public class StarfruitBullet : Bullet
             return false;
         }
 
-        // TEMPORARY
-        enemy.GetComponent<DummyEnemy>().Hurt(damage);
+        HurtEnemy(enemy);
 
         _anim.enabled = false;
 

@@ -39,7 +39,7 @@ public class OrangeBullet : GravityBullet
         if (_hasExplosion)
         {
             // EXPLODE!!!
-            explosion.HitEnemies.Add(enemy.gameObject);
+            explosion.HitEnemies.Add(col.gameObject);
         }
 
         return base.OnCollideWithEnemy(col, enemy);

@@ -23,33 +23,13 @@ public class BossState : MonoBehaviour
 
     }
 
-    public void Idle()
-    {
-        Boss.Idle();
-    }
-
     public virtual void UpdateStage(int stage)
     {
 
     }
 
-    public void PlayGiantLaserPrepareSFX()
+    protected void Animate(string animName)
     {
-        SoundManager.PlaySound("Giant Laser Prepare");
-    }
-
-    public void PlayGiantLaserFireSFX()
-    {
-        SoundManager.PlaySound("Giant Laser Fire");
-    }
-
-    public void PlayExplosionSFX()
-    {
-        SoundManager.PlaySound("Explosion", Random.Range(0.8f, 1.2f), 0.5f);
-    }
-
-    public void PlayClingSFX()
-    {
-        SoundManager.PlaySound("Cling");
+        Boss.Animate(animName);
     }
 }

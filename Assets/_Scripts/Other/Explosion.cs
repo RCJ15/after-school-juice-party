@@ -81,14 +81,16 @@ public class Explosion : MonoBehaviour
 
         _hitEnemies.Add(col.gameObject);
 
-        if (col.TryGetComponent(out Enemy enemy))
+        Enemy enemy = EnemyStorage.Get(col.gameObject);
+
+        if (enemy == null)
         {
-            enemy.Hurt(damage);
+            // Is boss
+            Boss.Instance.Hurt(damage);
+            return;
         }
-        else if (col.TryGetComponent(out DummyEnemy dummy))
-        {
-            dummy.Hurt(damage);
-        }
+
+        enemy.Hurt(damage);
     }
 
     public void Explode(float damage, Vector3 scale)

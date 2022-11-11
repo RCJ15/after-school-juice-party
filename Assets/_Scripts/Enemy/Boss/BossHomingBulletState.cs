@@ -15,7 +15,7 @@ public class BossHomingBulletState : BossState
 
     private void OnEnable()
     {
-        Anim.SetTrigger("Homing Bullet");
+        Animate("Homing Bullet");
     }
 
     public void SpawnHomingBullet()

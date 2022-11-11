@@ -1,0 +1,387 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &360236293245740799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360236293245740673}
+  - component: {fileID: 360236293245740672}
+  m_Layer: 0
+  m_Name: Music Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360236293245740673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360236293245740799}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.393416, y: 0.031064417, z: -0.0031703487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2144516270448144133}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360236293245740672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360236293245740799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035df4bf0eca62e478bb6a44b08357f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSongs:
+  - {fileID: 11400000, guid: 856ba1f1a3ab7c94b91d5bf7d2183e7e, type: 2}
+  - {fileID: 11400000, guid: 026e0fefaca5d4f47a19ce705d3735ec, type: 2}
+  bossSong: {fileID: 11400000, guid: 4a4b5c860d747c64b9ef6f33d3e6e7b9, type: 2}
+--- !u!1 &360236294122541826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360236294122541828}
+  - component: {fileID: 360236294122541827}
+  m_Layer: 0
+  m_Name: Enemy Storage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360236294122541828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360236294122541826}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.393416, y: 0.031064417, z: -0.0031703487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2144516270448144133}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360236294122541827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360236294122541826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc1cc0917d0bbd468e540fe67d0c587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &360236294805277253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360236294805277255}
+  - component: {fileID: 360236294805277254}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360236294805277255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360236294805277253}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.393416, y: 0.031064417, z: -0.0031703487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2144516270448144133}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &360236294805277254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360236294805277253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c8118603051af4d9498ce0ea319136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Button Click
+    clip: {fileID: 8300000, guid: a0a3c2b8752ca4c4e94dcd96c5bf38c9, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: LBS Door Beep
+    clip: {fileID: 8300000, guid: 6a9cffed74a00394ea604e0ed1c34917, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Microwave Beep
+    clip: {fileID: 8300000, guid: 32a0f9321691c3c4f9ce3d832216d467, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Scramble
+    clip: {fileID: 8300000, guid: 430b3dbfea49bc545a4cf53dc3b7acea, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Boss Defeat
+    clip: {fileID: 8300000, guid: 3bd2fa214d5a30d46bf45900f8e57263, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Code Bullet Death Sound
+    clip: {fileID: 8300000, guid: c41a2f9faec44ca4785e633f9426c7a5, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Code Bullet Spawn Sound
+    clip: {fileID: 8300000, guid: 23c3f61d974366c4a9b7b4b68a1f82de, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Giant Laser Fire
+    clip: {fileID: 8300000, guid: 2ba639ea2cf52a04a9e385543fcaf393, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Giant Laser Prepare
+    clip: {fileID: 8300000, guid: fb6eb119263c7a443b6559cdf541f420, type: 3}
+    soundVolume: 0.4
+    pitchSlider: 1
+  - name: Powerup
+    clip: {fileID: 8300000, guid: b3798d63d937edc4f89a95303d25c2e0, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 9b7d60fe7e58aa6438c66766c34aa929, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Explosion Small
+    clip: {fileID: 8300000, guid: ef52b61a3dcdac74eb6966737e2a2a23, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Crumble Pot
+    clip: {fileID: 8300000, guid: 1b983fd1dac469b47b7c4d9064acbfd8, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Arrow Fire
+    clip: {fileID: 8300000, guid: aa22e3fa4493bad4481db8d31069fcdf, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Cling
+    clip: {fileID: 8300000, guid: 8f62e568888d70e4ab3b807b863bb55e, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Hit Wall
+    clip: {fileID: 8300000, guid: 03aa08da479bd504ea982d3bca91bd88, type: 3}
+    soundVolume: 0.5
+    pitchSlider: 1
+  - name: DANCE
+    clip: {fileID: 8300000, guid: db409d83930804c49bcab1060609c626, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Water Bullet Spawn
+    clip: {fileID: 8300000, guid: 1d86c827a8f2015488f1cb99c85ebf2c, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Pop
+    clip: {fileID: 8300000, guid: 5b3a95587dd67984fa0e9e80a9c4b384, type: 3}
+    soundVolume: 0.7
+    pitchSlider: 1
+  - name: Sparkle
+    clip: {fileID: 8300000, guid: d776939a856c6884588aaa8e98e8354e, type: 3}
+    soundVolume: 0.5
+    pitchSlider: 1
+  soundGroups:
+  - groupName: Rusty Door
+    clips:
+    - {fileID: 8300000, guid: 6eae5a62118e37440934a65b1876c11c, type: 3}
+    - {fileID: 8300000, guid: c57b06310578f5b4f8019b278c7f0fa1, type: 3}
+    - {fileID: 8300000, guid: 271a9a324cc4b594091f784b3eea8808, type: 3}
+    - {fileID: 8300000, guid: 6f5cd1f796c266944bfa51886f2399aa, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Shovel Clang
+    clips:
+    - {fileID: 8300000, guid: 3a4c7cf14dd4a2040bae97a868f7dbb8, type: 3}
+    - {fileID: 8300000, guid: 7f7097d2f1f7aa44ab00cf00615d01c8, type: 3}
+    - {fileID: 8300000, guid: f5ef8e84162fc5d4db1c023528af0127, type: 3}
+    - {fileID: 8300000, guid: 6c8fb370dbe825d4fb2c79ce4d6cec6c, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Small Pole Hit
+    clips:
+    - {fileID: 8300000, guid: 3949b2200c92c0442b11de6bff66a4fe, type: 3}
+    - {fileID: 8300000, guid: 3a35016a26d5c4c44aedcff74d180fe6, type: 3}
+    - {fileID: 8300000, guid: 44c0799ff7d3e594e8ab8fb4cd227aca, type: 3}
+    - {fileID: 8300000, guid: bf13554e0e847b2438cefd6583b65c54, type: 3}
+    - {fileID: 8300000, guid: 9ccf14b307ffc504796996bb79ae9ceb, type: 3}
+    - {fileID: 8300000, guid: 7331ca90466fdad4db34b9be9e365454, type: 3}
+    - {fileID: 8300000, guid: 82b3361d90864cd408720478bbd7dae6, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Clang Small
+    clips:
+    - {fileID: 8300000, guid: c2092cb5ef581784d9250b4192fdc630, type: 3}
+    - {fileID: 8300000, guid: 3e2259f086faa4f49b360a718728725f, type: 3}
+    - {fileID: 8300000, guid: 53ba9189d92689c46b699b1a699e692a, type: 3}
+    - {fileID: 8300000, guid: eeee4d7158d85d34bbb4f02f0777388d, type: 3}
+    - {fileID: 8300000, guid: d42bbc49d2255b64bae7cf2e3b4881ac, type: 3}
+    - {fileID: 8300000, guid: 579906b4e16c9be4daa2fd5e0cea1e6d, type: 3}
+    - {fileID: 8300000, guid: 9aaed0f4ba742704683dafa17a74e37a, type: 3}
+    - {fileID: 8300000, guid: 550bc37e703760741a9adb8e914ccf93, type: 3}
+    - {fileID: 8300000, guid: 3ad67976793065d458de824e6acd5271, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Clang Big
+    clips:
+    - {fileID: 8300000, guid: 8fed553a5799b1b4b9586a226efe5dba, type: 3}
+    - {fileID: 8300000, guid: 96dcdc91ca46a3348b7f4acbc4c69def, type: 3}
+    - {fileID: 8300000, guid: 5c9538fbd792afd4b92bc998ce954f9e, type: 3}
+    - {fileID: 8300000, guid: 4902207bb89c1844a81057b6d8ba580e, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Metal Big Pole Hit
+    clips:
+    - {fileID: 8300000, guid: 2dfde09e66a93e947a4f52520ea26c8d, type: 3}
+    - {fileID: 8300000, guid: c70ac584d40aa3a458cc9245cac4ed71, type: 3}
+    - {fileID: 8300000, guid: 6025ca10a8f501046aaacd257c4a8fbb, type: 3}
+    - {fileID: 8300000, guid: 8d4d923451e6900409d2c430959a9115, type: 3}
+    - {fileID: 8300000, guid: 6eb21aeeebd96ae43a94b22d88a3ac43, type: 3}
+    - {fileID: 8300000, guid: 8103ddb98872b8b4d93d6e6bdc5285a9, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Loose Stair
+    clips:
+    - {fileID: 8300000, guid: 9e7975f9f7bc6d84f9634bfeabc37843, type: 3}
+    - {fileID: 8300000, guid: 263c92ccdacae864bbc1eb60d53ab668, type: 3}
+    - {fileID: 8300000, guid: fa812c05c0745bf49889de1a169f054b, type: 3}
+    - {fileID: 8300000, guid: 31244306503cbbf46a45dcac64168762, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Bench Hit
+    clips:
+    - {fileID: 8300000, guid: dd68b390750b6c946a9080e00519481a, type: 3}
+    - {fileID: 8300000, guid: c410821503eabc549bc86343f3a0b30e, type: 3}
+    - {fileID: 8300000, guid: bb4818f5dd7894b408b668b4c2ea2826, type: 3}
+    - {fileID: 8300000, guid: 83a470cc778c6a1488467365990149bf, type: 3}
+    - {fileID: 8300000, guid: 47dae7265f5866a4799151ce0d1efaec, type: 3}
+    - {fileID: 8300000, guid: b0445cb2721bdc0418757de1bce67f26, type: 3}
+    - {fileID: 8300000, guid: 984f7fb7f19ddb840bb25df67a6b26d7, type: 3}
+    - {fileID: 8300000, guid: 5e27b6a434043d141836440f72d58a73, type: 3}
+    - {fileID: 8300000, guid: f96355db915e62346aac7929b8728db2, type: 3}
+    - {fileID: 8300000, guid: cc8e11a843e00da40bd020f81a696454, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Door Hit
+    clips:
+    - {fileID: 8300000, guid: d684a9cb15730e9408de02840f84c815, type: 3}
+    - {fileID: 8300000, guid: 7a0019a9d36b1964ab26103f1a8c3b87, type: 3}
+    - {fileID: 8300000, guid: 01eb7b04e611c2e43955ed67fd69cccf, type: 3}
+    - {fileID: 8300000, guid: bbdc3aebe8fd8d44785b822420c9adae, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Drag
+    clips:
+    - {fileID: 8300000, guid: 3ede1d3f3fe4d884d897bb229d463888, type: 3}
+    - {fileID: 8300000, guid: 15d1757b19bb54e4d8e890eeb90e74a3, type: 3}
+    - {fileID: 8300000, guid: 7e4f3c2b0e378674da3046eec925a980, type: 3}
+    - {fileID: 8300000, guid: 182f043c28d366e40b19257b0fa5484c, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Glass Sign Hit
+    clips:
+    - {fileID: 8300000, guid: 69f4003cbab6fdd4eab6c6ea07bbb2ed, type: 3}
+    - {fileID: 8300000, guid: 4a027a10fd03d9e498803cdfa1de9e7b, type: 3}
+    - {fileID: 8300000, guid: 956cbe7131765a24aaa478229ff0041d, type: 3}
+    - {fileID: 8300000, guid: d4eaa72ac0a6912498a13ef50fb65613, type: 3}
+    - {fileID: 8300000, guid: 0b4f66954cdda5b42bbd18f56becfcec, type: 3}
+    - {fileID: 8300000, guid: 411db3067d262ae4eb71d9f390662929, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Basement Clang
+    clips:
+    - {fileID: 8300000, guid: a05203d11c010a148bf734b2973c203d, type: 3}
+    - {fileID: 8300000, guid: 2e277c45ccd3ee843aa6c3a846371d11, type: 3}
+    - {fileID: 8300000, guid: 884802024b2ce744598150a7d65f13d5, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Knife Sharpening
+    clips:
+    - {fileID: 8300000, guid: 2d668c8d7ca049d429a022c6b4921d95, type: 3}
+    - {fileID: 8300000, guid: 9f8ecfb112959464c87af5ca1e4319dc, type: 3}
+    - {fileID: 8300000, guid: 2a769669c5f9e1b4089a036a74db5a06, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - groupName: Wood Block Hit
+    clips:
+    - {fileID: 8300000, guid: 900e4a6e325e87d4b880dc67dbd94168, type: 3}
+    - {fileID: 8300000, guid: 92edc0fcd44a1d0499e7fadb7e72c426, type: 3}
+    - {fileID: 8300000, guid: 056fd6344a902544084f6cea6254cb98, type: 3}
+    - {fileID: 8300000, guid: 51ce4e8bf3f072041aef2ff77fc6e7e7, type: 3}
+    - {fileID: 8300000, guid: 16fb6307fcefb4044bd6a211056b9ad3, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  soundEffectMixer: {fileID: -4820389537182001826, guid: 893959dd63283a647b93447e080ab112, type: 2}
+  HaveAutoNaming: 0
+  FancyAutoNaming: 1
+  AudioClipQueue: []
+--- !u!1 &5999609948467228665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2144516270448144133}
+  m_Layer: 0
+  m_Name: Scene Essentials
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2144516270448144133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999609948467228665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.393416, y: -0.031064417, z: 0.0031703487}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 360236293245740673}
+  - {fileID: 360236294805277255}
+  - {fileID: 360236294122541828}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

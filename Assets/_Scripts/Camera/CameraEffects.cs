@@ -25,6 +25,8 @@ public class CameraEffects : MonoBehaviour
     [SerializeField] float zoomedIn = 0;
     [SerializeField] float zoomedOut = 0;
 
+    private bool _flashPrority;
+
     Vector3 _StartPos;
     Coroutine _CurrentFadeRoutine;
     Coroutine _CurrentZoomRoutine;
@@ -45,25 +47,6 @@ public class CameraEffects : MonoBehaviour
         flashImage.color = new Color(flashImage.color.r, flashImage.color.g, flashImage.color.b, 0); // Hide flash
         _cam.fieldOfView = zoomedOut; // Set camera size
     }
-
-    /* old code
-    // Update is called once per frame
-    void Update()
-    {
-        if (flash || Input.GetKeyDown(KeyCode.S)) // Flash
-        {
-            flash = false;
-        }
-        if (zoom || Input.GetKeyDown(KeyCode.Z)) // Flash
-        {
-            zoom = false;
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = -transform.localPosition.z;
-            Zoom(zoomedIn, zoomedOut, zoomInDuration, zoomStayDuration, zoomOutDuration, _cam.ScreenToWorldPoint(mousePos));
-
-        }
-    }
-    */
     
     // Shake is in fixed update so shake has consistent interval between each shake
     private void FixedUpdate()
@@ -91,12 +74,19 @@ public class CameraEffects : MonoBehaviour
         }
     }
 
-    IEnumerator Fade(Color color)
+    IEnumerator Fade(Color color, bool unscaled)
     {
         flashImage.color = color; // Flash
         if (flashDuration > 0)
         {
-            yield return new WaitForSeconds(flashDuration);
+            if (unscaled)
+            {
+                yield return new WaitForSecondsRealtime(flashDuration);
+            }
+            else
+            {
+                yield return new WaitForSeconds(flashDuration);
+            }
         }
 
         if (fadeDuration > 0)
@@ -105,28 +95,30 @@ public class CameraEffects : MonoBehaviour
 
             while (timer > 0)
             {
-                timer -= Time.deltaTime;
+                timer -= unscaled ? Time.unscaledDeltaTime : Time.deltaTime;
                 flashImage.color = new Color(color.r, color.g, color.b, (timer / fadeDuration) * color.a); // Apply fade
                 yield return null;
             }
         }
 
         flashImage.color = new Color(color.r, color.g, color.b, 0); // Set alpha to zero after done to be sure
+
+        _flashPrority = false;
+    }
+    
+    public static void Flash(float fadeDuration, bool unscaled = false, bool priority = false)
+    {
+        Flash(0, fadeDuration, Color.white, unscaled, priority);
     }
 
-    public static void Flash(float fadeDuration)
+    public static void Flash(float fadeDuration, Color color, bool unscaled = false, bool priority = false)
     {
-        Flash(0, fadeDuration, Color.white);
+        Flash(0, fadeDuration, color, unscaled, priority);
     }
 
-    public static void Flash(float fadeDuration, Color color)
+    public static void Flash(float holdDuration, float fadeDuration, bool unscaled = false, bool priority = false)
     {
-        Flash(0, fadeDuration, color);
-    }
-
-    public static void Flash(float holdDuration, float fadeDuration)
-    {
-        Flash(holdDuration, fadeDuration, Color.white);
+        Flash(holdDuration, fadeDuration, Color.white, unscaled, priority);
     }
 
     /// <summary>
@@ -135,8 +127,15 @@ public class CameraEffects : MonoBehaviour
     /// <param name="holdDuration">How long the flash should stay</param>
     /// <param name="fadeDuration">How long it takes for the flash to fade away</param>
     /// <param name="color">The color of the flash</param>
-    public static void Flash(float holdDuration, float fadeDuration, Color color)
+    public static void Flash(float holdDuration, float fadeDuration, Color color, bool unscaled = false, bool priority = false)
     {
+        if (Instance._flashPrority)
+        {
+            return;
+        }
+
+        Instance._flashPrority = priority;
+
         Instance.flashDuration = holdDuration;
         Instance.fadeDuration = fadeDuration;
 
@@ -144,7 +143,7 @@ public class CameraEffects : MonoBehaviour
         {
             Instance.StopCoroutine(Instance._CurrentFadeRoutine); // Stop current flash
         }
-        Instance._CurrentFadeRoutine = Instance.StartCoroutine(Instance.Fade(color)); // Start flash
+        Instance._CurrentFadeRoutine = Instance.StartCoroutine(Instance.Fade(color, unscaled)); // Start flash
     }
 
     /// <summary>
@@ -186,7 +185,7 @@ public class CameraEffects : MonoBehaviour
     /// <param name="zoomedInStayDuration">Time to stayed zoomed in</param>
     /// <param name="zoomOutTime">Time during zooming out</param>
     /// <param name="zoomLocation">Place to come on to</param>
-    public static void Zoom(float zoomedInSize, float zoomedOutSize, float zoomInTime, float zoomedInStayDuration, float zoomOutTime, Vector3 zoomLocation)
+    public static void Zoom(float zoomedInSize, float zoomedOutSize, float zoomInTime, float zoomedInStayDuration, float zoomOutTime, Vector3 zoomLocation, bool unscaled = false)
     {
         Instance.zoomedIn = zoomedInSize;
         Instance.zoomedOut = zoomedOutSize;
@@ -199,34 +198,24 @@ public class CameraEffects : MonoBehaviour
             Instance.StopCoroutine(Instance._CurrentZoomRoutine); // Stop current flash
         }
 
-        Instance._CurrentZoomRoutine = Instance.StartCoroutine(Instance.ZoomCoRut(zoomLocation)); // Start zoom
+        Instance._CurrentZoomRoutine = Instance.StartCoroutine(Instance.ZoomCoRut(zoomLocation, unscaled)); // Start zoom
     }
-    public IEnumerator ZoomCoRut(Vector3 zoomLocation)
+    public IEnumerator ZoomCoRut(Vector3 zoomLocation, bool unscaled)
     {
         float timer = zoomInDuration;
         zoomLocation.z = _ZoomPos.z;
         Vector3 oldCamPos = _ZoomPos;
+
         while (timer > 0) // Zoom to in
         {
-            timer -= Time.deltaTime;
+            timer -= unscaled ? Time.unscaledDeltaTime : Time.deltaTime;
 
             float t = Easing.OutCubic(1 - (timer / zoomInDuration));
 
             _ZoomPos = Vector3.LerpUnclamped(oldCamPos, zoomLocation, t);
 
-            try { _cam.orthographicSize = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t); }
-            catch (System.Exception)
-            {
-                Debug.Log("Not orthographic size");
-            }
-            try
-            {
-                _cam.fieldOfView = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t);
-            }
-            catch (System.Exception)
-            {
-                Debug.Log("Not Field of view");
-            }
+            _cam.fieldOfView = Mathf.LerpUnclamped(zoomedOut, zoomedIn, t);
+
             yield return null;
         }
 
@@ -235,33 +224,26 @@ public class CameraEffects : MonoBehaviour
 
         if (zoomStayDuration > 0)
         {
-            yield return new WaitForSeconds(zoomStayDuration); // Wait zoomed in
+            if (unscaled)
+            {
+                yield return new WaitForSecondsRealtime(zoomStayDuration); // Wait zoomed in
+            }
+            else
+            {
+                yield return new WaitForSeconds(zoomStayDuration); // Wait zoomed in
+            }
         }
 
         timer = zoomOutDuration;
         while (timer > 0) // Zoom to normal
         {
-            timer -= Time.deltaTime;
+            timer -= unscaled ? Time.unscaledDeltaTime : Time.deltaTime;
 
             float t = Easing.InCubic (1 - (timer / zoomOutDuration));
 
             _ZoomPos = Vector3.Lerp(zoomLocation, oldCamPos, t);
 
-            try
-            {
-                _cam.orthographicSize = Mathf.Lerp(zoomedIn, zoomedOut, t);
-            }
-            catch (System.Exception)
-            {
-            }
-            try
-            {
-                _cam.fieldOfView = Mathf.Lerp(zoomedIn, zoomedOut, t);
-            }
-            catch (System.Exception)
-            {
-
-            }
+            _cam.fieldOfView = Mathf.Lerp(zoomedIn, zoomedOut, t);
 
             yield return null;
         }

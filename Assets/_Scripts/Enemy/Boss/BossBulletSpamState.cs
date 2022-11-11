@@ -20,7 +20,7 @@ public class BossBulletSpamState : BossState
 
     private void OnEnable()
     {
-        Anim.SetTrigger("Bullet Spam");
+        Animate("Bullet Spam");
 
         _timer = 0;
     }
