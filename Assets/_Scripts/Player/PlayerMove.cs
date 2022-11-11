@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     public static PlayerMove Instance;
 
     [SerializeField] private int hp = 5;
-     private int _hp = 5;
+    private int _hp = 5;
     [SerializeField] private float speed = 5;
     [SerializeField] private float acceleration;
     [SerializeField] private float decceleration;
@@ -79,6 +79,8 @@ public class PlayerMove : MonoBehaviour
         {
             hearts[hp].Play("GetLife"); // play animation
         }
+
+        _hp = hp;
     }
     private void FixedUpdate()
     {
