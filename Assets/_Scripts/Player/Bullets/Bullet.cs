@@ -181,6 +181,11 @@ public class Bullet : MonoBehaviour
         DPSCounter.Add(damage);
     }
 
+    public void ExternalDie()
+    {
+        Die();
+    }
+
     protected virtual void Die()
     {
         if (!string.IsNullOrEmpty(deathSoundEffect))

@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class BossEnemySpawnState : BossState
 {
-    [SerializeField] private GameObject[] enemies;
+    [SerializeField] private Enemy[] enemies;
 
     [SerializeField] private int[] amount;
 

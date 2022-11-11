@@ -7,27 +7,36 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
                                     //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
 {
     public float hp;
+    [SerializeField] private float moveSpeed;
+    /*
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
     [SerializeField] protected float moveSideSpeed = 1.5f;
     [SerializeField] protected float moveFrequency =1f;
 
     //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger innan den vänder.
     [SerializeField] protected float down = -0.25f;
+    */
     [Tooltip("How low does the enemy go before it dies ")]
     [SerializeField] protected float minYpos;
 
+    /*
     //Original positionens x-värde (är när den är längst till vänster)
     [Tooltip("Left most point on the x axis")]
     [SerializeField] protected float maxLeftPosX;
     [Tooltip("Right most point on the x axis")]
     [SerializeField] protected float maxRightPosX;
+    */
 
-    [SerializeField] protected float timer = 0;
+    //[SerializeField] protected float timer = 0;
     [SerializeField] protected Vector2 gainPoints;
     [Tooltip("Shake intensity and duration")]
     [SerializeField] protected Vector2 shake;
     [SerializeField] ParticleSystem changeDirectionParticles;
     [SerializeField] ParticleSystem deathParticles;
+
+    protected Rigidbody2D rb;
+
+    public bool GivePoints;
 
     //Score score;
 
@@ -36,14 +45,17 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     //CameraEffects cameraEffects;
 
     //Det här är för att de ska "blinka" när de rör sig.
-    private Color color;
-    [SerializeField] SpriteRenderer rend;
+    //private Color color;
+    //[SerializeField] SpriteRenderer rend;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         //cam = Camera.main;
 
+        /*
         //Färg saker
         rend = rend != null ? rend : GetComponentInChildren<SpriteRenderer>();
 
@@ -51,18 +63,24 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
         color.a = 1;
         rend.color = color;
+        */
 
         //Sätter originalPosX
-       // maxLeftPosX = transform.position.x;
+        // maxLeftPosX = transform.position.x;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (transform.position.y <= minYpos) // Vi tog oss genom spelarens nivå
+        {
+            HitPlayer(); // Skada spelaren
+        }
+
         //Debug.Log(cam);
 
         //Är funktion för ifall man ska göra arv
-        Move();
+        //Move();
 
         //Det här är temporärt, Debug.
         /*if (Input.GetKeyDown(KeyCode.Space))
@@ -86,6 +104,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         }*/
     }
 
+    /*
     //Funktion med rörelse kod.
     protected virtual void Move()
     {
@@ -117,13 +136,21 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             moveSideSpeed *= -1;
             changeDirectionParticles.Play();
         }
+
         if (transform.position.y <= minYpos) // Vi tog oss genom spelarens nivå
         {
             HitPlayer(); // Skada spelaren
         }
     }
+    */
+
+    protected virtual void FixedUpdate()
+    {
+        rb.velocity = Vector2.down * moveSpeed;
+    }
+
     //Det här händer när fienderna rör något som inte är spelaren. (Aktiveras i "OnCollisionEnter...").
-    protected virtual void EnemyDies(bool givePoints)
+    public virtual void Die(bool givePoints)
     {
         //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
         //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
@@ -131,8 +158,10 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //Vector3 mousePos = Input.mousePosition;
         //mousePos.z = -cam.transform.position.z;
 
-        // Gammal kod förösker spawna score på musen, detta gör så att score spawnas på detta object
-        Score.AddPoints(givePoints ? Mathf.RoundToInt(Random.Range(gainPoints.x, gainPoints.y)) : 0, transform.position); // Give points
+        if (GivePoints && givePoints)
+        {
+            Score.AddPoints(Mathf.RoundToInt(Random.Range(gainPoints.x, gainPoints.y)), transform.position); // Give points
+        }
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
         CameraEffects.Shake(shake.x, shake.y);
@@ -144,18 +173,20 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         Destroy(gameObject); // Föstör objectet efter att vi har get poäng
 
     }
+
     public virtual void Hurt(float damage)
     {
         hp -= damage;
-        DPSCounter.Add(damage); // Visa vår damage per second
+        //DPSCounter.Add(damage); // Visa vår damage per second
         if (hp <= 0)
         {
-            EnemyDies(true);
+            Die(true);
         }
     }
+
     public virtual void HitPlayer() // Enemy hit player or player snuck past player
     {
-        EnemyDies(false);
+        Die(false);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
