@@ -37,6 +37,9 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     protected Rigidbody2D rb;
 
     public bool GivePoints;
+    public bool GiveNewWeapond;
+    [SerializeField] GameObject newWeaponSpawner;
+
 
     //Score score;
 
@@ -182,6 +185,10 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         if (GivePoints && givePoints)
         {
             Score.AddPoints(Mathf.RoundToInt(Random.Range(gainPoints.x, gainPoints.y)), transform.position); // Give points
+        }
+        if (GiveNewWeapond)
+        {
+            Instantiate(newWeaponSpawner, transform.position - new Vector3(0, 1, 0), Quaternion.identity);
         }
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).

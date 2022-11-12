@@ -53,13 +53,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             HitPlayer();
         }else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ResetHP();
-        }
+        }*/
     }
 
     public void HitPlayer()

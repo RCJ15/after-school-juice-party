@@ -14853,6 +14853,8 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 7812539928394996459}
   deathParticles: {fileID: 1413098061391317978}
   GivePoints: 1
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 1863992318058434458, guid: 3eeb3be60c5e0514db81674cbc07f13a, type: 3}
   bullet: {fileID: 1242123144945122640, guid: 955c85451b87fb14096e4867580f680c, type: 3}
   timeInbetweenAttack: {x: 2, y: 4}
   perlinIntensity: 0.5

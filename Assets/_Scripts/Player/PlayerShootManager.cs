@@ -102,24 +102,24 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             HoneyTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.U) && _weaponAmount < _playerShootsLength)
-        {
-            AddWeapon(_weaponAmount, true);
-        }
+        /* if (Input.GetKeyDown(KeyCode.U) && _weaponAmount < _playerShootsLength)
+         {
+             AddWeapon(_weaponAmount, true);
+         }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            int newWeapon = _equippedWeapons[0];
+         if (Input.GetKeyDown(KeyCode.L))
+         {
+             int newWeapon = _equippedWeapons[0];
 
-            newWeapon++;
+             newWeapon++;
 
-            if (newWeapon >= _playerShootsLength)
-            {
-                newWeapon = 0;
-            }
+             if (newWeapon >= _playerShootsLength)
+             {
+                 newWeapon = 0;
+             }
 
-            ChangeWeapon(0, newWeapon);
-        }
+             ChangeWeapon(0, newWeapon);
+         }*/
 
         if (_weaponAmount <= 1)
         {
@@ -247,5 +247,23 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         // Enable new shot
         _playerShoots[_currentShotIndex].gameObject.SetActive(true);
+    }
+    /// <summary>
+    /// Gives a random weapon
+    /// </summary>
+    public int RandomWeapon()
+    {
+        List<int> onloackableItems = new List<int>();
+        for (int i = 0; i < _playerShootsLength; i++)
+        {
+            onloackableItems.Add(i);
+        }
+        for (int i = 0; i < _equippedWeapons.Count; i++)
+        {
+            onloackableItems.Remove(_equippedWeapons[i]);
+        }
+
+        int newWeaponIndex = Random.Range(0, onloackableItems.Count);
+        return onloackableItems[newWeaponIndex];
     }
 }

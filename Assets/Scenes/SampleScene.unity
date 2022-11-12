@@ -305,13 +305,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &15348055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -532,13 +539,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &21046675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -664,13 +678,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &23752042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -902,13 +923,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &47646307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1440,13 +1468,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &71898957
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1988,13 +2023,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!1 &123513518
 GameObject:
   m_ObjectHideFlags: 0
@@ -2300,13 +2342,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &176771108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2887,13 +2936,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &269046004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3260,13 +3316,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &309001899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3392,13 +3455,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &325387249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4113,13 +4183,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &447218770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4900,13 +4977,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &572885651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5740,13 +5824,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &685441076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6103,13 +6194,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &775038949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6250,13 +6348,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &778338831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6532,13 +6637,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &801833203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8318,13 +8430,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &991936664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8561,13 +8680,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &997930272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8723,13 +8849,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1013742302
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10360,13 +10493,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1327345169
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10677,13 +10817,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1339252841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10809,13 +10956,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1340719651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11027,13 +11181,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1381209057
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11934,13 +12095,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1471455003
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12494,13 +12662,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1536279438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13024,13 +13199,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1599167966
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13345,13 +13527,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1604674715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13800,13 +13989,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1650142151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15260,13 +15456,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1770411787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15756,13 +15959,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1817492680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15908,6 +16118,7 @@ MonoBehaviour:
   panel: {fileID: 1379206208}
   titleText: {fileID: 1922840906}
   text: {fileID: 56910209}
+  transitionController: {fileID: 828157425}
 --- !u!1 &1838369951
 GameObject:
   m_ObjectHideFlags: 0
@@ -16633,13 +16844,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &1936874846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17363,13 +17581,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &2013380977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17910,13 +18135,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &2038749039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18234,13 +18466,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &2041955626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19055,13 +19294,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  moveSpeed: 0
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -0.25
   minYpos: 0
+  maxLeftPosX: 0
+  maxRightPosX: 0
   gainPoints: {x: 0, y: 0}
   shake: {x: 0, y: 0}
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 0}
 --- !u!61 &2086739554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19605,21 +19851,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 360236293245740673, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236293245740673, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236293245740673, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236294122541828, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236294122541828, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236294122541828, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236294805277255, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236294805277255, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360236294805277255, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2144516270448144133, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2144516270448144133, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.393416
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2144516270448144133, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.031064417
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2144516270448144133, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0031703487
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2144516270448144133, guid: 44aefa2eb618c1e40972337e696ccf7e, type: 3}
       propertyPath: m_LocalRotation.w

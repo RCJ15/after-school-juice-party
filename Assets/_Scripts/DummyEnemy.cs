@@ -36,7 +36,7 @@ public class DummyEnemy : MonoBehaviour
     }
 
     private void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.I))
         {
             health = _maxHealth;
@@ -47,7 +47,7 @@ public class DummyEnemy : MonoBehaviour
 
             _col.enabled = true;
             _sr.enabled = true;
-        }
+        }*/
     }
 
     public void Hurt(float damage)

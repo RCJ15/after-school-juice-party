@@ -5103,6 +5103,8 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 7283531666650396118}
   deathParticles: {fileID: 4392709393274935246}
   GivePoints: 1
+  GiveNewWeapond: 0
+  newWeaponSpawner: {fileID: 1863992318058434458, guid: 3eeb3be60c5e0514db81674cbc07f13a, type: 3}
 --- !u!50 &5678913983113288945
 Rigidbody2D:
   serializedVersion: 4

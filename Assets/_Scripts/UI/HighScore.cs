@@ -40,7 +40,7 @@ public class HighScore : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (Input.GetKeyDown(KeyCode.T)) // Debug
         {
             ShowHighScoreTable(false);
@@ -52,7 +52,7 @@ public class HighScore : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1)) // Debug
         {
             Save();
-        }
+        }*/
     }
 
     /// <summary>

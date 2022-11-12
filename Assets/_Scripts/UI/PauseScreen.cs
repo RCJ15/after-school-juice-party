@@ -11,6 +11,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] GameObject panel;
     [SerializeField] TMP_Text titleText;
     [SerializeField] TMP_Text text;
+    [SerializeField] TransitionController transitionController;
 
     float _attempt = 0, _timeElapsed = 0;
     string _currentLevelName ="";
@@ -50,6 +51,9 @@ public class PauseScreen : MonoBehaviour
     }
     public void MainMenu()
     {
-
+        transitionController.Transition(0.75f, 0.5f, 0.75f, SceneChange);
+            void SceneChange(){
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+        }
     }
 }
