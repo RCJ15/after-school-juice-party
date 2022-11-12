@@ -19,12 +19,14 @@ public class ZigZagEnemy : Enemy
         _movingRight = Random.Range(0, 2) == 1;
     }
 
+    /*
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
 
         rb.velocity = new Vector2(_movingRight ? horizontalSpeed : -horizontalSpeed, rb.velocity.y);
     }
+    */
 
     private void OnCollisionEnter2D(Collision2D col)
     {

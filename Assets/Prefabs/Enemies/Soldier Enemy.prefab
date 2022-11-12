@@ -53,9 +53,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e2b8c545c849443b6bc277cf9ff221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 35
-  moveSpeed: 1.1
+  hp: 50
+  moveLerp: 10
+  moveSideSpeed: 2
+  moveFrequency: 0.8
+  down: -1.1
   minYpos: -8
+  maxLeftPosX: -5
+  maxRightPosX: 5
   gainPoints: {x: 75, y: 125}
   shake: {x: 0.75, y: 0.4}
   changeDirectionParticles: {fileID: 3685571854462627234}

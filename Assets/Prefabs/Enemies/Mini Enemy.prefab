@@ -14756,8 +14756,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 15
-  moveSpeed: 3.75
+  moveLerp: 20
+  moveSideSpeed: 2
+  moveFrequency: 0.5
+  down: -1
   minYpos: -8
+  maxLeftPosX: -5
+  maxRightPosX: 5
   gainPoints: {x: 25, y: 50}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 6831565336022232315}
@@ -14808,7 +14813,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1 &9112391267427006037
 GameObject:

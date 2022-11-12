@@ -138,8 +138,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 25
-  moveSpeed: 0.5
+  moveLerp: 10
+  moveSideSpeed: 1.5
+  moveFrequency: 1
+  down: -1
   minYpos: -8
+  maxLeftPosX: -5
+  maxRightPosX: 5
   gainPoints: {x: 100, y: 150}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 3465963480931113726}

@@ -5066,7 +5066,7 @@ Transform:
   m_GameObject: {fileID: 5309623531774476642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3635166265168371218}
@@ -5090,9 +5090,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaca12da834be34996c9d6e14546a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 250
-  moveSpeed: 0.8
+  hp: 300
+  moveLerp: 10
+  moveSideSpeed: 1
+  moveFrequency: 2
+  down: -2
   minYpos: -8
+  maxLeftPosX: -5
+  maxRightPosX: 5
   gainPoints: {x: 150, y: 230}
   shake: {x: 0.1, y: 0.3}
   changeDirectionParticles: {fileID: 7283531666650396118}

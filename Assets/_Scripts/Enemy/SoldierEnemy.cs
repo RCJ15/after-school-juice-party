@@ -25,10 +25,10 @@ public class SoldierEnemy : ShooterEnemy
         _perlin += perlinSpeed * Time.deltaTime;
     }
 
+    /*
     protected override void FixedUpdate()
     {
-        base.FixedUpdate();
-
         rb.velocity = new Vector2(((Mathf.PerlinNoise(_perlin, _perlin) * 2) - 1) * perlinIntensity, rb.velocity.y);
     }
+    */
 }

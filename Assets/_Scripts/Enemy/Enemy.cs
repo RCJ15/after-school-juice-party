@@ -7,27 +7,27 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
                                     //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
 {
     public float hp;
-    [SerializeField] private float moveSpeed;
-    /*
+
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
+    [SerializeField] protected float moveLerp = 10f;
     [SerializeField] protected float moveSideSpeed = 1.5f;
     [SerializeField] protected float moveFrequency =1f;
 
     //Hur mycket den rör sig i Y-led (ner). Det här är hälften av värdet då den rör sig 2 gånger innan den vänder.
     [SerializeField] protected float down = -0.25f;
-    */
+
     [Tooltip("How low does the enemy go before it dies ")]
     [SerializeField] protected float minYpos;
 
-    /*
     //Original positionens x-värde (är när den är längst till vänster)
     [Tooltip("Left most point on the x axis")]
     [SerializeField] protected float maxLeftPosX;
     [Tooltip("Right most point on the x axis")]
     [SerializeField] protected float maxRightPosX;
-    */
 
-    //[SerializeField] protected float timer = 0;
+    protected Vector2 targetPos;
+
+    protected float timer;
     [SerializeField] protected Vector2 gainPoints;
     [Tooltip("Shake intensity and duration")]
     [SerializeField] protected Vector2 shake;
@@ -53,6 +53,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     private void Awake()
     {
         EnemyStorage.AddEnemy(this);
+
+        targetPos = transform.position + new Vector3(0, down * 1.5f, 0);
     }
 
     protected virtual void Start()
@@ -91,7 +93,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         //Debug.Log(cam);
 
         //Är funktion för ifall man ska göra arv
-        //Move();
+        Move();
 
         //Det här är temporärt, Debug.
         /*if (Input.GetKeyDown(KeyCode.Space))
@@ -115,12 +117,12 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         }*/
     }
 
-    /*
     //Funktion med rörelse kod.
     protected virtual void Move()
     {
         timer += Time.deltaTime;
 
+        /*
         //Fienden blir osynlig
         if (timer >= moveFrequency / 2 - 0.1f && timer <= moveFrequency / 2 + 0.1f) 
         {
@@ -138,26 +140,34 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
             timer = 0;
         }
+        */
 
-        //Ifall den är vid extrem punkterna skall den vända om och hoppa ner. // Två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
-        if (transform.position.x <= maxLeftPosX && moveSideSpeed < 0 || transform.position.x >= maxRightPosX && moveSideSpeed > 0)
+        if (timer >= moveFrequency)
         {
-            transform.position += new Vector3(0, -down, 0); // Ramla en rad ner
-            //Byter håll
-            moveSideSpeed *= -1;
-            changeDirectionParticles.Play();
+            Vector2 futurePos = targetPos + new Vector2(moveSideSpeed, 0);
+
+            //Ifall den är vid extrem punkterna skall den vända om och hoppa ner. // Två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
+            if (futurePos.x <= maxLeftPosX && moveSideSpeed < 0 || futurePos.x >= maxRightPosX && moveSideSpeed > 0)
+            {
+                targetPos += new Vector2(0, down); // Ramla en rad ner
+                                                   //Byter håll
+                moveSideSpeed *= -1;
+                changeDirectionParticles.Play();
+            }
+            else
+            {
+                targetPos += new Vector2(moveSideSpeed, 0); // Gå åt sidan
+            }
+
+            timer = 0;
         }
 
         if (transform.position.y <= minYpos) // Vi tog oss genom spelarens nivå
         {
             HitPlayer(); // Skada spelaren
         }
-    }
-    */
 
-    protected virtual void FixedUpdate()
-    {
-        rb.velocity = Vector2.down * moveSpeed;
+        transform.position = Vector3.Lerp(transform.position, targetPos, moveLerp * Time.deltaTime);
     }
 
     //Det här händer när fienderna rör något som inte är spelaren. (Aktiveras i "OnCollisionEnter...").

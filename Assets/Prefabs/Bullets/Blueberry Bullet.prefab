@@ -62,7 +62,7 @@ MonoBehaviour:
   constantParticles: {fileID: 0}
   hitWallParticles: {fileID: 8307054270198227982}
   bounceSoundEffect: Pop
-  maxBounces: 8
+  maxBounces: 6
   pierce: 0
   explosion: {fileID: 0}
 --- !u!50 &5455113537457026717
