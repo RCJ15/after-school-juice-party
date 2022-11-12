@@ -13,7 +13,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Image background;
     [SerializeField] float timetimer;
     [SerializeField] float fadeTimer;
-    bool _Fade = true;
+    //bool _Fade = true;
     [SerializeField] GameObject blueScreen;
 
     private Coroutine _currentEpilepsy;
@@ -23,14 +23,14 @@ public class MainMenuManager : MonoBehaviour
         mainPanel.SetActive(false);
         optionPanel.SetActive(false);
 
-        // Start Song
-        transControl.Transition(0, 0, 1);
+        //transControl.Transition(0, 0, 1);
 
         mainPanel.SetActive(true);
     }
 
     private void Update()
     {
+        /*
         if (Input.anyKeyDown)
         {
             if (_currentEpilepsy != null)
@@ -50,6 +50,7 @@ public class MainMenuManager : MonoBehaviour
             _currentEpilepsy = StartCoroutine(Fade(background));
             _Fade = false;
         }
+        */
     }
 
     // Update is called once per frame
@@ -71,6 +72,7 @@ public class MainMenuManager : MonoBehaviour
         */
     }
 
+    /*
     private IEnumerator Epilepsy()
     {
         for (int i = 0; i < 2; i++)
@@ -119,6 +121,7 @@ public class MainMenuManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(fadeTimer);
         _Fade = true;
     }
+    */
 
     public void Begin()
     {

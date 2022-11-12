@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class ZigZagEnemy : Enemy
 {
+    [SerializeField] private float moveSpeed = 2;
     [SerializeField] private float horizontalSpeed;
     private bool _movingRight;
 
@@ -19,14 +20,16 @@ public class ZigZagEnemy : Enemy
         _movingRight = Random.Range(0, 2) == 1;
     }
 
-    /*
-    protected override void FixedUpdate()
+    protected override void Move()
     {
-        base.FixedUpdate();
-
-        rb.velocity = new Vector2(_movingRight ? horizontalSpeed : -horizontalSpeed, rb.velocity.y);
+        // Do not move in the traditional way
+        //base.Move();
     }
-    */
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(_movingRight ? horizontalSpeed : -horizontalSpeed, -moveSpeed);
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {

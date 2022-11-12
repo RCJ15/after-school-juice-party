@@ -13,7 +13,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] TransitionController transitionController;
 
-    float _attempt = 0, _timeElapsed = 0;
+    float _timeElapsed = 0;
     string _currentLevelName ="";
 
     private void Awake()
@@ -24,6 +24,11 @@ public class PauseScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_switching)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape) && _canPause) 
         {
             // Changed from "panel.active" to "panel.activeSelf" - Ruben
@@ -35,7 +40,7 @@ public class PauseScreen : MonoBehaviour
             else
             {
                 titleText.text = _currentLevelName; // Set the title 
-                text.text = $"Name: {HighScore.PlayerName} \nScore: {Score.PlayerScore} \nTime: {_timeElapsed} "; // Set some stats
+                text.text = $"Name: {HighScore.PlayerName} \nScore: {Score.PlayerScore} \nTime: {Mathf.Round(_timeElapsed * 10) / 10} "; // Set some stats
                 panel.SetActive(true);
                 Time.timeScale = 0;
             }
@@ -46,14 +51,31 @@ public class PauseScreen : MonoBehaviour
 
     public void Resume()
     {
+        if (_switching)
+        {
+            return;
+        }
+
         panel.SetActive(false);
         Time.timeScale = 1;
     }
+
+    private bool _switching;
     public void MainMenu()
     {
-        transitionController.Transition(0.75f, 0.5f, 0.75f, SceneChange);
-            void SceneChange(){
+        if (_switching)
+        {
+            return;
+        }
+
+        _switching = true;
+
+        transitionController.Transition(0.75f, 0.5f, 0.75f, SceneChange, true);
+
+        void SceneChange(){
             UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
         }
+
+        MusicPlayer.StopSong(1);
     }
 }

@@ -145,7 +145,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Debug.Log("Player hit!");
+        PlayerMove.Instance.HitPlayer();
 
         Die();
     }

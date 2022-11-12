@@ -18,7 +18,16 @@ public class BossEnemySpawnState : BossState
 
     public void SpawnEnemy()
     {
+        int rng = Random.Range(0, enemies.Length);
 
+        for (int i = 0; i < amount[Stage - 1]; i++)
+        {
+            Enemy enemy = enemies[rng++ % enemies.Length];
+
+            Instantiate(enemy, transform.position, Quaternion.identity).GivePoints = false;
+        }
+
+        SoundManager.PlaySound("Space Zipper");
     }
 
     public override void Die()

@@ -44,6 +44,12 @@ public class Boss : MonoBehaviour
     [HideInInspector] public float LerpMultiplier = 1;
     [SerializeField] private Animator anim;
     [SerializeField] private Animator hurtAnim;
+
+    public void Die()
+    {
+        //mainObj.SetActive(false);
+    }
+
     [SerializeField] private BossAnimEvents animEvents;
 
     [SerializeField] private float[] animSpeed;
@@ -121,7 +127,7 @@ public class Boss : MonoBehaviour
 
     public void Attack()
     {
-        if (_dead)
+        if (_dead || PlayerMove.Dead)
         {
             return;
         }
@@ -153,9 +159,10 @@ public class Boss : MonoBehaviour
     {
         _healthbarAnim.SetTrigger("Appear");
 
-        //MusicPlayer.PlayBossSong();
+        MusicPlayer.PlayBossSong();
 
         SoundManager.PlaySound("Basement Clang");
+        SoundManager.PlaySound("Space Zipper");
     }
 
     public void Idle()
@@ -190,6 +197,8 @@ public class Boss : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _dead = true;
+
+            Score.AddPoints((int)_currentMaxHealth, transform.position);
 
             anim.SetTrigger("Die");
 

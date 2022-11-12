@@ -14756,10 +14756,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 15
-  moveLerp: 20
+  moveLerp: 25
   moveSideSpeed: 2
-  moveFrequency: 0.5
-  down: -1
+  moveFrequency: 0.3
+  down: -1.2
   minYpos: -8
   maxLeftPosX: -5
   maxRightPosX: 5
@@ -14768,7 +14768,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 6831565336022232315}
   deathParticles: {fileID: 517030942873210595}
   GivePoints: 1
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 1863992318058434458, guid: 3eeb3be60c5e0514db81674cbc07f13a, type: 3}
 --- !u!50 &8436749677143786972
 Rigidbody2D:

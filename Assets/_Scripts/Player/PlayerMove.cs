@@ -10,6 +10,10 @@ public class PlayerMove : MonoBehaviour
 {
     public static PlayerMove Instance;
 
+    public static bool Dead { get => Instance._dead; set => Instance._dead = value; }
+
+    private bool _dead;
+
     [SerializeField] private int hp = 5;
     private int _hp = 5;
     [SerializeField] private float speed = 5;
@@ -36,6 +40,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] HighScore highScore;
     [SerializeField] Animator[] hearts;
 
+    private float _iFrames;
+
     private void Awake()
     {
         Instance = this;
@@ -53,41 +59,83 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             HitPlayer();
-        }else if (Input.GetKeyDown(KeyCode.Alpha2))
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             ResetHP();
-        }*/
+        }
+        */
+
+        if (_iFrames > 0)
+        {
+            _iFrames -= Time.deltaTime;
+        }
     }
 
     public void HitPlayer()
     {
+        if (_iFrames > 0 || _dead)
+        {
+            return;
+        }
+
+        _iFrames = 1.5f;
+
         hp--;
+
         if (hp <= 0)
         {
             // End game
-            highScore.ShowHighScoreTable(false); ;
+            highScore.ShowHighScoreTable(false);
+
+            SoundManager.PlaySound("Boss Defeat", 1);
+
+            WaveManager.Instance.StopAllCoroutines();
+
+            gameObject.SetActive(false);
+
+            _dead = true;
+        }
+        else
+        {
+            CameraEffects.Shake(0.5f, 0.5f);
+            CameraEffects.Flash(1, new Color(1, 0, 0, 0.5f));
+            CameraEffects.Zoom(65, 0.3f, Vector3.zero);
+
+            SoundManager.PlaySound("Crumble Pot");
         }
 
         hearts[hp].Play("LoseLife"); // play animation
     }
     public void ResetHP()
     {
-        for ( hp = 0; hp < _hp; hp++)
+        for (hp = 0; hp < _hp; hp++)
         {
+            var state = hearts[hp].GetCurrentAnimatorStateInfo(0);
+
+            if (state.IsName("Empty") || state.IsName("GetLife"))
+            {
+                continue;
+            }
+
             hearts[hp].Play("GetLife"); // play animation
         }
 
-        _hp = hp;
+        SoundManager.PlaySound("Space Glass Shatter", 1);
+        CameraEffects.Flash(1, new Color(0, 1, 0, 0.5f));
+
+        hp = _hp;
     }
     private void FixedUpdate()
     {
         // Stolen from this youtub video - Ruben
         // https://www.youtube.com/watch?v=KbtcEVCM7bw
 
-        float input = Input.GetAxisRaw("Horizontal");
+        float input = _dead ? 0 : Input.GetAxisRaw("Horizontal");
 
         #region Run
         float targetSpeed = input * speed;

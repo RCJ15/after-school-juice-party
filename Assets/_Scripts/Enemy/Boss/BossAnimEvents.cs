@@ -13,6 +13,7 @@ public class BossAnimEvents : MonoBehaviour
     [SerializeField] private float giantLaserFireVol = 0.3f;
     [SerializeField] private float explosionVol = 0.3f;
     [SerializeField] private float clingVol = 0.5f;
+    [SerializeField] private float glassDragVol = 0.5f;
 
     public void StartBoss()
     {
@@ -46,8 +47,13 @@ public class BossAnimEvents : MonoBehaviour
         SoundManager.PlaySound("Cling", Pitch, clingVol);
     }
 
+    public void PlayGlassDragSFX()
+    {
+        SoundManager.PlaySound("Glass Drag", Pitch, glassDragVol);
+    }
+
     public void Die()
     {
-
+        Boss.Die();
     }
 }

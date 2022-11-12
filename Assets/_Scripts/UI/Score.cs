@@ -35,12 +35,14 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKey(KeyCode.Space)) // Debug
         {
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = -cam.transform.position.z;
             AddPointsLocal(Random.Range(20, 100), cam.ScreenToWorldPoint(mousePos));
         }
+        */
         
         if (PlayerScore != _oldScore) // Update score
         {

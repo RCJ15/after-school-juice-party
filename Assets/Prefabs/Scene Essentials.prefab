@@ -218,6 +218,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d776939a856c6884588aaa8e98e8354e, type: 3}
     soundVolume: 0.5
     pitchSlider: 1
+  - name: Space Glass Shatter
+    clip: {fileID: 8300000, guid: 40ba7e24a0283724081f09daac98bd95, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Space Zipper
+    clip: {fileID: 8300000, guid: eb17a2e4cadcbaf47ad67ee4298f9a9b, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
   soundGroups:
   - groupName: Rusty Door
     clips:

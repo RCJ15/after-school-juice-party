@@ -10,8 +10,9 @@ public class TransitionController : MonoBehaviour
     private Coroutine cor;
     private UnityEngine.UI.Image image;
 
-    private void Start()
+    private void Awake()
     {
+        Time.timeScale = 1;
         image = GetComponent<UnityEngine.UI.Image>();
         if (startTransition)
         {
@@ -26,23 +27,23 @@ public class TransitionController : MonoBehaviour
     /// <param name="stayTime">Time to stay faded</param>
     /// <param name="fadeoutTime">Time to fade image out</param>
     /// <param name="function">Function to run in the middle of transition</param>
-    public void Transition(float fadeInTime, float stayTime, float fadeoutTime, System.Action function = null)
+    public void Transition(float fadeInTime, float stayTime, float fadeoutTime, System.Action function = null, bool unscaled = false)
     {
         if (cor != null) // Stop previous transition
         {
             StopCoroutine(cor);
         }
 
-        cor = StartCoroutine(Fade(fadeInTime, stayTime, fadeoutTime, function)); // Call Function
+        cor = StartCoroutine(Fade(fadeInTime, stayTime, fadeoutTime, function, unscaled)); // Call Function
     }
-    private IEnumerator Fade(float fadeInTime, float stayTime, float fadeoutTime, System.Action function = null)
+    private IEnumerator Fade(float fadeInTime, float stayTime, float fadeoutTime, System.Action function = null, bool unscaled = false)
     {
         float timer = fadeInTime;
         Color clr = image.color;
 
         while (timer > 0) // Fade in
         {
-            timer -= Time.deltaTime;
+            timer -= unscaled ? Time.unscaledDeltaTime : Time.deltaTime;
             float t = 1 - (timer / fadeInTime);
             clr = image.color;
             image.color = new Color(clr.r, clr.g, clr.b, t);
@@ -61,7 +62,7 @@ public class TransitionController : MonoBehaviour
 
         while (timer > 0) // Fade out
         {
-            timer -= Time.deltaTime;
+            timer -= unscaled ? Time.unscaledDeltaTime : Time.deltaTime;
             float t = timer / fadeoutTime;
             clr = image.color;
             image.color = new Color(clr.r, clr.g, clr.b, t);

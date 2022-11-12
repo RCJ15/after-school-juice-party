@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class WaveManager : MonoBehaviour
 {
+    public static WaveManager Instance;
+
     [SerializeField] private Enemy regularEnemy;
     [SerializeField] private Enemy shooterEnemy;
     [SerializeField] private Enemy soldierEnemy;
@@ -17,16 +19,26 @@ public class WaveManager : MonoBehaviour
 
     [Space]
     [SerializeField] private float spawnRange;
+    [SerializeField] private HighScore highscore;
 
     private Wave[] _waves;
     private int _wavesLength;
 
+    private PlayerMove _player;
+    private PlayerShootManager _playerShoot;
     private Boss _boss;
     private EnemyStorage _enemyStorage;
     private WaveText _waveText;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private IEnumerator Start()
     {
+        _player = PlayerMove.Instance;
+        _playerShoot = PlayerShootManager.Instance;
         _boss = Boss.Instance;
         _enemyStorage = EnemyStorage.Instance;
         _waveText = WaveText.Instance;
@@ -70,7 +82,13 @@ public class WaveManager : MonoBehaviour
                 {
                     for (int enemyIndex = 0; enemyIndex < enemyLength; enemyIndex++)
                     {
-                        SpawnEnemy(miniWave.Enemies[enemyIndex % enemyLength]);
+                        Enemy enemy = SpawnEnemy(miniWave.Enemies[enemyIndex % enemyLength]);
+
+                        // last enemy
+                        if (miniWave.LastEnemyDropWeapon && enemyIndex <= enemyLength - 1)
+                        {
+                            enemy.GiveNewWeapon = true;
+                        }
                     }
                 }
                 else
@@ -79,13 +97,21 @@ public class WaveManager : MonoBehaviour
 
                     for (int enemyIndex = 0; enemyIndex < enemyLength; enemyIndex++)
                     {
-                        yield return new WaitForSeconds(waitTime);
-                        SpawnEnemy(miniWave.Enemies[enemyIndex % enemyLength]);
+                        Enemy enemy = SpawnEnemy(miniWave.Enemies[enemyIndex % enemyLength]);
 
+                        // last enemy
                         if (enemyIndex <= enemyLength - 1)
                         {
-
+                            if (miniWave.LastEnemyDropWeapon)
+                            {
+                                enemy.GiveNewWeapon = true;
+                            }
                         }
+                        else
+                        {
+                            yield return new WaitForSeconds(waitTime);
+                        }
+
                     }
                 }
             }
@@ -95,7 +121,9 @@ public class WaveManager : MonoBehaviour
 
             if (wave.SpawnBoss)
             {
-                yield return new WaitForSeconds(2);
+                MusicPlayer.StopSong(2);
+
+                yield return new WaitForSeconds(2.5f);
 
                 _boss.EnableBoss(wave.BossStage);
 
@@ -105,10 +133,24 @@ public class WaveManager : MonoBehaviour
 
                 _waveText.CanPlayMusic = true;
             }
+
+            _player.ResetHP();
+
+            if (wave.GiveNewWeaponCard)
+            {
+                _playerShoot.AddWeapon(0);
+
+                yield return new WaitForSeconds(2);
+            }
         }
+
+        yield return new WaitForSeconds(3);
+
+        highscore.ShowHighScoreTable(true);
+        PlayerMove.Dead = false;
     }
 
-    private void SpawnEnemy(EnemyType type)
+    private Enemy SpawnEnemy(EnemyType type)
     {
         Enemy enemy = regularEnemy;
 
@@ -134,7 +176,7 @@ public class WaveManager : MonoBehaviour
                 break;
         }
 
-        Instantiate(enemy, transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0), Quaternion.identity);
+        return Instantiate(enemy, transform.position + new Vector3(Random.Range(-spawnRange, spawnRange), 0), Quaternion.identity);
     }
 
 #if UNITY_EDITOR

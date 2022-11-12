@@ -30,6 +30,9 @@ public class Explosion : MonoBehaviour
     public HashSet<GameObject> HitEnemies { get => _hitEnemies; set => _hitEnemies = value; }
     public float Damage { get => damage; set => damage = value; }
 
+    private bool _hasHitPlayer;
+    private LayerMask _playerLayer;
+
     private void Awake()
     {
         _anim = GetComponent<Animator>();
@@ -43,6 +46,8 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
+        _playerLayer = GameManager.Instance.PlayerLayer;
+
         if (shakeIntesity > 0 && shakeDuration > 0)
         {
             CameraEffects.Shake(shakeIntesity, shakeDuration);
@@ -63,12 +68,14 @@ public class Explosion : MonoBehaviour
     {
         if (hitPlayer)
         {
-            if (!col.CompareTag("Player"))
+            if (_playerLayer != (_playerLayer | (1 << col.gameObject.layer)) || _hasHitPlayer)
             {
                 return;
             }
 
-            Debug.Log("HIT PLAYER!!!");
+            PlayerMove.Instance.HitPlayer();
+
+            _hasHitPlayer = true;
 
             return;
         }

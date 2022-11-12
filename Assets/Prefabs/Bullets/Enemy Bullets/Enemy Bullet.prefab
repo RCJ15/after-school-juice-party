@@ -159,8 +159,8 @@ MonoBehaviour:
   speed: 7
   lifetime: 4
   hitPlayer: 1
-  spawnSoundEffect: 
-  deathSoundEffect: 
+  spawnSoundEffect: Arrow Fire
+  deathSoundEffect: Hit Wall
   deathParticles: {fileID: 2455240546494150929}
   trail: {fileID: 9120871068310587223}
   constantParticles: {fileID: 0}
@@ -182,8 +182,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &1242123144945122643
 CircleCollider2D:

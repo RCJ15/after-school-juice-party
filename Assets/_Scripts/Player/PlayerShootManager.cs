@@ -26,6 +26,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
     public PlayerShoot CurrentWeapon => _playerShoots[_currentShotIndex];
 
+    public int SelectedWeapon => _selectedWeapon;
+
     private int _selectedWeapon = 0;
     private List<int> _equippedWeapons = new List<int>();
     private int _weaponAmount;

@@ -317,7 +317,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &15348055
 BoxCollider2D:
@@ -551,7 +551,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &21046675
 BoxCollider2D:
@@ -690,7 +690,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &23752042
 BoxCollider2D:
@@ -935,7 +935,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &47646307
 BoxCollider2D:
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &71898957
 BoxCollider2D:
@@ -2035,7 +2035,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!1 &123513518
 GameObject:
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &176771108
 BoxCollider2D:
@@ -2948,7 +2948,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &269046004
 BoxCollider2D:
@@ -3328,7 +3328,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &309001899
 BoxCollider2D:
@@ -3467,7 +3467,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &325387249
 BoxCollider2D:
@@ -4195,7 +4195,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &447218770
 BoxCollider2D:
@@ -4989,7 +4989,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &572885651
 BoxCollider2D:
@@ -5640,10 +5640,8 @@ MonoBehaviour:
   - {fileID: 326744077292194671, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
   - {fileID: 6613161938888227878, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
   - {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
-  - {fileID: 1368550766102060758, guid: b4ea29401871fa84596c55a2ecfb36d7, type: 3}
-  - {fileID: 3286262087210284089, guid: 2c268b73d8073fa4d8ee89051df86aee, type: 3}
   - {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
-  amount: 0100000002000000030000000400000005000000
+  amount: 0100000001000000010000000200000002000000
 --- !u!114 &641092354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5715,6 +5713,7 @@ MonoBehaviour:
   giantLaserFireVol: 0.3
   explosionVol: 0.3
   clingVol: 0.5
+  glassDragVol: 0.75
 --- !u!1 &664900415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,7 +5835,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &685441076
 BoxCollider2D:
@@ -6206,7 +6205,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &775038949
 BoxCollider2D:
@@ -6360,7 +6359,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &778338831
 BoxCollider2D:
@@ -6649,7 +6648,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &801833203
 BoxCollider2D:
@@ -8442,7 +8441,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &991936664
 BoxCollider2D:
@@ -8692,7 +8691,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &997930272
 BoxCollider2D:
@@ -8861,7 +8860,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1013742302
 BoxCollider2D:
@@ -10255,7 +10254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1250736503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10505,7 +10504,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1327345169
 BoxCollider2D:
@@ -10829,7 +10828,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1339252841
 BoxCollider2D:
@@ -10968,7 +10967,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1340719651
 BoxCollider2D:
@@ -11193,7 +11192,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1381209057
 BoxCollider2D:
@@ -12107,7 +12106,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1471455003
 BoxCollider2D:
@@ -12674,7 +12673,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1536279438
 BoxCollider2D:
@@ -13211,7 +13210,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1599167966
 BoxCollider2D:
@@ -13539,7 +13538,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1604674715
 BoxCollider2D:
@@ -14001,7 +14000,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1650142151
 BoxCollider2D:
@@ -15468,7 +15467,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1770411787
 BoxCollider2D:
@@ -15971,7 +15970,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1817492680
 BoxCollider2D:
@@ -16856,7 +16855,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &1936874846
 BoxCollider2D:
@@ -17593,7 +17592,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &2013380977
 BoxCollider2D:
@@ -18147,7 +18146,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &2038749039
 BoxCollider2D:
@@ -18294,7 +18293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: -175}
+  m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038850730
@@ -18478,7 +18477,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &2041955626
 BoxCollider2D:
@@ -19306,7 +19305,7 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 0}
   deathParticles: {fileID: 0}
   GivePoints: 0
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 0}
 --- !u!61 &2086739554
 BoxCollider2D:
@@ -20450,6 +20449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waves
       objectReference: {fileID: 0}
+    - target: {fileID: 6769854581365465078, guid: b6edc9cea8998c940973050fd51a091e, type: 3}
+      propertyPath: highscore
+      value: 
+      objectReference: {fileID: 1299075319}
     - target: {fileID: 6769854581365465079, guid: b6edc9cea8998c940973050fd51a091e, type: 3}
       propertyPath: m_RootOrder
       value: 11

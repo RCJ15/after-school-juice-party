@@ -14768,9 +14768,10 @@ MonoBehaviour:
   changeDirectionParticles: {fileID: 6517123353866395449}
   deathParticles: {fileID: 257617447768964385}
   GivePoints: 1
-  GiveNewWeapond: 0
+  GiveNewWeapon: 0
   newWeaponSpawner: {fileID: 1863992318058434458, guid: 3eeb3be60c5e0514db81674cbc07f13a, type: 3}
-  horizontalSpeed: 6.6
+  moveSpeed: 1.25
+  horizontalSpeed: 7
   wallLayer:
     serializedVersion: 2
     m_Bits: 128

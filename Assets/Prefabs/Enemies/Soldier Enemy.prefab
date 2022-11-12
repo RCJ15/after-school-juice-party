@@ -69,9 +69,9 @@ MonoBehaviour:
   GiveNewWeapond: 0
   newWeaponSpawner: {fileID: 1863992318058434458, guid: 3eeb3be60c5e0514db81674cbc07f13a, type: 3}
   bullet: {fileID: 1242123144945122640, guid: 955c85451b87fb14096e4867580f680c, type: 3}
-  timeInbetweenAttack: {x: 1, y: 2}
-  perlinIntensity: 5
-  perlinSpeed: 1
+  timeInbetweenAttack: {x: 0.7, y: 1.5}
+  perlinIntensity: 0.6
+  perlinSpeed: 0.76
 --- !u!50 &-584348044017366928
 Rigidbody2D:
   serializedVersion: 4

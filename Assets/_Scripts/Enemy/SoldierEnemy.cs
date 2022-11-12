@@ -11,6 +11,8 @@ public class SoldierEnemy : ShooterEnemy
     [SerializeField] private float perlinSpeed;
     private float _perlin;
 
+    private Vector3 _offset;
+
     protected override void Start()
     {
         base.Start();
@@ -20,15 +22,14 @@ public class SoldierEnemy : ShooterEnemy
 
     protected override void Update()
     {
+        // Jitter
+        transform.position -= _offset;
+
         base.Update();
 
         _perlin += perlinSpeed * Time.deltaTime;
-    }
 
-    /*
-    protected override void FixedUpdate()
-    {
-        rb.velocity = new Vector2(((Mathf.PerlinNoise(_perlin, _perlin) * 2) - 1) * perlinIntensity, rb.velocity.y);
+        _offset = new Vector3(((Mathf.PerlinNoise(_perlin, _perlin) * 2) - 1) * perlinIntensity, 0);
+        transform.position += _offset;
     }
-    */
 }

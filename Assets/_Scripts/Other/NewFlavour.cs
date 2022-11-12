@@ -7,29 +7,49 @@ public class NewFlavour : MonoBehaviour
     [SerializeField] float fallSpeed;
     SpriteRenderer spriteRend;
     Rigidbody2D rb;
-    [SerializeField] PlayerShootManager shootManager;
+    PlayerShootManager shootManager;
     int choosenFlavour;
+
+    [SerializeField] private LayerMask playerLayer;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRend = GetComponent<SpriteRenderer>();
 
+        shootManager = PlayerShootManager.Instance;
+
         choosenFlavour = shootManager.RandomWeapon(); // Random weapon
     }
+
+    private void Update()
+    {
+        if (transform.position.y <= -10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void FixedUpdate()
     {
         rb.velocity = transform.up * -fallSpeed;
     }
-    private void OnTriggerEnter2D(Collider2D coll)
+
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (coll.CompareTag("Player"))
+        if (playerLayer == (playerLayer | (1 << col.gameObject.layer)))
         {
             GiveFlavour();
+
+            Score.AddPoints(1000, transform.position);
+
+            SoundManager.PlaySound("Powerup", 1);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
+
     void GiveFlavour()
     {
-        shootManager.AddWeapon(choosenFlavour);
+        shootManager.ChangeWeapon(shootManager.SelectedWeapon, choosenFlavour);
     }
 }

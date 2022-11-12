@@ -5094,7 +5094,7 @@ MonoBehaviour:
   moveLerp: 10
   moveSideSpeed: 1
   moveFrequency: 2
-  down: -2
+  down: -1.5
   minYpos: -8
   maxLeftPosX: -5
   maxRightPosX: 5

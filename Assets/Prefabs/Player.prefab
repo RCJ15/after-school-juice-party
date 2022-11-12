@@ -4988,6 +4988,8 @@ Transform:
   - {fileID: 1313732475348290390}
   - {fileID: 3852065070978056486}
   - {fileID: 1502957640099753929}
+  - {fileID: 2519198876998935533}
+  - {fileID: 8922017302270539195}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5055,6 +5057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589e9b965e244e4499cdc663740316d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 5
   speed: 12
   acceleration: 3
   decceleration: 5
@@ -5064,6 +5067,8 @@ MonoBehaviour:
   sineWaveIntensity: 0.25
   rotationIntensity: 2
   rotationLerpDelta: 0.3
+  highScore: {fileID: 0}
+  hearts: []
 --- !u!50 &7097723222665748415
 Rigidbody2D:
   serializedVersion: 4
@@ -5150,8 +5155,6 @@ Transform:
   - {fileID: 6515018226842312782}
   - {fileID: 8880815011364906933}
   - {fileID: 4119005778757878636}
-  - {fileID: 2519198876998935533}
-  - {fileID: 8922017302270539195}
   m_Father: {fileID: 7097723222665748408}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10079,11 +10082,15 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3852065070978056486}
+    m_TransformParent: {fileID: 7097723222665748408}
     m_Modifications:
     - target: {fileID: 233286683707499496, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_Name
       value: Insta Kill
+      objectReference: {fileID: 0}
+    - target: {fileID: 233286683707499496, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521442235392779962, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: spawnPoint
@@ -10095,7 +10102,7 @@ PrefabInstance:
       objectReference: {fileID: 2033733123258936504}
     - target: {fileID: 8764297899417241407, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8764297899417241407, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10115,15 +10122,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8764297899417241407, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8764297899417241407, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8764297899417241407, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8764297899417241407, guid: da180e79349d2c944bb2b27950ce2914, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11063,7 +11070,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3852065070978056486}
+    m_TransformParent: {fileID: 7097723222665748408}
     m_Modifications:
     - target: {fileID: 3201155943782952560, guid: 26d22ddf2e814694586383d116a30302, type: 3}
       propertyPath: spawnPoint
@@ -11077,9 +11084,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Honey
       objectReference: {fileID: 0}
+    - target: {fileID: 3213520899767112376, guid: 26d22ddf2e814694586383d116a30302, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9168692249018404120, guid: 26d22ddf2e814694586383d116a30302, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9168692249018404120, guid: 26d22ddf2e814694586383d116a30302, type: 3}
       propertyPath: m_LocalPosition.x

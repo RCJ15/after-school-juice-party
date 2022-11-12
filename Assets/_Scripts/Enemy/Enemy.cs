@@ -37,9 +37,11 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     protected Rigidbody2D rb;
 
     public bool GivePoints;
-    public bool GiveNewWeapond;
+    public bool GiveNewWeapon;
     [SerializeField] GameObject newWeaponSpawner;
 
+    private bool _dead;
+    private LayerMask _playerLayer;
 
     //Score score;
 
@@ -56,8 +58,14 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     private void Awake()
     {
         EnemyStorage.AddEnemy(this);
+        _playerLayer = GameManager.Instance.PlayerLayer;
 
         targetPos = transform.position + new Vector3(0, down * 1.5f, 0);
+
+        if (Random.Range(0, 2) == 1)
+        {
+            moveSideSpeed *= -1;
+        }
     }
 
     protected virtual void Start()
@@ -176,6 +184,13 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     //Det här händer när fienderna rör något som inte är spelaren. (Aktiveras i "OnCollisionEnter...").
     public virtual void Die(bool givePoints)
     {
+        if (_dead)
+        {
+            return;
+        }
+
+        _dead = true;
+
         //Kopierat från Score-script. Vet inte hur poängen funkar, så ifall det här är fel är det bara att ändra.
         //Just nu kommer det ett error meddelande, som säger att det är fel på Score 63, men vet inte om det är pga den här koden
         //Score koden, eller ifall det är för att något saknas???
@@ -186,13 +201,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         {
             Score.AddPoints(Mathf.RoundToInt(Random.Range(gainPoints.x, gainPoints.y)), transform.position); // Give points
         }
-        if (GiveNewWeapond)
+        if (GiveNewWeapon)
         {
             Instantiate(newWeaponSpawner, transform.position - new Vector3(0, 1, 0), Quaternion.identity);
         }
 
         //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
         CameraEffects.Shake(shake.x, shake.y);
+
+        SoundManager.PlaySound("Loose Stair");
 
         deathParticles.Play(); // Play death particles
         deathParticles.transform.parent = null; // Deatach from parent
@@ -217,11 +234,13 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     public virtual void HitPlayer() // Enemy hit player or player snuck past player
     {
         Die(false);
+
+        PlayerMove.Instance.HitPlayer();
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player")
+        if (_playerLayer == (_playerLayer | (1 << collision.gameObject.layer)))
         {
             //Spelaren förlorar liv/spelet?
             HitPlayer();

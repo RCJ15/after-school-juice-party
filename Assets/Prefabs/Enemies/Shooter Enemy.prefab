@@ -14848,7 +14848,7 @@ MonoBehaviour:
   minYpos: -8
   maxLeftPosX: -5
   maxRightPosX: 5
-  gainPoints: {x: 25, y: 50}
+  gainPoints: {x: 50, y: 100}
   shake: {x: 0.5, y: 0.3}
   changeDirectionParticles: {fileID: 7812539928394996459}
   deathParticles: {fileID: 1413098061391317978}
