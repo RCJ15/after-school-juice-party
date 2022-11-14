@@ -4918,6 +4918,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.5
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: 'A coders delight: Spaghetti code, nobody knows what it will do!'
@@ -4932,4 +4934,6 @@ MonoBehaviour:
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 3360016486289842998, guid: 5a98ca316c80b0846bba0d100a3cdaa2, type: 3}

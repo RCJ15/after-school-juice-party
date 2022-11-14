@@ -35,6 +35,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
     private WeaponPickupPopup _popup;
     private WeaponHUD _hud;
 
+    private List<int> _availableWeapons = new List<int>();
+
     private void Awake()
     {
         Instance = this;
@@ -104,7 +106,9 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
             HoneyTimer -= Time.deltaTime;
         }
 
-        /* if (Input.GetKeyDown(KeyCode.U) && _weaponAmount < _playerShootsLength)
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.U) && _weaponAmount < _playerShootsLength)
          {
              AddWeapon(_weaponAmount, true);
          }
@@ -121,7 +125,8 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
              }
 
              ChangeWeapon(0, newWeapon);
-         }*/
+         }
+#endif
 
         if (_weaponAmount <= 1)
         {
@@ -171,6 +176,7 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         _weaponAmount++;
 
         WeaponCard card = _hud.AddCard(_playerShoots[weaponIndex], doAnims);
+        _playerShoots[weaponIndex].WeaponIndex = _weaponAmount - 1; // Assign card
         _playerShoots[weaponIndex].weaponCard = card; // Assign card
 
         _playerShoots[weaponIndex].timesShot = 0;
@@ -180,11 +186,13 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         ChangeShot(weaponIndex);
 
+        /*
         if (doAnims)
         {
             // Popup!
             _popup.Popup(_playerShoots[_currentShotIndex]);
         }
+        */
     }
 
     /*
@@ -215,11 +223,12 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
     }
     */
 
-    public void ChangeWeapon(int index, int newWeapon)
+    public void ChangeWeapon(int index, int newWeapon, bool doPopup = true)
     {
         _equippedWeapons[index] = newWeapon;
 
         WeaponCard card = _hud.SetCard(index, _playerShoots[newWeapon]);
+        _playerShoots[newWeapon].WeaponIndex = index; // Assign card
         _playerShoots[newWeapon].weaponCard = card; // Assign card
 
         _playerShoots[newWeapon].timesShot = 0;
@@ -229,8 +238,11 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
 
         ChangeShot(newWeapon);
 
-        // Popup!
-        _popup.Popup(_playerShoots[_currentShotIndex]);
+        if (doPopup)
+        {
+            // Popup!
+            _popup.Popup(_playerShoots[_currentShotIndex]);
+        }
     }
 
     private void ChangeShot(int index)
@@ -250,22 +262,77 @@ public class PlayerShootManager : MonoBehaviour // - Ruben
         // Enable new shot
         _playerShoots[_currentShotIndex].gameObject.SetActive(true);
     }
+
     /// <summary>
     /// Gives a random weapon
     /// </summary>
-    public int RandomWeapon()
+    public int GetRandomWeapon()
     {
-        List<int> onloackableItems = new List<int>();
-        for (int i = 0; i < _playerShootsLength; i++)
+        if (_availableWeapons.Count <= 0)
         {
-            onloackableItems.Add(i);
-        }
-        for (int i = 0; i < _equippedWeapons.Count; i++)
-        {
-            onloackableItems.Remove(_equippedWeapons[i]);
+            ShuffleWeaponList();
         }
 
-        int newWeaponIndex = Random.Range(0, onloackableItems.Count);
-        return onloackableItems[newWeaponIndex];
+        int count = _availableWeapons.Count;
+
+        int weaponIndex = 0;
+        int weapon = _availableWeapons[weaponIndex];
+        int failsafe = 100;
+
+        while (_equippedWeapons.Contains(weapon))
+        {
+            weaponIndex++;
+
+            if (weaponIndex >= count)
+            {
+                ShuffleWeaponList();
+                weaponIndex = 0;
+            }
+
+            weapon = _availableWeapons[weaponIndex];
+
+            failsafe++;
+
+            if (failsafe <= 0)
+            {
+#if UNITY_EDITOR
+                Debug.LogWarning("Weapon Error: Player has all weapons! Can't give new weapon!");
+#endif
+                weapon = Random.Range(0, _playerShootsLength);
+                break;
+            }
+        }
+
+        if (failsafe > 0)
+        {
+            _availableWeapons.Remove(weapon);
+        }
+        else
+        {
+            ShuffleWeaponList();
+        }
+
+        return weapon;
+    }
+
+    private void ShuffleWeaponList()
+    {
+        _availableWeapons = new List<int>();
+
+        // Start at 1 because water isn't going to be an option
+        for (int i = 1; i < _playerShootsLength; i++)
+        {
+            _availableWeapons.Add(i);
+        }
+
+        int n = _playerShootsLength - 1;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            int value = _availableWeapons[k];
+            _availableWeapons[k] = _availableWeapons[n];
+            _availableWeapons[n] = value;
+        }
     }
 }

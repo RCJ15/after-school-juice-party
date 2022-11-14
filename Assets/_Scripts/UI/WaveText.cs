@@ -33,6 +33,14 @@ public class WaveText : MonoBehaviour
         
     }
 
+    public void YouWin()
+    {
+        _waveText.text = "You Win!!!";
+        waveNameText.text = "";
+
+        _anim.SetTrigger("Appear");
+    }
+
     public void Appear(int wave, string waveName)
     {
         _waveText.text = "Wave " + wave.ToString();

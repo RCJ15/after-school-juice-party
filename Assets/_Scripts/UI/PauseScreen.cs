@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -6,19 +7,24 @@ public class PauseScreen : MonoBehaviour
     public static PauseScreen Instance;
 
     public static bool CanPause { get => Instance._canPause; set => Instance._canPause = value; }
-    private bool _canPause = true;
+    private bool _canPause = false;
 
     [SerializeField] GameObject panel;
     [SerializeField] TMP_Text titleText;
-    [SerializeField] TMP_Text text;
     [SerializeField] TransitionController transitionController;
 
     float _timeElapsed = 0;
-    string _currentLevelName ="";
+
+    WaveManager _waveManager;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        _waveManager = WaveManager.Instance;
     }
 
     // Update is called once per frame
@@ -39,8 +45,7 @@ public class PauseScreen : MonoBehaviour
             }
             else
             {
-                titleText.text = _currentLevelName; // Set the title 
-                text.text = $"Name: {HighScore.PlayerName} \nScore: {Score.PlayerScore} \nTime: {Mathf.Round(_timeElapsed * 10) / 10} "; // Set some stats
+                titleText.text = $"Wave {_waveManager.CurrentWave} - {_waveManager.WaveName}"; // Set the title 
                 panel.SetActive(true);
                 Time.timeScale = 0;
             }

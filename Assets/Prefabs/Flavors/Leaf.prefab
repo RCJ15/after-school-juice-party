@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.25
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: If a leaf misses, then it'll get a second chance!
@@ -54,8 +56,11 @@ MonoBehaviour:
   RangeStat: 5
   DmgTypes: 00000000
   Special: Falls back down after missing
+  shootSoundEffect: 
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 7223612430825570953, guid: c132cd9d36db6ea4591a5b3fbaa00d7a, type: 3}

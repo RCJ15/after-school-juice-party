@@ -21,14 +21,19 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float spawnRange;
     [SerializeField] private HighScore highscore;
 
+    [Space]
+    [SerializeField] private Boss bossPrefab;
+
     private Wave[] _waves;
     private int _wavesLength;
 
     private PlayerMove _player;
     private PlayerShootManager _playerShoot;
-    private Boss _boss;
     private EnemyStorage _enemyStorage;
     private WaveText _waveText;
+
+    public int CurrentWave { get; private set; }
+    public string WaveName { get; private set; }
 
     private void Awake()
     {
@@ -39,20 +44,29 @@ public class WaveManager : MonoBehaviour
     {
         _player = PlayerMove.Instance;
         _playerShoot = PlayerShootManager.Instance;
-        _boss = Boss.Instance;
         _enemyStorage = EnemyStorage.Instance;
         _waveText = WaveText.Instance;
 
         _waves = GetComponentsInChildren<Wave>();
         _wavesLength = _waves.Length;
 
+        WaveName = "Awaiting A Threat...";
+
         yield return new WaitForSeconds(4);
+
+        Timer.Enabled = true;
+
+        PauseScreen.CanPause = true;
 
         for (int i = 0; i < _wavesLength; i++)
         {
             Wave wave = _waves[i];
 
             _waveText.Appear(i + 1, wave.WaveName);
+            CurrentWave = i + 1;
+            WaveName = wave.WaveName;
+
+            _player.ResetHP();
 
             yield return new WaitForSeconds(3);
 
@@ -125,16 +139,14 @@ public class WaveManager : MonoBehaviour
 
                 yield return new WaitForSeconds(2.5f);
 
-                _boss.EnableBoss(wave.BossStage);
+                Boss boss = Instantiate(bossPrefab, bossPrefab.transform.position, bossPrefab.transform.rotation);
+                boss.Stage = wave.BossStage;
 
                 yield return new WaitForSeconds(2);
-                yield return new WaitUntil(() => _boss.Dead);
-                yield return new WaitForSeconds(4);
+                yield return new WaitUntil(() => boss == null);
 
                 _waveText.CanPlayMusic = true;
             }
-
-            _player.ResetHP();
 
             if (wave.GiveNewWeaponCard)
             {
@@ -144,10 +156,19 @@ public class WaveManager : MonoBehaviour
             }
         }
 
+        _player.ResetHP();
+
+        _waveText.CanPlayMusic = false;
+        _waveText.YouWin();
+
+        Timer.Enabled = false;
+
         yield return new WaitForSeconds(3);
 
+        MusicPlayer.PlaySong(1);
+
         highscore.ShowHighScoreTable(true);
-        PlayerMove.Dead = false;
+        PlayerMove.Dead = true;
     }
 
     private Enemy SpawnEnemy(EnemyType type)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2171549387784026773}
   - component: {fileID: 4883718406254447635}
   m_Layer: 3
-  m_Name: Strawberry
+  m_Name: StrawBerry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.25
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: These deadly sour berries quickly turn harmless and sweet
@@ -59,4 +61,6 @@ MonoBehaviour:
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 7194222775961285835, guid: 6fc2cdb17b4f2ef47a1f7f2923b35e9a, type: 3}

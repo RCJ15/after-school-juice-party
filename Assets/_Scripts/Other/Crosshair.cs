@@ -12,6 +12,11 @@ public class Crosshair : MonoBehaviour
 
     private void Update()
     {
+        if (Target == null)
+        {
+            return;
+        }
+
         transform.position = Target.position;
     }
 

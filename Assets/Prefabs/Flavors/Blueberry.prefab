@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.2
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 21300000, guid: 045fdaea2fa3b354285c73ef6b8ee78e, type: 3}
   Description: Bouncy Blue Berries TM (BBB)
@@ -59,4 +61,6 @@ MonoBehaviour:
   animatePlayer: 1
   shakeIntensity: 0
   shakeDuration: 0
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 1435637678449898580, guid: de8886c0ac361b14e80ddc1abc7434bc, type: 3}

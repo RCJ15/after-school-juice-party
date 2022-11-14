@@ -36,6 +36,11 @@ public class BossGiantLaserState : BossState
         Animate("Giant Laser");
     }
 
+    private void OnDisable()
+    {
+        Die();
+    }
+
     protected override void Update()
     {
         base.Update();

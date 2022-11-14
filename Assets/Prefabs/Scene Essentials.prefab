@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360236293245740799}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.393416, y: 0.031064417, z: -0.0031703487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72,8 +72,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360236294122541826}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.393416, y: 0.031064417, z: -0.0031703487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,8 +117,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360236294805277253}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.393416, y: 0.031064417, z: -0.0031703487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140,6 +140,10 @@ MonoBehaviour:
   sounds:
   - name: Button Click
     clip: {fileID: 8300000, guid: a0a3c2b8752ca4c4e94dcd96c5bf38c9, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Button Glitch Click
+    clip: {fileID: 8300000, guid: ad105094c2d177644b33cf4fb8f54821, type: 3}
     soundVolume: 1
     pitchSlider: 1
   - name: LBS Door Beep
@@ -224,6 +228,26 @@ MonoBehaviour:
     pitchSlider: 1
   - name: Space Zipper
     clip: {fileID: 8300000, guid: eb17a2e4cadcbaf47ad67ee4298f9a9b, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Enemy Die
+    clip: {fileID: 8300000, guid: 99ed04eed6a4fab40a21b6a7ef86350d, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Receive Card
+    clip: {fileID: 8300000, guid: 9780e6037b9df07488443ad84afb0010, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Receive Card Impact
+    clip: {fileID: 8300000, guid: 2a742fed685065346bed1112452c4003, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Funny Laughter (Funny)
+    clip: {fileID: 8300000, guid: 7cbd4b8ed1fc95d41a3fe8a373c33718, type: 3}
+    soundVolume: 1
+    pitchSlider: 1
+  - name: Vine Boom
+    clip: {fileID: 8300000, guid: 9d1a3dd9b0efda34eaab70dfaa9a7574, type: 3}
     soundVolume: 1
     pitchSlider: 1
   soundGroups:
@@ -391,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5999609948467228665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.393416, y: -0.031064417, z: 0.0031703487}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

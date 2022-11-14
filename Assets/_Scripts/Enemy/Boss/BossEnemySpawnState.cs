@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class BossEnemySpawnState : BossState
 {
-    [SerializeField] private Enemy[] enemies;
+    [SerializeField] private DataClass[] enemies;
 
     [SerializeField] private int[] amount;
 
@@ -18,13 +18,20 @@ public class BossEnemySpawnState : BossState
 
     public void SpawnEnemy()
     {
+        if (Boss.Dead)
+        {
+            return;
+        }
+
         int rng = Random.Range(0, enemies.Length);
 
         for (int i = 0; i < amount[Stage - 1]; i++)
         {
-            Enemy enemy = enemies[rng++ % enemies.Length];
+            Enemy enemy = enemies[Stage - 1].Enemies[rng++ % enemies[Stage - 1].Enemies.Length];
 
-            Instantiate(enemy, transform.position, Quaternion.identity).GivePoints = false;
+            Enemy newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
+            newEnemy.GivePoints = false;
+            newEnemy.SpawnedByBossOrSpawner = true;
         }
 
         SoundManager.PlaySound("Space Zipper");
@@ -33,5 +40,11 @@ public class BossEnemySpawnState : BossState
     public override void Die()
     {
 
+    }
+
+    [System.Serializable]
+    public class DataClass
+    {
+        public Enemy[] Enemies;
     }
 }

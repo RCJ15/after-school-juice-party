@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.75
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: Intangible bullets with a damage aura. I can taste the light!
@@ -59,4 +61,6 @@ MonoBehaviour:
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 265699023891873624, guid: 879fd35476b3b8243b71689387797449, type: 3}

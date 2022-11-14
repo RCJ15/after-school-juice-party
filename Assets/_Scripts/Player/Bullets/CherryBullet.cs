@@ -27,13 +27,13 @@ public class CherryBullet : Bullet
     {
         // EXPLODE!!!
         explosion.HitEnemies.Add(col.gameObject);
-        explosion.Explode(damage);
 
         return base.OnCollideWithEnemy(col, enemy);
     }
 
     protected override void Die()
     {
+        explosion.Explode(damage);
         GameObject obj = Instantiate(cherrySeedBullet, transform.position, Quaternion.identity);
 
         obj.transform.up = rb.velocity.normalized;

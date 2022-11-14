@@ -24,7 +24,12 @@ public class Boss : MonoBehaviour
     //[SerializeField] private int DEBUGATTACKPRIORITY;
     [SerializeField] [Range(1, 5)] private int stage = 1;
     [SerializeField] private GameObject mainObj;
-    public int Stage => stage;
+    public int Stage { get => stage; set
+        {
+            stage = value;
+            UpdateStage();
+        }
+    }
 
     [Header("States")]
     [SerializeField] private BossState idleState;
@@ -45,11 +50,6 @@ public class Boss : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Animator hurtAnim;
 
-    public void Die()
-    {
-        //mainObj.SetActive(false);
-    }
-
     [SerializeField] private BossAnimEvents animEvents;
 
     [SerializeField] private float[] animSpeed;
@@ -62,10 +62,10 @@ public class Boss : MonoBehaviour
     private Rigidbody2D _rb;
 
     private bool _dead;
+    public bool Dead => _dead;
 
     public float TargetSpeed { get; set; }
     public float CurrentSpeed { get; set; }
-    public bool Dead => _dead;
 
     private void Awake()
     {
@@ -143,16 +143,6 @@ public class Boss : MonoBehaviour
             ShuffleAttacks();
             _currentAttack = 0;
         }
-    }
-
-    public void EnableBoss(int stage)
-    {
-        _dead = false;
-
-        anim.Play("Boss Entrance");
-        this.stage = stage;
-        mainObj.SetActive(true);
-        UpdateStage();
     }
 
     public void StartBoss()
@@ -235,6 +225,9 @@ public class Boss : MonoBehaviour
                 state.enabled = false;
                 state.Die();
             }
+
+            // Die
+            Destroy(gameObject, 5);
 
             return;
         }

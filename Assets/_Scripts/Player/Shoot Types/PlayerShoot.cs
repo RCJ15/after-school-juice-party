@@ -9,8 +9,11 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] protected float shootDelay;
+    [SerializeField] protected float startShootDelay;
+    [SerializeField] protected bool instantRechargeOnSwitch;
     protected float _shootTimer;
-    public int shoots = 0;
+    [SerializeField] protected bool haveShotLimit;
+    public int shoots = -1;
     [HideInInspector] public int timesShot = 0;
 
     [SerializeField] protected Transform spawnPoint;
@@ -19,6 +22,8 @@ public class PlayerShoot : MonoBehaviour
     public Sprite Sprite;
     [TextArea(5, 5)]
     public string Description = "Sample Text";
+    [TextArea(3, 3)]
+    public string DisplayName = "";
     public Color Color = Color.white;
 
     [Space(5)]
@@ -39,7 +44,8 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] protected float shakeDuration = 0.05f;
 
     protected Animator _playerAnim;
-    [HideInInspector] public int weaponIndex;
+    private PlayerMove _playerMove;
+    public int WeaponIndex { get; set; }
     [HideInInspector] public WeaponCard weaponCard;
 
     protected bool ShootKeyDown => Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space);
@@ -48,11 +54,27 @@ public class PlayerShoot : MonoBehaviour
 
     protected virtual void Start()
     {
+        _playerMove = PlayerMove.Instance;
         _playerAnim = PlayerMove.Instance.GetComponent<Animator>();
+
+        _shootTimer = startShootDelay;
+    }
+
+    private void OnEnable()
+    {
+        if (instantRechargeOnSwitch)
+        {
+            _shootTimer = startShootDelay;
+        }
     }
 
     protected virtual void Update()
     {
+        if (_playerMove.IsDead)
+        {
+            return;
+        }
+
         if (_shootTimer > 0)
         {
             _shootTimer -= Time.deltaTime;
@@ -68,16 +90,6 @@ public class PlayerShoot : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        timesShot++;
-
-        weaponCard.UpdateCard();
-
-        if (timesShot >= shoots && shoots != 0) // Player has used all their bullets
-        {
-            PlayerShootManager.Instance.ChangeWeapon(weaponIndex, 0);
-            return;
-        }
-
         if (shootEffect != null)
         {
             shootEffect.Play();
@@ -98,6 +110,19 @@ public class PlayerShoot : MonoBehaviour
         if (!string.IsNullOrEmpty(shootSoundEffect))
         {
             SoundManager.PlaySound(shootSoundEffect);
+        }
+
+        if (haveShotLimit)
+        {
+            timesShot++;
+
+            weaponCard.UpdateCard();
+
+            if (timesShot >= shoots) // Player has used all their bullets
+            {
+                PlayerShootManager.Instance.ChangeWeapon(WeaponIndex, 0, false);
+                return;
+            }
         }
     }
 

@@ -151,6 +151,8 @@ MonoBehaviour:
   miniEnemy: {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
   spawnerEnemy: {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
   spawnRange: 4.7
+  highscore: {fileID: 0}
+  bossPrefab: {fileID: 7179651937221865601, guid: 0f2e26ec6db4dcf4cb5321a662a66957, type: 3}
 --- !u!1 &6769854581562039511
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +218,7 @@ MonoBehaviour:
     Amount: 30
     Time: 1
     Delay: 10
-    LastEnemyDropWeapon: 1
+    LastEnemyDropWeapon: 0
   - Enemies: 04000000
     Amount: 1
     Time: 0
@@ -226,6 +228,11 @@ MonoBehaviour:
     Amount: 7
     Time: 6
     Delay: 20
+    LastEnemyDropWeapon: 0
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 14
+    Time: 6
+    Delay: 35
     LastEnemyDropWeapon: 0
   spawnBoss: 1
   bossStage: 4
@@ -379,6 +386,11 @@ MonoBehaviour:
     Amount: 4
     Time: 8
     Delay: 5
+    LastEnemyDropWeapon: 0
+  - Enemies: 00000000
+    Amount: 15
+    Time: 1
+    Delay: 1
     LastEnemyDropWeapon: 0
   spawnBoss: 0
   bossStage: 1
@@ -742,7 +754,7 @@ MonoBehaviour:
     Delay: 30
     LastEnemyDropWeapon: 0
   - Enemies: 00000000010000000200000003000000040000000500000006000000
-    Amount: 14
+    Amount: 12
     Time: 10
     Delay: 20
     LastEnemyDropWeapon: 0
@@ -750,12 +762,17 @@ MonoBehaviour:
     Amount: 14
     Time: 7
     Delay: 35
-    LastEnemyDropWeapon: 1
+    LastEnemyDropWeapon: 0
   - Enemies: 00000000010000000200000003000000040000000500000006000000
     Amount: 16
-    Time: 8
-    Delay: 10
+    Time: 7
+    Delay: 35
     LastEnemyDropWeapon: 1
+  - Enemies: 00000000010000000200000003000000040000000500000006000000
+    Amount: 32
+    Time: 6
+    Delay: 60
+    LastEnemyDropWeapon: 0
   spawnBoss: 1
   bossStage: 5
   giveNewWeaponCard: 0
@@ -830,6 +847,11 @@ MonoBehaviour:
     Time: 0
     Delay: 5
     LastEnemyDropWeapon: 0
+  - Enemies: 00000000
+    Amount: 30
+    Time: 3
+    Delay: 1
+    LastEnemyDropWeapon: 0
   spawnBoss: 1
   bossStage: 3
   giveNewWeaponCard: 1
@@ -900,14 +922,24 @@ MonoBehaviour:
     Delay: 5
     LastEnemyDropWeapon: 0
   - Enemies: 0000000001000000020000000300000006000000
-    Amount: 10
+    Amount: 13
     Time: 5
     Delay: 45
-    LastEnemyDropWeapon: 1
+    LastEnemyDropWeapon: 0
   - Enemies: 04000000
     Amount: 3
     Time: 2
     Delay: 10
+    LastEnemyDropWeapon: 0
+  - Enemies: 03000000
+    Amount: 5
+    Time: 1
+    Delay: 15
+    LastEnemyDropWeapon: 0
+  - Enemies: 02000000
+    Amount: 5
+    Time: 0.5
+    Delay: 2
     LastEnemyDropWeapon: 0
   spawnBoss: 0
   bossStage: 1

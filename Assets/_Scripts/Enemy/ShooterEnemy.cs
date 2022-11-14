@@ -30,12 +30,13 @@ public class ShooterEnemy : Enemy
     }
     void Attack()
     {
-        GameObject obj = Instantiate(bullet, transform.position - new Vector3(0, 1, 0), transform.rotation * Quaternion.Euler(1,1,180));
+        GameObject obj = Instantiate(bullet, transform.position - new Vector3(0, 0.5f, 0), transform.rotation * Quaternion.Euler(1,1,180));
         Enemy enemy = EnemyStorage.Get(obj);
 
         if (enemy != null)
         {
             enemy.GivePoints = false;
+            enemy.SpawnedByBossOrSpawner = true;
         }
         
         attackFreq = Random.Range(timeInbetweenAttack.x, timeInbetweenAttack.y);

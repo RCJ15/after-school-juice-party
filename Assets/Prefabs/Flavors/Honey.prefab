@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 1
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: Sweet honey. Try to hit yourself with it!
@@ -54,8 +56,11 @@ MonoBehaviour:
   RangeStat: 2
   DmgTypes: 00000000
   Special: 
+  shootSoundEffect: 
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 84847694320873552, guid: 4b7494d4fcd835d43a04edb8fb1af045, type: 3}

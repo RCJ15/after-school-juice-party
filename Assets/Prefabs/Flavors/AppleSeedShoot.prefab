@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.75
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: Converging seeds that create an explosive apple
@@ -59,6 +61,8 @@ MonoBehaviour:
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   appleSeed: {fileID: 5358245184852295457, guid: 02d575a361aff054fbfcb95df8be5a9b, type: 3}
   angle: 45
   middleSpeed: 11

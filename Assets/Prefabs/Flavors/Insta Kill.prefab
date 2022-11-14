@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.3
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: DEBUG!!! PRESS P IMMEDIATELY TO DISCARD THIS WEAPON. THIS IS A WARNING!!!
@@ -54,8 +56,11 @@ MonoBehaviour:
   RangeStat: -1
   DmgTypes: 00000000010000000200000003000000
   Special: DEBUG!!!
+  shootSoundEffect: 
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 2317902906419395470, guid: cc00e11e791e2b742ae234942fd531d1, type: 3}

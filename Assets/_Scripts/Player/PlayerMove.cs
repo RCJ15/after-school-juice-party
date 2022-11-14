@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
     public static PlayerMove Instance;
 
     public static bool Dead { get => Instance._dead; set => Instance._dead = value; }
+    public bool IsDead => _dead;
 
     private bool _dead;
 
@@ -21,6 +22,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float decceleration;
     [SerializeField] private float velPower;
     [SerializeField] private float frictionAmount;
+
+    [SerializeField] private LayerMask deathLayer;
 
     [Header("Sine wave bobbing")]
     [SerializeField] private float sineWaveSpeed = 0.3f;
@@ -55,6 +58,8 @@ public class PlayerMove : MonoBehaviour
         _shootManager = PlayerShootManager.Instance;
 
         _startPos = transform.localPosition;
+
+        MusicPlayer.StopSong(0);
     }
 
     private void Update()
@@ -99,11 +104,13 @@ public class PlayerMove : MonoBehaviour
             gameObject.SetActive(false);
 
             _dead = true;
+
+            MusicPlayer.StopSong(2);
         }
         else
         {
             CameraEffects.Shake(0.5f, 0.5f);
-            CameraEffects.Flash(1, new Color(1, 0, 0, 0.5f));
+            CameraEffects.Flash(1, new Color(1, 0, 0, 0.5f), false, true);
             CameraEffects.Zoom(65, 0.3f, Vector3.zero);
 
             SoundManager.PlaySound("Crumble Pot");
@@ -172,5 +179,18 @@ public class PlayerMove : MonoBehaviour
         _sineTime += Time.deltaTime * sineWaveSpeed;
 
         transform.localPosition = new Vector3(transform.localPosition.x, yPos);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (_iFrames > 0)
+        {
+            return;
+        }
+
+        if (deathLayer == (deathLayer | (1 << collision.gameObject.layer)))
+        {
+            HitPlayer();
+        }
     }
 }

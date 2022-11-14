@@ -15,6 +15,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] float fadeTimer;
     //bool _Fade = true;
     [SerializeField] GameObject blueScreen;
+    [SerializeField] GameObject trollFace;
+    [SerializeField] GameObject music;
 
     private Coroutine _currentEpilepsy;
     private void Start()
@@ -125,7 +127,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void Begin()
     {
-        transControl.Transition(0.75f, 1, 1, () => ChageScene(1));
+        transControl.Transition(0.75f, 0.1f, 1, () => ChageScene(1));
+
+        SoundManager.PlaySound("Button Click", 1, 1);
     }
     public void Options()
     {
@@ -155,6 +159,11 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Crash()
     {
+        SoundManager.Instance.Mixer = null;
+
+        SoundManager.PlaySound("Button Glitch Click", 1, 1);
+        music.SetActive(false);
+
         StartCoroutine(ActualCrash());
     }
 
@@ -175,7 +184,16 @@ public class MainMenuManager : MonoBehaviour
         IEnumerator BlueScreenOfDeath()
         {
             blueScreen.SetActive(true); // Show
-            yield return new WaitForSecondsRealtime(3.534f); // Wait
+            yield return new WaitForSecondsRealtime(6.534f); // Wait
+
+            // Play funny
+            SoundManager.PlaySound("Funny Laughter (Funny)", 1, 1);
+
+            yield return new WaitForSecondsRealtime(0.7f); // Wait
+
+            SoundManager.PlaySound("Vine Boom", 1, 1);
+            trollFace.SetActive(true);
+            yield return new WaitForSecondsRealtime(0.1f); // Wait
             Application.Quit(); // Turn off game
 
 #if UNITY_EDITOR

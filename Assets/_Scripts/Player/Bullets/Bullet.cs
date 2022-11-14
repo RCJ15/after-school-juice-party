@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
     protected GameManager gameManager;
     protected PlayerMove player;
     protected PlayerShootManager shootManager;
-    protected Boss boss;
 
     protected virtual bool CanBeBoostedByHoney => true;
 
@@ -57,7 +56,6 @@ public class Bullet : MonoBehaviour
         playerLayer = gameManager.PlayerLayer;
         player = PlayerMove.Instance;
         shootManager = PlayerShootManager.Instance;
-        boss = Boss.Instance;
 
         if (!string.IsNullOrEmpty(spawnSoundEffect))
         {
@@ -170,8 +168,14 @@ public class Bullet : MonoBehaviour
     {
         if (enemy == null)
         {
+            if (Boss.Instance == null)
+            {
+                Debug.Log("Nah");
+                return;
+            }
+
             // Is boss
-            boss.Hurt(damage);
+            Boss.Instance.Hurt(damage);
         }
         else
         {

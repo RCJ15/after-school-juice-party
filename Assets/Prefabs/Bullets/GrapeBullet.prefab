@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4903,7 +4903,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5004,7 +5004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47dc7737f5ad8c468bf29b59256ac2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3.5
+  damage: 5
   speed: 15
   lifetime: 5
   hitPlayer: 0
@@ -5025,7 +5025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4489a3110e1d2478fec75d26723792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 450
+  rotateSpeed: 500
   minDistance: 8
   crossHair: {fileID: 0}
   foundTargetSoundEffect: Cling
@@ -5066,7 +5066,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.625
+  m_Radius: 0.5
 --- !u!1 &8980373738946683503
 GameObject:
   m_ObjectHideFlags: 0

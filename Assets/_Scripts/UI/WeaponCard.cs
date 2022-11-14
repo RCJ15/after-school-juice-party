@@ -52,7 +52,7 @@ public class WeaponCard : MonoBehaviour // - Ruben
 
     public void UpdateCard()
     {
-        nameText.text = _weapon.name;
+        nameText.text = string.IsNullOrEmpty(_weapon.DisplayName) ? _weapon.name : _weapon.DisplayName;
         nameText.colorGradient = new VertexGradient(
             _hud.TemplateGradient.topLeft,                         // Top left
             _weapon.Color * _hud.TemplateGradient.topRight,         // Top right

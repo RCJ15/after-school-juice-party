@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 1
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 0}
   Description: Pomegranate? More like pomeGRENADE!!!
@@ -54,8 +56,11 @@ MonoBehaviour:
   RangeStat: 5
   DmgTypes: 02000000
   Special: Splits into many weak seeds
+  shootSoundEffect: 
   shootEffect: {fileID: 0}
   animatePlayer: 1
   shakeIntensity: 0.1
   shakeDuration: 0.05
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   bullet: {fileID: 9189754735550505913, guid: 214a80fba8c9e3142ac9d59aa3ec8946, type: 3}

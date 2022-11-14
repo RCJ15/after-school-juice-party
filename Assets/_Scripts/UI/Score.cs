@@ -23,6 +23,8 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        scoreText.text = "Score: 0"; // Reset score
     }
 
     // Start is called before the first frame update

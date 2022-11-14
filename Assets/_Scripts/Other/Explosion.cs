@@ -92,6 +92,11 @@ public class Explosion : MonoBehaviour
 
         if (enemy == null)
         {
+            if (Boss.Instance == null)
+            {
+                return;
+            }
+
             // Is boss
             Boss.Instance.Hurt(damage);
             return;

@@ -11,8 +11,6 @@ public class ZigZagEnemy : Enemy
     [SerializeField] private float horizontalSpeed;
     private bool _movingRight;
 
-    [SerializeField] private LayerMask wallLayer;
-
     protected override void Start()
     {
         base.Start();

@@ -19,7 +19,7 @@ public class NewFlavour : MonoBehaviour
 
         shootManager = PlayerShootManager.Instance;
 
-        choosenFlavour = shootManager.RandomWeapon(); // Random weapon
+        choosenFlavour = shootManager.GetRandomWeapon(); // Random weapon
     }
 
     private void Update()

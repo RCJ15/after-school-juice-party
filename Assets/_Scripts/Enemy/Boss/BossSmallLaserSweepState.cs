@@ -69,6 +69,11 @@ public class BossSmallLaserSweepState : BossState
         _currentStartRot = Quaternion.Euler(0, 0, _startAngles[Stage - 1]);
     }
 
+    private void OnDisable()
+    {
+        Die();
+    }
+
     protected override void Update()
     {
         base.Update();

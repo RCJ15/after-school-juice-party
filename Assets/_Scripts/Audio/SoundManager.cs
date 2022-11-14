@@ -25,6 +25,7 @@ public class SoundManager : MonoBehaviour
 
     [Space]
     [SerializeField] private AudioMixerGroup soundEffectMixer;
+    public AudioMixerGroup Mixer { get => soundEffectMixer; set => soundEffectMixer = value; }
 
 #if UNITY_EDITOR
     // Auto Naming

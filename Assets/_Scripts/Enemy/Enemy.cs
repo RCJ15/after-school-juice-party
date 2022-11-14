@@ -18,12 +18,15 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     [Tooltip("How low does the enemy go before it dies ")]
     [SerializeField] protected float minYpos;
+    [SerializeField] private float startYPos = 6;
 
+    /*
     //Original positionens x-värde (är när den är längst till vänster)
     [Tooltip("Left most point on the x axis")]
     [SerializeField] protected float maxLeftPosX;
     [Tooltip("Right most point on the x axis")]
     [SerializeField] protected float maxRightPosX;
+    */
 
     protected Vector2 targetPos;
 
@@ -31,8 +34,10 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     [SerializeField] protected Vector2 gainPoints;
     [Tooltip("Shake intensity and duration")]
     [SerializeField] protected Vector2 shake;
+    [SerializeField] ParticleSystem constantParticles;
     [SerializeField] ParticleSystem changeDirectionParticles;
     [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] GameObject deathExplosion;
 
     protected Rigidbody2D rb;
 
@@ -42,6 +47,14 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     private bool _dead;
     private LayerMask _playerLayer;
+
+    [SerializeField] private Animator hurtAnim;
+    [SerializeField] protected LayerMask wallLayer;
+    [SerializeField] protected float offsetSizeAmount = 1;
+
+    public bool SpawnedByBossOrSpawner { get; set; }
+
+    //private bool _moveDown;
 
     //Score score;
 
@@ -60,8 +73,6 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         EnemyStorage.AddEnemy(this);
         _playerLayer = GameManager.Instance.PlayerLayer;
 
-        targetPos = transform.position + new Vector3(0, down * 1.5f, 0);
-
         if (Random.Range(0, 2) == 1)
         {
             moveSideSpeed *= -1;
@@ -71,6 +82,19 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        targetPos = transform.position;
+
+        Debug.Log(SpawnedByBossOrSpawner);
+        
+        if (!SpawnedByBossOrSpawner)
+        {
+            targetPos.y = startYPos;
+        }
+        else
+        {
+            targetPos.y -= offsetSizeAmount * 2;
+        }
 
         //cam = Camera.main;
 
@@ -155,8 +179,50 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
         if (timer >= moveFrequency)
         {
-            Vector2 futurePos = targetPos + new Vector2(moveSideSpeed, 0);
+            /*
+            if (_moveDown)
+            {
+                _moveDown = false;
+                
+                targetPos += new Vector2(0, down); // Ramla en rad ner
+                
+                //Byter håll
+                moveSideSpeed *= -1;
+                changeDirectionParticles.Play();
+            }
+            else
+            {
+                RaycastHit2D hit = Physics2D.Raycast(targetPos, moveSideSpeed > 0 ? Vector2.right : Vector2.left, Mathf.Abs(moveSideSpeed) + offsetSizeAmount, wallLayer);
 
+                if (hit)
+                {
+                    targetPos = new Vector2(hit.point.x - (offsetSizeAmount * Mathf.Sign(moveSideSpeed)), targetPos.y);
+
+                    _moveDown = true;
+                }
+                else
+                {
+                    targetPos += new Vector2(moveSideSpeed, 0); // Gå åt sidan
+                }
+            }
+            */
+
+            RaycastHit2D hit = Physics2D.Raycast(targetPos, moveSideSpeed > 0 ? Vector2.right : Vector2.left, Mathf.Abs(moveSideSpeed) + (offsetSizeAmount / 2), wallLayer);
+
+            if (hit)
+            {
+                targetPos += new Vector2(0, down); // Ramla en rad ner
+
+                //Byter håll
+                moveSideSpeed *= -1;
+                changeDirectionParticles.Play();
+            }
+            else
+            {
+                targetPos += new Vector2(moveSideSpeed, 0); // Gå åt sidan
+            }
+
+            /*
             //Ifall den är vid extrem punkterna skall den vända om och hoppa ner. // Två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)
             if (futurePos.x <= maxLeftPosX && moveSideSpeed < 0 || futurePos.x >= maxRightPosX && moveSideSpeed > 0)
             {
@@ -167,8 +233,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             }
             else
             {
-                targetPos += new Vector2(moveSideSpeed, 0); // Gå åt sidan
             }
+            */
 
             timer = 0;
         }
@@ -206,17 +272,29 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             Instantiate(newWeaponSpawner, transform.position - new Vector3(0, 1, 0), Quaternion.identity);
         }
 
-        //funkar inte (Vet inte om det är för att min test kamera saknar Flash image?).
+        // Gör camera effects
         CameraEffects.Shake(shake.x, shake.y);
+        CameraEffects.Zoom(65, 0.5f, Vector3.zero);
+        CameraEffects.Flash(0.5f, new Color(1, 1, 1, 0.5f));
 
-        SoundManager.PlaySound("Loose Stair");
+        SoundManager.PlaySound("Enemy Die");
+
+        // Deatach constant particles from parent so they don't die with the enemy
+        constantParticles.transform.SetParent(null);
+        constantParticles.Stop();
+        Destroy(constantParticles.gameObject, 5);
 
         deathParticles.Play(); // Play death particles
         deathParticles.transform.parent = null; // Deatach from parent
 
-        Destroy(deathParticles.gameObject, 2); //Destroy them later
-        Destroy(gameObject); // Föstör objectet efter att vi har get poäng
+        Destroy(deathParticles.gameObject, 3); //Destroy them later
 
+        // Death explosion
+        deathExplosion.gameObject.SetActive(true);
+        deathExplosion.transform.SetParent(null);
+        Destroy(deathExplosion, 1);
+
+        Destroy(gameObject); // Föstör objectet efter att vi har get poäng
     }
 
     public virtual void Hurt(float damage)
@@ -227,8 +305,12 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         {
             Die(true);
         }
+        else
+        {
+            SoundManager.PlaySound("Basement Fart");
 
-        SoundManager.PlaySound("Basement Fart");
+            hurtAnim.SetTrigger("Hurt");
+        }
     }
 
     public virtual void HitPlayer() // Enemy hit player or player snuck past player

@@ -9,7 +9,6 @@ using UnityEngine;
 public class EnemyStorage : MonoBehaviour
 {
     public static EnemyStorage Instance;
-    private GameObject _boss;
 
     public int EnemyAmount;
     private Dictionary<GameObject, Enemy> _enemiesStored = new Dictionary<GameObject, Enemy>();
@@ -17,11 +16,6 @@ public class EnemyStorage : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
-        _boss = Boss.Instance.gameObject;
     }
 
     public static void AddEnemy(Enemy enemy)
@@ -45,7 +39,7 @@ public class EnemyStorage : MonoBehaviour
 
     private Enemy LocalGet(GameObject obj)
     {
-        if (obj == _boss)
+        if (Boss.Instance != null && obj == Boss.Instance.gameObject)
         {
             return null;
         }

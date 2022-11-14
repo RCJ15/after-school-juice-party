@@ -54,6 +54,6 @@ public class BossAnimEvents : MonoBehaviour
 
     public void Die()
     {
-        Boss.Die();
+
     }
 }

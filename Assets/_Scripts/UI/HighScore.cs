@@ -31,7 +31,7 @@ public class HighScore : MonoBehaviour
 
     Dictionary<string, int> highscore = new Dictionary<string, int>();
     List<GameObject> spawnedHighscore = new List<GameObject>();
- public   PlayerMove playerMove;
+    public PlayerMove playerMove;
     bool playerWon;
     void Start()
     {
@@ -68,6 +68,8 @@ public class HighScore : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
             // Wave reset
         }
+
+        MusicPlayer.StopSong(1);
     }
     /// <summary>
     /// Go back to the main menu
@@ -79,6 +81,8 @@ public class HighScore : MonoBehaviour
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
         }
+
+        MusicPlayer.StopSong(1);
     }
     /*
     /// <summary>
@@ -153,7 +157,9 @@ public class HighScore : MonoBehaviour
     /// Show the highscore panel
     /// </summary>
    public void ShowHighScoreTable(bool playerWon)
-    {
+   {
+        PauseScreen.CanPause = false;
+
         this.playerWon = playerWon; 
         if (highscorePanel.activeSelf)
         {

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 0.1
+  shoots: -1
+  timesShot: 0
   spawnPoint: {fileID: 0}
   Sprite: {fileID: 64733704, guid: cd8304f0a4b20214780cb9bfc3411f3e, type: 3}
   Description: Just 5 banana boomerangs.
@@ -59,5 +61,7 @@ MonoBehaviour:
   animatePlayer: 1
   shakeIntensity: 0
   shakeDuration: 0
+  weaponIndex: 0
+  weaponCard: {fileID: 0}
   maxBananas: 5
   bullet: {fileID: 2535931030552153702, guid: 9b4a8b0ded1a3cf4daf59ff58a0f425c, type: 3}

@@ -66,7 +66,7 @@ public class WeaponPickupPopup : MonoBehaviour // - Ruben
     public void Popup(PlayerShoot weapon)
     {
         // Name
-        weaponName.text = string.Format(_startWeaponNameText, weapon.name);
+        weaponName.text = string.Format(_startWeaponNameText, string.IsNullOrEmpty(weapon.DisplayName) ? weapon.name : weapon.DisplayName);
         weaponName.colorGradient = new VertexGradient(
             _startWeaponNameGradient.topLeft,                       // Top left
             weapon.Color * _startWeaponNameGradient.topRight,       // Top right

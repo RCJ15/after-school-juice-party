@@ -39,9 +39,14 @@ public class MusicPlayer : MonoBehaviour
 
     public static void PlaySong()
     {
+        PlaySong(Instance._gameSong++ % Instance._gameSongsLength);
+    }
+
+    public static void PlaySong(int index)
+    {
         _currentSong?.Stop();
 
-        _currentSong = Instance.gameSongs[Instance._gameSong++ % Instance._gameSongsLength];
+        _currentSong = Instance.gameSongs[index];
         _currentSong.Play();
     }
 }

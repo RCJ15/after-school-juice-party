@@ -23,13 +23,10 @@ public class Homing : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerMove _player;
 
-    private Boss _boss;
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _player = PlayerMove.Instance;
-        _boss = Boss.Instance;
 
         /*
         GameObject[] sceneObjects = FindObjectsOfType<GameObject>(); // All objects in scene
@@ -103,7 +100,7 @@ public class Homing : MonoBehaviour
             if (enemy.layer == 13)
             {
                 // Ignore dead boss
-                if (_boss.Dead)
+                if (Boss.Instance == null || Boss.Instance.Dead)
                 {
                     continue;
                 }
