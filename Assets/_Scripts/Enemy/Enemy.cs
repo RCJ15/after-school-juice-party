@@ -84,8 +84,6 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         rb = GetComponent<Rigidbody2D>();
 
         targetPos = transform.position;
-
-        Debug.Log(SpawnedByBossOrSpawner);
         
         if (!SpawnedByBossOrSpawner)
         {
