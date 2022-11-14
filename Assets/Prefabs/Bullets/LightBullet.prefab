@@ -34,8 +34,8 @@ Transform:
   m_Children:
   - {fileID: 9124279858647406575}
   - {fileID: 5383748203164956262}
-  - {fileID: 1210887862949392433}
   - {fileID: 1802590772359389182}
+  - {fileID: 989207472109935848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,20 +51,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c75cc18e485aa4ea0087dfe428005d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 4.25
   speed: 10
-  lifetime: 5
+  lifetime: 8
   hitPlayer: 0
   spawnSoundEffect: Knife Sharpening
   deathSoundEffect: Shovel Clang
   deathParticles: {fileID: 4817521515628404899}
   trail: {fileID: 0}
   constantParticles: {fileID: 6727334218371627764}
-  attackRate: 0.3
-  radius: 2.5
+  attackRate: 0.2
+  radius: 2.6
   enemyLayer:
     serializedVersion: 2
     m_Bits: 12288
+  hurtAnim: {fileID: 1700742528667976851}
 --- !u!50 &7995974926113822726
 Rigidbody2D:
   serializedVersion: 4
@@ -216,8 +217,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1210887862949392433}
   - component: {fileID: 3645843133950162111}
+  - component: {fileID: 1700742528667976851}
   m_Layer: 8
-  m_Name: Range Indicator
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,13 +232,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3031954225421469544}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3588186872609598230}
-  m_RootOrder: 2
+  m_Father: {fileID: 989207472109935848}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3645843133950162111
 SpriteRenderer:
@@ -290,6 +292,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1700742528667976851
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031954225421469544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab29d33b208f4ab4a8d61acd925d3bb5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3122574766439302877
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +343,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3588186872609598230}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &4817521515628404899
 ParticleSystem:
@@ -9982,3 +10004,35 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &5284690757558287534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989207472109935848}
+  m_Layer: 8
+  m_Name: Range Indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &989207472109935848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284690757558287534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1210887862949392433}
+  m_Father: {fileID: 3588186872609598230}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -415,8 +415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf9932091ec6f24fb5274f4ecd4c1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6.5
-  speed: 9
+  damage: 7
+  speed: 10
   lifetime: 8
   hitPlayer: 0
   spawnSoundEffect: 
@@ -427,7 +427,7 @@ MonoBehaviour:
   hitWallSoundEffect: Hit Wall
   rotate: {fileID: 3101747799341390335}
   rotateSpeed: 900
-  timeUntilReturn: 1.2
+  timeUntilReturn: 0.9
   colliderReturnSize: {x: 1, y: 2}
   Shoot: {fileID: 0}
 --- !u!50 &8892766304349670575

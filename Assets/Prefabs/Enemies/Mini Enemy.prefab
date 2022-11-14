@@ -14899,7 +14899,7 @@ MonoBehaviour:
   hp: 13.5
   moveLerp: 25
   moveSideSpeed: 2
-  moveFrequency: 0.35
+  moveFrequency: 0.25
   down: -1.1
   minYpos: -8
   startYPos: 6.2

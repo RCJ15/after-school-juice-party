@@ -7,6 +7,7 @@ public class LightBullet : Bullet
     [SerializeField] float attackRate = 0.1f;
     [SerializeField] float radius = 4f;
     [SerializeField] LayerMask enemyLayer;
+    [SerializeField] Animator hurtAnim;
 
     protected override void Start()
     {
@@ -20,6 +21,8 @@ public class LightBullet : Bullet
     }
     private void Check()
     {
+        hurtAnim.SetTrigger("Check");
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, enemyLayer);
 
         foreach (Collider2D enemy in enemies)

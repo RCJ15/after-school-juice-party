@@ -15092,8 +15092,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 75
   moveLerp: 10
-  moveSideSpeed: 2
-  moveFrequency: 0.95
+  moveSideSpeed: 2.1
+  moveFrequency: 1
   down: -1.2
   minYpos: -8
   startYPos: 6

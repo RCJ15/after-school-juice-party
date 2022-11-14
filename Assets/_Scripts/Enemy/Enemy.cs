@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
     [Tooltip("How low does the enemy go before it dies ")]
     [SerializeField] protected float minYpos;
-    [SerializeField] private float startYPos = 6;
+    [SerializeField] protected float startYPos = 6;
 
     /*
     //Original positionens x-värde (är när den är längst till vänster)
@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
     [SerializeField] protected float offsetSizeAmount = 1;
 
     public bool SpawnedByBossOrSpawner { get; set; }
+    private int _timesMoved;
 
     //private bool _moveDown;
 
@@ -207,7 +208,13 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
 
             RaycastHit2D hit = Physics2D.Raycast(targetPos, moveSideSpeed > 0 ? Vector2.right : Vector2.left, Mathf.Abs(moveSideSpeed) + (offsetSizeAmount / 2), wallLayer);
 
-            if (hit)
+            // Fiende spawnade och går ned på direkten
+            if (hit && _timesMoved <= 0)
+            {
+                moveSideSpeed *= -1; // bara byt håll istället för allt annat
+            }
+
+            if (hit && _timesMoved > 0)
             {
                 targetPos += new Vector2(0, down); // Ramla en rad ner
 
@@ -219,6 +226,8 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             {
                 targetPos += new Vector2(moveSideSpeed, 0); // Gå åt sidan
             }
+
+            _timesMoved++;
 
             /*
             //Ifall den är vid extrem punkterna skall den vända om och hoppa ner. // Två "steg" från original positionen, eller i origianl positionen (båda är ett "steg" från mitten)

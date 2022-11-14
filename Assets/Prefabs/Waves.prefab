@@ -190,43 +190,43 @@ MonoBehaviour:
   waveName: Eternal Space
   waves:
   - Enemies: 00000000020000000400000005000000
-    Amount: 8
+    Amount: 10
     Time: 15
     Delay: 0
     LastEnemyDropWeapon: 0
   - Enemies: 0100000006000000
-    Amount: 4
+    Amount: 6
     Time: 6
     Delay: 35
     LastEnemyDropWeapon: 1
   - Enemies: 0300000004000000
-    Amount: 3
+    Amount: 4
     Time: 8
     Delay: 8
     LastEnemyDropWeapon: 0
   - Enemies: 05000000
-    Amount: 5
-    Time: 1
+    Amount: 10
+    Time: 2
     Delay: 20
     LastEnemyDropWeapon: 1
   - Enemies: 04000000
-    Amount: 1
+    Amount: 2
     Time: 0
-    Delay: 1
+    Delay: 0
     LastEnemyDropWeapon: 0
   - Enemies: 00000000010000000200000003000000040000000500000006000000
     Amount: 7
-    Time: 12
+    Time: 10
     Delay: 25
     LastEnemyDropWeapon: 0
   - Enemies: 00000000010000000200000003000000040000000500000006000000
     Amount: 14
-    Time: 18
+    Time: 11
     Delay: 45
     LastEnemyDropWeapon: 1
   spawnBoss: 1
   bossStage: 4
-  giveNewWeaponCard: 0
+  giveNewWeaponCard: 1
 --- !u!1 &6769854581666405600
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveName: Longum Iter
+  waveName: Poly Combat
   waves:
   - Enemies: 05000000
     Amount: 4
@@ -378,19 +378,19 @@ MonoBehaviour:
     Delay: 25
     LastEnemyDropWeapon: 1
   - Enemies: 00000000
-    Amount: 3
+    Amount: 1
     Time: 1
     Delay: 2
     LastEnemyDropWeapon: 0
   - Enemies: 0400000003000000
     Amount: 2
     Time: 0
-    Delay: 35
+    Delay: 10
     LastEnemyDropWeapon: 0
   - Enemies: 02000000
-    Amount: 4
+    Amount: 2
     Time: 2
-    Delay: 10
+    Delay: 3
     LastEnemyDropWeapon: 1
   spawnBoss: 0
   bossStage: 1
@@ -447,19 +447,19 @@ MonoBehaviour:
     Delay: 0
     LastEnemyDropWeapon: 0
   - Enemies: 0300000002000000
-    Amount: 3
-    Time: 7
-    Delay: 12
+    Amount: 2
+    Time: 4
+    Delay: 20
     LastEnemyDropWeapon: 0
   - Enemies: 03000000
     Amount: 2
-    Time: 2
-    Delay: 16
+    Time: 1.5
+    Delay: 15
     LastEnemyDropWeapon: 1
   - Enemies: 05000000
-    Amount: 5
+    Amount: 6
     Time: 1
-    Delay: 30
+    Delay: 2
     LastEnemyDropWeapon: 1
   - Enemies: 03000000
     Amount: 1
@@ -467,23 +467,13 @@ MonoBehaviour:
     Delay: 1
     LastEnemyDropWeapon: 0
   - Enemies: 00000000
-    Amount: 2
+    Amount: 5
     Time: 2
-    Delay: 10
-    LastEnemyDropWeapon: 1
-  - Enemies: 05000000
-    Amount: 3
-    Time: 1
-    Delay: 12
-    LastEnemyDropWeapon: 0
-  - Enemies: 02000000
-    Amount: 4
-    Time: 1.5
-    Delay: 17.5
+    Delay: 15
     LastEnemyDropWeapon: 1
   spawnBoss: 1
   bossStage: 2
-  giveNewWeaponCard: 0
+  giveNewWeaponCard: 1
 --- !u!1 &6769854582235665442
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveName: Poly Combat
+  waveName: Longum Iter
   waves:
   - Enemies: 03000000
     Amount: 2
@@ -912,39 +902,39 @@ MonoBehaviour:
     Delay: 0
     LastEnemyDropWeapon: 0
   - Enemies: 05000000
-    Amount: 7
+    Amount: 10
     Time: 3
     Delay: 3
     LastEnemyDropWeapon: 1
   - Enemies: 06000000
-    Amount: 2
+    Amount: 6
     Time: 1
     Delay: 2
     LastEnemyDropWeapon: 1
   - Enemies: 02000000
-    Amount: 3
+    Amount: 5
     Time: 2
     Delay: 3
     LastEnemyDropWeapon: 0
   - Enemies: 0000000001000000020000000300000006000000
-    Amount: 8
+    Amount: 10
     Time: 10
     Delay: 45
     LastEnemyDropWeapon: 0
   - Enemies: 04000000
-    Amount: 3
+    Amount: 6
     Time: 3
-    Delay: 10
+    Delay: 5
     LastEnemyDropWeapon: 0
   - Enemies: 03000000
-    Amount: 2
+    Amount: 3
     Time: 1
-    Delay: 15
+    Delay: 9
     LastEnemyDropWeapon: 0
   - Enemies: 02000000
-    Amount: 5
+    Amount: 7
     Time: 1
-    Delay: 5
+    Delay: 2
     LastEnemyDropWeapon: 1
   spawnBoss: 0
   bossStage: 1

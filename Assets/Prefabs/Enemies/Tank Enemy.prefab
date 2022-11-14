@@ -10131,7 +10131,7 @@ MonoBehaviour:
   moveLerp: 10
   moveSideSpeed: 1
   moveFrequency: 2
-  down: -3
+  down: -2.8
   minYpos: -8
   startYPos: 4
   gainPoints: {x: 150, y: 230}

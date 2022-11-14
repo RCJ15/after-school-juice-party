@@ -15006,13 +15006,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7fa8884bfe5014b950bc57d3fb8861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 55
   moveLerp: 10
   moveSideSpeed: 1.5
   moveFrequency: 1
   down: -1
   minYpos: -8
-  startYPos: 6
+  startYPos: 7
   gainPoints: {x: 80, y: 100}
   shake: {x: 0.1, y: 0.3}
   constantParticles: {fileID: 2499949297395094063}
@@ -15027,8 +15027,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   offsetSizeAmount: 1.1
-  moveSpeed: 0.95
-  horizontalSpeed: 6
+  moveSpeed: 1.1
+  fastMoveSpeed: 40
+  horizontalSpeed: 7
 --- !u!50 &8190563874151200286
 Rigidbody2D:
   serializedVersion: 4
@@ -15047,8 +15048,8 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 0131530f115a2d848954c71efd598191, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &6667784509087507337
 BoxCollider2D:

@@ -125,7 +125,7 @@ public class PlayerMove : MonoBehaviour
         {
             int points = hp * hpPointAmount;
 
-            Score.AddPoints(points, transform.position + new Vector3(0, 3), $"<size=50>HP Bonus!</size>\n{hp} * {hpPointAmount}");;
+            Score.AddPoints(points, transform.position + new Vector3(0, 3), $"<size=50>HP Bonus!</size>\n{hp} x {hpPointAmount}");;
         }
 
         for (hp = 0; hp < _hp; hp++)
