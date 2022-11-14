@@ -10112,7 +10112,7 @@ MonoBehaviour:
   constantParticles: {fileID: 0}
   rotateTowardsVelocity: 0
   disabled: 1
-  sliceAmount: {x: 50, y: 50}
+  sliceAmount: {x: 45, y: 45}
   sliceRange: 360
   slice: {fileID: 3334393482399580393, guid: 682ca7e6276a11d4e968bde73abcbca0, type: 3}
   explosion: {fileID: 3133710581941944991}

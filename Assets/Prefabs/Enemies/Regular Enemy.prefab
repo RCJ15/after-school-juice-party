@@ -15090,14 +15090,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaca12da834be34996c9d6e14546a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 105
+  hp: 75
   moveLerp: 10
   moveSideSpeed: 2
-  moveFrequency: 0.7
+  moveFrequency: 0.95
   down: -1.2
   minYpos: -8
-  maxLeftPosX: -5
-  maxRightPosX: 5
+  startYPos: 6
   gainPoints: {x: 70, y: 135}
   shake: {x: 0.1, y: 0.3}
   constantParticles: {fileID: 2482119532861921413}

@@ -14896,11 +14896,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaca12da834be34996c9d6e14546a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 15
+  hp: 13.5
   moveLerp: 25
   moveSideSpeed: 2
-  moveFrequency: 0.25
-  down: -0.75
+  moveFrequency: 0.35
+  down: -1.1
   minYpos: -8
   startYPos: 6.2
   gainPoints: {x: 25, y: 50}

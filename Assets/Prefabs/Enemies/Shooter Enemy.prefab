@@ -15007,14 +15007,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e2b8c545c849443b6bc277cf9ff221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 65
+  hp: 55
   moveLerp: 10
   moveSideSpeed: 1.5
-  moveFrequency: 1
+  moveFrequency: 1.2
   down: -1.25
   minYpos: -8
-  maxLeftPosX: -5
-  maxRightPosX: 5
+  startYPos: 6
   gainPoints: {x: 50, y: 100}
   shake: {x: 0.5, y: 0.3}
   constantParticles: {fileID: 7708965336485141262}
@@ -15030,7 +15029,7 @@ MonoBehaviour:
     m_Bits: 128
   offsetSizeAmount: 1
   bullet: {fileID: 1242123144945122640, guid: 955c85451b87fb14096e4867580f680c, type: 3}
-  timeInbetweenAttack: {x: 2, y: 4}
+  timeInbetweenAttack: {x: 2.5, y: 4}
   perlinIntensity: 0.5
   perlinSpeed: 1
 --- !u!50 &6494119139761506963
