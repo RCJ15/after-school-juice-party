@@ -73,11 +73,16 @@ public class CameraEffects : MonoBehaviour
             shakeIntensity = 0;
         }
     }
-
+    /// <summary>
+    /// Fades an image over the whole screen
+    /// </summary>
+    /// <param name="color"></param>
+    /// <param name="unscaled"></param>
+    /// <returns></returns>
     IEnumerator Fade(Color color, bool unscaled)
     {
-        flashImage.color = color; // Flash
-        if (flashDuration > 0)
+        flashImage.color = color; // Color to flash
+        if (flashDuration > 0) // How long have the flash on screen
         {
             if (unscaled)
             {

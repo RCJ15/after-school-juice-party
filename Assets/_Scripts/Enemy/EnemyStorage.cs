@@ -17,14 +17,20 @@ public class EnemyStorage : MonoBehaviour
     {
         Instance = this;
     }
-
+    /// <summary>
+    /// Add an enemy to listof enemies
+    /// </summary>
+    /// <param name="enemy"></param>
     public static void AddEnemy(Enemy enemy)
     {
         Instance.EnemyAmount++;
 
         Instance._enemiesStored.Add(enemy.gameObject, enemy);
     }
-
+    /// <summary>
+    /// Remove a enemy from the list of enemies
+    /// </summary>
+    /// <param name="enemy"></param>
     public static void RemoveEnemy(GameObject enemy)
     {
         Instance.EnemyAmount--;
@@ -36,7 +42,11 @@ public class EnemyStorage : MonoBehaviour
     {
         return Instance.LocalGet(obj);
     }
-
+    /// <summary>
+    /// Get enemy component from game object
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
     private Enemy LocalGet(GameObject obj)
     {
         if (Boss.Instance != null && obj == Boss.Instance.gameObject)

@@ -30,7 +30,7 @@ public class ShooterEnemy : Enemy
     }
     void Attack()
     {
-        GameObject obj = Instantiate(bullet, transform.position - new Vector3(0, 0.5f, 0), transform.rotation * Quaternion.Euler(1,1,180));
+        GameObject obj = Instantiate(bullet, transform.position - new Vector3(0, 0.5f, 0), transform.rotation * Quaternion.Euler(1,1,180)); // Create bullet
         Enemy enemy = EnemyStorage.Get(obj);
 
         if (enemy != null)
@@ -39,8 +39,8 @@ public class ShooterEnemy : Enemy
             enemy.SpawnedByBossOrSpawner = true;
         }
         
-        attackFreq = Random.Range(timeInbetweenAttack.x, timeInbetweenAttack.y);
+        attackFreq = Random.Range(timeInbetweenAttack.x, timeInbetweenAttack.y); // Set new frequency
         attackTimer = 0;
-        attackAnim.SetTrigger("Shoot");
+        attackAnim.SetTrigger("Shoot"); // Play animation
     }
 }
