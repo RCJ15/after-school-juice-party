@@ -5110,7 +5110,7 @@ MonoBehaviour:
   flashDuration: 0.5
   enemySurviveChance: 0.7
   maxTimesSurvive: 10
-  rngDamage: {x: 0.5, y: 17}
+  rngDamage: {x: 0.75, y: 17.5}
   rngSize: {x: 0.3, y: 2.5}
   rngSpeed: {x: 4, y: 25}
   rngRotation: {x: -100, y: 100}

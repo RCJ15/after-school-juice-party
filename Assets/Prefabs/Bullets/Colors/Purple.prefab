@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4489a3110e1d2478fec75d26723792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 200
+  rotateSpeed: 400
   minDistance: 5
   crossHair: {fileID: 0}
   foundTargetSoundEffect: 

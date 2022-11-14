@@ -226,12 +226,14 @@ public class Bullet : MonoBehaviour
     protected virtual KillObjectAfterTime DetachParticleSystem(ParticleSystem particles)
     {
         particles.transform.SetParent(null);
-
+        
+        // Try to get kill script
         if (particles.TryGetComponent(out KillObjectAfterTime killScript))
         {
             return killScript; 
         }
 
+        // Otherwise add kill script
         killScript = particles.gameObject.AddComponent<KillObjectAfterTime>();
 
         ParticleSystem.MainModule main = particles.main;

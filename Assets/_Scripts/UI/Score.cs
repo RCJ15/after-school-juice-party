@@ -62,19 +62,26 @@ public class Score : MonoBehaviour
     /// </summary>
     /// <param name="points">Amount of points to spawn in world.</param>
     /// <param name="location">Location to spawn at in WORLD SPACE</param>
-    public static void AddPoints(int points, Vector3 location)
+    public static void AddPoints(int points, Vector3 location, string text = null)
     {
-        Instance.AddPointsLocal(points, location);
+        Instance.AddPointsLocal(points, location, text);
     }
 
-    private void AddPointsLocal(int points, Vector3 location) // Give points to player
+    private void AddPointsLocal(int points, Vector3 location, string text = null) // Give points to player
     {
         PlayerScore += points; // Add points to score
         GameObject newText = Instantiate(pointTxt, cam.WorldToScreenPoint(location), Quaternion.identity, transform); // Spawn the text
         newText.SetActive(true);
         TMP_Text tMP_Text = newText.GetComponentInChildren<TMP_Text>();
 
-        tMP_Text.text = points.ToString(); // Show points gained
+        if (string.IsNullOrEmpty(text))
+        {
+            tMP_Text.text = points.ToString(); // Show points gained
+        }
+        else
+        {
+            tMP_Text.text = text; // Show points gained
+        }
 
         /*
         if (points < 25) // A¨ssign a cool color

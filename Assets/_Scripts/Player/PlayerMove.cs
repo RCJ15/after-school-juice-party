@@ -43,6 +43,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] HighScore highScore;
     [SerializeField] Animator[] hearts;
 
+    [SerializeField] private int hpPointAmount = 200;
     private float _iFrames;
 
     private void Awake()
@@ -118,8 +119,15 @@ public class PlayerMove : MonoBehaviour
 
         hearts[hp].Play("LoseLife"); // play animation
     }
-    public void ResetHP()
+    public void ResetHP(bool givePoints = true)
     {
+        if (givePoints)
+        {
+            int points = hp * hpPointAmount;
+
+            Score.AddPoints(points, transform.position + new Vector3(0, 3), $"<size=50>HP Bonus!</size>\n{hp} * {hpPointAmount}");;
+        }
+
         for (hp = 0; hp < _hp; hp++)
         {
             var state = hearts[hp].GetCurrentAnimatorStateInfo(0);

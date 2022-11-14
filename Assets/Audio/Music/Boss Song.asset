@@ -18,8 +18,8 @@ MonoBehaviour:
   Tracks: []
   Metadata:
     Filename: Boss Song.wav
-    Duration: 176.82353
-    FileBytes: 31191920
+    Duration: 176.80882
+    FileBytes: 31189396
     RiffTypeID: WAVE
     CompressionCode: 1
     ChannelCount: 2
@@ -27,15 +27,19 @@ MonoBehaviour:
     AvgBytesPerSec: 176400
     BlockAlign: 4
     BitRate: 16
-    SampleCount: 7797918
+    SampleCount: 7797269
     MaxSampleValue: 0
     Cues:
     - ID: 65536
+      Name: Loop Start
+      Position: 0
+      DataChunkID: 1635017060
+    - ID: 65537
       Name: Loop
       Position: 7471059
       DataChunkID: 1635017060
   HaveLoop: 1
-  LoopPoint: 169.41175842285156
+  LoopPoint: 169.41177368164062
   HaveLoopStartPoint: 0
   LoopStartPoint: 0
   InSongList: 1

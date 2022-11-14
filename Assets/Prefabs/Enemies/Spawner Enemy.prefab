@@ -5031,7 +5031,7 @@ MonoBehaviour:
     m_Bits: 128
   offsetSizeAmount: 1.3
   bullet: {fileID: 8247576856845506639, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
-  timeInbetweenAttack: {x: 1.5, y: 3.5}
+  timeInbetweenAttack: {x: 2, y: 4}
   perlinIntensity: 1
   perlinSpeed: 0.5
 --- !u!50 &2000249385167238105

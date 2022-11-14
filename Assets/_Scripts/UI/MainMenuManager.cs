@@ -175,9 +175,9 @@ public class MainMenuManager : MonoBehaviour
             juice.enabled = false;
         }
 
-        yield return new WaitForSecondsRealtime(0.46f);
+        yield return new WaitForSecondsRealtime(0.55f);
 
-        transControl.Transition(0, 0.389f, 0, () => StartCoroutine(BlueScreenOfDeath()));
+        transControl.Transition(0, 1.24174f, 0, () => StartCoroutine(BlueScreenOfDeath()));
 
         // Save stuff
 
@@ -189,11 +189,11 @@ public class MainMenuManager : MonoBehaviour
             // Play funny
             SoundManager.PlaySound("Funny Laughter (Funny)", 1, 1);
 
-            yield return new WaitForSecondsRealtime(0.7f); // Wait
+            yield return new WaitForSecondsRealtime(0.75f); // Wait
 
             SoundManager.PlaySound("Vine Boom", 1, 1);
             trollFace.SetActive(true);
-            yield return new WaitForSecondsRealtime(0.1f); // Wait
+            yield return new WaitForSecondsRealtime(0.15f); // Wait
             Application.Quit(); // Turn off game
 
 #if UNITY_EDITOR
