@@ -127,7 +127,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void Begin()
     {
-        System.Diagnostics.Process.Start("http://google.com");
         transControl.Transition(0.75f, 0.1f, 1, () => ChageScene(1));
 
         SoundManager.PlaySound("Button Click", 1, 1);

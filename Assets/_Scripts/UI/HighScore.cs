@@ -80,6 +80,11 @@ public class HighScore : MonoBehaviour
         transitionController.Transition(0.75f, 0.5f, 0.75f, SetScenToStart);
         void SetScenToStart()
         {
+            if (demo) 
+            {
+                System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");  // Game play ;)
+            }
+
             UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
         }
 

@@ -2192,8 +2192,9 @@ RectTransform:
   - {fileID: 1992671875}
   - {fileID: 1803538806}
   - {fileID: 1036548191}
+  - {fileID: 394379602}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2635,13 +2636,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394379600}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: -7.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -954, y: -547.5, z: 0}
   m_LocalScale: {x: 100, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 372307550}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &399231890
 GameObject:
@@ -4202,7 +4203,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &568812321
 GameObject:
@@ -10646,7 +10647,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819867803
 GameObject:
@@ -11318,7 +11319,7 @@ Transform:
   - {fileID: 991044670}
   - {fileID: 477543272}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882801641
 GameObject:
@@ -11938,6 +11939,80 @@ Transform:
   m_Father: {fileID: 877467068}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1006513314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1006513315}
+  - component: {fileID: 1006513316}
+  m_Layer: 0
+  m_Name: Wave (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1006513315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006513314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6769854581511592672}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006513316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006513314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46db69a787bfe4344bfb6a4e1720618a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveName: Moving Ground
+  waves:
+  - Enemies: 05000000
+    Amount: 3
+    Time: 5
+    Delay: 6
+    LastEnemyDropWeapon: 0
+  - Enemies: 06000000
+    Amount: 2
+    Time: 15
+    Delay: 20
+    LastEnemyDropWeapon: 1
+  - Enemies: 01000000
+    Amount: 2
+    Time: 5
+    Delay: 10
+    LastEnemyDropWeapon: 1
+  - Enemies: 03000000
+    Amount: 1
+    Time: 10
+    Delay: 15
+    LastEnemyDropWeapon: 1
+  - Enemies: 00000000
+    Amount: 5
+    Time: 10
+    Delay: 1
+    LastEnemyDropWeapon: 0
+  spawnBoss: 1
+  bossStage: 2
+  giveNewWeaponCard: 0
 --- !u!224 &1036548191 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7701652943324930967, guid: 88bce086960ca254a840f544e5ad8ea5, type: 3}
@@ -12902,7 +12977,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160588112
 GameObject:
@@ -13927,7 +14002,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1262224616
 GameObject:
@@ -19076,7 +19151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2062301363
 GameObject:
@@ -19605,7 +19680,7 @@ MonoBehaviour:
     Time: 2
     Delay: 3
     LastEnemyDropWeapon: 1
-  spawnBoss: 1
+  spawnBoss: 0
   bossStage: 2
   giveNewWeaponCard: 1
 --- !u!1 &6769854580863431685
@@ -19640,6 +19715,7 @@ Transform:
   - {fileID: 6769854582477647390}
   - {fileID: 6769854582524694834}
   - {fileID: 6769854580863431682}
+  - {fileID: 1006513315}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19725,7 +19801,7 @@ MonoBehaviour:
     Amount: 2
     Time: 3
     Delay: 10
-    LastEnemyDropWeapon: 0
+    LastEnemyDropWeapon: 1
   - Enemies: 02000000
     Amount: 1
     Time: 0
@@ -19740,7 +19816,7 @@ MonoBehaviour:
     Amount: 3
     Time: 4
     Delay: 25
-    LastEnemyDropWeapon: 1
+    LastEnemyDropWeapon: 0
   - Enemies: 0100000002000000
     Amount: 4
     Time: 0
