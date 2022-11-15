@@ -127,22 +127,16 @@ public class MainMenuManager : MonoBehaviour
 
     public void Begin()
     {
+        System.Diagnostics.Process.Start("http://google.com");
         transControl.Transition(0.75f, 0.1f, 1, () => ChageScene(1));
 
         SoundManager.PlaySound("Button Click", 1, 1);
     }
-    public void Options()
+    public void Demo()
     {
-        /*
-        transControl.Transition(1, 1, 1, ActivatePanel);
-        void ActivatePanel()
-        {
-            optionPanel.SetActive(true);
-            mainPanel.SetActive(false);
-        }
-        */
-        optionPanel.SetActive(true);
-        mainPanel.SetActive(false);
+        transControl.Transition(0.75f, 0.1f, 1, () => ChageScene(2));
+
+        SoundManager.PlaySound("Button Click", 1, 1);
     }
     public void Back()
     {

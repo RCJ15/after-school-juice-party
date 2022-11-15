@@ -9,9 +9,10 @@ public class HighScore : MonoBehaviour
 {
     public static readonly string SaveFolder = Application.streamingAssetsPath;
     public static readonly string SavePath = Path.Combine(SaveFolder, "SaveFile.txt");
+    public static readonly string DemoSavePath = Path.Combine(SaveFolder, "DemoSaveFile.txt");
 
     public static string PlayerName = "";
-
+    [SerializeField] bool demo = false;
     [Header("Highscore")]
     [SerializeField] TMP_Text scoreText;
     [SerializeField] GameObject highscorePanel;
@@ -297,7 +298,7 @@ public class HighScore : MonoBehaviour
         Debug.Log("Saved!");
 #endif
 
-        File.WriteAllText(SavePath, content);
+        File.WriteAllText(demo?DemoSavePath: SavePath, content);
     }
 
     /// <summary>
@@ -313,7 +314,7 @@ public class HighScore : MonoBehaviour
         }
 
         // Check if file doesn't exist
-        if (!File.Exists(SavePath))
+        if (!File.Exists(demo ? DemoSavePath : SavePath))
         {
 #if UNITY_EDITOR
             Debug.Log("No save file.");
@@ -323,7 +324,7 @@ public class HighScore : MonoBehaviour
             return;
         }
 
-        string content = File.ReadAllText(SavePath); // Read save data
+        string content = File.ReadAllText(demo ? DemoSavePath : SavePath); // Read save data
 
         if (string.IsNullOrEmpty(content)) // Check if file is empty
         {
