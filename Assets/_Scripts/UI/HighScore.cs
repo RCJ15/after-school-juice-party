@@ -17,8 +17,11 @@ public class HighScore : MonoBehaviour
     [Header("Highscore")]
     [SerializeField] TMP_Text scoreText;
     [SerializeField] GameObject highscorePanel;
+
     [SerializeField] GameObject content;
+    [SerializeField] GameObject pauseMenuContent;
     [SerializeField] GameObject playerScoreTemplate;
+    [SerializeField] GameObject pauseScoreTemplate;
     [Space]
     [Header("Get player name")]
     [SerializeField] GameObject inputName;
@@ -26,18 +29,22 @@ public class HighScore : MonoBehaviour
     [SerializeField] TMP_Text inputScoreTMPText;
     [SerializeField] UnityEngine.UI.Button confirmPlayerNameButton;
     [Header("Style")]
-    [SerializeField] string playerWonText="You won!";
-    [SerializeField] string playerLostText="You'll get them next time";
+    [SerializeField] string playerWonText="You Won!";
+    [SerializeField] string playerLostText="You Lost...";
     [SerializeField] TransitionController transitionController;
 
 
     Dictionary<string, int> highscore = new Dictionary<string, int>();
     List<GameObject> spawnedHighscore = new List<GameObject>();
+    List<GameObject> spawnedPauseHighscore = new List<GameObject>();
     public PlayerMove playerMove;
     bool playerWon;
-    void Start()
+    public void Start()
     {
         Load();
+
+        Sort();
+        PrintHighScore(ref spawnedPauseHighscore, pauseMenuContent, pauseScoreTemplate);
     }
 
     // Update is called once per frame
@@ -111,7 +118,6 @@ public class HighScore : MonoBehaviour
         Score.PlayerScore = 0;
         PlayerName = "";
         playerWon = false;
-        playerMove.ResetHP();
     }
 
     /// <summary>
@@ -133,7 +139,7 @@ public class HighScore : MonoBehaviour
             inputName.SetActive(false); // Hide panel
             AddToHighscore(PlayerName, Score.PlayerScore);
             Sort();
-            PrintHighScore();
+            PrintHighScore(ref spawnedHighscore, content, playerScoreTemplate);
 
             Save();
         }
@@ -185,7 +191,7 @@ public class HighScore : MonoBehaviour
     /// <summary>
     /// Prints out the highscors of players and sorts them acording to rank
     /// </summary>
-    void PrintHighScore()
+    void PrintHighScore(ref List<GameObject> spawnedHighscore, GameObject content, GameObject template)
     {
         foreach (var item in spawnedHighscore) // Get rid of previous cards
         {
@@ -194,7 +200,7 @@ public class HighScore : MonoBehaviour
         spawnedHighscore = new List<GameObject>(); // Reset list
         foreach (var score in highscore) // Add every highscore
         {
-            GameObject newScore = Instantiate(playerScoreTemplate, content.transform); // Add new section
+            GameObject newScore = Instantiate(template, content.transform); // Add new section
             newScore.SetActive(true);
             TMP_Text[] txts = newScore.GetComponentsInChildren<TMP_Text>(); // Get components in children Name and score
 

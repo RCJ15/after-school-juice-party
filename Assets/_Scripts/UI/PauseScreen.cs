@@ -13,8 +13,6 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] TMP_Text titleText;
     [SerializeField] TransitionController transitionController;
 
-    float _timeElapsed = 0;
-
     WaveManager _waveManager;
 
     private void Awake()
@@ -50,8 +48,6 @@ public class PauseScreen : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-
-        _timeElapsed += Time.deltaTime;
     }
 
     public void Resume()
