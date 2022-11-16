@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject mainPanel;
-    [SerializeField] GameObject optionPanel;
+    [SerializeField] GameObject gameStylePanel;
     [SerializeField] GameObject transition;
     TransitionController transControl;
     [SerializeField] Image background;
@@ -22,12 +22,9 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         transControl = transition.GetComponent<TransitionController>();
-        mainPanel.SetActive(false);
-        optionPanel.SetActive(false);
+        gameStylePanel.SetActive(false);
 
         //transControl.Transition(0, 0, 1);
-
-        mainPanel.SetActive(true);
     }
 
     private void Update()
@@ -125,17 +122,37 @@ public class MainMenuManager : MonoBehaviour
     }
     */
 
-    public void Begin()
+    private void ButtonSFX()
+    {
+        SoundManager.PlaySound("Button Click", 1, 1);
+    }
+
+    public void StartRegularGame()
     {
         transControl.Transition(0.75f, 0.1f, 1, () => ChageScene(1));
 
-        SoundManager.PlaySound("Button Click", 1, 1);
+        ButtonSFX();
     }
-    public void Demo()
+    public void StartDemoGame()
     {
         transControl.Transition(0.75f, 0.1f, 1, () => ChageScene(2));
 
-        SoundManager.PlaySound("Button Click", 1, 1);
+        ButtonSFX();
+    }
+    public void GotoGameStyleMenu()
+    {
+        /*
+        transControl.Transition(1, 1, 1, ActivatePanel);
+        void ActivatePanel()
+        {
+            optionPanel.SetActive(false);
+            mainPanel.SetActive(true);
+        }
+        */
+        gameStylePanel.SetActive(true);
+        mainPanel.SetActive(false);
+
+        ButtonSFX();
     }
     public void Back()
     {
@@ -147,8 +164,10 @@ public class MainMenuManager : MonoBehaviour
             mainPanel.SetActive(true);
         }
         */
-        optionPanel.SetActive(false);
+        gameStylePanel.SetActive(false);
         mainPanel.SetActive(true);
+
+        ButtonSFX();
     }
     public void Crash()
     {

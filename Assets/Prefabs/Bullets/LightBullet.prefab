@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c75cc18e485aa4ea0087dfe428005d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4.25
+  damage: 3
   speed: 10
   lifetime: 8
   hitPlayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   deathParticles: {fileID: 4817521515628404899}
   trail: {fileID: 0}
   constantParticles: {fileID: 6727334218371627764}
-  attackRate: 0.2
+  attackRate: 0.26
   radius: 2.6
   enemyLayer:
     serializedVersion: 2

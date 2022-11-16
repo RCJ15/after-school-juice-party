@@ -112,7 +112,7 @@ public class WaveManager : MonoBehaviour
                 int enemyLength = miniWave.Enemies.Length;
                 
                 // Calculate the amount of time between each enemy spawn
-                float waitTime = miniWave.Time <= 0 ? 0 : ((float)amount) / ((float)miniWave.Time);
+                float waitTime = (float)miniWave.Time / ((float)amount);
 
                 // Spawn as many enemies as listed in the miniwave
                 for (int enemyIndex = 0; enemyIndex < amount; enemyIndex++)
@@ -131,6 +131,23 @@ public class WaveManager : MonoBehaviour
                     if (waitTime > 0)
                     {
                         yield return new WaitForSeconds(waitTime);
+
+                        /*
+                        timer = waitTime;
+
+                        while (timer > 0)
+                        {
+                            timer -= Time.deltaTime;
+
+                            // Alternatively, if there are no enemies, then skip this wait altogether
+                            if (_enemyStorage.EnemyAmount <= 0)
+                            {
+                                break;
+                            }
+
+                            yield return null;
+                        }
+                        */
                     }
 
                 }

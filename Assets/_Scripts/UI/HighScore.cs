@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Linq;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HighScore : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class HighScore : MonoBehaviour
         {
             ResetScore();
             ShowHighScoreTable(false);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             // Wave reset
         }
 
@@ -83,9 +84,11 @@ public class HighScore : MonoBehaviour
             if (demo) 
             {
                 System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");  // Game play ;)
+                Application.Quit();
+                return;
             }
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("Start");
         }
 
         MusicPlayer.StopSong(1);

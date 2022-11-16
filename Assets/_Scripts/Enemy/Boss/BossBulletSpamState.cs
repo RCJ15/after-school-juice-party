@@ -56,7 +56,11 @@ public class BossBulletSpamState : BossState
             return;
         }
 
-        Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, startAngle + Random.Range(randomOffset.x, randomOffset.y)));
+        float angle = startAngle + Random.Range(randomOffset.x, randomOffset.y);
+        float radAngle = (angle + 90) * Mathf.Deg2Rad;
+        Vector3 dir = new Vector3(Mathf.Cos(radAngle), Mathf.Sin(radAngle));
+
+        Instantiate(bullet, transform.position + dir, Quaternion.Euler(0, 0, angle));
 
         _timer = fireRates[Stage - 1];
     }

@@ -14849,7 +14849,7 @@ MonoBehaviour:
   popBurtEffect: {fileID: 6766563729896961862}
   fallSoundEffect: Pop
   timeUntilBurst: 0
-  pierce: 5
+  pierce: 3
   smallPierceSize: {x: 0.6, y: 0.6}
   rotateSpeed: 45
   targetGravScale: 2.2

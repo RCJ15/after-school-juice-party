@@ -107,6 +107,8 @@ public class PlayerMove : MonoBehaviour
             _dead = true;
 
             MusicPlayer.StopSong(2);
+
+            Timer.Enabled = false; // Disable timer
         }
         else
         {

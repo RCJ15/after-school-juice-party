@@ -15006,7 +15006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7fa8884bfe5014b950bc57d3fb8861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 55
+  hp: 50
   moveLerp: 10
   moveSideSpeed: 1.5
   moveFrequency: 1
@@ -15027,7 +15027,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   offsetSizeAmount: 1.1
-  moveSpeed: 1.1
+  moveSpeed: 1.075
   fastMoveSpeed: 40
   horizontalSpeed: 7
 --- !u!50 &8190563874151200286

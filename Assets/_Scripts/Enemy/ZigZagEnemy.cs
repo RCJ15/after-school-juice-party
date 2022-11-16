@@ -21,7 +21,14 @@ public class ZigZagEnemy : Enemy
 
         _movingRight = Random.Range(0, 2) == 1;
 
-        _currentSpeed = fastMoveSpeed;
+        if (!SpawnedByBossOrSpawner)
+        {
+            _currentSpeed = fastMoveSpeed;
+        }
+        else
+        {
+            _currentSpeed = moveSpeed;
+        }
 
         _startPos = transform.position;
     }
@@ -35,6 +42,11 @@ public class ZigZagEnemy : Enemy
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(_movingRight ? horizontalSpeed : -horizontalSpeed, -_currentSpeed);
+
+        if (SpawnedByBossOrSpawner)
+        {
+            return;
+        }
 
         _currentSpeed = Mathf.Lerp(moveSpeed, fastMoveSpeed, Mathf.InverseLerp(startYPos, _startPos.y, transform.position.y));
     }

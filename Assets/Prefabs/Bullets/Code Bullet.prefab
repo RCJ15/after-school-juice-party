@@ -5112,7 +5112,7 @@ MonoBehaviour:
   maxTimesSurvive: 10
   rngDamage: {x: 1, y: 20}
   rngSize: {x: 0.3, y: 2.5}
-  rngSpeed: {x: 5, y: 28}
+  rngSpeed: {x: 7, y: 25}
   rngRotation: {x: -100, y: 100}
 --- !u!50 &8572937455075058175
 Rigidbody2D:

@@ -10127,13 +10127,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaca12da834be34996c9d6e14546a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 300
+  hp: 315
   moveLerp: 10
   moveSideSpeed: 1
   moveFrequency: 2
   down: -2.8
-  minYpos: -8
-  startYPos: 4
+  minYpos: -9
+  startYPos: 3.5
   gainPoints: {x: 150, y: 230}
   shake: {x: 0.1, y: 0.3}
   constantParticles: {fileID: 8839645868997985787}

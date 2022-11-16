@@ -15013,7 +15013,7 @@ MonoBehaviour:
   moveFrequency: 1.2
   down: -1.25
   minYpos: -8
-  startYPos: 6
+  startYPos: 5
   gainPoints: {x: 50, y: 100}
   shake: {x: 0.5, y: 0.3}
   constantParticles: {fileID: 7708965336485141262}

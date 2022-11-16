@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bf02eb61b50984db0e3253e878fe97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6.5
+  damage: 5
   speed: 12
   lifetime: 5
   hitPlayer: 0

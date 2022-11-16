@@ -15090,7 +15090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbaca12da834be34996c9d6e14546a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 75
+  hp: 100
   moveLerp: 10
   moveSideSpeed: 2.1
   moveFrequency: 1

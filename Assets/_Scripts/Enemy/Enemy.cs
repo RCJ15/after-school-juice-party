@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         
         if (!SpawnedByBossOrSpawner)
         {
-            targetPos.y = startYPos + Random.value;
+            targetPos.y = startYPos + (Random.value - 0.5f);
         }
         else
         {

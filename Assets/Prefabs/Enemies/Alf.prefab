@@ -338,13 +338,11 @@ MonoBehaviour:
     - {fileID: 4007696527853937211, guid: 3f8c47323c60c4a47b86dae490bf9819, type: 3}
     - {fileID: 326744077292194671, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
     - {fileID: 6613161938888227878, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
-    - {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
     - {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
   - Enemies:
     - {fileID: 4007696527853937211, guid: 3f8c47323c60c4a47b86dae490bf9819, type: 3}
     - {fileID: 326744077292194671, guid: df08b19403db6d14b83dc250ce7ef3e5, type: 3}
     - {fileID: 6613161938888227878, guid: 71e0c00226217d349a419d7acf49c3e5, type: 3}
-    - {fileID: 2964710680061626363, guid: 73c4f672a912956418c0efd128d9919e, type: 3}
     - {fileID: 5184715957817012734, guid: 973898a82ab1b274a8191f360fb3bcd7, type: 3}
     - {fileID: 3286262087210284089, guid: 2c268b73d8073fa4d8ee89051df86aee, type: 3}
   amount: 0100000002000000020000000300000003000000
@@ -389,10 +387,10 @@ MonoBehaviour:
   laser: {fileID: 7179651938110664671}
   laserSize:
   - 4
-  - 4.5
-  - 5
-  - 5.5
-  - 6
+  - 4.6
+  - 5.2
+  - 5.7
+  - 6.3
   animatedWarningSize: 0
   animatedLaserSize: 0
 --- !u!114 &7179651936481563289
