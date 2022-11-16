@@ -33,6 +33,7 @@ public class HighScore : MonoBehaviour
     [SerializeField] string playerLostText="You Lost...";
     [SerializeField] TransitionController transitionController;
 
+    private bool _doneDemoRickroll;
 
     Dictionary<string, int> highscore = new Dictionary<string, int>();
     List<GameObject> spawnedHighscore = new List<GameObject>();
@@ -85,21 +86,43 @@ public class HighScore : MonoBehaviour
     /// </summary>
     public void MainMenu()
     {
+        if (_doneDemoRickroll)
+        {
+            return;
+        }
+
         transitionController.Transition(0.75f, 0.5f, 0.75f, SetScenToStart);
         void SetScenToStart()
         {
             if (demo) 
             {
-                System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");  // Game play ;)
-                Application.Quit();
+                System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=xvFZjo5PgG0");  // Game play ;)
+                _doneDemoRickroll = true;
+
                 return;
             }
 
-            SceneManager.LoadScene("Start");
+            SceneManager.LoadScene(0);
         }
 
         MusicPlayer.StopSong(1);
     }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            return;
+        }
+
+        if (!_doneDemoRickroll)
+        {
+            return;
+        }
+
+        SceneManager.LoadScene(0);
+    }
+
     /*
     /// <summary>
     /// Idk what yet :/

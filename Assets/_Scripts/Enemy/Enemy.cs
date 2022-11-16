@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
                                     //Som finns längst ner i koden, samt if-satsen med "collision.tag...". (Om man inte kan få in de i en funktion på något sätt...?)
 {
     public float hp;
+    [SerializeField] protected UnityEngine.UI.Slider healthbar;
 
     //Hur mycket den rör sig i X-led (åt sidan). Det här är hälfte av värdet då den rör sig 2 gånger innan den vänder.
     [SerializeField] protected float moveLerp = 10f;
@@ -78,6 +79,9 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
         {
             moveSideSpeed *= -1;
         }
+
+        healthbar.maxValue = hp;
+        healthbar.value = hp;
     }
 
     protected virtual void Start()
@@ -317,7 +321,12 @@ public class Enemy : MonoBehaviour  //Emma. Fiendernas kod
             SoundManager.PlaySound("Basement Fart");
 
             hurtAnim.SetTrigger("Hurt");
+
+            healthbar.value = hp;
         }
+
+        // Nevermind
+        //DamageDisplay.DisplayDamage(damage, transform.position);
     }
 
     public virtual void HitPlayer() // Enemy hit player or player snuck past player

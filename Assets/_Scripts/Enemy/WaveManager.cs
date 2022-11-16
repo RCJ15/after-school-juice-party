@@ -57,7 +57,7 @@ public class WaveManager : MonoBehaviour
         // Set default text in case it's going to be displayed (spoiler: It's not)
         WaveName = "Awaiting A Threat...";
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(15);
 
         // Enable timer and the ability to pause
         Timer.Enabled = true;
@@ -132,22 +132,6 @@ public class WaveManager : MonoBehaviour
                     {
                         yield return new WaitForSeconds(waitTime);
 
-                        /*
-                        timer = waitTime;
-
-                        while (timer > 0)
-                        {
-                            timer -= Time.deltaTime;
-
-                            // Alternatively, if there are no enemies, then skip this wait altogether
-                            if (_enemyStorage.EnemyAmount <= 0)
-                            {
-                                break;
-                            }
-
-                            yield return null;
-                        }
-                        */
                     }
 
                 }
