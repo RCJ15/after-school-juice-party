@@ -9,7 +9,8 @@ public class Score : MonoBehaviour
 {
     public static Score Instance;
 
-    public static int PlayerScore = 0;
+    public static int PlayerScore { get => Instance._playerScore; set => Instance._playerScore = value; }
+    private int _playerScore = 0;
 
     [SerializeField] GameObject pointTxt;
     [SerializeField] TMP_Text scoreText;
@@ -46,11 +47,11 @@ public class Score : MonoBehaviour
         }
         */
         
-        if (PlayerScore != _oldScore) // Update score
+        if (_playerScore != _oldScore) // Update score
         {
-            _oldScore = PlayerScore; // Uppdate old score
+            _oldScore = _playerScore; // Uppdate old score
             scoreText.color = scoreColor;
-            scoreText.text = "Score: " + PlayerScore; // Write message
+            scoreText.text = "Score: " + _playerScore; // Write message
 
             expand.SetTrigger("Expand"); // Expand and retract
         }
@@ -69,7 +70,7 @@ public class Score : MonoBehaviour
 
     private void AddPointsLocal(int points, Vector3 location, string text = null) // Give points to player
     {
-        PlayerScore += points; // Add points to score
+        _playerScore += points; // Add points to score
         GameObject newText = Instantiate(pointTxt, cam.WorldToScreenPoint(location), Quaternion.identity, transform); // Spawn the text
         newText.SetActive(true);
         TMP_Text tMP_Text = newText.GetComponentInChildren<TMP_Text>();
